@@ -1,13 +1,14 @@
 import smartComputing from './smartComputing';
 import iba from './iba';
 import eap from './eap';
+import artificialIntelligence from './artificial-intelligence'; // 1. Import the new file
 import { enrichDepartment } from './enrich';
 
 const RAW = {
   'smart-computing': smartComputing,
+  'artificial-intelligence': artificialIntelligence, // 2. Add it to the RAW registry
   'international-business-administration': iba,
   'english-for-academic-purposes': eap,
-  
 };
 
 /** @deprecated old slugs → redirect targets */

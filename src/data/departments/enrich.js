@@ -7,6 +7,13 @@ const WHY_CHOOSE = {
     { icon: '🔬', title: 'Hands-on Laboratories', description: 'State-of-the-art computing labs with industry-standard tools.' },
     { icon: '🌍', title: 'Global Career Opportunities', description: 'Graduates employed by leading companies worldwide.' },
   ],
+  'artificial-intelligence': [ // 👈 1. Add this new key matching your RAW data object key
+    { icon: '🧠', title: 'Neural Architectures', description: 'Ground-up training in deep neural network design and matrix layer processing.' },
+    { icon: '⚡', title: 'Supercomputing Power', description: 'Direct access to raw high-performance localized GPU clusters.' },
+    { icon: '🛡️', title: 'AI Alignment & Safety', description: 'Focused specialization in mathematical verification and systems guardrails.' },
+    { icon: '🤖', title: 'Cognitive Robotics', description: 'Program spatial mapping and real-time sensory tracking on physical rover chassis.' },
+    { icon: '💬', title: 'LLM & NLP Engineering', description: 'Master tokenization matrices, context scaling, and conversational transformer mechanics.' },
+  ],
   'international-business-administration': [
     { icon: '🌐', title: 'Global Business Perspective', description: 'Curriculum rooted in international trade and cross-border commerce.' },
     { icon: '👔', title: 'Leadership Skills', description: 'Develop the competencies to lead diverse, multicultural teams.' },
@@ -119,7 +126,7 @@ export function enrichDepartment(dept, slug) {
       objectives: dept.overview?.objectives || dept.overview?.pathways || [],
     },
     admissions: {
-      scholarships: dept.admissions?.scholarships || [
+      snapshots: dept.admissions?.scholarships || [
         'Merit-based scholarships up to 50% tuition',
         'International student grants',
         'Early application priority consideration',

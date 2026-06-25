@@ -11,6 +11,18 @@ export const UNDERGRADUATE_PROGRAMS = [
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&q=80',
     path: '/academics/undergraduate/smart-computing',
   },
+  { 
+    slug: 'artificial-intelligence',
+    title: 'Bachelor of Artificial Intelligence',
+    shortTitle: 'Artificial Intelligence',
+    degree: 'Bachelor of Science',
+    duration: '4 Years',
+    language: 'English',
+    description:
+      'Dive deep into neural networks, deep learning models, computer vision, and cognitive systems built for modern automation layout frameworks.',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80',
+    path: '/academics/undergraduate/artificial-intelligence',
+  },
   {
     slug: 'international-business-administration',
     title: 'International Business Administration',
