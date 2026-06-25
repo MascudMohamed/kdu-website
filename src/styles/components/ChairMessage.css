@@ -1,0 +1,115 @@
+.chair-message__grid {
+  display: grid;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.chair-message__portrait img {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.chair-message__identity {
+  margin-top: var(--space-md);
+}
+
+.chair-message__identity strong {
+  display: block;
+  font-size: 1.125rem;
+  margin-bottom: var(--space-xs);
+}
+
+.chair-message__identity span {
+  font-size: 0.9375rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.chair-message__body p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+}
+
+.chair-message__blocks {
+  display: grid;
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+}
+
+.chair-message__block {
+  padding: var(--space-lg);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-primary);
+}
+
+.chair-message__block h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.chair-message__objectives {
+  margin-bottom: var(--space-xl);
+}
+
+.chair-message__objectives h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.chair-message__objectives li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.chair-message__objectives li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  background: var(--color-red);
+  border-radius: 50%;
+}
+
+.chair-message__signature {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.chair-message__signature span {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.chair-message__signature small {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 900px) {
+  .chair-message__grid {
+    grid-template-columns: 340px 1fr;
+  }
+
+  .chair-message__blocks {
+    grid-template-columns: 1fr 1fr;
+  }
+}

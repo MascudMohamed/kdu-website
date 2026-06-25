@@ -1,0 +1,152 @@
+.curriculum-acc__years {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.curriculum-acc__year {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.curriculum-acc__year-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg) var(--space-xl);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.curriculum-acc__year-btn:hover,
+.curriculum-acc__year-btn--open {
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+.curriculum-acc__chevron {
+  transition: transform var(--transition-base);
+}
+
+.curriculum-acc__year-btn--open .curriculum-acc__chevron {
+  transform: rotate(180deg);
+}
+
+.curriculum-acc__year-content {
+  overflow: hidden;
+  border-top: 1px solid var(--color-border);
+}
+
+.curriculum-acc__semester {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.curriculum-acc__semester:last-child {
+  border-bottom: none;
+}
+
+.curriculum-acc__sem-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.curriculum-acc__sem-btn--open {
+  color: var(--color-primary);
+  background: var(--color-bg-alt);
+}
+
+.curriculum-acc__courses {
+  overflow: hidden;
+  padding: 0 var(--space-xl) var(--space-lg);
+}
+
+.curriculum-acc__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.curriculum-acc__table th {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.curriculum-acc__table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.curriculum-acc__table td:first-child {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.curriculum-acc__cat {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.curriculum-acc__cat--major {
+  background: rgba(0, 114, 188, 0.1);
+  color: var(--color-primary);
+}
+
+.curriculum-acc__cat--elective {
+  background: rgba(214, 40, 40, 0.1);
+  color: var(--color-red);
+}
+
+@media (max-width: 640px) {
+  .curriculum-acc__table thead {
+    display: none;
+  }
+
+  .curriculum-acc__table tr {
+    display: block;
+    margin-bottom: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-md);
+  }
+
+  .curriculum-acc__table td {
+    display: block;
+    border: none;
+    padding: var(--space-xs) 0;
+  }
+
+  .curriculum-acc__table td::before {
+    content: attr(data-label) ': ';
+    font-weight: 700;
+    color: var(--color-text);
+  }
+}

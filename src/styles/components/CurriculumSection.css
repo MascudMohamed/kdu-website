@@ -1,0 +1,112 @@
+.curriculum__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+  justify-content: center;
+}
+
+.curriculum__tab {
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+.curriculum__tab:hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.curriculum__tab--active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.curriculum__content {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.curriculum__semester {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.curriculum__semester h3 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-bg-alt);
+}
+
+.curriculum__courses {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.curriculum__course-group h4 {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
+}
+
+.curriculum__course-group ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.curriculum__course-group li {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: var(--space-md);
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+}
+
+.curriculum__course-code {
+  font-weight: 600;
+  color: var(--color-primary-light);
+  font-size: 0.8125rem;
+}
+
+.curriculum__course-name {
+  color: var(--color-text);
+}
+
+.curriculum__course-credits {
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .curriculum__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .curriculum__course-group li {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+  }
+}

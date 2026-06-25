@@ -1,0 +1,43 @@
+import { UNDERGRADUATE_PROGRAMS, GRADUATE_OVERVIEW } from '../data/academics/programs';
+
+export const ACADEMICS_MEGA_MENU = {
+  undergraduate: UNDERGRADUATE_PROGRAMS.map((p) => ({
+    label: p.title,
+    path: p.path,
+    description: p.shortTitle,
+  })),
+  graduate: [
+    {
+      label: 'Graduate Programs',
+      path: GRADUATE_OVERVIEW.path,
+      description: 'Master\'s & Doctoral — Announced Soon',
+    },
+  ],
+};
+
+export const PRIMARY_NAV_LINKS = [
+  { label: 'Introduction', path: '/about', megaMenu: false },
+  { label: 'Academics', path: '/academics', megaMenu: 'academics' },
+  { label: 'Admissions', path: '/admissions', megaMenu: false },
+  { label: 'News & Events', path: '/news-events', megaMenu: false },
+];
+
+export const NAV_LINKS = [
+  { label: 'Home', path: '/' },
+  { label: 'Introduction', path: '/about' },
+  { label: 'Academics', path: '/academics' },
+  { label: 'Admissions', path: '/admissions' },
+  { label: 'International Students', path: '/international-students' },
+  { label: 'News & Events', path: '/news-events' },
+  { label: 'Contact', path: '/contact' },
+  ...UNDERGRADUATE_PROGRAMS.map((p) => ({ label: p.title, path: p.path })),
+  { label: 'Graduate Programs', path: '/academics/graduate' },
+];
+
+export const FACULTY_FILTERS = [
+  'All',
+  'Professors',
+  'Associate Professors',
+  'Assistant Professors',
+  'Lecturers',
+];

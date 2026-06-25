@@ -1,0 +1,188 @@
+.home-intro__grid {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.home-intro__image img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.home-intro__content p {
+  margin-bottom: var(--space-md);
+  line-height: 1.8;
+  font-size: 1.0625rem;
+}
+
+.program-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.program-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.program-card__image {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.program-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.program-card:hover .program-card__image img {
+  transform: scale(1.05);
+}
+
+.program-card__body {
+  padding: var(--space-xl);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.program-card__body h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-sm);
+}
+
+.program-card__body p {
+  flex: 1;
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+.program-card__link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color var(--transition-fast);
+}
+
+.program-card__link:hover {
+  color: var(--color-secondary);
+}
+
+.home-cta-center {
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+.home-admissions-cta {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-white);
+}
+
+.home-admissions-cta__inner {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.home-admissions-cta__inner h2 {
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.home-admissions-cta__inner p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.125rem;
+  margin-bottom: var(--space-2xl);
+}
+
+.home-admissions-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+.home-intl__grid {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.home-intl__features {
+  margin: var(--space-lg) 0 var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.home-intl__features li {
+  position: relative;
+  padding-left: var(--space-lg);
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+.home-intl__features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+.home-intl__image img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.home-life__card {
+  text-align: center;
+  padding: var(--space-xl);
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.home-life__card:hover {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.home-life__icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.home-life__card h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.home-life__card p {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .home-intro__grid,
+  .home-intl__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+  }
+}

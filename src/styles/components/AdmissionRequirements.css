@@ -1,0 +1,113 @@
+.admission-req__grid {
+  display: grid;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.admission-req__card {
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.admission-req__card h3 {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.admission-req__card ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.admission-req__card li {
+  position: relative;
+  padding-left: var(--space-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+.admission-req__card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+.admission-req__extras {
+  display: grid;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.admission-req__tuition,
+.admission-req__timeline {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.admission-req__tuition h3,
+.admission-req__timeline h3 {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.admission-req__tuition-amount {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.admission-req__timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.admission-req__timeline-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-left: var(--space-lg);
+  border-left: 3px solid var(--color-secondary);
+}
+
+.admission-req__timeline-date {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-primary-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admission-req__timeline-event {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.admission-req__cta {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .admission-req__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .admission-req__extras {
+    grid-template-columns: 1fr 1fr;
+  }
+}

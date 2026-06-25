@@ -1,0 +1,49 @@
+.faculty-grid__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+  justify-content: center;
+}
+
+.faculty-grid__filter {
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+.faculty-grid__filter:hover {
+  color: var(--color-primary);
+}
+
+.faculty-grid__filter--active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.faculty-grid-premium {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 640px) {
+  .faculty-grid-premium {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .faculty-grid-premium {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.faculty-grid__empty {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--color-text-light);
+}
