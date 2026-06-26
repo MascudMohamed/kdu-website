@@ -12,21 +12,44 @@
 .navbar__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* This now works perfectly with two sections */
   height: 100%;
-  gap: var(--space-lg);
+  padding: 0 var(--space-lg, 2rem);
+}
+
+.navbar .container {
+  padding: 0;
+  max-width: 100%; /* Ensure full width */
+}
+
+/* LEFT SECTION - Logo stays firmly on the left */
+.navbar__section--left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* Prevents logo from shrinking */
+}
+
+/* RIGHT SECTION - Everything else flows naturally to the right */
+.navbar__section--right {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Takes up remaining space */
+  justify-content: flex-end; /* Aligns everything to the right */
+  gap: var(--space-md, 1rem);
 }
 
 .navbar__nav {
-  display: none;
-  flex: 1;
-  justify-content: center;
+  display: none; /* Hidden on mobile */
+  align-items: center;
 }
 
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-md, 1.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .navbar__link {
@@ -52,8 +75,8 @@
 .navbar__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
   flex-shrink: 0;
+  gap: var(--space-sm, 0.5rem);
 }
 
 .navbar__actions .navbar__cta {
@@ -76,6 +99,9 @@
   width: 40px;
   height: 40px;
   padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .navbar__toggle span {
@@ -163,9 +189,10 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Desktop Styles */
 @media (min-width: 1024px) {
   .navbar__nav {
-    display: flex;
+    display: flex; /* Shows navigation on desktop */
   }
 
   .navbar__actions .navbar__cta {
@@ -180,5 +207,11 @@
 
   .navbar__link {
     font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .navbar__links {
+    gap: var(--space-xl, 2rem);
   }
 }
