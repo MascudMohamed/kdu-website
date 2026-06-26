@@ -3,12 +3,16 @@ import iba from './iba';
 import eap from './eap';
 import artificialIntelligence from './artificial-intelligence'; // 1. Import the new file
 import { enrichDepartment } from './enrich';
+import internationalHotelManagement from './international-hotel-management';
+import kap from './kap'; 
 
 const RAW = {
   'smart-computing': smartComputing,
-  'artificial-intelligence': artificialIntelligence, // 2. Add it to the RAW registry
+  'artificial-intelligence': artificialIntelligence, 
   'international-business-administration': iba,
+  'international-hotel-management': internationalHotelManagement,
   'english-for-academic-purposes': eap,
+  'korean-for-academic-purposes': kap,
 };
 
 /** @deprecated old slugs → redirect targets */

@@ -21,11 +21,24 @@ const WHY_CHOOSE = {
     { icon: '💡', title: 'Entrepreneurship', description: 'Incubator support and startup mentorship for aspiring founders.' },
     { icon: '🤝', title: 'Industry Collaboration', description: 'Live consulting projects with multinational corporations.' },
   ],
+  'international-hotel-management': [
+  { icon: '🏨', title: 'Global Operations Mastery', description: 'Operational mastery inside live mock luxury suites and commercial property management terminals.' },
+  { icon: '📊', title: 'Dynamic Revenue Algorithms', description: 'Master quantitative revenue management to calculate and optimize hotel room inventory yields.' },
+  { icon: '🍳', title: 'Culinary Engineering Labs', description: 'Hands-on practical execution inside state-of-the-art kitchens following international HACCP safety guidelines.' },
+  { icon: '🍷', title: 'Enology & Sommelier Science', description: 'Deconstruct terroir properties, beverage storage systems, and premium menu pairing structures.' },
+  { icon: '💎', title: 'Elite Corporate Pipeline', description: 'Direct career pathways and built-in residencies with world-class international luxury resort groups.' }
+],
   'english-for-academic-purposes': [
     { icon: '📚', title: 'Academic English Excellence', description: 'Rigorous training in university-level reading, writing, and research.' },
     { icon: '🗣️', title: 'Communication Skills', description: 'Presentation, seminar, and professional communication development.' },
     { icon: '🎓', title: 'Preparation for Degree Studies', description: 'Direct pathway into Kyungdong University degree programs.' },
     { icon: '🌏', title: 'Global Learning Environment', description: 'Multicultural classrooms with students from around the world.' },
+  ],
+  'korean-for-academic-purposes': [
+    { icon: '📚', title: 'Targeted Academic Competence', description: 'Moves past casual daily conversations directly into professional level research and essay architectures.' },
+    { icon: '🎯', title: 'TOPIK Certification Mastery', description: 'Systematic tactical prep courses configured to secure structural TOPIK Tier 4+ validations rapidly.' },
+    { icon: '🎓', title: 'Direct Matriculation Pipeline', description: 'Establishes a completely fluid structural bridge into full-time KDU undergraduate majors.' },
+    { icon: '🗺️', title: 'Cultural Literacy Mentoring', description: 'Immersive deep dives into Korean academic hierarchy norms, etiquette, and seminar structures.' }
   ],
 };
 

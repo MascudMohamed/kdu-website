@@ -35,6 +35,18 @@ export const UNDERGRADUATE_PROGRAMS = [
     image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&q=80',
     path: '/academics/undergraduate/international-business-administration',
   },
+    {
+    slug: 'international-hotel-management',
+    title: 'International Hotel Management',
+    shortTitle: 'IHM',
+    degree: 'Bachelor of Science',
+    duration: '4 Years',
+    language: 'English',
+    description:
+      'Develop global business leadership, strategic thinking, and cross-cultural competencies for international commerce.',
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&q=80',
+    path: '/academics/undergraduate/international-hotel-management',
+  },
   {
     slug: 'english-for-academic-purposes',
     title: 'English for Academic Purposes',
