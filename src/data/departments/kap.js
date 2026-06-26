@@ -11,7 +11,10 @@ const kapData = {
   chair: {
     name: "Prof. Sun-Young Kim",
     title: "Program Director, KAP",
-    message: "Welcome to the Korean for Academic Purposes program. Our mission is to empower international students with the precise linguistic, analytical, and cultural competence required to thrive in undergraduate and graduate settings at Korean universities.",
+    message: [
+      "Welcome to the Korean for Academic Purposes program. Our mission is to empower international students with the precise linguistic, analytical, and cultural competence required to thrive in undergraduate and graduate settings at Korean universities.",
+      "Language should never be a barrier to your academic ambitions. Instead, let it be your greatest tool for global success."
+    ],
     avatar: "/assets/images/faculty/kim-sunyoung.jpg",
     vision: "To bridge linguistic gaps and foster elite global scholars fluent in professional and academic Korean.",
   },
