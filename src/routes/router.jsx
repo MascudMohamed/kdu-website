@@ -10,6 +10,7 @@ import NewsEvents from '../pages/NewsEvents';
 import Contact from '../pages/Contact';
 import DepartmentRoute from '../pages/DepartmentRoute';
 import FacultyProfile from '../pages/FacultyProfile';
+import ErrorPage from '../pages/NotFound/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       { path: 'international-students', element: <InternationalStudents /> },
       { path: 'news-events', element: <NewsEvents /> },
       { path: 'contact', element: <Contact /> },
-      { path: '*', element: <Home /> },
+      { path: '*', element: <ErrorPage /> },
     ],
   },
 ]);

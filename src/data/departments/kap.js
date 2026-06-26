@@ -1,136 +1,328 @@
-/**
- * Department Configuration: Korean for Academic Purposes (KAP)
- * Location: src/data/departments/kap.js
- */
-
-const kapData = {
-  title: "Korean for Academic Purposes (KAP)",
-  degree: "Language Pathway Program",
-  duration: "1 - 2 Years (Variable)",
-  language: "Korean",
-  chair: {
-    name: "Prof. Sun-Young Kim",
-    title: "Program Director, KAP",
-    message: [
-      "Welcome to the Korean for Academic Purposes program. Our mission is to empower international students with the precise linguistic, analytical, and cultural competence required to thrive in undergraduate and graduate settings at Korean universities.",
-      "Language should never be a barrier to your academic ambitions. Instead, let it be your greatest tool for global success."
-    ],
-    avatar: "/assets/images/faculty/kim-sunyoung.jpg",
-    vision: "To bridge linguistic gaps and foster elite global scholars fluent in professional and academic Korean.",
-  },
-  overview: {
-    description: "The KAP program is an intensive, immersive pathway designed specifically for international students, scholars, and professionals. Unlike conversational language tracks, KAP concentrates heavily on advanced reading comprehension, research methodology, academic essay composition, and presentation formats required across university majors.",
-    graduateAttributes: [
-      "Proficiency at TOPIK Level 4, 5, or 6",
-      "Advanced academic text syntax reconstruction",
-      "Formal debate and semantic argumentation capabilities",
-      "Fluency in academic research ethics and documentation style guides"
-    ],
-    careerReadiness: "Graduates are directly fast-tracked into English-KDU or Korean-taught bachelor degree choices, critical graduate school placements, or language localization job roles.",
-  },
-  admissions: {
-    requirements: [
-      "High School Diploma or equivalent standard global credentials",
-      "Basic interest or baseline foundation in Korean characters (Hangul) preferred but not mandatory",
-      "Copy of valid passport for student visa processing support"
-    ],
-    scholarships: [
-      "Outstanding TOPIK entry award grants",
-      "KDU Global language immersion funding access",
-      "Sister-institution student discount provisions"
-    ]
-  },
-  curriculum: [
-    {
-      year: "Year 1: Academic Foundation & Intermediate Flux",
-      semesters: [
-        {
-          semester: "Semester 1 (Level 1-2 Focus)",
-          majorCourses: [
-            { code: "KAP101", title: "Basic Academic Korean Reading & Syntax", credits: 3 },
-            { code: "KAP102", title: "Introduction to Academic Writing Structures", credits: 3 },
-            { code: "KAP103", title: "Phonetics & Professional Classroom Listening", credits: 2 }
-          ],
-          electives: [
-            { code: "KAP104X", title: "Korean Society & Modern Campus Norms", credits: 2 }
-          ]
-        },
-        {
-          semester: "Semester 2 (Level 3-4 Focus)",
-          majorCourses: [
-            { code: "KAP201", title: "Intermediate Discourse Text Analysis", credits: 3 },
-            { code: "KAP202", title: "Paragraph to Essay Composition Metrics", credits: 3 },
-            { code: "KAP203", title: "Formal Media Presentation Skills", credits: 2 }
-          ],
-          electives: [
-            { code: "KAP204X", title: "TOPIK II Intermediate Examination Drilling", credits: 2 }
-          ]
-        }
-      ]
-    },
-    {
-      year: "Year 2: Advanced Analytical Research & Mastery Track",
-      semesters: [
-        {
-          semester: "Semester 1 (Level 5-6 Mastery)",
-          majorCourses: [
-            { code: "KAP301", title: "Advanced Interdisciplinary Reading Seminar", credits: 3 },
-            { code: "KAP302", title: "Thesis Research Methodology Frameworks", credits: 3 },
-            { code: "KAP303", title: "Formal Academic Argumentation & Debate", credits: 2 }
-          ],
-          electives: [
-            { code: "KAP304X", title: "High-Tier TOPIK Strategy Analytics", credits: 2 }
-          ]
-        }
-      ]
-    }
-  ],
-  faculty: [
-    {
-      name: "Prof. Sun-Young Kim",
-      role: "Professor / Program Director",
-      specialty: "Applied Linguistics, Korean Language Pedagogy",
-      email: "sykim@kdu.ac.kr",
-      education: ["Ph.D. in Applied Linguistics, Seoul National University"],
-      publications: ["A Study on Academic Writing Error Patterns for Global Undergraduates (2024)"],
-      coursesTaught: ["Thesis Research Methodology", "Advanced Interdisciplinary Reading"]
-    },
-    {
-      name: "Dr. Min-Ho Park",
-      role: "Associate Professor",
-      specialty: "Academic Assessment, Korean Evaluation Standard Metrics",
-      email: "mhpark@kdu.ac.kr",
-      education: ["Ph.D. in Korean Language Education, Yonsei University"],
-      publications: ["Constructive Validity Factors in TOPIK Expression Assays (2025)"],
-      coursesTaught: ["Paragraph to Essay Composition", "TOPIK II Examination Drilling"]
-    }
-  ],
-  researchAreas: [
-    {
-      title: "Linguistic Integration Bottlenecks",
-      description: "Analyzing phonological and semantic adaptation speed spikes among multi-national students transitioning into mainstream Korean engineering and business programs.",
-      projects: ["Cross-border cognitive grammar mapping data pools"],
-      publications: ["Recent Korean Immersion Efficiency Indexes"]
-    }
-  ],
-  testimonials: [
-    {
-      quote: "KAP took me from barely being able to read signage to confidently defending my business project slides in front of my senior professors without hesitation.",
-      author: "Elena Petrova",
-      role: "Senior Student at KDU International Business",
-      country: "Kazakhstan",
-      employer: "KDU",
-      position: "Student Liaison",
-      companyLogo: null
-    }
-  ],
-  faqs: [
-    { 
-      category: "TOPIK", 
-      question: "Can I bypass the first semester if I have a baseline score?", 
-      answer: "Yes. An internal language placement interview allows qualified students to jump straight into Advanced Level 3 classes immediately." 
-    }
-  ]
+const IMG = {
+  language: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&q=80',
+  classroom: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80',
+  portrait: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80',
+  student: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80',
+  event: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80',
+  books: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80',
 };
 
-export default kapData;
+export default {
+  slug: 'korean-for-academic-purposes',
+  title: 'Korean for Academic Purposes',
+  shortTitle: 'KAP',
+  description:
+    'Master academic Korean communication skills essential for success in international higher education and professional environments.',
+  bannerImage: IMG.language,
+  cardImage: IMG.language,
+  cardDescription:
+    'Develop advanced academic Korean proficiency for university study, research, and professional communication.',
+
+  breadcrumbs: [
+    { label: 'Home', path: '/' },
+    { label: 'Academics', path: '/academics' },
+    { label: 'Korean for Academic Purposes' },
+  ],
+
+  chair: {
+    title: 'the Program Coordinator',
+    name: 'Dr. Catherine Morrison',
+    position: 'Coordinator, Korean for Academic Purposes',
+    photo: IMG.portrait,
+    message: [
+      'Welcome to the Korean for Academic Purposes program at KDU Global. Language is the gateway to academic success, and our program is designed to equip you with the Korean proficiency and academic skills needed to excel in an international university environment.',
+      'Whether you are preparing for degree-level study, enhancing your research writing capabilities, or developing professional communication skills, our experienced faculty provide personalized instruction tailored to your goals and proficiency level.',
+      'Our immersive approach combines classroom instruction with real academic tasks — from writing research papers to delivering presentations — ensuring you graduate with confidence in your Korean language abilities.',
+    ],
+    mission:
+      'To empower international students with advanced Korean language proficiency and academic skills for success in higher education and global professional contexts.',
+    objectives: [
+      'Develop advanced reading, writing, listening, and speaking skills for academic contexts',
+      'Prepare students for university-level coursework and research',
+      'Build critical thinking and academic discourse competencies',
+      'Foster cultural adaptation and confidence in Korean-medium environments',
+    ],
+  },
+
+  overview: {
+    philosophy:
+      'We believe language learning is most effective when embedded in authentic academic contexts. Students engage with real university materials, participate in seminar discussions, and produce academic writing that meets international standards.',
+    outcomes: [
+      'Write clear, well-structured academic essays and research papers',
+      'Deliver effective academic presentations and participate in seminars',
+      'Comprehend and critically analyze academic texts across disciplines',
+      'Apply appropriate academic vocabulary and register in written and spoken communication',
+      'Use research and citation skills following international academic conventions',
+      'Achieve IELTS 6.5+ or equivalent for university degree program entry',
+    ],
+    pathways: [
+      'University Degree Program Preparation',
+      'Academic Research Writing',
+      'Professional Korean Communication',
+      'Korean Language Teaching (TESOL pathway)',
+      'Graduate Studies Preparation',
+    ],
+  },
+
+  admissions: {
+    eligibility: [
+      'High school diploma or equivalent',
+      'Basic Korean proficiency (IELTS 4.5 or equivalent)',
+      'Commitment to intensive language study',
+      'Placement test required for level assignment',
+    ],
+    language: [
+      'No minimum English requirement for entry — placement test determines level',
+      'All instruction conducted in English',
+      'Support available in multiple languages for administrative matters',
+    ],
+    documents: [
+      'Completed application form',
+      'Copy of passport or national ID',
+      'Previous English test scores (if available)',
+      'Personal learning goals statement',
+      'Academic transcripts (for pathway students)',
+    ],
+    tuition: {
+      amount: '$4,000 per semester',
+      note: 'Intensive pathway packages available. Scholarships for students progressing to degree programs at KDU Global.',
+    },
+    timeline: [
+      { date: 'Rolling', event: 'Applications accepted year-round' },
+      { date: 'January / May / September', event: 'Program start dates (three intakes per year)' },
+      { date: '2 weeks before start', event: 'Placement testing and orientation' },
+    ],
+  },
+
+  curriculum: [
+    {
+      year: 1,
+      semesters: [
+        {
+          name: 'Semester 1 — Foundation',
+          majorCourses: [
+            { code: 'KAP101', name: 'Academic Reading & Vocabulary', credits: 4 },
+            { code: 'KAP102', name: 'Academic Writing Fundamentals', credits: 4 },
+            { code: 'KAP103', name: 'Listening & Note-Taking', credits: 3 },
+            { code: 'KAP104', name: 'Speaking & Pronunciation', credits: 3 },
+          ],
+          electives: [
+            { code: 'KAP110', name: 'Study Skills & University Culture', credits: 2 },
+          ],
+        },
+        {
+          name: 'Semester 2 — Intermediate',
+          majorCourses: [
+            { code: 'KAP201', name: 'Academic Essay Writing', credits: 4 },
+            { code: 'KAP202', name: 'Critical Reading & Analysis', credits: 3 },
+            { code: 'KAP203', name: 'Academic Presentation Skills', credits: 3 },
+            { code: 'KAP204', name: 'Grammar for Academic Contexts', credits: 3 },
+          ],
+          electives: [
+            { code: 'KAP210', name: 'IELTS Preparation', credits: 2 },
+          ],
+        },
+      ],
+    },
+    {
+      year: 2,
+      semesters: [
+        {
+          name: 'Semester 1 — Advanced',
+          majorCourses: [
+            { code: 'KAP301', name: 'Research Writing & Methodology', credits: 4 },
+            { code: 'KAP302', name: 'Academic Discourse & Seminar Skills', credits: 3 },
+            { code: 'KAP303', name: 'Discipline-Specific Korean', credits: 3 },
+            { code: 'KAP304', name: 'Advanced Listening & Lecture Comprehension', credits: 3 },
+          ],
+          electives: [],
+        },
+        {
+          name: 'Semester 2 — Pre-University',
+          majorCourses: [
+            { code: 'KAP401', name: 'Capstone Research Project', credits: 4 },
+            { code: 'KAP402', name: 'Professional Communication', credits: 3 },
+            { code: 'KAP403', name: 'Academic Portfolio Development', credits: 3 },
+            { code: 'KAP404', name: 'University Transition Seminar', credits: 2 },
+          ],
+          electives: [
+            { code: 'KAP410', name: 'TOEFL/IELTS Intensive Prep', credits: 2 },
+          ],
+        },
+      ],
+    },
+  ],
+
+  faculty: [
+    {
+      id: 'kap-1',
+      name: 'Dr. Catherine Morrison',
+      position: 'Program Coordinator',
+      rank: 'Professors',
+      photo: IMG.portrait,
+      specialization: 'Applied Linguistics & Academic Writing',
+      researchInterests: 'Second language writing, academic discourse analysis, assessment',
+      biography: 'Dr. Morrison has over 15 years of experience in English language education across Europe and Asia. She holds a PhD in Applied Linguistics from the University of Edinburgh.',
+      email: 'c.morrison@kduglobal.edu',
+      phone: '+1 (555) 300-1001',
+      office: 'Building D, Room 101',
+      linkedin: '#',
+      scholar: '#',
+    },
+    {
+      id: 'kap-2',
+      name: 'Mr. Andrew Foster',
+      position: 'Senior Lecturer',
+      rank: 'Lecturers',
+      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+      specialization: 'Academic Speaking & Presentation Skills',
+      researchInterests: 'Oral proficiency assessment, pronunciation pedagogy, debate education',
+      biography: 'Mr. Foster is a certified IELTS examiner and has trained thousands of students for English proficiency exams. He leads the speaking and presentation curriculum.',
+      email: 'a.foster@kduglobal.edu',
+      phone: '+1 (555) 300-1002',
+      office: 'Building D, Room 103',
+      linkedin: '#',
+    },
+    {
+      id: 'kap-3',
+      name: 'Ms. Priya Sharma',
+      position: 'Lecturer',
+      rank: 'Lecturers',
+      photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+      specialization: 'Reading Comprehension & Critical Analysis',
+      researchInterests: 'Extensive reading programs, vocabulary acquisition, content-based instruction',
+      biography: 'Ms. Sharma specializes in developing reading programs that accelerate vocabulary growth and reading fluency for academic contexts.',
+      email: 'p.sharma@kduglobal.edu',
+      phone: '+1 (555) 300-1003',
+      office: 'Building D, Room 105',
+      linkedin: '#',
+    },
+    {
+      id: 'kap-4',
+      name: 'Dr. Hans Weber',
+      position: 'Associate Professor',
+      rank: 'Associate Professors',
+      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+      specialization: 'Research Writing & Academic Publishing',
+      researchInterests: 'Scholarly writing pedagogy, citation practices, interdisciplinary communication',
+      biography: 'Dr. Weber has published extensively on academic writing instruction and mentors students in producing publication-quality research papers.',
+      email: 'h.weber@kduglobal.edu',
+      phone: '+1 (555) 300-1004',
+      office: 'Building D, Room 107',
+      linkedin: '#',
+      researchgate: '#',
+    },
+  ],
+
+  researchAreas: [
+    {
+      title: 'Academic Writing Pedagogy',
+      description: 'Investigating effective methods for teaching academic writing to non-native English speakers across disciplines.',
+      faculty: ['Dr. Catherine Morrison', 'Dr. Hans Weber'],
+    },
+    {
+      title: 'Language Assessment',
+      description: 'Developing and validating assessment tools for measuring academic English proficiency and learning outcomes.',
+      faculty: ['Mr. Andrew Foster', 'Dr. Catherine Morrison'],
+    },
+    {
+      title: 'Content-Based Instruction',
+      description: 'Exploring integrated approaches that combine language learning with subject-matter content for accelerated acquisition.',
+      faculty: ['Ms. Priya Sharma'],
+    },
+    {
+      title: 'Intercultural Communication',
+      description: 'Studying how cultural factors influence academic communication and developing strategies for cross-cultural competence.',
+      faculty: ['Dr. Catherine Morrison', 'Mr. Andrew Foster'],
+    },
+  ],
+
+  news: [
+    {
+      id: 'kap-n1',
+      image: IMG.books,
+      date: 'June 8, 2026',
+      category: 'Achievement',
+      title: 'KAP Students Achieve Record IELTS Scores',
+      summary: '92% of graduating KAP students achieved IELTS 6.5 or above, exceeding the national average for pathway programs.',
+      link: '#',
+    },
+    {
+      id: 'kap-n2',
+      image: IMG.classroom,
+      date: 'May 18, 2026',
+      category: 'Program',
+      title: 'New Digital Language Lab Opens',
+      summary: 'State-of-the-art language lab with AI-powered pronunciation feedback and interactive learning modules now available to all KAP students.',
+      link: '#',
+    },
+    {
+      id: 'kap-n3',
+      image: IMG.language,
+      date: 'April 25, 2026',
+      category: 'Event',
+      title: 'International English Speech Competition',
+      summary: 'KAP students showcased their presentation skills at the annual speech competition, with winners advancing to the regional finals.',
+      link: '#',
+    },
+  ],
+
+  events: [
+    {
+      banner: IMG.event,
+      title: 'Academic Writing Workshop Series',
+      date: 'July 15, 2026',
+      venue: 'Language Center, Building D',
+      description: 'Weekly workshops covering essay structure, argumentation, citation styles, and research paper formatting.',
+      type: 'Workshop',
+    },
+    {
+      banner: IMG.classroom,
+      title: 'English Speaking Club',
+      date: 'Every Wednesday',
+      venue: 'Conversation Lounge, Building D',
+      description: 'Informal speaking practice sessions with native speakers and advanced students. Open to all proficiency levels.',
+      type: 'Seminar',
+    },
+    {
+      banner: IMG.books,
+      title: 'TOPIK Mock Examination',
+      date: 'August 1, 2026',
+      venue: 'Testing Center, Building D',
+      description: 'Full-length TOPIK practice test with detailed feedback session. Free for all KAP students.',
+      type: 'Workshop',
+    },
+  ],
+
+  testimonials: [
+    {
+      photo: IMG.student,
+      name: 'Lin Wei',
+      role: 'BSc Smart Computing Student',
+      program: 'KAP Graduate, 2025',
+      quote: 'The KAP program transformed my English skills. When I started, I could barely write a paragraph. Now I confidently write research papers and present my projects in English.',
+    },
+    {
+      photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80',
+      name: 'Fatima Al-Hassan',
+      role: 'IBA Student',
+      program: 'KAP Graduate, 2024',
+      quote: 'The personalized attention and structured progression in KAP gave me the foundation I needed. I went from IELTS 5.0 to 7.0 in just one year.',
+    },
+  ],
+
+  careers: [
+    { title: 'Academic English Instructor', description: 'Teach English for academic purposes at universities and language institutions worldwide.', icon: '📚' },
+    { title: 'Language Specialist', description: 'Provide language support and editing services for academic and professional publications.', icon: '✍️' },
+    { title: 'Curriculum Developer', description: 'Design English language programs and materials for educational institutions.', icon: '📋' },
+    { title: 'International Student Advisor', description: 'Support international students in adapting to English-medium academic environments.', icon: '🌐' },
+    { title: 'Translator & Interpreter', description: 'Facilitate communication across languages in academic, business, and diplomatic contexts.', icon: '🗣️' },
+  ],
+
+  contact: {
+    address: 'English Language Center, Building D, Floor 1, KDU Global Campus, 123 University Avenue',
+    phone: '+1 (555) 300-1000',
+    email: 'kap@kduglobal.edu',
+    hours: 'Monday – Friday, 8:30 AM – 6:00 PM',
+  },
+};
