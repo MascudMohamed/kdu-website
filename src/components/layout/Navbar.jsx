@@ -30,65 +30,71 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar__inner">
-        <Logo variant="light" />
+        {/* LEFT SECTION - Logo */}
+        <div className="navbar__section navbar__section--left">
+          <Logo variant="light" />
+        </div>
 
-        <nav className="navbar__nav" aria-label="Main navigation">
-          <ul className="navbar__links">
-            {PRIMARY_NAV_LINKS.map((link) => (
-              <li
-                key={link.path}
-                className={link.megaMenu === 'academics' ? 'navbar__item--mega' : ''}
-                ref={link.megaMenu === 'academics' ? megaRef : null}
-              >
-                {link.megaMenu === 'academics' ? (
-                  <>
-                    <button
-                      type="button"
-                      className={`navbar__link navbar__link--mega ${megaOpen ? 'navbar__link--active' : ''}`}
-                      aria-expanded={megaOpen}
-                      aria-haspopup="true"
-                      onClick={() => setMegaOpen(!megaOpen)}
-                      onMouseEnter={() => setMegaOpen(true)}
+        {/* RIGHT SECTION - Navigation + Actions */}
+        <div className="navbar__section navbar__section--right">
+          <nav className="navbar__nav" aria-label="Main navigation">
+            <ul className="navbar__links">
+              {PRIMARY_NAV_LINKS.map((link) => (
+                <li
+                  key={link.path}
+                  className={link.megaMenu === 'academics' ? 'navbar__item--mega' : ''}
+                  ref={link.megaMenu === 'academics' ? megaRef : null}
+                >
+                  {link.megaMenu === 'academics' ? (
+                    <>
+                      <button
+                        type="button"
+                        className={`navbar__link navbar__link--mega ${megaOpen ? 'navbar__link--active' : ''}`}
+                        aria-expanded={megaOpen}
+                        aria-haspopup="true"
+                        onClick={() => setMegaOpen(!megaOpen)}
+                        onMouseEnter={() => setMegaOpen(true)}
+                      >
+                        {link.label}
+                        <span className="navbar__chevron" aria-hidden="true">▾</span>
+                      </button>
+                      <AnimatePresence>
+                        {megaOpen && (
+                          <div onMouseLeave={() => setMegaOpen(false)}>
+                            <AcademicsMegaMenu onNavigate={() => setMegaOpen(false)} />
+                          </div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <NavLink
+                      to={link.path}
+                      className={({ isActive }) =>
+                        `navbar__link ${isActive ? 'navbar__link--active' : ''}`
+                      }
                     >
                       {link.label}
-                      <span className="navbar__chevron" aria-hidden="true">▾</span>
-                    </button>
-                    <AnimatePresence>
-                      {megaOpen && (
-                        <div onMouseLeave={() => setMegaOpen(false)}>
-                          <AcademicsMegaMenu onNavigate={() => setMegaOpen(false)} />
-                        </div>
-                      )}
-                    </AnimatePresence>
-                  </>
-                ) : (
-                  <NavLink
-                    to={link.path}
-                    className={({ isActive }) =>
-                      `navbar__link ${isActive ? 'navbar__link--active' : ''}`
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
+                    </NavLink>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="navbar__actions">
-          <Button to="/admissions" variant="primary" size="sm" className="navbar__cta">
-            Open application form
-          </Button>
-          <button
-            className={`navbar__toggle ${isOpen ? 'navbar__toggle--open' : ''}`}
-            onClick={() => setIsOpen(!isOpen)}
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-            aria-label="Toggle navigation menu"
-          >
-            <span /><span /><span />
-          </button>
+          <div className="navbar__actions">
+            <Button to="/admissions" variant="primary" size="sm" className="navbar__cta">
+              Open application form
+            </Button>
+            <button
+              className={`navbar__toggle ${isOpen ? 'navbar__toggle--open' : ''}`}
+              onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation menu"
+            >
+              <span /><span /><span />
+            </button>
+          </div>
         </div>
       </div>
 

@@ -5,17 +5,37 @@ const WHY_CHOOSE = {
     { title: 'Global graduate outcomes', description: 'Graduates pursue roles in software engineering, data science, cloud architecture, and technology consulting worldwide.' },
     { title: 'Professional practice from year one', description: 'Project studios, hackathons, and internship pathways build portfolio-ready experience before graduation.' },
   ],
+  'artificial-intelligence': [ // 👈 1. Add this new key matching your RAW data object key
+    { icon: '🧠', title: 'Neural Architectures', description: 'Ground-up training in deep neural network design and matrix layer processing.' },
+    { icon: '⚡', title: 'Supercomputing Power', description: 'Direct access to raw high-performance localized GPU clusters.' },
+    { icon: '🛡️', title: 'AI Alignment & Safety', description: 'Focused specialization in mathematical verification and systems guardrails.' },
+    { icon: '🤖', title: 'Cognitive Robotics', description: 'Program spatial mapping and real-time sensory tracking on physical rover chassis.' },
+    { icon: '💬', title: 'LLM & NLP Engineering', description: 'Master tokenization matrices, context scaling, and conversational transformer mechanics.' },
+  ],
   'international-business-administration': [
     { title: 'Global business perspective', description: 'Case-based learning grounded in international trade, finance, and cross-border management across diverse markets.' },
     { title: 'Leadership for multicultural teams', description: 'Develop negotiation, communication, and strategic decision-making skills for international organizations.' },
     { title: 'Industry-connected learning', description: 'Live consulting projects and executive mentorship connect classroom theory to real corporate challenges.' },
     { title: 'Pathways to global careers', description: 'Graduates enter consulting, finance, marketing, entrepreneurship, and trade roles with multinational employers.' },
   ],
+  'international-hotel-management': [
+  { icon: '🏨', title: 'Global Operations Mastery', description: 'Operational mastery inside live mock luxury suites and commercial property management terminals.' },
+  { icon: '📊', title: 'Dynamic Revenue Algorithms', description: 'Master quantitative revenue management to calculate and optimize hotel room inventory yields.' },
+  { icon: '🍳', title: 'Culinary Engineering Labs', description: 'Hands-on practical execution inside state-of-the-art kitchens following international HACCP safety guidelines.' },
+  { icon: '🍷', title: 'Enology & Sommelier Science', description: 'Deconstruct terroir properties, beverage storage systems, and premium menu pairing structures.' },
+  { icon: '💎', title: 'Elite Corporate Pipeline', description: 'Direct career pathways and built-in residencies with world-class international luxury resort groups.' }
+],
   'english-for-academic-purposes': [
     { title: 'University-level English mastery', description: 'Rigorous training in academic reading, writing, research, and critical analysis for degree-level study.' },
     { title: 'Direct pathway to degree programs', description: 'Structured progression into Kyungdong University undergraduate programs with dedicated academic advising.' },
     { title: 'Communication for professional success', description: 'Seminar skills, presentations, and academic discourse prepare students for global classrooms and workplaces.' },
     { title: 'Supportive international community', description: 'Small-group instruction within a multicultural campus designed for students from diverse linguistic backgrounds.' },
+  ],
+  'korean-for-academic-purposes': [
+    { icon: '📚', title: 'Targeted Academic Competence', description: 'Moves past casual daily conversations directly into professional level research and essay architectures.' },
+    { icon: '🎯', title: 'TOPIK Certification Mastery', description: 'Systematic tactical prep courses configured to secure structural TOPIK Tier 4+ validations rapidly.' },
+    { icon: '🎓', title: 'Direct Matriculation Pipeline', description: 'Establishes a completely fluid structural bridge into full-time KDU undergraduate majors.' },
+    { icon: '🗺️', title: 'Cultural Literacy Mentoring', description: 'Immersive deep dives into Korean academic hierarchy norms, etiquette, and seminar structures.' }
   ],
 };
 
@@ -238,7 +258,7 @@ export function enrichDepartment(dept, slug) {
       objectives: dept.overview?.objectives || dept.overview?.pathways || [],
     },
     admissions: {
-      scholarships: dept.admissions?.scholarships || [
+      snapshots: dept.admissions?.scholarships || [
         'Merit-based scholarships up to 50% tuition',
         'International student grants',
         'Early application priority consideration',
