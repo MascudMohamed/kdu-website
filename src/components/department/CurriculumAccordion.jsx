@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import '../../styles/components/CurriculumAccordion.css';
 
-export default function CurriculumAccordion({ curriculum }) {
+export default function CurriculumAccordion({ curriculum, embedded = false }) {
   const [openYear, setOpenYear] = useState(0);
   const [openSemester, setOpenSemester] = useState('0-0');
 
@@ -13,15 +13,7 @@ export default function CurriculumAccordion({ curriculum }) {
     setOpenSemester(openSemester === key ? '' : key);
   };
 
-  return (
-    <section className="section section--alt curriculum-acc" id="curriculum">
-      <div className="container">
-        <SectionTitle
-          subtitle="Curriculum"
-          title="Program Structure"
-          description="A structured progression from foundational knowledge to advanced specialization."
-        />
-
+  const years = (
         <div className="curriculum-acc__years">
           {curriculum.map((year, yearIdx) => (
             <div key={year.year} className="curriculum-acc__year">
@@ -102,6 +94,21 @@ export default function CurriculumAccordion({ curriculum }) {
             </div>
           ))}
         </div>
+  );
+
+  if (embedded) {
+    return <div className="curriculum-acc curriculum-acc--embedded">{years}</div>;
+  }
+
+  return (
+    <section className="section section--alt curriculum-acc" id="curriculum">
+      <div className="container">
+        <SectionTitle
+          subtitle="Curriculum"
+          title="Program Structure"
+          description="A structured progression from foundational knowledge to advanced specialization."
+        />
+        {years}
       </div>
     </section>
   );

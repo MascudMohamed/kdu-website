@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
+import DepartmentLayout from '../layouts/DepartmentLayout';
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Admissions from '../pages/Admissions';
@@ -8,8 +9,14 @@ import GraduatePrograms from '../pages/GraduatePrograms';
 import InternationalStudents from '../pages/InternationalStudents';
 import NewsEvents from '../pages/NewsEvents';
 import Contact from '../pages/Contact';
-import DepartmentRoute from '../pages/DepartmentRoute';
-import FacultyProfile from '../pages/FacultyProfile';
+import FacultyProfileRedirect from '../pages/FacultyProfileRedirect';
+import LegacyDepartmentRedirect from '../pages/LegacyDepartmentRedirect';
+import DepartmentSpoke from '../pages/department/DepartmentSpoke';
+import DepartmentFacultyDirectory from '../pages/department/DepartmentFacultyDirectory';
+import DepartmentFacultyProfile from '../pages/department/DepartmentFacultyProfile';
+import DepartmentProjectsIndex from '../pages/department/DepartmentProjectsIndex';
+import DepartmentProjectDetail from '../pages/department/DepartmentProjectDetail';
+import DepartmentHub from '../pages/department/DepartmentHub';
 
 const router = createBrowserRouter([
   {
@@ -20,9 +27,23 @@ const router = createBrowserRouter([
       { path: 'admissions', element: <Admissions /> },
       { path: 'academics', element: <Academics /> },
       { path: 'academics/graduate', element: <GraduatePrograms /> },
-      { path: 'academics/undergraduate/:slug', element: <DepartmentRoute /> },
-      { path: 'academics/:slug', element: <DepartmentRoute /> },
-      { path: 'faculty/:slug', element: <FacultyProfile /> },
+      { path: 'academics/:slug', element: <LegacyDepartmentRedirect /> },
+      {
+        path: 'academics/undergraduate/:slug',
+        element: <DepartmentLayout />,
+        children: [
+          { index: true, element: <DepartmentHub /> },
+          { path: 'faculty', element: <DepartmentFacultyDirectory /> },
+          { path: 'faculty/:profileSlug', element: <DepartmentFacultyProfile /> },
+          { path: 'projects', element: <DepartmentProjectsIndex /> },
+          { path: 'projects/:projectSlug', element: <DepartmentProjectDetail /> },
+          { path: '*', element: <DepartmentSpoke /> },
+        ],
+      },
+      {
+        path: 'faculty/:slug',
+        element: <FacultyProfileRedirect />,
+      },
       { path: 'international-students', element: <InternationalStudents /> },
       { path: 'news-events', element: <NewsEvents /> },
       { path: 'contact', element: <Contact /> },

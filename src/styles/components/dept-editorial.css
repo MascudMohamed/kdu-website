@@ -1,0 +1,72 @@
+/* Shared editorial system for department pages */
+
+.dept-section-header {
+  max-width: 42rem;
+  margin-bottom: var(--dept-section-gap);
+}
+
+.dept-section-header--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.dept-section-header__eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.dept-section-header__title {
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  line-height: 1.15;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+}
+
+.dept-section-header__lead {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: 38rem;
+}
+
+.dept-section-header--center .dept-section-header__lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dept-prose {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.dept-prose p + p {
+  margin-top: var(--space-lg);
+}
+
+.dept-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: gap var(--transition-fast);
+}
+
+.dept-link-arrow:hover {
+  gap: var(--space-md);
+  color: var(--color-primary-dark);
+}
+
+.dept-link-arrow::after {
+  content: '→';
+}

@@ -1,3 +1,8 @@
+.curriculum-acc--embedded .curriculum-acc__year {
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
 .curriculum-acc__years {
   display: flex;
   flex-direction: column;

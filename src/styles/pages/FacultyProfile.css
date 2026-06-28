@@ -127,6 +127,27 @@
   margin-top: var(--space-md);
 }
 
+.faculty-profile__languages {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: var(--space-sm);
+}
+
+.faculty-profile__card--links {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.faculty-profile__card--links a {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.faculty-profile__card--links a:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {
   .faculty-profile__header {
     grid-template-columns: auto 1fr;

@@ -48,4 +48,8 @@
 
   --container-max: 1280px;
   --header-height: 88px;
+
+  /* Department editorial spacing */
+  --dept-section-pad: clamp(4rem, 8vw, 6.5rem);
+  --dept-section-gap: clamp(2rem, 4vw, 3rem);
 }
