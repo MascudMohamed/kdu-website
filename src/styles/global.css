@@ -142,3 +142,8 @@ p {
   font-size: 1.125rem;
   max-width: 640px;
 }
+html{
+
+scroll-behavior:smooth;
+
+}
