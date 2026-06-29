@@ -1,12 +1,25 @@
-import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getDepartmentNav, deptPath } from '../../data/departments/navigation';
 import '../../styles/components/DepartmentSubNav.css';
 
-function isActive(currentPath, itemPath, basePath) {
-  const full = itemPath ? `${basePath}/${itemPath}` : basePath;
-  if (!itemPath) return currentPath === basePath || currentPath === `${basePath}/`;
-  return currentPath === full || currentPath.startsWith(`${full}/`);
+function isNavItemActive(location, item, basePath) {
+  if (item.hash) {
+    const onHub = location.pathname === basePath || location.pathname === `${basePath}/`;
+    return onHub && location.hash === item.hash;
+  }
+  if (!item.path) {
+    const onHub = location.pathname === basePath || location.pathname === `${basePath}/`;
+    return onHub && !location.hash;
+  }
+  const full = `${basePath}/${item.path}`;
+  return location.pathname === full || location.pathname.startsWith(`${full}/`);
+}
+
+function navItemTo(item, basePath) {
+  if (item.hash) {
+    return { pathname: basePath, hash: item.hash };
+  }
+  return item.path ? `${basePath}/${item.path}` : basePath;
 }
 
 export default function DepartmentSubNav({ department }) {
@@ -14,7 +27,6 @@ export default function DepartmentSubNav({ department }) {
   const location = useLocation();
   const basePath = deptPath(slug);
   const nav = getDepartmentNav(slug);
-  const [openDropdown, setOpenDropdown] = useState(null);
 
   return (
     <nav className="dept-subnav" aria-label={`${shortTitle || title} navigation`}>
@@ -24,46 +36,13 @@ export default function DepartmentSubNav({ department }) {
         </Link>
         <ul className="dept-subnav__list">
           {nav.map((item) => {
-            if (item.children) {
-              const active = item.children.some((c) => isActive(location.pathname, c.path, basePath))
-                || isActive(location.pathname, item.path, basePath);
-              return (
-                <li
-                  key={item.label}
-                  className="dept-subnav__item dept-subnav__item--dropdown"
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <button
-                    type="button"
-                    className={`dept-subnav__link ${active ? 'dept-subnav__link--active' : ''}`}
-                    aria-expanded={openDropdown === item.label}
-                  >
-                    {item.label} ▾
-                  </button>
-                  {openDropdown === item.label && (
-                    <ul className="dept-subnav__dropdown">
-                      {item.children.map((child) => (
-                        <li key={child.path}>
-                          <Link
-                            to={child.path ? `${basePath}/${child.path}` : basePath}
-                            className={isActive(location.pathname, child.path, basePath) ? 'active' : ''}
-                          >
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              );
-            }
-
-            const href = item.path ? `${basePath}/${item.path}` : basePath;
-            const active = isActive(location.pathname, item.path, basePath);
+            const active = isNavItemActive(location, item, basePath);
             return (
               <li key={item.label} className="dept-subnav__item">
-                <Link to={href} className={`dept-subnav__link ${active ? 'dept-subnav__link--active' : ''}`}>
+                <Link
+                  to={navItemTo(item, basePath)}
+                  className={`dept-subnav__link ${active ? 'dept-subnav__link--active' : ''}`}
+                >
                   {item.label}
                 </Link>
               </li>

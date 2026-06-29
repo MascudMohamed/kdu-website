@@ -5,118 +5,90 @@ export function deptPath(slug, subPath = '') {
   return subPath ? `${base}/${subPath}` : base;
 }
 
-export const DEPARTMENT_NAV = {
-  'smart-computing': [
-    { label: 'Overview', path: '' },
-    { label: 'Programme', path: 'programme' },
-    { label: 'Learning', path: 'learning-experience' },
-    { label: 'Curriculum', path: 'curriculum' },
-    {
-      label: 'Pathways',
-      path: 'pathways',
-      children: [
-        { label: 'Software Engineering', path: 'pathways/software-engineering' },
-        { label: 'Artificial Intelligence', path: 'pathways/artificial-intelligence' },
-        { label: 'Cybersecurity', path: 'pathways/cybersecurity' },
-        { label: 'Data Science', path: 'pathways/data-science' },
-        { label: 'Cloud Computing', path: 'pathways/cloud-computing' },
-      ],
-    },
-    { label: 'Projects', path: 'projects' },
-    {
-      label: 'Research',
-      path: 'research',
-      children: [
-        { label: 'Research Overview', path: 'research' },
-        { label: 'AI Research Lab', path: 'research/ai-lab' },
-        { label: 'Cybersecurity Lab', path: 'research/cybersecurity-lab' },
-        { label: 'Innovation Centre', path: 'innovation-centre' },
-      ],
-    },
-    {
-      label: 'Industry',
-      path: 'industry',
-      children: [
-        { label: 'Partnerships', path: 'industry' },
-        { label: 'Internships', path: 'internships' },
-        { label: 'Technology Stack', path: 'technology-stack' },
-        { label: 'Graduate Employment', path: 'employment' },
-      ],
-    },
-    { label: 'People', path: 'faculty' },
-    { label: 'Admissions', path: 'admissions' },
-  ],
-  'international-business-administration': [
-    { label: 'Overview', path: '' },
-    { label: 'Programme', path: 'programme' },
-    { label: 'Curriculum', path: 'curriculum' },
-    {
-      label: 'Specializations',
-      path: 'international-trade',
-      children: [
-        { label: 'International Trade', path: 'international-trade' },
-        { label: 'Marketing', path: 'marketing' },
-        { label: 'Entrepreneurship', path: 'entrepreneurship' },
-        { label: 'Finance', path: 'finance' },
-        { label: 'Supply Chain', path: 'supply-chain' },
-      ],
-    },
-    {
-      label: 'Global Experience',
-      path: 'exchange',
-      children: [
-        { label: 'Exchange', path: 'exchange' },
-        { label: 'Internships', path: 'internships' },
-        { label: 'Partnerships', path: 'partnerships' },
-      ],
-    },
-    {
-      label: 'Applied Learning',
-      path: 'consulting',
-      children: [
-        { label: 'Consulting Projects', path: 'consulting' },
-        { label: 'Competitions', path: 'competitions' },
-      ],
-    },
-    { label: 'Research', path: 'research' },
-    { label: 'Careers', path: 'careers' },
-    { label: 'Alumni', path: 'alumni' },
-    { label: 'People', path: 'faculty' },
-    { label: 'Admissions', path: 'admissions' },
-  ],
-  'english-for-academic-purposes': [
-    { label: 'About EAP', path: '' },
-    { label: 'Levels', path: 'levels' },
-    { label: 'Placement', path: 'placement' },
-    {
-      label: 'Skills',
-      path: 'academic-writing',
-      children: [
-        { label: 'Academic Writing', path: 'academic-writing' },
-        { label: 'Academic Speaking', path: 'academic-speaking' },
-        { label: 'Listening', path: 'listening' },
-        { label: 'Reading', path: 'reading' },
-      ],
-    },
-    {
-      label: 'Preparation',
-      path: 'university-preparation',
-      children: [
-        { label: 'University Preparation', path: 'university-preparation' },
-        { label: 'Korean University Life', path: 'korean-university-life' },
-        { label: 'Completion Requirements', path: 'completion' },
-      ],
-    },
-    { label: 'Support', path: 'student-support' },
-    { label: 'Resources', path: 'resources' },
-    { label: 'Pathways', path: 'pathways' },
-    { label: 'People', path: 'faculty' },
-    { label: 'Admissions', path: 'admissions' },
-  ],
-};
+/** Shared sub-nav for all undergraduate departments */
+export const SIMPLIFIED_DEPARTMENT_NAV = [
+  { label: 'Overview', path: '' },
+  { label: 'Curriculum', path: 'curriculum' },
+  { label: 'Faculty', path: 'faculty' },
+  { label: 'News & Events', path: '', hash: '#news' },
+  { label: 'Admissions', path: 'admissions' },
+];
+
+const SIMPLIFIED_SLUGS = [
+  'smart-computing',
+  'international-business-administration',
+  'english-for-academic-purposes',
+  'artificial-intelligence',
+  'international-hotel-management',
+  'korean-for-academic-purposes',
+];
+
+export const DEPARTMENT_NAV = Object.fromEntries(
+  SIMPLIFIED_SLUGS.map((slug) => [slug, SIMPLIFIED_DEPARTMENT_NAV]),
+);
+
+/** @deprecated use SIMPLIFIED_DEPARTMENT_NAV */
+export const DEFAULT_DEPARTMENT_NAV = SIMPLIFIED_DEPARTMENT_NAV;
+
+const SKIP_EXPLORE = new Set(['', 'faculty', 'admissions']);
+const ACADEMIC_PATHS = new Set(['programme', 'curriculum', 'learning-experience', 'levels', 'placement']);
 
 export function getDepartmentNav(slug) {
-  return DEPARTMENT_NAV[slug] || [];
+  return DEPARTMENT_NAV[slug] || SIMPLIFIED_DEPARTMENT_NAV;
+}
+
+export function getHubExploreSections(slug) {
+  const nav = getDepartmentNav(slug);
+  const base = deptPath(slug);
+  const sections = [];
+
+  const academic = nav.filter(
+    (item) => !item.children && item.path && ACADEMIC_PATHS.has(item.path),
+  );
+  if (academic.length > 0) {
+    sections.push({
+      title: 'Academic programme',
+      links: academic.map((item) => ({
+        label: item.label,
+        path: item.path ? `${base}/${item.path}` : base,
+      })),
+    });
+  }
+
+  nav.forEach((item) => {
+    if (item.children?.length) {
+      sections.push({
+        title: item.label,
+        links: item.children.map((child) => ({
+          label: child.label,
+          path: `${base}/${child.path}`,
+        })),
+      });
+    }
+  });
+
+  const childPaths = new Set(
+    nav.flatMap((item) => (item.children || []).map((c) => c.path)),
+  );
+  const standalone = nav.filter(
+    (item) =>
+      !item.children
+      && item.path
+      && !item.hash
+      && !SKIP_EXPLORE.has(item.path)
+      && !ACADEMIC_PATHS.has(item.path),
+  );
+  if (standalone.length > 0) {
+    sections.push({
+      title: 'Explore further',
+      links: standalone.map((item) => ({
+        label: item.label,
+        path: `${base}/${item.path}`,
+      })),
+    });
+  }
+
+  return sections;
 }
 
 export function flattenNavItems(nav) {
