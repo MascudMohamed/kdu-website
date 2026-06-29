@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" fill="none" aria-hidden="true">
-  <path d="M32 2L58 14V38C58 56 46 68 32 78C18 68 6 56 6 38V14L32 2Z" fill="#FFFFFF" stroke="#0072BC" stroke-width="2"/>
-  <text x="32" y="22" text-anchor="middle" fill="#0072BC" font-family="Arial, sans-serif" font-size="11" font-weight="700">KDU</text>
-  <path d="M22 28C24 26 28 25 32 25C36 25 40 26 42 28C41 34 37 38 32 38C27 38 23 34 22 28Z" fill="#0072BC"/>
-  <path d="M28 32C29 30 30.5 29 32 29C33.5 29 35 30 36 32C35.5 35 34 36 32 36C30 36 28.5 35 28 32Z" fill="#FFFFFF"/>
-  <path d="M14 58C14 58 22 52 32 52C42 52 50 58 50 58L48 62H16L14 58Z" fill="#D62828"/>
-  <text x="32" y="60" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="5" font-weight="600">KYUNGDONG</text>
-</svg>

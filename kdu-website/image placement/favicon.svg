@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="8" fill="#003366"/>
-  <path d="M32 10L48 18V34C48 44 41 50 32 56C23 50 16 44 16 34V18L32 10Z" fill="#FFFFFF"/>
-  <text x="32" y="30" text-anchor="middle" fill="#003366" font-family="Arial, sans-serif" font-size="10" font-weight="700">KDU</text>
-  <rect x="20" y="42" width="24" height="6" rx="1" fill="#C82333"/>
-</svg>
