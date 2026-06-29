@@ -3,7 +3,7 @@ import iba from './iba';
 import eap from './eap';
 import artificialIntelligence from './artificial-intelligence';
 import internationalHotelManagement from './international-hotel-management';
-import kap from './kap';
+import kap from './kap'; 
 import { enrichDepartment } from './enrich';
 import { getDepartmentPage } from './pages';
 import { getProject, getProjects } from './projects';
@@ -37,29 +37,10 @@ export function getAllFaculty() {
   return UNDERGRADUATE_DEPARTMENTS.flatMap((d) => d.faculty);
 }
 
-export function getFacultyBySlug(profileSlug, departmentSlug) {
-  const all = getAllFaculty();
-  if (departmentSlug) {
-    return all.find((f) => f.profileSlug === profileSlug && f.departmentSlug === departmentSlug) || null;
-  }
-  return all.find((f) => f.profileSlug === profileSlug) || null;
+export function getFacultyBySlug(profileSlug) {
+  return getAllFaculty().find((f) => f.profileSlug === profileSlug) || null;
 }
 
 export function getDepartmentList() {
   return UNDERGRADUATE_DEPARTMENTS;
 }
-
-export function getDepartmentPageContent(deptSlug, pagePath) {
-  const dept = DEPARTMENTS[deptSlug];
-  return getDepartmentPage(deptSlug, pagePath, dept?.title);
-}
-
-export function getDepartmentProjects(deptSlug) {
-  return getProjects(deptSlug);
-}
-
-export function getDepartmentProject(deptSlug, projectSlug) {
-  return getProject(deptSlug, projectSlug);
-}
-
-export { getDepartmentPage };
