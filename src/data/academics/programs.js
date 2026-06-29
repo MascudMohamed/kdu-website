@@ -59,6 +59,18 @@ export const UNDERGRADUATE_PROGRAMS = [
     image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=80',
     path: '/academics/undergraduate/english-for-academic-purposes',
   },
+  {
+  slug: 'korean-for-academic-purposes',
+  title: 'Korean for Academic Purposes',
+  shortTitle: 'KAP',
+  degree: 'Certificate / Pathway Program',
+  duration: '1–2 Years',
+  language: 'Korean',  // Note: This is Korean, not English
+  description:
+    'Build advanced academic Korean proficiency and communication skills for success in degree-level study in Korea.',
+  image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=80',  // Or use a different image
+  path: '/academics/undergraduate/korean-for-academic-purposes',
+},
 ];
 
 export const GRADUATE_OVERVIEW = {
