@@ -77,9 +77,30 @@ const CAREER_OUTCOMES = {
 
 const DEGREES = {
   'smart-computing': 'Bachelor of Science',
+  'artificial-intelligence': 'Bachelor of Science',
+  'international-hotel-management': 'Bachelor of Science',
   'international-business-administration': 'Bachelor of Business Administration',
   'english-for-academic-purposes': 'Certificate / Pathway Program',
+  'korean-for-academic-purposes': 'Certificate / Pathway Program',
 };
+
+const GENERIC_CAREER_OUTCOMES = {
+  lead: 'Our graduates are prepared for competitive roles in their field with practical skills, industry exposure, and global career support.',
+  stats: [
+    { value: '90%+', label: 'Positive graduate outcomes' },
+    { value: '100%', label: 'Academic advising support' },
+    { value: '20+', label: 'Industry and campus partners' },
+  ],
+  destinations: ['Graduate employment', 'Further study', 'Professional practice', 'International opportunities'],
+  internships: 'Students benefit from internships, practicum placements, and industry projects aligned with programme learning outcomes.',
+  demand: 'Employers value graduates who combine disciplinary expertise with communication, teamwork, and global awareness.',
+};
+
+const GENERIC_FAQS = [
+  { question: 'How do I apply?', answer: 'Applications open annually. Visit the admissions page for deadlines, required documents, and English language requirements.' },
+  { question: 'Are scholarships available?', answer: 'Merit-based and need-based scholarships may be available. Early applicants receive priority consideration.' },
+  { question: 'What support is available for international students?', answer: 'KDU Global provides academic advising, orientation, and student services for international students throughout the programme.' },
+];
 
 const CURRICULUM_SUMMARIES = {
   'smart-computing': [
@@ -237,8 +258,14 @@ export function enrichDepartment(dept, slug) {
     degree,
     path: `/academics/undergraduate/${slug}`,
     quickFacts,
-    whyChoose: (dept.whyChoose || WHY_CHOOSE[slug] || []).slice(0, 4),
-    careerOutcomes: { ...CAREER_OUTCOMES[slug], ...dept.careerOutcomes },
+    whyChoose: (dept.whyChoose || WHY_CHOOSE[slug] || [])
+      .slice(0, 4)
+      .map(({ title, description }) => ({ title, description })),
+    careerOutcomes: {
+      ...GENERIC_CAREER_OUTCOMES,
+      ...CAREER_OUTCOMES[slug],
+      ...dept.careerOutcomes,
+    },
     curriculumHighlights: buildCurriculumHighlights(dept, slug),
     breadcrumbs: [
       { label: 'Home', path: '/' },
@@ -258,7 +285,7 @@ export function enrichDepartment(dept, slug) {
       objectives: dept.overview?.objectives || dept.overview?.pathways || [],
     },
     admissions: {
-      snapshots: dept.admissions?.scholarships || [
+      scholarships: dept.admissions?.scholarships || [
         'Merit-based scholarships up to 50% tuition',
         'International student grants',
         'Early application priority consideration',
@@ -270,7 +297,7 @@ export function enrichDepartment(dept, slug) {
     faculty: enrichFaculty(dept.faculty || [], slug),
     researchAreas: enrichResearch(dept.researchAreas),
     testimonials: enrichTestimonials(dept.testimonials),
-    faqs: dept.faqs || DEFAULT_FAQS[slug] || [],
+    faqs: dept.faqs || DEFAULT_FAQS[slug] || GENERIC_FAQS,
   };
 }
 

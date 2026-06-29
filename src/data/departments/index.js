@@ -1,6 +1,9 @@
 import smartComputing from './smartComputing';
 import iba from './iba';
 import eap from './eap';
+import artificialIntelligence from './artificial-intelligence';
+import internationalHotelManagement from './international-hotel-management';
+import kap from './kap';
 import { enrichDepartment } from './enrich';
 import { getDepartmentPage } from './pages';
 import { getProject, getProjects } from './projects';
@@ -9,10 +12,14 @@ const RAW = {
   'smart-computing': smartComputing,
   'international-business-administration': iba,
   'english-for-academic-purposes': eap,
+  'artificial-intelligence': artificialIntelligence,
+  'international-hotel-management': internationalHotelManagement,
+  'korean-for-academic-purposes': kap,
 };
 
 export const LEGACY_SLUG_REDIRECTS = {
   'bachelor-of-smart-computing': 'smart-computing',
+  'bachelor-of-artificial-intelligence': 'artificial-intelligence',
 };
 
 export const DEPARTMENTS = Object.fromEntries(
@@ -43,7 +50,8 @@ export function getDepartmentList() {
 }
 
 export function getDepartmentPageContent(deptSlug, pagePath) {
-  return getDepartmentPage(deptSlug, pagePath);
+  const dept = DEPARTMENTS[deptSlug];
+  return getDepartmentPage(deptSlug, pagePath, dept?.title);
 }
 
 export function getDepartmentProjects(deptSlug) {
