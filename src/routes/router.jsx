@@ -1,4 +1,5 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+// src/routes/router.jsx
+import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
 import About from '../pages/About';
@@ -14,6 +15,7 @@ import ErrorPage from '../pages/NotFound/NotFound';
 
 const router = createBrowserRouter([
   {
+    // Pages wrapped inside the Main Layout (Shows Navbar & Footer)
     element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
@@ -27,9 +29,13 @@ const router = createBrowserRouter([
       { path: 'international-students', element: <InternationalStudents /> },
       { path: 'news-events', element: <NewsEvents /> },
       { path: 'contact', element: <Contact /> },
-      { path: '*', element: <ErrorPage /> },
     ],
   },
+  {
+    //  Independent Root Routes (NO Navbar, NO Footer)
+    path: '*',
+    element: <ErrorPage />
+  }
 ]);
 
 export default router;
