@@ -1,0 +1,20 @@
+export const BRAND = {
+  universityName: 'KYUNGDONG UNIVERSITY',
+  name: 'KDU Global',
+  tagline: 'KDU Global · International Education',
+  campus: 'Kyungdong University Global Campus',
+  colors: {
+    primary: '#0072BC',
+    primaryDark: '#005A96',
+    primaryLight: '#1A8FD4',
+    red: '#D62828',
+    redLight: '#EF4444',
+    redDark: '#B91C1C',
+    text: '#1F2937',
+    textMuted: '#6B7280',
+    bg: '#FFFFFF',
+    bgAlt: '#F8FAFC',
+    border: '#E5E7EB',
+    white: '#FFFFFF',
+  },
+};

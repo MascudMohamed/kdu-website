@@ -1,0 +1,54 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo__crest {
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 2px;
+}
+
+.logo__university {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 1.5vw, 0.9375rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.logo__sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.625rem, 1.2vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.logo__text--light .logo__university,
+.logo__text--light .logo__sub {
+  color: var(--color-white);
+}
+
+.logo__text--dark .logo__university {
+  color: var(--color-primary);
+}
+
+.logo__text--dark .logo__sub {
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 480px) {
+  .logo__text {
+    display: none;
+  }
+}

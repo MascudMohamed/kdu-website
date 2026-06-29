@@ -1,0 +1,104 @@
+.dept-pathway__intro {
+  margin-bottom: var(--space-3xl);
+}
+
+.dept-pathway__block {
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dept-pathway__block h3 {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.dept-pathway__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+}
+
+.dept-pathway__tags li {
+  font-size: 0.9375rem;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+}
+
+.dept-semester-exp {
+  margin-top: var(--space-4xl);
+  padding-top: var(--space-3xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.dept-semester-exp__title {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2xl);
+}
+
+.dept-semester-exp__item {
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dept-semester-exp__item h3 {
+  font-size: 1.0625rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+}
+
+.dept-semester-exp__item dl {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.dept-semester-exp__item dt {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.dept-semester-exp__item dd {
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.dept-faq-list__item {
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dept-faq-list__item dt {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.dept-faq-list__item dd {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+.dept-spoke--curriculum .dept-page-shell__body .dept-curriculum {
+  padding-top: 0;
+}
+
+.dept-spoke--curriculum .dept-section {
+  padding: 0;
+}

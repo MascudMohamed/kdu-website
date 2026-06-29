@@ -1,0 +1,8 @@
+.department-page {
+  --dept-section-pad: clamp(4rem, 8vw, 6.5rem);
+  --dept-section-gap: clamp(2rem, 4vw, 3rem);
+}
+
+.department-page .dept-section + .dept-section:not(.dept-section--alt):not(.dept-admissions-cta) {
+  /* consistent rhythm between editorial sections */
+}

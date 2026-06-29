@@ -1,0 +1,32 @@
+.contact-departments h2 {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.contact-dept {
+  padding: var(--space-xl);
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.contact-dept h3 {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.contact-dept p {
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-xs);
+}
+
+.contact-dept a {
+  color: var(--color-primary-light);
+}
+
+.contact-dept a:hover {
+  text-decoration: underline;
+}
