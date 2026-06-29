@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PRIMARY_NAV_LINKS, NAV_LINKS } from '../../constants/navigation';
+import { APPLICATION_FORM_URL } from '../../constants/links';
 import Logo from '../common/Logo';
 import Button from '../common/Button';
 import AcademicsMegaMenu from './AcademicsMegaMenu';
@@ -82,7 +83,7 @@ export default function Navbar() {
           </nav>
 
           <div className="navbar__actions">
-            <Button to="/admissions" variant="primary" size="sm" className="navbar__cta">
+            <Button href={APPLICATION_FORM_URL} variant="primary" size="sm" className="navbar__cta">
               Open application form
             </Button>
             <button
@@ -145,7 +146,7 @@ export default function Navbar() {
                 </li>
               </ul>
             </nav>
-            <Button to="/admissions" variant="primary" size="lg" onClick={() => setIsOpen(false)}>
+            <Button href={APPLICATION_FORM_URL} variant="primary" size="lg" onClick={() => setIsOpen(false)}>
               Open application form
             </Button>
           </motion.div>

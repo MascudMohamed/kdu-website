@@ -1,5 +1,6 @@
 import Breadcrumb from '../common/Breadcrumb';
 import Button from '../common/Button';
+import { APPLICATION_FORM_URL } from '../../constants/links';
 import '../../styles/components/DeptHeroV2.css';
 
 export default function DeptHeroV2({ department }) {
@@ -27,7 +28,7 @@ export default function DeptHeroV2({ department }) {
         )}
 
         <div className="dept-hero-v2__actions">
-          <Button to="/admissions" variant="primary" size="lg">Apply Now</Button>
+          <Button href={APPLICATION_FORM_URL} variant="primary" size="lg">Apply Now</Button>
           <Button href="#" variant="white" size="lg">Download Brochure</Button>
         </div>
       </div>

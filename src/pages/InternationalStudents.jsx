@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import Button from '../components/common/Button';
+import { APPLICATION_FORM_URL } from '../constants/links';
 import '../styles/pages/InternationalStudents.css';
 
 const services = [
@@ -107,7 +108,7 @@ export default function InternationalStudents() {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 'var(--space-2xl)' }}>
-            <Button to="/admissions" variant="primary" size="lg">
+            <Button href={APPLICATION_FORM_URL} variant="primary" size="lg">
               Start Application
             </Button>
           </div>

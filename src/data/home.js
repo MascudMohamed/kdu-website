@@ -95,6 +95,91 @@ export const testimonials = [
   },
 ];
 
+export const whyChoosePillars = [
+  {
+    title: 'Globally Recognized Degrees',
+    description: 'Industry-aligned programmes taught in English, designed for international careers and further study.',
+  },
+  {
+    title: 'Diverse Global Community',
+    description: 'Students and faculty from 30+ countries create a campus culture built on collaboration and perspective.',
+  },
+  {
+    title: 'Career-Ready Learning',
+    description: 'Internships, capstone projects, and employer partnerships connect classroom learning to real outcomes.',
+  },
+  {
+    title: 'Comprehensive Student Support',
+    description: 'From arrival through graduation, dedicated advisors support academics, wellbeing, and career planning.',
+  },
+];
+
+export const researchSpotlight = {
+  eyebrow: 'Research & Innovation',
+  title: 'Where Ideas Become Impact',
+  lead: 'Faculty and students work across disciplines on research that addresses real challenges — from sustainable technology to global business strategy.',
+  highlights: [
+    'Interdisciplinary research centres',
+    'Undergraduate research opportunities',
+    'International faculty collaborations',
+  ],
+  image: 'https://images.unsplash.com/photo-1532094349883-543bc11b234d?w=1200&q=80',
+  link: '/news-events',
+  linkLabel: 'Explore research news',
+};
+
+export const upcomingEvents = [
+  {
+    date: 'July 15, 2026',
+    title: 'Annual University Open Day',
+    venue: 'Main Campus',
+    type: 'Open Day',
+  },
+  {
+    date: 'August 8, 2026',
+    title: 'Global Alumni Networking Event',
+    venue: 'Alumni Hall',
+    type: 'Networking',
+  },
+  {
+    date: 'September 20, 2026',
+    title: 'International Research Symposium',
+    venue: 'Conference Center',
+    type: 'Conference',
+  },
+];
+
+export const admissionSteps = [
+  { step: '01', title: 'Explore programmes', description: 'Find the degree that matches your goals and background.' },
+  { step: '02', title: 'Prepare documents', description: 'Transcripts, personal statement, and recommendations.' },
+  { step: '03', title: 'Submit application', description: 'Apply online before the published deadline.' },
+  { step: '04', title: 'Receive your offer', description: 'Admissions decisions within 4–6 weeks of submission.' },
+];
+
+export const scholarshipHighlights = [
+  { title: 'Merit Scholarships', value: 'Up to 50%', note: 'For outstanding academic achievement' },
+  { title: 'International Grants', value: '25–40%', note: 'Supporting global student diversity' },
+  { title: 'Pathway Support', value: 'Flexible', note: 'EAP and foundation programme assistance' },
+];
+
+export const campusFeatures = [
+  {
+    title: 'Learning Spaces',
+    description: 'Modern classrooms, labs, and collaborative studios equipped for hands-on study.',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80',
+  },
+  {
+    title: 'Student Life',
+    description: 'Clubs, cultural festivals, and athletics that connect you to a vibrant global community.',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80',
+  },
+  {
+    title: 'Global Network',
+    description: 'Exchange programmes and partner universities across Asia, Europe, and the Americas.',
+    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
+  },
+];
+
 export const partners = [
   {
     logo: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=200&q=80',

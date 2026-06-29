@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import ImageSlider from '../common/ImageSlider';
 import Button from '../common/Button';
+import { APPLICATION_FORM_URL } from '../../constants/links';
 import '../../styles/components/HeroSection.css';
 
 export default function HeroSection({ slides, headline, subtitle, description }) {
@@ -19,7 +20,7 @@ export default function HeroSection({ slides, headline, subtitle, description })
             <h1 className="hero__headline">{headline}</h1>
             {description && <p className="hero__description">{description}</p>}
             <div className="hero__actions">
-              <Button to="/admissions" variant="primary" size="lg">
+              <Button href={APPLICATION_FORM_URL} variant="primary" size="lg">
                 Apply Now
               </Button>
               <Button to="/academics" variant="white" size="lg">

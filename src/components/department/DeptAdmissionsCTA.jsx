@@ -1,4 +1,5 @@
 import Button from '../common/Button';
+import { APPLICATION_FORM_URL } from '../../constants/links';
 import '../../styles/components/DeptAdmissionsCTA.css';
 
 export default function DeptAdmissionsCTA({ admissions, programTitle }) {
@@ -20,7 +21,7 @@ export default function DeptAdmissionsCTA({ admissions, programTitle }) {
           )}
         </div>
         <div className="dept-admissions-cta__actions">
-          <Button to="/admissions" variant="primary" size="lg">Apply Now</Button>
+          <Button href={APPLICATION_FORM_URL} variant="primary" size="lg">Apply Now</Button>
           <Button to="/contact" variant="white" size="lg">Request Information</Button>
           <Button to="/admissions" variant="outline" size="lg" className="dept-admissions-cta__outline">
             Contact Admissions

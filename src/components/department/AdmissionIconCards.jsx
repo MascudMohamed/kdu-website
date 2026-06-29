@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import Button from '../common/Button';
+import { APPLICATION_FORM_URL } from '../../constants/links';
 import '../../styles/components/AdmissionIconCards.css';
 
 const ICONS = {
@@ -66,7 +67,7 @@ export default function AdmissionIconCards({ requirements }) {
           ))}
         </div>
         <div className="admission-icons__cta">
-          <Button to="/admissions" variant="primary" size="lg">Apply Now</Button>
+          <Button href={APPLICATION_FORM_URL} variant="primary" size="lg">Apply Now</Button>
         </div>
       </div>
     </section>

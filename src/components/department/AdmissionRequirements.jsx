@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import Button from '../common/Button';
+import { APPLICATION_FORM_URL } from '../../constants/links';
 import '../../styles/components/AdmissionRequirements.css';
 
 export default function AdmissionRequirements({ requirements }) {
@@ -72,7 +73,7 @@ export default function AdmissionRequirements({ requirements }) {
         </div>
 
         <div className="admission-req__cta">
-          <Button to="/admissions" variant="primary" size="lg">
+          <Button href={APPLICATION_FORM_URL} variant="primary" size="lg">
             Start Your Application
           </Button>
         </div>

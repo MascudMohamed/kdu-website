@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BRAND } from '../../constants/brand';
+import { APPLICATION_FORM_URL } from '../../constants/links';
 import Logo from '../common/Logo';
 import { UNDERGRADUATE_PROGRAMS } from '../../data/academics/programs';
 import '../../styles/components/Footer.css';
@@ -20,7 +21,7 @@ const FOOTER_COLUMNS = {
     { label: 'How to Apply', path: '/admissions' },
     { label: 'Requirements', path: '/admissions' },
     { label: 'Tuition & Scholarships', path: '/admissions' },
-    { label: 'Open Application', path: '/admissions' },
+    { label: 'Open Application', href: APPLICATION_FORM_URL },
   ],
   'Quick Links': [
     { label: 'Library', path: '#' },
@@ -67,7 +68,13 @@ export default function Footer() {
               <ul>
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.path}>{link.label}</Link>
+                    {link.href ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer">
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link to={link.path}>{link.label}</Link>
+                    )}
                   </li>
                 ))}
               </ul>
