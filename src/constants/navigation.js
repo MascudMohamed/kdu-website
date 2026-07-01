@@ -26,36 +26,105 @@ export const ACADEMICS_MEGA_MENU = {
     },
   ],
 };
-
 export const PRIMARY_NAV_LINKS = [
-  { label: "HOME", path: "/", megaMenu: false },
-  { label: "EDUCATION", path: "/academics", megaMenu: "academics" },
-  { label: "RESEARCH", path: "/research", megaMenu: "research" },
-  { label: "Admissions", path: "/admissions", megaMenu: false },
-  { label: "ENGAGEMENT", path: "/engagement", megaMenu: false },
-  { label: "ABOUT US", path: "/about", megaMenu: false },
-  { label: "News & Events", path: "/news-events", megaMenu: false },
+  {
+    label: "HOME",
+    path: "/",
+    megaMenu: false,
+  },
+
+  {
+    label: "EDUCATION",
+    path: "/academics",
+    megaMenu: "academics",
+  },
+
+  {
+    label: "RESEARCH",
+    path: "/research",
+    megaMenu: false,
+  },
+
+  {
+    label: "ADMISSIONS",
+    path: "/admissions",
+    megaMenu: false,
+  },
+
+  {
+    label: "ENGAGEMENT",
+    path: "/engagement",
+    megaMenu: false,
+  },
+
+  {
+    label: "ABOUT US",
+    path: "/about",
+    megaMenu: false,
+  },
+
+  {
+    label: "NEWS & EVENTS",
+    path: "/news-events",
+    megaMenu: false,
+  },
 ];
 
 export const NAV_LINKS = [
-  { label: "Home", path: "/" },
-  { label: "ABOUT US", path: "/about" },
-  { label: "Academics", path: "/academics" },
-  { label: "Admissions", path: "/admissions" },
+  {
+    label: "Home",
+    path: "/",
+  },
 
-  // NEW
-  { label: "International Office", path: "/international-office" },
+  {
+    label: "About Us",
+    path: "/about",
+  },
 
-  { label: "International Students", path: "/international-students" },
-  { label: "News & Events", path: "/news-events" },
-  { label: "Contact", path: "/contact" },
+  {
+    label: "Academics",
+    path: "/academics",
+  },
+
+  {
+    label: "Research",
+    path: "/research",
+  },
+
+  {
+    label: "Admissions",
+    path: "/admissions",
+  },
+
+  {
+    label: "International Office",
+    path: "/international-office",
+  },
+
+  {
+    label: "International Students",
+    path: "/international-students",
+  },
+
+  {
+    label: "News & Events",
+    path: "/news-events",
+  },
+
+  {
+    label: "Contact",
+    path: "/contact",
+  },
 
   ...UNDERGRADUATE_PROGRAMS.map((p) => ({
     label: p.title,
     path: p.path,
   })),
 
-  { label: "Graduate Programs", path: "/academics/graduate" },
+  {
+    label: "Graduate Programs",
+    path: "/academics/graduate",
+  },
 ];
 
 export const FACULTY_FILTERS = [

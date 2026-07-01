@@ -14,6 +14,7 @@ import InternationalOffice from "../pages/InternationalOffice";
 import InternationalStudents from "../pages/InternationalStudents";
 import NewsEvents from "../pages/NewsEvents";
 import Contact from "../pages/Contact";
+import Research from "../pages/Research";
 
 import FacultyProfileRedirect from "../pages/FacultyProfileRedirect";
 import LegacyDepartmentRedirect from "../pages/LegacyDepartmentRedirect";
@@ -84,6 +85,11 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+
+      {
+        path: "research",
+        element: <Research />,
       },
 
       // ===========================
