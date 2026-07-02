@@ -1,0 +1,462 @@
+/* ===================================================
+   RESEARCH PAGE
+=================================================== */
+
+.research-page{
+
+    max-width:1200px;
+    margin:auto;
+    padding:4rem 1.5rem;
+
+}
+
+/* ===================================================
+   HERO
+=================================================== */
+
+.research-hero{
+
+    min-height:55vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #003875,
+            #0055a4
+        );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+.research-hero__content{
+
+    max-width:850px;
+
+}
+
+.research-hero__label{
+
+    text-transform:uppercase;
+
+    letter-spacing:.15rem;
+
+    font-size:.85rem;
+
+    opacity:.8;
+
+}
+
+.research-hero h1{
+
+    font-size:3.5rem;
+
+    margin:1rem 0;
+
+    color:white;
+
+}
+
+.research-hero p{
+
+    font-size:1.15rem;
+
+    line-height:1.8;
+
+    margin-bottom:2rem;
+
+}
+
+.research-btn{
+
+    display:inline-block;
+
+    padding:1rem 2rem;
+
+    background:white;
+
+    color:#003875;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.research-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* ===================================================
+   SUB NAVIGATION
+=================================================== */
+
+.research-subnav{
+
+    position:sticky;
+
+    top:80px;
+
+    z-index:100;
+
+    background:white;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.research-subnav__container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:2rem;
+
+    padding:1rem;
+
+}
+
+.research-subnav__link{
+
+    color:#003875;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.research-subnav__link:hover{
+
+    color:#e63946;
+
+}
+
+.research-subnav__link.active{
+
+    color:#003875;
+
+    border-bottom:3px solid #003875;
+
+}
+
+/* ===================================================
+   SECTIONS
+=================================================== */
+
+.research-section{
+
+    padding:5rem 0;
+
+}
+
+.research-section__header{
+
+    max-width:760px;
+
+    margin:0 auto 3rem;
+
+    text-align:center;
+
+}
+
+.research-section__eyebrow{
+
+    display:inline-block;
+
+    text-transform:uppercase;
+
+    letter-spacing:.15rem;
+
+    color:#0055a4;
+
+    font-weight:700;
+
+    margin-bottom:1rem;
+
+    font-size:.85rem;
+
+}
+
+.research-section h2{
+
+    font-size:2.5rem;
+
+    color:#003875;
+
+    margin-bottom:1rem;
+
+}
+
+.research-section__header p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+
+}
+
+/* ===================================================
+   GRID
+=================================================== */
+
+.research-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px,1fr)
+        );
+
+    gap:2rem;
+
+}
+
+/* ===================================================
+   CARDS
+=================================================== */
+
+.research-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:2rem;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.research-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0,0,0,.12);
+
+}
+
+.research-icon{
+
+    font-size:2.6rem;
+
+    margin-bottom:1rem;
+
+}
+
+.research-card h3{
+
+    color:#003875;
+
+    margin-bottom:1rem;
+
+    font-size:1.35rem;
+
+}
+
+.research-card p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    flex:1;
+
+}
+
+/* ===================================================
+   BADGES
+=================================================== */
+
+.research-badge{
+
+    display:inline-block;
+
+    width:max-content;
+
+    background:#eef4ff;
+
+    color:#003875;
+
+    padding:.45rem .85rem;
+
+    border-radius:999px;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    margin-bottom:1rem;
+
+}
+
+.research-date{
+
+    display:inline-block;
+
+    color:#003875;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    margin-bottom:1rem;
+
+}
+
+/* ===================================================
+   BUTTON
+=================================================== */
+
+.research-outline-btn{
+
+    margin-top:1.5rem;
+
+    background:transparent;
+
+    border:2px solid #003875;
+
+    color:#003875;
+
+    border-radius:999px;
+
+    padding:.8rem 1.4rem;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.research-outline-btn:hover{
+
+    background:#003875;
+
+    color:white;
+
+}
+
+/* ===================================================
+   ALTERNATING BACKGROUND
+=================================================== */
+
+.research-section:nth-child(even){
+
+    background:#fafbfd;
+
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+@media(max-width:992px){
+
+.research-hero h1{
+
+font-size:2.7rem;
+
+}
+
+.research-section h2{
+
+font-size:2rem;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.research-subnav__container{
+
+flex-wrap:wrap;
+
+gap:1rem;
+
+}
+
+.research-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.research-hero{
+
+min-height:45vh;
+
+padding:2rem;
+
+}
+
+.research-hero h1{
+
+font-size:2.2rem;
+
+}
+
+.research-section{
+
+padding:4rem 0;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.research-btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.research-card{
+
+padding:1.5rem;
+
+}
+
+.research-section h2{
+
+font-size:1.8rem;
+
+}
+
+}

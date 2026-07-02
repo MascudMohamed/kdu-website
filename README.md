@@ -6,11 +6,11 @@ React + Vite public website for Kyungdong University Global.
 
 The API is **not** in this repository. It runs as its own app:
 
-| Item | Location |
-|------|----------|
-| GitHub | https://github.com/SMZuqlarnain/kdu-backend |
-| Local (XAMPP) | `C:\xampp\htdocs\kdu-backend` |
-| API URL | http://localhost/kdu-backend/public |
+| Item          | Location                                    |
+| ------------- | ------------------------------------------- |
+| GitHub        | https://github.com/SMZuqlarnain/kdu-backend |
+| Local (XAMPP) | `C:\xampp\htdocs\kdu-backend`               |
+| API URL       | http://localhost/kdu-backend/public         |
 
 ## Quick start
 
@@ -49,3 +49,5 @@ Leave empty in dev (uses Vite proxy). Set your production API URL when deploying
 - English for Academic Purposes (EAP)
 
 Other departments use static data in `src/data/departments/`.
+
+Complete web application for KDU Global University with backend API and frontend React application.
