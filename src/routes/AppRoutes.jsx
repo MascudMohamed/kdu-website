@@ -22,6 +22,10 @@ export default function AppRoutes() {
         <Route path="international-students" element={<InternationalStudents />} />
         <Route path="news-events" element={<NewsEvents />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="/research" element={<ResearchLayout />}>
+        <Route index element={<ResearchHub />} />
+        <Route path=":page" element={<ResearchSpoke />} />
+        </Route>
         
         {/* 2. SWAP OUT <Home /> FOR YOUR <NotFound /> COMPONENT */}
         <Route path="*" element={<NotFound />} />

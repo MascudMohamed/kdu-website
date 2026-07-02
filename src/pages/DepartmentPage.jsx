@@ -17,6 +17,7 @@ export default function DepartmentPage({ department }) {
       <DeptWhyProgram
         items={department.whyChoose}
         philosophy={department.overview?.philosophy}
+        events={department.events}
       />
       <DeptCareerOutcomes
         outcomes={department.careerOutcomes}

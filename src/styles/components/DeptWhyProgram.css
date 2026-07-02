@@ -47,3 +47,41 @@
     font-size: 3rem;
   }
 }
+/* ===========================================
+   Two-column layout
+=========================================== */
+
+.dept-why__layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.6fr) 430px;
+  gap:3rem;
+  align-items:start;
+}
+
+.dept-why__list{
+  display:grid;
+  gap:0;
+  border-top:1px solid var(--color-border);
+}
+
+/* Make the slider stay visible while scrolling */
+
+.dept-events-slider{
+  position:sticky;
+  top:120px;
+}
+
+/* Responsive */
+
+@media (max-width:1100px){
+
+  .dept-why__layout{
+    grid-template-columns:1fr;
+  }
+
+  .dept-events-slider{
+    position:static;
+    margin-top:3rem;
+  }
+
+}

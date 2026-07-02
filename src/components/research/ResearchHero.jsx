@@ -1,38 +1,45 @@
-import { motion } from "framer-motion";
-import { RESEARCH_HERO } from "../../data/research";
+import { Link } from "react-router-dom";
 
-export default function ResearchHero() {
+const ResearchHero = ({ hero }) => {
   return (
     <section className="research-hero">
+      <div
+        className="research-hero__bg"
+        style={{
+          backgroundImage: `
+            linear-gradient(135deg,rgba(0,114,188,.90),rgba(11,45,91,.88)),
+            url(${hero.image})
+          `,
+        }}
+      />
 
-      <motion.div
-        className="research-hero__content"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: .7 }}
-      >
+      <div className="container">
+        <div className="research-hero__content">
 
-        <span className="research-hero__label">
-          Kyungdong University
-        </span>
+          <span className="research-hero__eyebrow">
+            {hero.eyebrow}
+          </span>
 
-        <h1>
-          {RESEARCH_HERO.title}
-        </h1>
+          <h1>{hero.title}</h1>
 
-        <p>
-          {RESEARCH_HERO.subtitle}
-        </p>
+          <p>{hero.description}</p>
 
-        <a
-          href={RESEARCH_HERO.buttonLink}
-          className="research-btn"
-        >
-          {RESEARCH_HERO.buttonText}
-        </a>
+          <div className="research-hero__actions">
 
-      </motion.div>
+            <a href={hero.primaryPath} className="btn btn--primary">
+              {hero.primaryLabel}
+            </a>
 
+            <a href={hero.secondaryPath} className="btn btn--outline-light">
+              {hero.secondaryLabel}
+            </a>
+
+          </div>
+
+        </div>
+      </div>
     </section>
   );
-}
+};
+
+export default ResearchHero;

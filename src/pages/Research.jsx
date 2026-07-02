@@ -6,13 +6,14 @@ import ResearchCenters from "../components/research/ResearchCenters";
 import PublicationsSection from "../components/research/PublicationsSection";
 import InnovationSection from "../components/research/InnovationSection";
 import ResearchNews from "../components/research/ResearchNews";
+import ResearchHub from "./research/ResearchHub";
+
 
 import "../styles/pages/Research.css";
 
 export default function Research() {
   return (
     <>
-
       <ResearchHero />
 
       <ResearchSubNav />
@@ -30,7 +31,7 @@ export default function Research() {
         <ResearchNews />
 
       </main>
-
     </>
   );
 }
+export default ResearchHub;

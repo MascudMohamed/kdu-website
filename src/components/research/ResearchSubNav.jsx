@@ -1,70 +1,74 @@
-import { useEffect, useState } from "react";
-import { RESEARCH_NAV } from "../../data/research";
+import { Link, useLocation } from "react-router-dom";
+import { navigation } from "../../data/research";
+import "../../styles/components/ResearchSubNav.css";
+
+const RESEARCH_BASE = "/research";
+
+function isActive(location, id) {
+  if (!id) {
+    return (
+      location.pathname === RESEARCH_BASE ||
+      location.pathname === `${RESEARCH_BASE}/`
+    );
+  }
+
+  return location.pathname === `${RESEARCH_BASE}/${id}`;
+}
 
 export default function ResearchSubNav() {
-
-  const [active, setActive] = useState("areas");
-
-  useEffect(() => {
-
-    const sections = document.querySelectorAll("section[id]");
-
-    const observer = new IntersectionObserver(
-
-      (entries) => {
-
-        entries.forEach((entry) => {
-
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-
-        });
-
-      },
-
-      {
-        threshold: 0.35,
-      }
-
-    );
-
-    sections.forEach(section => observer.observe(section));
-
-    return () => observer.disconnect();
-
-  }, []);
+  const location = useLocation();
 
   return (
+    <nav
+      className="research-subnav"
+      aria-label="Research navigation"
+    >
+      <div className="container research-subnav__inner">
 
-    <nav className="research-subnav">
+        <Link
+          to={RESEARCH_BASE}
+          className="research-subnav__brand"
+        >
+          Research
+        </Link>
 
-      <div className="research-subnav__container">
+        <ul className="research-subnav__list">
 
-        {
+          {navigation.map((item) => {
 
-          RESEARCH_NAV.map(item => (
+            const active = isActive(location, item.id);
 
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`research-subnav__link ${
-                active === item.id ? "active" : ""
-              }`}
-            >
+            return (
 
-              {item.label}
+              <li
+                key={item.id}
+                className="research-subnav__item"
+              >
 
-            </a>
+                <Link
+                  to={
+                    item.id
+                      ? `${RESEARCH_BASE}/${item.id}`
+                      : RESEARCH_BASE
+                  }
+                  className={`research-subnav__link ${
+                    active
+                      ? "research-subnav__link--active"
+                      : ""
+                  }`}
+                >
+                  {item.label}
+                </Link>
 
-          ))
+              </li>
 
-        }
+            );
+
+          })}
+
+        </ul>
 
       </div>
-
     </nav>
-
   );
-
 }
