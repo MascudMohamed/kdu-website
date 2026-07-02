@@ -42,6 +42,7 @@ export const NAV_LINKS = [
   { label: "ABOUT US", path: "/about" },
   { label: "Academics", path: "/academics" },
   { label: "Admissions", path: "/admissions" },
+  { label: "Engagement", path: "/engagement" },
 
   // NEW
   { label: "International Office", path: "/international-office" },

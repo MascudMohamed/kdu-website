@@ -23,6 +23,14 @@ const FOOTER_COLUMNS = {
     { label: 'Tuition & Scholarships', path: '/admissions' },
     { label: 'Open Application', href: APPLICATION_FORM_URL },
   ],
+  Engagement: [
+    { label: 'Overview', path: '/engagement' },
+    { label: 'Community Engagement', path: '/engagement/community-engagement' },
+    { label: 'Industry Partnerships', path: '/engagement/industry-partnerships' },
+    { label: 'Alumni Relations', path: '/engagement/alumni-relations' },
+    { label: 'Public Events', path: '/engagement/public-events' },
+    { label: 'Global Collaboration', path: '/engagement/global-collaboration' },
+  ],
   'Quick Links': [
     { label: 'Library', path: '#' },
     { label: 'Academic Calendar', path: '#' },

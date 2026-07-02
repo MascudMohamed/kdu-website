@@ -26,7 +26,7 @@ export default function DepartmentPage({ department }) {
         highlights={department.curriculumHighlights}
         curriculum={department.curriculum}
       />
-      <DeptFacultyList faculty={department.faculty} />
+      <DeptFacultyList faculty={department.faculty} departmentSlug={department.slug} />
       <DeptResearch areas={department.researchAreas} />
       <DeptSuccessStories stories={department.testimonials} />
       <DeptNewsEditorial news={department.news} events={department.events} />

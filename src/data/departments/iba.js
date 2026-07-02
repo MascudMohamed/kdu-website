@@ -11,12 +11,14 @@ export default {
   slug: 'international-business-administration',
   title: 'International Business Administration',
   shortTitle: 'IBA',
+  duration: '4 Years',
+  language: 'English (100%)',
   description:
-    'Develop global business acumen and leadership skills through a comprehensive program designed for the interconnected world economy.',
+    'Nurturing globally competent business professionals and entrepreneurs. A four-year, English-medium program preparing leaders for enterprises from small businesses to multinational organizations.',
   bannerImage: IMG.business,
   cardImage: IMG.business,
   cardDescription:
-    'Build a global career in business with a curriculum spanning international trade, finance, marketing, and strategic management.',
+    'Integrated specializations in management, accounting and finance, marketing, information systems, and globalization—shaping the frontiers of global entrepreneurship and international business operations.',
 
   breadcrumbs: [
     { label: 'Home', path: '/' },
@@ -30,40 +32,80 @@ export default {
     position: 'Director, International Business Administration',
     photo: IMG.portrait,
     message: [
-      'Welcome to the International Business Administration program at KDU Global. In today\'s interconnected world, business leaders must navigate diverse cultures, complex markets, and rapid change with confidence and strategic vision.',
-      'Our program combines rigorous academic theory with practical case studies drawn from real international business scenarios. Students engage with multinational corporations, participate in global business simulations, and develop the cross-cultural competencies essential for success.',
-      'Whether your ambition is to lead a multinational enterprise, launch your own venture, or drive innovation in international trade, KDU Global provides the foundation and network to achieve your goals.',
+      'Our undergraduate degree in International Business Administration is designed to nurture entrepreneurs and professionals ready to lead small to multinational enterprises, drive communities for change, and become global business citizens.',
+      'Whether you have a passion for marketing and human resource management, or you want to build a professional career in accounting and finance integrated with information systems, the IBA program offers harmonized specializations embedding practical knowledge and skills.',
+      'We uphold commitment and dedication to your ultimate success—preparing graduates to turn business challenges into opportunities and embrace cultural and institutional diversity.',
     ],
     mission:
-      'To develop ethical, innovative, and culturally intelligent business leaders who drive sustainable growth in the global marketplace.',
+      'To nurture globally competent business professionals and entrepreneurs who lead enterprises, drive community change, and practice responsible global business citizenship.',
     objectives: [
-      'Provide comprehensive education in international business theory and practice',
-      'Develop cross-cultural communication and negotiation skills',
-      'Foster entrepreneurial thinking and innovation',
-      'Build connections with global business networks and industry partners',
+      'Nurture globally competent business professionals and entrepreneurs',
+      'Prepare students to lead enterprises from small businesses to multinational organizations',
+      'Develop professionals who can drive community change and practice global business citizenship',
+      'Deliver harmonized specializations that combine theory with practical business skills',
     ],
   },
 
   overview: {
     philosophy:
-      'We believe business education must be experiential and globally oriented. Our students learn through case studies from multinational corporations, international exchange programs, and consulting projects with real businesses.',
+      'The IBA program combines practical knowledge and skills across management, finance, marketing, analytics, and globalization. Students develop the competencies needed to lead in domestic and international business contexts and to address entrepreneurship professionally across diverse cultures and institutions.',
     outcomes: [
-      'Analyze global market trends and develop international business strategies',
-      'Apply financial management principles in multicultural business contexts',
-      'Lead diverse teams and manage cross-cultural business relationships',
-      'Evaluate international trade policies and their business implications',
-      'Develop and implement marketing strategies for global markets',
-      'Demonstrate ethical leadership in international business operations',
+      'Lead and manage business operations in domestic and international contexts',
+      'Apply entrepreneurial thinking to business challenges',
+      'Work across culturally and institutionally diverse environments',
+      'Perform effectively in finance, marketing, management, analytics, and technology-related business roles',
+      'Turn business challenges into opportunities immediately after graduation',
+      'Contribute to strategic business units across accounting, marketing, logistics, HR, and public services',
     ],
     pathways: [
-      'International Trade & Commerce',
-      'Global Marketing & Brand Management',
-      'Financial Management & Investment',
-      'Entrepreneurship & Innovation',
-      'Supply Chain & Operations Management',
-      'Graduate Business Studies (MBA)',
+      'Management and Entrepreneurship',
+      'Accounting and Finance',
+      'Marketing',
+      'Information Systems and Data Analytics',
+      'Globalization and Creative Convergence',
+      'Liberal Arts Education',
     ],
   },
+
+  curriculumHighlights: [
+    {
+      year: 1,
+      title: 'Management and Entrepreneurship',
+      summary: 'Vocational and Short Courses, Principles of Business, Human Resource Management, Organizational Behavior, Creativity and Innovation Management, Entrepreneurship, Business Negotiation and Conflict Management, Operations Management, Corporate Social Responsibility, and Project Management.',
+    },
+    {
+      year: 2,
+      title: 'Accounting and Finance',
+      summary: 'Business Mathematics, Principles of Accounting, Principles of Finance, Microeconomics, Macroeconomics, Financial Management, Financial Accounting, and Managerial Accounting.',
+    },
+    {
+      year: 3,
+      title: 'Marketing',
+      summary: 'Principles of Marketing, Consumer Behavior, Brand Management, International Marketing, Services Marketing, and Digital Marketing.',
+    },
+    {
+      year: 4,
+      title: 'Information Systems and Data Analytics',
+      summary: 'Computer Applications, Statistics, Business Information Management, Coding for Business, Decision Support Systems, and Applied Quantitative Methods.',
+    },
+    {
+      year: 5,
+      title: 'Globalization and Creative Convergence',
+      summary: 'Global Leadership, Business Communication, International Trade and Investment, International Business Law, Global Strategic Management, Global Supply Chain Management, and Creative Convergence Project.',
+    },
+    {
+      year: 6,
+      title: 'Liberal Arts Education',
+      summary: 'Personality Development and Social Skills, Multicultural Studies, Understanding Korean Culture, English Correspondence, Communication in Korean, Oral Communication, Research Methodology, Workplace Culture and Ethics, Career Training and Workshops, and Seminars on Startup Business Practices.',
+    },
+  ],
+
+  whyChoose: [
+    { title: 'Fully English-medium instruction', description: 'The entire program is delivered in English for global business readiness.' },
+    { title: 'Integrated specializations', description: 'Management, finance, marketing, analytics, and globalization within one harmonized degree.' },
+    { title: 'Entrepreneurship and international operations', description: 'Practical focus on global entrepreneurship and international business operations.' },
+    { title: 'Commitment to student success', description: 'Direct pathways to employment across a wide range of business functions after graduation.' },
+  ],
 
   admissions: {
     eligibility: [
@@ -270,24 +312,34 @@ export default {
 
   researchAreas: [
     {
-      title: 'Global Strategy',
-      description: 'Examining how multinational corporations formulate and implement strategies across diverse international markets.',
-      faculty: ['Prof. Dr. Robert Williams'],
+      title: 'Management and Entrepreneurship',
+      description: 'Human resource management, organizational behavior, innovation, entrepreneurship, operations, corporate social responsibility, and project management.',
+      faculty: ['Prof. Dr. Robert Williams', 'Ms. Jennifer Liu'],
     },
     {
-      title: 'International Trade',
-      description: 'Analyzing trade policies, agreements, and their impact on global business operations and economic development.',
+      title: 'Accounting and Finance',
+      description: 'Financial and managerial accounting, microeconomics, macroeconomics, financial management, and business mathematics.',
       faculty: ['Dr. Carlos Mendez'],
     },
     {
-      title: 'Cross-Cultural Management',
-      description: 'Understanding how cultural differences influence business practices, negotiations, and organizational behavior.',
-      faculty: ['Prof. Dr. Robert Williams', 'Dr. Lisa Tanaka'],
+      title: 'Marketing',
+      description: 'Consumer behavior, brand management, international marketing, services marketing, and digital marketing.',
+      faculty: ['Dr. Lisa Tanaka'],
     },
     {
-      title: 'Digital Business Transformation',
-      description: 'Exploring how digital technologies are reshaping international business models and competitive landscapes.',
-      faculty: ['Dr. Lisa Tanaka', 'Ms. Jennifer Liu'],
+      title: 'Information Systems and Data Analytics',
+      description: 'Business information management, coding for business, decision support systems, and applied quantitative methods.',
+      faculty: ['Dr. Lisa Tanaka'],
+    },
+    {
+      title: 'Globalization and Creative Convergence',
+      description: 'International trade and investment, global strategic management, supply chain management, and creative convergence projects.',
+      faculty: ['Prof. Dr. Robert Williams', 'Dr. Carlos Mendez'],
+    },
+    {
+      title: 'Liberal Arts Education',
+      description: 'Multicultural studies, Korean culture and communication, research methodology, workplace ethics, and career development.',
+      faculty: ['Dr. Lisa Tanaka'],
     },
   ],
 
@@ -366,11 +418,16 @@ export default {
   ],
 
   careers: [
-    { title: 'Business Analyst', description: 'Analyze business processes and recommend data-driven improvements for organizational growth.', icon: '📈' },
-    { title: 'Marketing Manager', description: 'Develop and execute marketing strategies for products and services in global markets.', icon: '📣' },
-    { title: 'International Trade Specialist', description: 'Manage import/export operations and navigate international trade regulations.', icon: '🌍' },
-    { title: 'Financial Analyst', description: 'Evaluate financial data and market trends to guide investment and business decisions.', icon: '💰' },
-    { title: 'Management Consultant', description: 'Advise organizations on strategy, operations, and organizational improvement.', icon: '🎯' },
+    { title: 'Accounting and Finance', description: 'Perform financial analysis, reporting, and management in strategic business units.', icon: '💰' },
+    { title: 'Data Analytics', description: 'Apply quantitative methods and information systems to support business decisions.', icon: '📊' },
+    { title: 'Marketing', description: 'Develop and execute marketing strategies across domestic and international markets.', icon: '📣' },
+    { title: 'Distribution and Logistics', description: 'Manage supply chains, distribution networks, and global logistics operations.', icon: '🚚' },
+    { title: 'Retail Management and Sales', description: 'Lead retail operations and sales teams in competitive consumer markets.', icon: '🛒' },
+    { title: 'Investment and Risk Management', description: 'Evaluate investments and manage financial risk for organizations.', icon: '📈' },
+    { title: 'Personnel Management and Public Relations', description: 'Lead human resources, employee development, and organizational communications.', icon: '👥' },
+    { title: 'Business Communications and Law', description: 'Navigate business law, negotiations, and professional communications.', icon: '⚖️' },
+    { title: 'Information Technologies', description: 'Apply technology solutions within business and enterprise environments.', icon: '💻' },
+    { title: 'Public Services', description: 'Contribute to public-sector and community-oriented business and administration roles.', icon: '🏛️' },
   ],
 
   contact: {

@@ -1,11 +1,13 @@
-import { Link, Outlet, useParams, Navigate } from 'react-router-dom';
+import { Outlet, useParams, Navigate } from 'react-router-dom';
 import { getDepartmentBySlug, LEGACY_SLUG_REDIRECTS } from '../data/departments';
 import DepartmentSubNav from '../components/department/DepartmentSubNav';
+import { useDepartmentLiveData } from '../hooks/useDepartmentLiveData';
 import '../styles/layouts/DepartmentLayout.css';
 
 export default function DepartmentLayout() {
   const { slug } = useParams();
-  const department = getDepartmentBySlug(slug);
+  const staticDepartment = getDepartmentBySlug(slug);
+  const { department } = useDepartmentLiveData(staticDepartment);
 
   if (!department && LEGACY_SLUG_REDIRECTS[slug]) {
     return <Navigate to={`/academics/undergraduate/${LEGACY_SLUG_REDIRECTS[slug]}`} replace />;

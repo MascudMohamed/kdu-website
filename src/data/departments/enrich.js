@@ -1,9 +1,9 @@
 const WHY_CHOOSE = {
   'smart-computing': [
-    { title: 'Industry-aligned computing education', description: 'A curriculum shaped with technology leaders to reflect how modern software, data, and security teams operate globally.' },
-    { title: 'Research-led teaching', description: 'Students learn from faculty actively publishing in artificial intelligence, cybersecurity, and distributed systems.' },
-    { title: 'Global graduate outcomes', description: 'Graduates pursue roles in software engineering, data science, cloud architecture, and technology consulting worldwide.' },
-    { title: 'Professional practice from year one', description: 'Project studios, hackathons, and internship pathways build portfolio-ready experience before graduation.' },
+    { title: 'Fully English-medium instruction', description: 'The entire program is delivered in English, preparing graduates for global technology careers.' },
+    { title: 'Five integrated specializations', description: 'Data science, AI and robotics, cybersecurity, IoT, games and VR, and software development within one degree.' },
+    { title: 'Hands-on learning', description: 'Broad theoretical knowledge combined with practical experience across emerging digital technologies.' },
+    { title: 'Employment and further study', description: 'Pathways to industry roles across the digital economy and to postgraduate study in computing and engineering.' },
   ],
   'artificial-intelligence': [ // 👈 1. Add this new key matching your RAW data object key
     { icon: '🧠', title: 'Neural Architectures', description: 'Ground-up training in deep neural network design and matrix layer processing.' },
@@ -13,10 +13,10 @@ const WHY_CHOOSE = {
     { icon: '💬', title: 'LLM & NLP Engineering', description: 'Master tokenization matrices, context scaling, and conversational transformer mechanics.' },
   ],
   'international-business-administration': [
-    { title: 'Global business perspective', description: 'Case-based learning grounded in international trade, finance, and cross-border management across diverse markets.' },
-    { title: 'Leadership for multicultural teams', description: 'Develop negotiation, communication, and strategic decision-making skills for international organizations.' },
-    { title: 'Industry-connected learning', description: 'Live consulting projects and executive mentorship connect classroom theory to real corporate challenges.' },
-    { title: 'Pathways to global careers', description: 'Graduates enter consulting, finance, marketing, entrepreneurship, and trade roles with multinational employers.' },
+    { title: 'Fully English-medium instruction', description: 'The entire program is delivered in English for global business readiness.' },
+    { title: 'Integrated specializations', description: 'Management, finance, marketing, analytics, and globalization within one harmonized degree.' },
+    { title: 'Entrepreneurship and international operations', description: 'Practical focus on global entrepreneurship and international business operations.' },
+    { title: 'Commitment to student success', description: 'Direct pathways to employment across a wide range of business functions after graduation.' },
   ],
   'international-hotel-management': [
   { icon: '🏨', title: 'Global Operations Mastery', description: 'Operational mastery inside live mock luxury suites and commercial property management terminals.' },
@@ -41,26 +41,26 @@ const WHY_CHOOSE = {
 
 const CAREER_OUTCOMES = {
   'smart-computing': {
-    lead: 'Our graduates are equipped for high-demand technology roles across industries that depend on secure, intelligent, and scalable digital systems.',
+    lead: 'Graduates apply computing knowledge across high-tech, healthcare, education, manufacturing, and entertainment—and are well prepared for further study in specialized computing and engineering fields.',
     stats: [
-      { value: '94%', label: 'Graduate employment within six months' },
-      { value: '85%', label: 'Complete an industry internship' },
-      { value: '30+', label: 'Technology employer partners' },
+      { value: '100%', label: 'English-medium instruction' },
+      { value: '5', label: 'Integrated technology specializations' },
+      { value: '10+', label: 'Career pathways from graduation' },
     ],
-    destinations: ['Software Engineering', 'Data Science', 'Cybersecurity', 'Cloud Architecture', 'AI & Machine Learning', 'Technology Consulting'],
-    internships: 'Students undertake credited internships with technology firms, research labs, and digital innovation teams from year three.',
-    demand: 'Global demand for computing graduates continues to outpace supply, with particularly strong growth in AI, cybersecurity, and cloud infrastructure.',
+    destinations: ['AI Engineering', 'Data Science', 'Cybersecurity', 'IoT Development', 'Software Development', 'Games and VR'],
+    internships: 'Hands-on project work and vocational courses build practical experience across emerging digital technologies throughout the program.',
+    demand: 'Global demand continues to grow for graduates skilled in AI, cybersecurity, IoT, software development, and immersive technologies.',
   },
   'international-business-administration': {
-    lead: 'IBA graduates enter competitive global markets with the analytical tools, cultural intelligence, and professional networks required to lead internationally.',
+    lead: 'IBA graduates are prepared to turn business challenges into opportunities, address entrepreneurship professionally, and perform in strategic business units immediately after graduation.',
     stats: [
-      { value: '91%', label: 'Graduate employment within six months' },
-      { value: '78%', label: 'International internship placement' },
-      { value: '25+', label: 'Corporate and trade partners' },
+      { value: '100%', label: 'English-medium instruction' },
+      { value: '6', label: 'Major curriculum components' },
+      { value: '11+', label: 'Strategic business career areas' },
     ],
-    destinations: ['Management Consulting', 'Global Marketing', 'International Finance', 'Trade & Logistics', 'Entrepreneurship', 'Corporate Strategy'],
-    internships: 'Students complete consulting projects and corporate internships with multinational firms across Asia-Pacific, Europe, and the Americas.',
-    demand: 'Employers seek graduates who combine business acumen with cross-cultural fluency—a core strength of the IBA program.',
+    destinations: ['Accounting and Finance', 'Marketing', 'Data Analytics', 'Logistics', 'HR and PR', 'Public Services'],
+    internships: 'Career training workshops, startup seminars, and vocational courses connect classroom learning to professional business practice.',
+    demand: 'Employers seek graduates who combine business acumen with cross-cultural fluency and practical skills across finance, marketing, and management.',
   },
   'english-for-academic-purposes': {
     lead: 'EAP graduates progress confidently into degree programs and professional environments where advanced English proficiency is essential.',
@@ -104,16 +104,16 @@ const GENERIC_FAQS = [
 
 const CURRICULUM_SUMMARIES = {
   'smart-computing': [
-    { year: 1, title: 'Foundations of Computing', summary: 'Programming, mathematics, and computing fundamentals establish core technical literacy.' },
-    { year: 2, title: 'Systems & Data', summary: 'Databases, networks, and software engineering principles deepen applied technical skill.' },
-    { year: 3, title: 'Specialization', summary: 'Advanced study in AI, cybersecurity, cloud computing, and industry project work.' },
-    { year: 4, title: 'Capstone & Career', summary: 'Research projects, internships, and capstone development prepare graduates for industry.' },
+    { year: 1, title: 'Games and Virtual Reality', summary: 'Programming, graphics, game development, animation, and virtual and augmented reality foundations.' },
+    { year: 2, title: 'Data Science, AI and Robotics', summary: 'Databases, data mining, artificial intelligence, deep learning, robotics, and autonomous systems.' },
+    { year: 3, title: 'Cybersecurity and Privacy', summary: 'Information security, cryptography, digital forensics, blockchain, and ethical hacking.' },
+    { year: 4, title: 'IoT, Software Development, and Liberal Arts', summary: 'Cloud, networking, embedded systems, web and mobile development, plus statistics, Korean culture, and career training.' },
   ],
   'international-business-administration': [
-    { year: 1, title: 'Business Foundations', summary: 'Economics, accounting, and introductory management build analytical business literacy.' },
-    { year: 2, title: 'Functional Core', summary: 'Marketing, finance, and organizational behavior develop professional business competency.' },
-    { year: 3, title: 'International Focus', summary: 'Global strategy, trade, and cross-cultural management anchor the international curriculum.' },
-    { year: 4, title: 'Integration & Practice', summary: 'Capstone consulting, electives, and internship experience consolidate professional readiness.' },
+    { year: 1, title: 'Management and Entrepreneurship', summary: 'Business principles, HR, organizational behavior, innovation, entrepreneurship, and project management.' },
+    { year: 2, title: 'Accounting and Finance', summary: 'Accounting, finance, economics, and financial management foundations.' },
+    { year: 3, title: 'Marketing and Analytics', summary: 'Marketing strategy, consumer behavior, digital marketing, and business information systems.' },
+    { year: 4, title: 'Globalization and Liberal Arts', summary: 'International trade, global strategy, supply chain management, multicultural studies, and career development.' },
   ],
   'english-for-academic-purposes': [
     { year: 1, title: 'Academic Foundations', summary: 'Core academic reading, writing, grammar, and seminar participation skills.' },

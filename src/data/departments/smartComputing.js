@@ -13,12 +13,14 @@ export default {
   slug: 'bachelor-of-smart-computing',
   title: 'Bachelor of Smart Computing',
   shortTitle: 'Smart Computing',
+  duration: '4 Years',
+  language: 'English (100%)',
   description:
-    'A cutting-edge program integrating software engineering, artificial intelligence, and cloud technologies to prepare the next generation of technology innovators.',
+    'Empowering intelligence to nurture today’s and tomorrow’s technologies. A four-year, English-medium program developing in-depth understanding of the emerging technologies driving industrial and social advancement.',
   bannerImage: IMG.computing,
   cardImage: IMG.computing,
   cardDescription:
-    'Master the technologies shaping tomorrow — from AI and data science to cybersecurity and cloud computing.',
+    'Five integrated specializations—Data Science, AI and Robotics; Cybersecurity and Privacy; Internet of Things; Games and Virtual Reality; and Software Development—preparing graduates for the digital era.',
 
   breadcrumbs: [
     { label: 'Home', path: '/' },
@@ -32,40 +34,78 @@ export default {
     position: 'Chair, Department of Smart Computing',
     photo: IMG.portrait,
     message: [
-      'Welcome to the Department of Smart Computing at KDU Global. In an era defined by rapid technological transformation, our program stands at the forefront of innovation, equipping students with the skills and mindset needed to thrive in the global digital economy.',
-      'Our curriculum is designed in close collaboration with industry leaders, ensuring that every graduate emerges not only with theoretical knowledge but with practical, job-ready competencies. From artificial intelligence to cybersecurity, our students engage with real-world challenges from day one.',
-      'I invite you to explore our program and discover how KDU Global can launch your career in one of the most dynamic and rewarding fields of our time.',
+      'The Smart Computing program at KDU Global is designed to nurture students with in-depth understanding of the emerging technologies driving today’s industrial and social advancements.',
+      'The program offers five concurrent and rapidly evolving specializations: Data Science, AI and Robotics; Cybersecurity and Privacy; Internet of Things; Games and Virtual Reality; and Software Development.',
+      'By leveraging comprehensive knowledge and hands-on experience, our graduates secure roles in diverse industries such as high-tech, healthcare, education, manufacturing, and entertainment—contributing significantly to innovation and development in the digital era.',
     ],
     mission:
-      'To cultivate globally competitive computing professionals through innovative education, cutting-edge research, and industry partnerships that address real-world technological challenges.',
+      'To develop computing professionals with deep knowledge of emerging technologies and the practical experience to innovate across industries in the digital era.',
     objectives: [
-      'Deliver industry-aligned curriculum with hands-on project experience',
-      'Foster research excellence in AI, data science, and cybersecurity',
-      'Build strong partnerships with global technology companies',
-      'Prepare graduates for leadership roles in the digital economy',
+      'Build in-depth understanding of emerging computing and digital technologies',
+      'Deliver integrated study across data science, AI, cybersecurity, IoT, games, and software development',
+      'Prepare graduates for professional roles across technology-driven industries',
+      'Support continued academic advancement in specialized computing and engineering fields',
     ],
   },
 
   overview: {
     philosophy:
-      'Our educational philosophy centers on experiential learning, where students build real applications, participate in hackathons, and collaborate on research projects. We believe the best technologists are those who learn by doing, supported by rigorous theoretical foundations.',
+      'Smart Computing combines theoretical foundations with hands-on experience across five rapidly evolving specializations. Students develop the knowledge and skills needed to contribute to innovation in high-tech, healthcare, education, manufacturing, entertainment, and beyond.',
     outcomes: [
-      'Design and develop scalable software systems using modern frameworks',
-      'Apply machine learning and AI techniques to solve complex problems',
-      'Implement secure and resilient cloud-based architectures',
-      'Analyze and interpret large datasets for data-driven decision making',
-      'Communicate technical concepts effectively to diverse stakeholders',
-      'Demonstrate ethical practices in technology development and deployment',
+      'Apply computing knowledge across diverse technology sectors',
+      'Work in high-tech, healthcare, education, manufacturing, and entertainment industries',
+      'Contribute to community and national development in the digital era',
+      'Pursue advanced academic study in specialized fields of computing and engineering',
+      'Secure professional roles as engineers, developers, analysts, and technology specialists upon graduation',
     ],
     pathways: [
-      'Software Engineering & Development',
-      'Artificial Intelligence & Machine Learning',
-      'Data Science & Analytics',
-      'Cybersecurity & Network Security',
-      'Cloud Computing & DevOps',
-      'Graduate Studies & Research',
+      'Data Science, AI and Robotics',
+      'Cybersecurity and Privacy',
+      'Internet of Things (IoT)',
+      'Games and Virtual Reality',
+      'Software Development',
     ],
   },
+
+  curriculumHighlights: [
+    {
+      year: 1,
+      title: 'Games and Virtual Reality',
+      summary: 'Vocational and Short Courses, C++ Programming, Python Programming, Computer Vision, Computer Graphics, Game Programming, Computer Animation and Modeling, and Virtual and Augmented Reality.',
+    },
+    {
+      year: 2,
+      title: 'Data Science, AI and Robotics',
+      summary: 'Introduction to AI and Robotics, Database Management Systems, System Analysis and Design, Data Mining and Analytics, Artificial Intelligence and Deep Learning, Robotics Systems Design, Data Science, and Drones and Autonomous Systems.',
+    },
+    {
+      year: 3,
+      title: 'Cybersecurity and Privacy',
+      summary: 'Engineering Mathematics, Information Security, Cryptography and Cyber Security Operating Systems, Digital Forensics, Blockchain and Cryptocurrency, and Ethical Hacking.',
+    },
+    {
+      year: 4,
+      title: 'Internet of Things (IoT)',
+      summary: 'Discrete Mathematics, Data Communication and Telecommunication Systems, Network Infrastructure and Management, Cloud Computing, Linux Operating Systems and Networking, Internet of Things (IoT), Smart Computing Project, and Seminar on IT Practices.',
+    },
+    {
+      year: 5,
+      title: 'Software Development',
+      summary: 'Computer Architecture and Digital Systems, Data Structures and Algorithms, Java Programming, Embedded Systems, Web Applications Development, Mobile Programming, and Advanced Web Technology.',
+    },
+    {
+      year: 6,
+      title: 'Liberal Arts',
+      summary: 'Statistics, Understanding Korean Culture, Communication in Korean, English Correspondence, Oral Communication, Research Methodology, Problem Solving Concept, and Career Training Workshop.',
+    },
+  ],
+
+  whyChoose: [
+    { title: 'Fully English-medium instruction', description: 'The entire program is delivered in English, preparing graduates for global technology careers.' },
+    { title: 'Five integrated specializations', description: 'Data science, AI and robotics, cybersecurity, IoT, games and VR, and software development within one degree.' },
+    { title: 'Hands-on learning', description: 'Broad theoretical knowledge combined with practical experience across emerging digital technologies.' },
+    { title: 'Employment and further study', description: 'Pathways to industry roles across the digital economy and to postgraduate study in computing and engineering.' },
+  ],
 
   admissions: {
     eligibility: [
@@ -308,39 +348,29 @@ export default {
 
   researchAreas: [
     {
-      title: 'Artificial Intelligence',
-      description: 'Developing intelligent systems that can perceive, learn, reason, and act autonomously in complex environments.',
+      title: 'Data Science, AI and Robotics',
+      description: 'Machine learning, deep learning, robotics systems design, data mining, drones, and autonomous systems.',
       faculty: ['Prof. Dr. James Chen', 'Dr. Ahmed Hassan'],
     },
     {
-      title: 'Data Science',
-      description: 'Extracting actionable insights from large-scale datasets using statistical methods and machine learning techniques.',
-      faculty: ['Dr. Ahmed Hassan', 'Prof. Dr. Maria Santos'],
-    },
-    {
-      title: 'Machine Learning',
-      description: 'Advancing algorithms and models that enable computers to improve performance through experience and data.',
-      faculty: ['Prof. Dr. James Chen'],
-    },
-    {
-      title: 'Cybersecurity',
-      description: 'Protecting digital infrastructure through advanced threat detection, cryptography, and secure system design.',
+      title: 'Cybersecurity and Privacy',
+      description: 'Information security, cryptography, digital forensics, blockchain, cryptocurrency, and ethical hacking.',
       faculty: ['Dr. Sarah Mitchell'],
     },
     {
-      title: 'Software Engineering',
-      description: 'Building reliable, scalable, and maintainable software systems using modern development practices and architectures.',
-      faculty: ['Ms. Emily Park', 'Mr. David Kim'],
-    },
-    {
-      title: 'Cloud Computing',
-      description: 'Designing and deploying distributed systems on cloud platforms for scalability, reliability, and cost efficiency.',
-      faculty: ['Mr. David Kim'],
-    },
-    {
       title: 'Internet of Things',
-      description: 'Connecting physical devices to digital networks to create smart environments and automated systems.',
+      description: 'Network infrastructure, cloud computing, telecommunications, Linux systems, and IoT project development.',
       faculty: ['Prof. Dr. Maria Santos'],
+    },
+    {
+      title: 'Games and Virtual Reality',
+      description: 'Game programming, computer graphics, animation, modeling, computer vision, and virtual and augmented reality.',
+      faculty: ['Ms. Emily Park'],
+    },
+    {
+      title: 'Software Development',
+      description: 'Computer architecture, data structures, algorithms, embedded systems, web applications, and mobile programming.',
+      faculty: ['Ms. Emily Park', 'Mr. David Kim'],
     },
   ],
 
@@ -436,11 +466,16 @@ export default {
   ],
 
   careers: [
-    { title: 'Software Engineer', description: 'Design and build applications across web, mobile, and enterprise platforms.', icon: '💻' },
-    { title: 'AI Engineer', description: 'Develop intelligent systems using machine learning and deep learning technologies.', icon: '🤖' },
-    { title: 'Data Scientist', description: 'Analyze complex datasets to drive business insights and strategic decisions.', icon: '📊' },
-    { title: 'Systems Analyst', description: 'Bridge business needs with technology solutions through analysis and design.', icon: '🔧' },
-    { title: 'Cybersecurity Specialist', description: 'Protect organizations from digital threats and ensure information security.', icon: '🔒' },
+    { title: 'AI Engineer', description: 'Design and deploy intelligent systems using artificial intelligence and machine learning.', icon: '🤖' },
+    { title: 'Robotics Engineer', description: 'Develop and integrate robotic and autonomous systems for industrial and research applications.', icon: '🦾' },
+    { title: 'Data Scientist', description: 'Analyze complex data to support decision-making and innovation across sectors.', icon: '📊' },
+    { title: 'IoT Developer', description: 'Build connected devices and smart systems for networked environments.', icon: '📡' },
+    { title: 'Software Developer', description: 'Create applications across web, mobile, and enterprise platforms.', icon: '💻' },
+    { title: 'Mobile Application Developer', description: 'Design and build software for smartphones and mobile devices.', icon: '📱' },
+    { title: 'Cybersecurity Analyst', description: 'Protect systems and data from digital threats and security vulnerabilities.', icon: '🔒' },
+    { title: 'Information Security Manager', description: 'Lead organizational strategies for information security and risk management.', icon: '🛡️' },
+    { title: 'Game Developer', description: 'Create interactive games and immersive digital entertainment experiences.', icon: '🎮' },
+    { title: 'VR/AR Developer', description: 'Build virtual and augmented reality applications and experiences.', icon: '🥽' },
   ],
 
   contact: {

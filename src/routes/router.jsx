@@ -5,6 +5,8 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import DepartmentLayout from "../layouts/DepartmentLayout";
 
+import EngagementLayout from "../layouts/EngagementLayout";
+
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Admissions from "../pages/Admissions";
@@ -24,6 +26,9 @@ import DepartmentFacultyDirectory from "../pages/department/DepartmentFacultyDir
 import DepartmentFacultyProfile from "../pages/department/DepartmentFacultyProfile";
 import DepartmentProjectsIndex from "../pages/department/DepartmentProjectsIndex";
 import DepartmentProjectDetail from "../pages/department/DepartmentProjectDetail";
+
+import EngagementHub from "../pages/engagement/EngagementHub";
+import EngagementSpoke from "../pages/engagement/EngagementSpoke";
 
 import ErrorPage from "../pages/NotFound/NotFound";
 
@@ -84,6 +89,24 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+
+      // ===========================
+      // ENGAGEMENT
+      // ===========================
+      {
+        path: "engagement",
+        element: <EngagementLayout />,
+        children: [
+          {
+            index: true,
+            element: <EngagementHub />,
+          },
+          {
+            path: ":pageSlug",
+            element: <EngagementSpoke />,
+          },
+        ],
       },
 
       // ===========================

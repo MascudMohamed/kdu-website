@@ -1,0 +1,202 @@
+.engagement-page-shell__header {
+  padding: var(--space-2xl) 0 var(--space-3xl);
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.engagement-page-shell__eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: var(--space-lg) 0 var(--space-md);
+}
+
+.engagement-page-shell__header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  max-width: 22ch;
+  margin-bottom: var(--space-lg);
+}
+
+.engagement-page-shell__lead {
+  font-size: 1.1875rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: 42rem;
+}
+
+.engagement-page-shell__body {
+  padding: var(--dept-section-pad, var(--space-4xl)) 0;
+}
+
+.engagement-page-shell__related {
+  margin-top: var(--space-4xl);
+  padding-top: var(--space-3xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.engagement-page-shell__related h2 {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xl);
+}
+
+.engagement-page-shell__related ul {
+  display: grid;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .engagement-page-shell__related ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.engagement-stats {
+  display: grid;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-4xl);
+  padding: var(--space-2xl);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.engagement-stats__value {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.engagement-stats__label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+.engagement-initiatives {
+  display: grid;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-4xl);
+}
+
+.engagement-initiatives__card {
+  padding: var(--space-xl);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: box-shadow var(--transition-base);
+}
+
+.engagement-initiatives__card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.engagement-initiatives__icon {
+  font-size: 1.75rem;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.engagement-initiatives__card h3 {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-sm);
+}
+
+.engagement-initiatives__card p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.engagement-spotlight {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: center;
+  margin-bottom: var(--space-4xl);
+  padding: var(--space-2xl);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.engagement-spotlight h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.engagement-spotlight p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.engagement-spotlight__visual {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.engagement-spotlight__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.engagement-cta {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-3xl);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: var(--radius-lg);
+  color: var(--color-white);
+}
+
+.engagement-cta h2 {
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.engagement-cta p {
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: var(--space-xl);
+  font-size: 1.0625rem;
+}
+
+@media (min-width: 640px) {
+  .engagement-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .engagement-initiatives {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .engagement-spotlight {
+    grid-template-columns: 1.1fr 1fr;
+    padding: var(--space-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .engagement-initiatives {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

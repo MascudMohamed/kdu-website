@@ -2,12 +2,24 @@ import { Link, Navigate, useOutletContext, useParams } from 'react-router-dom';
 import { getFacultyBySlug } from '../../data/departments';
 import Button from '../../components/common/Button';
 import { deptPath } from '../../data/departments/navigation';
+import { useFacultyProfile } from '../../hooks/useFacultyProfile';
 import '../../styles/pages/FacultyProfile.css';
 
 export default function DepartmentFacultyProfile() {
   const { department } = useOutletContext();
   const { profileSlug } = useParams();
-  const faculty = getFacultyBySlug(profileSlug, department.slug);
+  const staticFaculty = getFacultyBySlug(profileSlug, department.slug);
+  const { faculty, loading } = useFacultyProfile(department.slug, profileSlug, staticFaculty);
+
+  if (loading) {
+    return (
+      <div className="faculty-profile">
+        <div className="container" style={{ padding: '3rem 0' }}>
+          <p>Loading profile…</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!faculty) {
     return <Navigate to={deptPath(department.slug, 'faculty')} replace />;
