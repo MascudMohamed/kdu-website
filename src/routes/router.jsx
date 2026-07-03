@@ -16,7 +16,6 @@ import InternationalOffice from "../pages/InternationalOffice";
 import InternationalStudents from "../pages/InternationalStudents";
 import NewsEvents from "../pages/NewsEvents";
 import Contact from "../pages/Contact";
-import Research from "../pages/Research";
 
 import FacultyProfileRedirect from "../pages/FacultyProfileRedirect";
 import LegacyDepartmentRedirect from "../pages/LegacyDepartmentRedirect";
@@ -31,6 +30,10 @@ import DepartmentProjectDetail from "../pages/department/DepartmentProjectDetail
 import EngagementHub from "../pages/engagement/EngagementHub";
 import EngagementSpoke from "../pages/engagement/EngagementSpoke";
 import EngagementClubDetail from "../components/engagement/EngagementClubDetail";
+
+import ResearchLayout from "../layouts/ResearchLayout";
+import ResearchHub from "../pages/research/ResearchHub";
+import ResearchSpoke from "../pages/research/ResearchSpoke";
 
 import ErrorPage from "../pages/NotFound/NotFound";
 
@@ -92,10 +95,22 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />,
       },
-
+      // ===========================
+      // RESEARCH
+      // ===========================
       {
         path: "research",
-        element: <Research />,
+        element: <ResearchLayout />,
+        children: [
+          {
+            index: true,
+            element: <ResearchHub />,
+          },
+          {
+            path: ":page",
+            element: <ResearchSpoke />,
+          },
+        ],
       },
 
       // ===========================

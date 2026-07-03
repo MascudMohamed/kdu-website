@@ -1,0 +1,13 @@
+.research-layout {
+  .research-layout{
+    padding-top: var(--header-height);
+}
+}
+
+.research-page {
+  min-height: 100vh;
+}
+
+.research-spoke {
+  min-height: 100vh;
+}

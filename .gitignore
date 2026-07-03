@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 node_modules
 dist
 dist-ssr
@@ -7,7 +6,6 @@ dist-ssr
 .env
 .env.*
 !.env.example
-=======
 
 # Dependencies
 node_modules/
@@ -47,4 +45,3 @@ temp/
 # MongoDB data (if using local)
 data/
 mongodb-data/
->>>>>>> e92f13b (Connetected Repos)
