@@ -45,3 +45,5 @@ temp/
 # MongoDB data (if using local)
 data/
 mongodb-data/
+
+kdu_backend/
