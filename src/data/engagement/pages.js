@@ -6,6 +6,7 @@ const IMG = {
   alumni: 'https://images.unsplash.com/photo-1541339907192-e08756dedf3f?w=1200&q=80',
   events: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80',
   global: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80',
+  clubs: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80',
   hub: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1600&q=80',
 };
 
@@ -14,6 +15,7 @@ export const ENGAGEMENT_NAV = [
   { label: 'Industry Partnerships', path: 'industry-partnerships' },
   { label: 'Alumni Relations', path: 'alumni-relations' },
   { label: 'Public Events', path: 'public-events' },
+  { label: 'Student Clubs', path: 'clubs' },
   { label: 'Global Collaboration', path: 'global-collaboration' },
 ];
 
@@ -21,7 +23,7 @@ export const ENGAGEMENT_HUB = {
   eyebrow: 'Kyungdong University Global Campus',
   title: 'Engagement & Impact',
   lead:
-    'KDU Global connects learning with society — through community service, industry partnerships, alumni networks, public events, and international collaboration that extend our mission beyond the classroom.',
+    'KDU Global connects learning with society — through community service, industry partnerships, alumni networks, student clubs, public events, and international collaboration that extend our mission beyond the classroom.',
   image: IMG.hub,
   pillars: [
     {
@@ -35,6 +37,10 @@ export const ENGAGEMENT_HUB = {
     {
       title: 'A global alumni network',
       description: 'Lifelong connections, mentoring, and professional communities across continents.',
+    },
+    {
+      title: 'Vibrant student clubs',
+      description: 'Dozens of student-led societies spanning academics, culture, sport, technology, and service.',
     },
   ],
   cta: {
@@ -418,6 +424,44 @@ export const ENGAGEMENT_PAGES = {
       buttonPath: '/international-office',
     },
     related: related('global-collaboration'),
+  },
+
+  clubs: {
+    slug: 'clubs',
+    type: 'clubs',
+    title: 'Student Clubs',
+    eyebrow: 'Engagement',
+    lead:
+      'From academic societies to cultural collectives and sports teams — KDU Global\'s student clubs build leadership, friendship, and a truly international campus experience. Club listings will soon be managed directly by student leaders through the campus portal.',
+    image: IMG.clubs,
+    stats: [
+      { value: '40+', label: 'Active student clubs' },
+      { value: '1,200+', label: 'Student members' },
+      { value: '6', label: 'Club categories' },
+    ],
+    sections: [
+      {
+        title: 'Student-led campus life',
+        content:
+          'Clubs are the heartbeat of student life at KDU Global. They connect classmates across programmes, nationalities, and interests — creating communities where ideas are shared, skills are practised, and lifelong friendships begin.',
+      },
+      {
+        title: 'Coming soon: Club leader accounts',
+        list: [
+          'Club presidents will register and manage their society online',
+          'Update meeting times, descriptions, and membership information in real time',
+          'Published clubs appear automatically on this directory',
+          'Student Affairs reviews new registrations for quality and safety',
+        ],
+      },
+    ],
+    cta: {
+      title: 'Start a new club',
+      description: 'Have an idea for a society? Contact Student Affairs to learn about registration and support for new student organisations.',
+      buttonLabel: 'Contact Student Affairs',
+      buttonPath: '/contact',
+    },
+    related: related('clubs'),
   },
 };
 

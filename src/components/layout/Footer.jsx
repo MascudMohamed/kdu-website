@@ -29,6 +29,7 @@ const FOOTER_COLUMNS = {
     { label: 'Industry Partnerships', path: '/engagement/industry-partnerships' },
     { label: 'Alumni Relations', path: '/engagement/alumni-relations' },
     { label: 'Public Events', path: '/engagement/public-events' },
+    { label: 'Student Clubs', path: '/engagement/clubs' },
     { label: 'Global Collaboration', path: '/engagement/global-collaboration' },
   ],
   'Quick Links': [

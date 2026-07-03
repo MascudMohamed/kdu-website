@@ -26,8 +26,8 @@ export default function EngagementHub() {
               <Button to="/engagement/community-engagement" variant="primary" size="lg">
                 Community Engagement
               </Button>
-              <Button to="/engagement/public-events" variant="white" size="lg">
-                Public Events
+              <Button to="/engagement/clubs" variant="white" size="lg">
+                Student Clubs
               </Button>
             </div>
           </motion.div>

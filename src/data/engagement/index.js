@@ -1,4 +1,5 @@
 import { ENGAGEMENT_HUB, ENGAGEMENT_PAGES, ENGAGEMENT_NAV } from './pages';
+export { CLUBS, CLUB_CATEGORIES, getClubs, getFeaturedClubs, getClubBySlug } from './clubs';
 
 export { ENGAGEMENT_HUB, ENGAGEMENT_PAGES, ENGAGEMENT_NAV };
 

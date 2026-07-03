@@ -2,6 +2,15 @@
   padding: var(--dept-section-pad) 0;
 }
 
+.dept-why__grid {
+  display: grid;
+  gap: var(--space-3xl);
+}
+
+.dept-why__main {
+  min-width: 0;
+}
+
 .dept-why__list {
   display: grid;
   gap: 0;
@@ -45,5 +54,13 @@
 
   .dept-why__index {
     font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dept-why__grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--space-4xl);
+    align-items: start;
   }
 }

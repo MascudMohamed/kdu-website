@@ -7,7 +7,7 @@ function isActive(location, path) {
     return location.pathname === ENGAGEMENT_BASE || location.pathname === `${ENGAGEMENT_BASE}/`;
   }
   const full = `${ENGAGEMENT_BASE}/${path}`;
-  return location.pathname === full;
+  return location.pathname === full || location.pathname.startsWith(`${full}/`);
 }
 
 export default function EngagementSubNav() {

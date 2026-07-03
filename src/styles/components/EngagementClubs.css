@@ -1,0 +1,367 @@
+.engagement-clubs__notice {
+  padding: var(--space-lg) var(--space-xl);
+  margin-bottom: var(--space-3xl);
+  background: rgba(0, 114, 188, 0.06);
+  border: 1px solid rgba(0, 114, 188, 0.15);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.engagement-clubs__notice strong {
+  color: var(--color-primary);
+}
+
+.engagement-clubs__featured {
+  margin-bottom: var(--space-4xl);
+}
+
+.engagement-clubs__featured h2,
+.engagement-clubs__directory h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-xl);
+}
+
+.engagement-clubs__featured-grid,
+.engagement-clubs__grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.engagement-clubs__directory-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.engagement-clubs__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.engagement-clubs__filter {
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.engagement-clubs__filter:hover {
+  color: var(--color-primary);
+  border-color: rgba(0, 114, 188, 0.35);
+}
+
+.engagement-clubs__filter--active {
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.engagement-clubs__empty {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  padding: var(--space-2xl);
+  text-align: center;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+/* Club card */
+.engagement-club-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.engagement-club-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.engagement-club-card__image-wrap {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.engagement-club-card__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.engagement-club-card:hover .engagement-club-card__image-wrap img {
+  transform: scale(1.04);
+}
+
+.engagement-club-card__category {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: rgba(0, 114, 188, 0.88);
+  border-radius: var(--radius-sm);
+}
+
+.engagement-club-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-xl);
+}
+
+.engagement-club-card__body h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+  line-height: 1.3;
+}
+
+.engagement-club-card__body h3 a:hover {
+  color: var(--color-primary);
+}
+
+.engagement-club-card__tagline {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.engagement-club-card__desc {
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.engagement-club-card__meta {
+  list-style: none;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.engagement-club-card__meta li + li {
+  margin-top: var(--space-xs);
+}
+
+.engagement-club-card__meta strong {
+  color: var(--color-text);
+}
+
+.engagement-club-card__badge {
+  align-self: flex-start;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid rgba(0, 114, 188, 0.25);
+  border-radius: var(--radius-sm);
+}
+
+/* Club detail page */
+.engagement-club-detail__hero {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  overflow: hidden;
+}
+
+.engagement-club-detail__hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.engagement-club-detail__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 45, 91, 0.35) 0%, rgba(11, 45, 91, 0.92) 100%);
+}
+
+.engagement-club-detail__hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--color-white);
+}
+
+.engagement-club-detail__category {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin: var(--space-lg) 0 var(--space-md);
+}
+
+.engagement-club-detail__hero h1 {
+  color: var(--color-white);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: var(--space-sm);
+}
+
+.engagement-club-detail__tagline {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-lg);
+}
+
+.engagement-club-detail__open {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+}
+
+.engagement-club-detail__body {
+  padding: var(--space-4xl) 0;
+}
+
+.engagement-club-detail__grid {
+  display: grid;
+  gap: var(--space-3xl);
+}
+
+.engagement-club-detail__main h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-lg);
+}
+
+.engagement-club-detail__main > p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
+}
+
+.engagement-club-detail__block h3 {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-md);
+}
+
+.engagement-club-detail__block ul {
+  list-style: disc;
+  padding-left: var(--space-xl);
+}
+
+.engagement-club-detail__block li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.engagement-club-detail__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.engagement-club-detail__panel {
+  padding: var(--space-xl);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.engagement-club-detail__panel h3 {
+  font-size: 1rem;
+  margin-bottom: var(--space-lg);
+}
+
+.engagement-club-detail__panel dl {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.engagement-club-detail__panel dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.engagement-club-detail__panel dd {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.engagement-club-detail__leader-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.engagement-club-detail__leader-role {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.engagement-club-detail__back {
+  margin-top: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .engagement-clubs__featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .engagement-clubs__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .engagement-clubs__featured-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .engagement-clubs__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .engagement-club-detail__grid {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}

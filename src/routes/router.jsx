@@ -30,6 +30,7 @@ import DepartmentProjectDetail from "../pages/department/DepartmentProjectDetail
 
 import EngagementHub from "../pages/engagement/EngagementHub";
 import EngagementSpoke from "../pages/engagement/EngagementSpoke";
+import EngagementClubDetail from "../components/engagement/EngagementClubDetail";
 
 import ErrorPage from "../pages/NotFound/NotFound";
 
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <EngagementHub />,
+          },
+          {
+            path: "clubs/:clubSlug",
+            element: <EngagementClubDetail />,
           },
           {
             path: ":pageSlug",

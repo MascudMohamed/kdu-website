@@ -4,6 +4,7 @@ import EngagementPageShell, {
   EngagementSpotlight,
   EngagementCta,
 } from './EngagementPageShell';
+import EngagementClubsDirectory from './EngagementClubsDirectory';
 import '../../styles/components/dept-editorial.css';
 import '../../styles/components/EngagementSpoke.css';
 
@@ -80,6 +81,22 @@ function StoryList({ stories }) {
 }
 
 export default function EngagementSpokeRenderer({ page }) {
+  if (page.type === 'clubs') {
+    return (
+      <EngagementPageShell
+        pageTitle={page.title}
+        eyebrow={page.eyebrow}
+        lead={page.lead}
+        related={page.related}
+      >
+        <EngagementStats stats={page.stats} />
+        <EditorialSections sections={page.sections} />
+        <EngagementClubsDirectory />
+        <EngagementCta cta={page.cta} />
+      </EngagementPageShell>
+    );
+  }
+
   return (
     <EngagementPageShell
       pageTitle={page.title}

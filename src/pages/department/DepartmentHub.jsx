@@ -46,7 +46,12 @@ export default function DepartmentHub() {
   return (
     <div className="department-hub">
       <DeptHeroV2 department={department} />
-      <DeptWhyProgram items={department.whyChoose} philosophy={department.overview?.philosophy} />
+      <DeptWhyProgram
+        items={department.whyChoose}
+        philosophy={department.overview?.philosophy}
+        news={department.news}
+        events={department.events}
+      />
 
       {featuredProject && (
         <section className="dept-hub-featured">
