@@ -1,17 +1,4 @@
-import { API_BASE } from '../config.js';
-
-async function getJson(path) {
-  const res = await fetch(`${API_BASE}${path}`, {
-    credentials: 'include',
-    headers: { Accept: 'application/json' },
-  });
-
-  if (!res.ok) {
-    throw new Error(`API ${res.status}: ${path}`);
-  }
-
-  return res.json();
-}
+import { getJson } from '../http.js';
 
 export function fetchDepartmentFaculty(apiCode) {
   return getJson(`/api/${apiCode}/faculty`);
@@ -29,12 +16,25 @@ export function fetchDepartmentEvents(apiCode) {
   return getJson(`/api/${apiCode}/events`);
 }
 
+export function fetchDepartmentContent(apiCode) {
+  return getJson(`/api/${apiCode}/content`);
+}
+
+async function safeGetJson(path) {
+  try {
+    return await getJson(path);
+  } catch {
+    return { data: [] };
+  }
+}
+
 export async function fetchDepartmentLiveBundle(apiCode) {
-  const [faculty, news, events] = await Promise.all([
-    fetchDepartmentFaculty(apiCode),
-    fetchDepartmentNews(apiCode),
-    fetchDepartmentEvents(apiCode),
+  const [faculty, news, events, content] = await Promise.all([
+    safeGetJson(`/api/${apiCode}/faculty`),
+    safeGetJson(`/api/${apiCode}/news`),
+    safeGetJson(`/api/${apiCode}/events`),
+    safeGetJson(`/api/${apiCode}/content`).catch(() => ({ data: {} })),
   ]);
 
-  return { faculty, news, events };
+  return { faculty, news, events, content };
 }

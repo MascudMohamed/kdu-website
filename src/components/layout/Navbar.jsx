@@ -1,17 +1,35 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PRIMARY_NAV_LINKS, NAV_LINKS } from '../../constants/navigation';
 import { APPLICATION_FORM_URL } from '../../constants/links';
+import { useCmsModule } from '../../context/CmsContentContext';
 import Logo from '../common/Logo';
 import Button from '../common/Button';
 import AcademicsMegaMenu from './AcademicsMegaMenu';
 import '../../styles/components/Navbar.css';
 
 export default function Navbar() {
+  const { module: navCms } = useCmsModule('navigation');
   const [isOpen, setIsOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const megaRef = useRef(null);
+
+  const primaryLinks = useMemo(() => {
+    const cmsItems = navCms?.items?.filter((item) => item.label && item.path);
+    if (!cmsItems?.length) return PRIMARY_NAV_LINKS;
+    return cmsItems.map((item) => ({
+      label: item.label.toUpperCase(),
+      path: item.path,
+      megaMenu: item.path === '/academics' ? 'academics' : false,
+    }));
+  }, [navCms]);
+
+  const mobileLinks = useMemo(() => {
+    const cmsItems = navCms?.items?.filter((item) => item.label && item.path);
+    if (!cmsItems?.length) return NAV_LINKS.slice(0, 7);
+    return cmsItems.map((item) => ({ label: item.label, path: item.path }));
+  }, [navCms]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -40,7 +58,7 @@ export default function Navbar() {
         <div className="navbar__section navbar__section--right">
           <nav className="navbar__nav" aria-label="Main navigation">
             <ul className="navbar__links">
-              {PRIMARY_NAV_LINKS.map((link) => (
+              {primaryLinks.map((link) => (
                 <li
                   key={link.path}
                   className={link.megaMenu === 'academics' ? 'navbar__item--mega' : ''}
@@ -112,7 +130,7 @@ export default function Navbar() {
             <nav aria-label="Mobile navigation">
               <p className="navbar__mobile-group">Main</p>
               <ul className="navbar__mobile-links">
-                {NAV_LINKS.slice(0, 7).map((link) => (
+                {mobileLinks.map((link) => (
                   <li key={link.path}>
                     <NavLink
                       to={link.path}

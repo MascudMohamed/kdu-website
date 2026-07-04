@@ -6,6 +6,9 @@ export const API_DEPARTMENTS = {
   'smart-computing': 'smart-computing',
   'international-business-administration': 'iba',
   'english-for-academic-purposes': 'eap',
+  'artificial-intelligence': 'artificial-intelligence',
+  'korean-for-academic-purposes': 'kap',
+  'international-hotel-management': 'ihm',
 };
 
 export function isApiDepartment(slug) {

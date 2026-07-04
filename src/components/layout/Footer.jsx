@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { BRAND } from '../../constants/brand';
 import { APPLICATION_FORM_URL } from '../../constants/links';
 import Logo from '../common/Logo';
+import { useCmsModule } from '../../context/CmsContentContext';
 import { UNDERGRADUATE_PROGRAMS } from '../../data/academics/programs';
 import '../../styles/components/Footer.css';
 
@@ -48,7 +49,12 @@ const SOCIAL = [
 ];
 
 export default function Footer() {
+  const { module: cms } = useCmsModule('footer');
   const year = new Date().getFullYear();
+  const tagline = cms?.tagline
+    || `${BRAND.campus} — preparing global leaders through academic excellence, innovation, and international collaboration.`;
+  const copyright = cms?.copyright || `© ${year} ${BRAND.universityName}. All rights reserved.`;
+  const cmsLinks = cms?.links?.filter((l) => l.label && l.url) ?? [];
 
   return (
     <footer className="footer">
@@ -56,10 +62,7 @@ export default function Footer() {
         <div className="footer__top">
           <div className="footer__brand">
             <Logo variant="light" linked />
-            <p className="footer__description">
-              {BRAND.campus} — preparing global leaders through academic excellence,
-              innovation, and international collaboration.
-            </p>
+            <p className="footer__description">{tagline}</p>
             <div className="footer__social" aria-label="Social media">
               {SOCIAL.map((s) => (
                 <a key={s.label} href={s.href} aria-label={s.label}>
@@ -92,11 +95,25 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>&copy; {year} {BRAND.universityName}. All rights reserved.</p>
+          <p>{copyright}</p>
           <div className="footer__legal">
-            <Link to="#">Privacy Policy</Link>
-            <Link to="#">Terms of Use</Link>
-            <Link to="#">Accessibility</Link>
+            {cmsLinks.length > 0 ? (
+              cmsLinks.map((link) => (
+                link.url.startsWith('http') ? (
+                  <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link key={link.label} to={link.url}>{link.label}</Link>
+                )
+              ))
+            ) : (
+              <>
+                <Link to="#">Privacy Policy</Link>
+                <Link to="#">Terms of Use</Link>
+                <Link to="#">Accessibility</Link>
+              </>
+            )}
           </div>
         </div>
       </div>

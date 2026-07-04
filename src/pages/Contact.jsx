@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import ContactSection from '../components/department/ContactSection';
+import { useCmsModule } from '../context/CmsContentContext';
 import '../styles/pages/Contact.css';
 
-const universityContact = {
+const DEFAULT_CONTACT = {
   address: 'KDU Global University, 123 University Avenue, Global City, GC 10001',
   phone: '+1 (555) 000-1000',
   email: 'info@kduglobal.edu',
@@ -10,21 +11,29 @@ const universityContact = {
 };
 
 export default function Contact() {
+  const { module: cms } = useCmsModule('contact');
+  const contact = {
+    address: cms?.address || DEFAULT_CONTACT.address,
+    phone: cms?.phone || DEFAULT_CONTACT.phone,
+    email: cms?.email || DEFAULT_CONTACT.email,
+    hours: cms?.hours || DEFAULT_CONTACT.hours,
+  };
+  const pageTitle = cms?.headline || 'Contact Us';
+  const pageIntro = cms?.intro
+    || 'We would love to hear from you. Reach out to our team for admissions inquiries, program information, or general questions.';
+
   return (
     <>
       <header className="page-header">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1>Contact Us</h1>
-            <p>
-              We would love to hear from you. Reach out to our team for admissions inquiries,
-              program information, or general questions.
-            </p>
+            <h1>{pageTitle}</h1>
+            <p>{pageIntro}</p>
           </motion.div>
         </div>
       </header>
 
-      <ContactSection contact={universityContact} />
+      <ContactSection contact={contact} />
 
       <section className="section">
         <div className="container">

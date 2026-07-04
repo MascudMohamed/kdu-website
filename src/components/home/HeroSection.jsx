@@ -4,7 +4,17 @@ import Button from '../common/Button';
 import { APPLICATION_FORM_URL } from '../../constants/links';
 import '../../styles/components/HeroSection.css';
 
-export default function HeroSection({ slides, headline, subtitle, description }) {
+export default function HeroSection({
+  slides,
+  headline,
+  subtitle,
+  description,
+  primaryCta,
+  secondaryCta,
+}) {
+  const primary = primaryCta ?? { label: 'Apply Now', href: APPLICATION_FORM_URL };
+  const secondary = secondaryCta ?? { label: 'Explore Programs', to: '/academics' };
+
   return (
     <section className="hero" aria-label="Hero">
       <ImageSlider slides={slides} />
@@ -20,12 +30,26 @@ export default function HeroSection({ slides, headline, subtitle, description })
             <h1 className="hero__headline">{headline}</h1>
             {description && <p className="hero__description">{description}</p>}
             <div className="hero__actions">
-              <Button href={APPLICATION_FORM_URL} variant="primary" size="lg">
-                Apply Now
-              </Button>
-              <Button to="/academics" variant="white" size="lg">
-                Explore Programs
-              </Button>
+              {primary.href ? (
+                <Button href={primary.href} variant="primary" size="lg">
+                  {primary.label}
+                </Button>
+              ) : (
+                <Button to={primary.to} variant="primary" size="lg">
+                  {primary.label}
+                </Button>
+              )}
+              {secondary && (
+                secondary.href ? (
+                  <Button href={secondary.href} variant="white" size="lg">
+                    {secondary.label}
+                  </Button>
+                ) : (
+                  <Button to={secondary.to} variant="white" size="lg">
+                    {secondary.label}
+                  </Button>
+                )
+              )}
             </div>
           </motion.div>
         </div>

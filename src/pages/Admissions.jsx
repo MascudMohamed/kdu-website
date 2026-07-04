@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import Button from '../components/common/Button';
+import CmsHtml from '../components/common/CmsHtml';
+import { useCmsModule } from '../context/CmsContentContext';
+import { cmsFaqs, plainText } from '../api/site/mappers';
 import '../styles/pages/Admissions.css';
 
 const processSteps = [
@@ -21,16 +24,25 @@ const faqs = [
 ];
 
 export default function Admissions() {
+  const { module: cms } = useCmsModule('admissions');
+  const { module: faqCms } = useCmsModule('faq');
+  const pageTitle = cms?.headline || 'Admissions';
+  const pageIntro = cms?.intro
+    ? plainText(cms.intro)
+    : 'Take the first step toward your future. Learn about our application process, requirements, and financial support options.';
+  const overviewText = cms?.intro
+    ? plainText(cms.intro)
+    : 'KDU Global seeks students who demonstrate academic potential, intellectual curiosity, and a commitment to contributing positively to our diverse community. Our holistic admissions process considers your academic record, personal statement, recommendations, and extracurricular achievements.';
+  const displayFaqs = cmsFaqs(faqCms?.items, faqs);
+  const admissionsEmail = cms?.contactEmail || 'admissions@kduglobal.edu';
+
   return (
     <>
       <header className="page-header">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1>Admissions</h1>
-            <p>
-              Take the first step toward your future. Learn about our application process,
-              requirements, and financial support options.
-            </p>
+            <h1>{pageTitle}</h1>
+            <p>{pageIntro}</p>
           </motion.div>
         </div>
       </header>
@@ -43,18 +55,32 @@ export default function Admissions() {
             description="We welcome applications from motivated students around the world who are ready to embrace academic challenge and global opportunity."
           />
           <div className="admissions-overview">
-            <p>
-              KDU Global seeks students who demonstrate academic potential, intellectual curiosity,
-              and a commitment to contributing positively to our diverse community. Our holistic
-              admissions process considers your academic record, personal statement, recommendations,
-              and extracurricular achievements.
-            </p>
+            {cms?.intro ? <CmsHtml html={cms.intro} /> : <p>{overviewText}</p>}
             <Button to="/contact" variant="primary" size="lg">
               Contact Admissions
             </Button>
           </div>
         </div>
       </section>
+
+      {(cms?.requirements || cms?.howToApply) && (
+        <section className="section section--alt">
+          <div className="container">
+            {cms?.requirements && (
+              <>
+                <SectionTitle subtitle="Requirements" title="Entry Requirements" />
+                <CmsHtml html={cms.requirements} />
+              </>
+            )}
+            {cms?.howToApply && (
+              <>
+                <SectionTitle subtitle="Apply" title="How to Apply" />
+                <CmsHtml html={cms.howToApply} />
+              </>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="section section--alt">
         <div className="container">
@@ -150,7 +176,7 @@ export default function Admissions() {
         <div className="container">
           <SectionTitle subtitle="Questions" title="Frequently Asked Questions" />
           <div className="admissions-faq">
-            {faqs.map((faq) => (
+            {displayFaqs.map((faq) => (
               <details key={faq.q} className="admissions-faq__item">
                 <summary>{faq.q}</summary>
                 <p>{faq.a}</p>
@@ -168,7 +194,7 @@ export default function Admissions() {
             <div className="admissions-contact__info">
               <div>
                 <strong>Email</strong>
-                <p>admissions@kduglobal.edu</p>
+                <p>{admissionsEmail}</p>
               </div>
               <div>
                 <strong>Phone</strong>

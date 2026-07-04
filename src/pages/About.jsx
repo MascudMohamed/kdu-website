@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import PartnerCard from '../components/common/PartnerCard';
+import CmsHtml from '../components/common/CmsHtml';
+import { useCmsModule } from '../context/CmsContentContext';
+import { plainText, resolveMediaUrl } from '../api/site/mappers';
 import { partners } from '../data/home';
 import '../styles/pages/About.css';
 
@@ -14,19 +17,33 @@ const coreValues = [
 ];
 
 export default function About() {
+  const { module: cms } = useCmsModule('about');
+  const pageTitle = cms?.headline || 'About KDU Global';
+  const pageIntro = cms?.intro
+    ? plainText(cms.intro)
+    : 'Discover our mission, values, and commitment to shaping the next generation of global leaders through world-class education.';
+  const vision = cms?.vision || 'To be a globally recognized leader in international higher education, renowned for academic excellence, innovative research, and the development of ethical leaders who drive positive change worldwide.';
+  const mission = cms?.mission || 'To provide transformative education that combines rigorous academics with practical experience, fostering critical thinking, cultural intelligence, and the skills needed to succeed in a global economy.';
+  const featuredImage = resolveMediaUrl(cms?.image) || 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80';
+
   return (
     <>
       <header className="page-header">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1>About KDU Global</h1>
-            <p>
-              Discover our mission, values, and commitment to shaping the next generation
-              of global leaders through world-class education.
-            </p>
+            <h1>{pageTitle}</h1>
+            <p>{pageIntro}</p>
           </motion.div>
         </div>
       </header>
+
+      {cms?.intro && (
+        <section className="section section--alt">
+          <div className="container">
+            <CmsHtml html={cms.intro} />
+          </div>
+        </section>
+      )}
 
       <section className="section">
         <div className="container">
@@ -84,11 +101,7 @@ export default function About() {
               viewport={{ once: true }}
             >
               <h2>Our Vision</h2>
-              <p>
-                To be a globally recognized leader in international higher education, renowned for
-                academic excellence, innovative research, and the development of ethical leaders
-                who drive positive change worldwide.
-              </p>
+              <p>{vision}</p>
             </motion.div>
             <motion.div
               className="about-card"
@@ -98,11 +111,7 @@ export default function About() {
               transition={{ delay: 0.1 }}
             >
               <h2>Our Mission</h2>
-              <p>
-                To provide transformative education that combines rigorous academics with practical
-                experience, fostering critical thinking, cultural intelligence, and the skills
-                needed to succeed in a global economy.
-              </p>
+              <p>{mission}</p>
             </motion.div>
           </div>
         </div>
@@ -178,7 +187,7 @@ export default function About() {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80"
+                src={featuredImage}
                 alt="KDU Global campus"
                 loading="lazy"
               />

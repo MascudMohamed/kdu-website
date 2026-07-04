@@ -1,4 +1,5 @@
 import { API_BASE } from '../config.js';
+import { mergeDepartmentCms } from '../site/mappers.js';
 
 export function resolveMediaUrl(path) {
   if (!path) return null;
@@ -129,11 +130,13 @@ export function mergeDepartmentWithApi(staticDepartment, bundle) {
   const news = mapApiNewsList(bundle.news?.data, staticDepartment.slug);
   const events = mapApiEventsList(bundle.events?.data);
 
-  return {
+  const withLive = {
     ...staticDepartment,
     faculty,
     news: news ?? staticDepartment.news,
     events: events ?? staticDepartment.events,
     _apiPowered: Boolean(apiFaculty?.length || news?.length || events?.length),
   };
+
+  return mergeDepartmentCms(withLive, bundle.content?.data);
 }

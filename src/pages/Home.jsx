@@ -4,6 +4,9 @@ import HeroSection from '../components/home/HeroSection';
 import Button from '../components/common/Button';
 import StatisticsCard from '../components/home/StatisticsCard';
 import SectionTitle from "../components/common/SectionTitle";
+import CmsHtml from '../components/common/CmsHtml';
+import { useCmsModule } from '../context/CmsContentContext';
+import { cmsHeroSlides, plainText } from '../api/site/mappers';
 import {
   heroSlides,
   featuredPrograms,
@@ -29,18 +32,35 @@ const fadeUp = {
 };
 
 export default function Home() {
+  const { module: cms } = useCmsModule('home');
   const [featuredProgram, ...otherPrograms] = featuredPrograms;
   const [featuredNews, ...moreNews] = newsItems;
   const [featuredVoice, ...otherVoices] = testimonials;
 
+  const slides = cmsHeroSlides(cms, heroSlides);
+  const headline = cms?.headline || 'Shaping Global Leaders Through Excellence';
+  const subtitle = cms?.subheadline || 'Kyungdong University';
+  const description = cms?.intro ? plainText(cms.intro) : 'Join a community of innovators, thinkers, and leaders at one of the world\'s premier international universities.';
+  const primaryCta = cms?.ctaText
+    ? { label: cms.ctaText, ...(cms.ctaLink?.startsWith('http') ? { href: cms.ctaLink } : { to: cms.ctaLink || '/academics' }) }
+    : undefined;
+
   return (
     <>
       <HeroSection
-        slides={heroSlides}
-        subtitle="Kyungdong University"
-        headline="Shaping Global Leaders Through Excellence"
-        description="Join a community of innovators, thinkers, and leaders at one of the world's premier international universities."
+        slides={slides}
+        subtitle={subtitle}
+        headline={headline}
+        description={description}
+        primaryCta={primaryCta}
       />
+      {cms?.intro && (
+        <section className="section section--alt">
+          <div className="container">
+            <CmsHtml html={cms.intro} className="home-cms-intro" />
+          </div>
+        </section>
+      )}
 {/* President's Message */}
 <section className="section">
   <div className="container">
