@@ -42,8 +42,8 @@ build/
 tmp/
 temp/
 
-# MongoDB data (if using local)
-data/
+# MongoDB data (if using local) — root /data only, not src/data/
+/data/
 mongodb-data/
 
 kdu_backend/
