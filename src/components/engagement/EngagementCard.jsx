@@ -4,6 +4,8 @@ import Button from '../common/Button';
 import '../../styles/components/EngagementCard.css';
 
 export default function EngagementCard({ area, index = 0 }) {
+  const isExternal = Boolean(area.externalUrl);
+
   return (
     <motion.article
       className="engagement-card"
@@ -13,17 +15,33 @@ export default function EngagementCard({ area, index = 0 }) {
       transition={{ duration: 0.5, delay: index * 0.08 }}
       whileHover={{ y: -6 }}
     >
-      <Link to={area.path} className="engagement-card__image-wrap">
-        <img src={area.image} alt="" loading="lazy" />
-      </Link>
+      {isExternal ? (
+        <a href={area.externalUrl} className="engagement-card__image-wrap">
+          <img src={area.image} alt="" loading="lazy" />
+        </a>
+      ) : (
+        <Link to={area.path} className="engagement-card__image-wrap">
+          <img src={area.image} alt="" loading="lazy" />
+        </Link>
+      )}
       <div className="engagement-card__body">
         <h3 className="engagement-card__title">
-          <Link to={area.path}>{area.title}</Link>
+          {isExternal ? (
+            <a href={area.externalUrl}>{area.title}</a>
+          ) : (
+            <Link to={area.path}>{area.title}</Link>
+          )}
         </h3>
         <p className="engagement-card__desc">{area.description}</p>
-        <Button to={area.path} variant="outline" size="sm">
-          Explore
-        </Button>
+        {isExternal ? (
+          <Button href={area.externalUrl} variant="outline" size="sm" target="_self">
+            Visit CDC
+          </Button>
+        ) : (
+          <Button to={area.path} variant="outline" size="sm">
+            Explore
+          </Button>
+        )}
       </div>
     </motion.article>
   );

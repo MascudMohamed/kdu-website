@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PRIMARY_NAV_LINKS, NAV_LINKS } from '../../constants/navigation';
+import { PRIMARY_NAV_LINKS, NAV_LINKS, ACADEMICS_MEGA_MENU } from '../../constants/navigation';
 import { APPLICATION_FORM_URL } from '../../constants/links';
 import { useCmsModule } from '../../context/CmsContentContext';
 import Logo from '../common/Logo';
@@ -11,9 +11,32 @@ import '../../styles/components/Navbar.css';
 
 export default function Navbar() {
   const { module: navCms } = useCmsModule('navigation');
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const megaRef = useRef(null);
+  const megaCloseTimer = useRef(null);
+
+  const openMega = () => {
+    if (megaCloseTimer.current) {
+      clearTimeout(megaCloseTimer.current);
+      megaCloseTimer.current = null;
+    }
+    setMegaOpen(true);
+  };
+
+  const scheduleCloseMega = () => {
+    if (megaCloseTimer.current) clearTimeout(megaCloseTimer.current);
+    megaCloseTimer.current = setTimeout(() => setMegaOpen(false), 150);
+  };
+
+  const closeMega = () => {
+    if (megaCloseTimer.current) {
+      clearTimeout(megaCloseTimer.current);
+      megaCloseTimer.current = null;
+    }
+    setMegaOpen(false);
+  };
 
   const primaryLinks = useMemo(() => {
     const cmsItems = navCms?.items?.filter((item) => item.label && item.path);
@@ -37,14 +60,30 @@ export default function Navbar() {
   }, [isOpen]);
 
   useEffect(() => {
+    closeMega();
+  }, [location.pathname]);
+
+  useEffect(() => {
     const handleClickOutside = (e) => {
       if (megaRef.current && !megaRef.current.contains(e.target)) {
-        setMegaOpen(false);
+        closeMega();
       }
     };
     if (megaOpen) document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [megaOpen]);
+
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') closeMega();
+    };
+    if (megaOpen) document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [megaOpen]);
+
+  useEffect(() => () => {
+    if (megaCloseTimer.current) clearTimeout(megaCloseTimer.current);
+  }, []);
 
   return (
     <header className="navbar">
@@ -71,17 +110,27 @@ export default function Navbar() {
                         className={`navbar__link navbar__link--mega ${megaOpen ? 'navbar__link--active' : ''}`}
                         aria-expanded={megaOpen}
                         aria-haspopup="true"
-                        onClick={() => setMegaOpen(!megaOpen)}
-                        onMouseEnter={() => setMegaOpen(true)}
+                        onClick={() => (megaOpen ? closeMega() : openMega())}
+                        onMouseEnter={openMega}
+                        onMouseLeave={scheduleCloseMega}
+                        onFocus={openMega}
                       >
                         {link.label}
                         <span className="navbar__chevron" aria-hidden="true">▾</span>
                       </button>
                       <AnimatePresence>
                         {megaOpen && (
-                          <div onMouseLeave={() => setMegaOpen(false)}>
-                            <AcademicsMegaMenu onNavigate={() => setMegaOpen(false)} />
-                          </div>
+                          <motion.div
+                            className="navbar__mega-shell"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.15 }}
+                            onMouseEnter={openMega}
+                            onMouseLeave={scheduleCloseMega}
+                          >
+                            <AcademicsMegaMenu onNavigate={closeMega} />
+                          </motion.div>
                         )}
                       </AnimatePresence>
                     </>
@@ -91,6 +140,7 @@ export default function Navbar() {
                       className={({ isActive }) =>
                         `navbar__link ${isActive ? 'navbar__link--active' : ''}`
                       }
+                      onMouseEnter={closeMega}
                     >
                       {link.label}
                     </NavLink>
@@ -147,7 +197,7 @@ export default function Navbar() {
               </ul>
               <p className="navbar__mobile-group">Undergraduate</p>
               <ul className="navbar__mobile-links">
-                {NAV_LINKS.slice(7, 10).map((link) => (
+                {ACADEMICS_MEGA_MENU.undergraduate.map((link) => (
                   <li key={link.path}>
                     <Link to={link.path} className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
                       {link.label}
@@ -155,11 +205,18 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
-              <p className="navbar__mobile-group">Graduate</p>
+              <p className="navbar__mobile-group">Graduate &amp; International</p>
               <ul className="navbar__mobile-links">
+                {ACADEMICS_MEGA_MENU.graduate.map((link) => (
+                  <li key={link.path}>
+                    <Link to={link.path} className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
                 <li>
-                  <Link to="/academics/graduate" className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
-                    Graduate Programs
+                  <Link to="/international-office" className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
+                    International Office
                   </Link>
                 </li>
               </ul>

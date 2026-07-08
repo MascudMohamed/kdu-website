@@ -20,19 +20,22 @@ export default function EngagementSubNav() {
           Engagement
         </Link>
         <ul className="engagement-subnav__list">
-          {ENGAGEMENT_NAV.map((item) => {
-            const active = isActive(location, item.path);
-            return (
-              <li key={item.path} className="engagement-subnav__item">
+          {ENGAGEMENT_NAV.map((item) => (
+            <li key={item.path} className="engagement-subnav__item">
+              {item.externalUrl ? (
+                <a href={item.externalUrl} className="engagement-subnav__link">
+                  {item.label}
+                </a>
+              ) : (
                 <Link
                   to={`${ENGAGEMENT_BASE}/${item.path}`}
-                  className={`engagement-subnav__link ${active ? 'engagement-subnav__link--active' : ''}`}
+                  className={`engagement-subnav__link ${isActive(location, item.path) ? 'engagement-subnav__link--active' : ''}`}
                 >
                   {item.label}
                 </Link>
-              </li>
-            );
-          })}
+              )}
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

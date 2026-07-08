@@ -3,6 +3,7 @@ import { BRAND } from '../../constants/brand';
 import { APPLICATION_FORM_URL } from '../../constants/links';
 import Logo from '../common/Logo';
 import { useCmsModule } from '../../context/CmsContentContext';
+import { CDC_WEBSITE_URL } from '../../data/engagement';
 import { UNDERGRADUATE_PROGRAMS } from '../../data/academics/programs';
 import '../../styles/components/Footer.css';
 
@@ -11,6 +12,8 @@ const FOOTER_COLUMNS = {
     { label: 'Introduction', path: '/about' },
     { label: 'Campus Life', path: '/about' },
     { label: 'International Students', path: '/international-students' },
+    { label: 'International Office', path: '/international-office' },
+    { label: 'Public Events', path: '/international-office', hash: 'public-events' },
     { label: 'Contact', path: '/contact' },
   ],
   Academics: [
@@ -27,11 +30,11 @@ const FOOTER_COLUMNS = {
   Engagement: [
     { label: 'Overview', path: '/engagement' },
     { label: 'Community Engagement', path: '/engagement/community-engagement' },
+    { label: 'Career Development Center', href: CDC_WEBSITE_URL, newTab: false },
     { label: 'Industry Partnerships', path: '/engagement/industry-partnerships' },
+    { label: 'Exchange Programs', path: '/engagement/exchange-programs' },
     { label: 'Alumni Relations', path: '/engagement/alumni-relations' },
-    { label: 'Public Events', path: '/engagement/public-events' },
     { label: 'Student Clubs', path: '/engagement/clubs' },
-    { label: 'Global Collaboration', path: '/engagement/global-collaboration' },
   ],
   'Quick Links': [
     { label: 'Library', path: '#' },
@@ -81,11 +84,16 @@ export default function Footer() {
                 {links.map((link) => (
                   <li key={link.label}>
                     {link.href ? (
-                      <a href={link.href} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={link.href}
+                        {...(link.newTab === false
+                          ? {}
+                          : { target: '_blank', rel: 'noopener noreferrer' })}
+                      >
                         {link.label}
                       </a>
                     ) : (
-                      <Link to={link.path}>{link.label}</Link>
+                      <Link to={link.hash ? `${link.path}#${link.hash}` : link.path}>{link.label}</Link>
                     )}
                   </li>
                 ))}

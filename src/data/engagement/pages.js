@@ -7,23 +7,26 @@ const IMG = {
   events: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80',
   global: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80',
   clubs: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80',
+  cdc: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&q=80',
   hub: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1600&q=80',
 };
+
+export const CDC_WEBSITE_URL = 'https://smzuqlarnain.github.io/cdc-website/index.html#';
 
 export const ENGAGEMENT_NAV = [
   { label: 'Community Engagement', path: 'community-engagement' },
   { label: 'Industry Partnerships', path: 'industry-partnerships' },
   { label: 'Alumni Relations', path: 'alumni-relations' },
-  { label: 'Public Events', path: 'public-events' },
+  { label: 'Career Development Center', path: 'cdc', externalUrl: CDC_WEBSITE_URL },
+  { label: 'Exchange Programs', path: 'exchange-programs' },
   { label: 'Student Clubs', path: 'clubs' },
-  { label: 'Global Collaboration', path: 'global-collaboration' },
 ];
 
 export const ENGAGEMENT_HUB = {
   eyebrow: 'Kyungdong University Global Campus',
   title: 'Engagement & Impact',
   lead:
-    'KDU Global connects learning with society — through community service, industry partnerships, alumni networks, student clubs, public events, and international collaboration that extend our mission beyond the classroom.',
+    'KDU Global connects learning with society — through community service, industry partnerships, alumni networks, student clubs, exchange programmes, and international collaboration that extend our mission beyond the classroom.',
   image: IMG.hub,
   pillars: [
     {
@@ -42,14 +45,18 @@ export const ENGAGEMENT_HUB = {
       title: 'Vibrant student clubs',
       description: 'Dozens of student-led societies spanning academics, culture, sport, technology, and service.',
     },
+    {
+      title: 'Career development',
+      description: 'Internships, job fairs, and employability workshops through the KDU Global Career Development Center.',
+    },
   ],
   cta: {
     title: 'Partner with KDU Global',
     description: 'Whether you represent a community organisation, corporation, or alumni chapter — we welcome collaboration.',
     primaryLabel: 'Contact our team',
     primaryPath: '/contact',
-    secondaryLabel: 'View public events',
-    secondaryPath: '/engagement/public-events',
+    secondaryLabel: 'Public events',
+    secondaryPath: '/international-office#public-events',
   },
 };
 
@@ -278,85 +285,12 @@ export const ENGAGEMENT_PAGES = {
     related: related('alumni-relations'),
   },
 
-  'public-events': {
-    slug: 'public-events',
-    title: 'Public Events',
+  'exchange-programs': {
+    slug: 'exchange-programs',
+    title: 'Exchange Programs',
     eyebrow: 'Engagement',
     lead:
-      'KDU Global opens its campus to the public through open days, lectures, cultural festivals, conferences, and community celebrations — welcoming prospective students, families, partners, and neighbours.',
-    image: IMG.events,
-    stats: [
-      { value: '40+', label: 'Public events per year' },
-      { value: '10,000+', label: 'Annual visitors' },
-      { value: '12', label: 'Flagship annual programmes' },
-    ],
-    sections: [
-      {
-        title: 'Events for everyone',
-        content:
-          'From university open days to research symposia, our public events reflect the diversity and dynamism of campus life. Many events are free and open to all; others welcome registered guests from industry, government, and education.',
-      },
-      {
-        title: 'Event categories',
-        list: [
-          'University Open Day and campus tours',
-          'Public lectures and thought-leadership forums',
-          'Research symposia and academic conferences',
-          'Cultural festivals and international days',
-          'Career fairs and employer showcases',
-          'Sports, arts, and student-led performances',
-        ],
-      },
-    ],
-    initiatives: [
-      {
-        icon: '🏫',
-        title: 'Open Day',
-        description: 'Explore programmes, meet faculty, and experience campus life at our flagship admissions event.',
-      },
-      {
-        icon: '🎤',
-        title: 'Public Lectures',
-        description: 'Distinguished speakers address topics in technology, business, sustainability, and global affairs.',
-      },
-      {
-        icon: '🎭',
-        title: 'Cultural Festivals',
-        description: 'Celebrate the diversity of our international community through food, music, and performance.',
-      },
-      {
-        icon: '🔬',
-        title: 'Research Symposium',
-        description: 'Faculty and students present findings to peers, industry, and the wider public.',
-      },
-    ],
-    events: [
-      { date: 'July 15, 2026', title: 'Annual University Open Day', venue: 'Main Campus', type: 'Open Day' },
-      { date: 'August 8, 2026', title: 'Global Alumni Networking Event', venue: 'Alumni Hall', type: 'Networking' },
-      { date: 'September 20, 2026', title: 'International Research Symposium', venue: 'Conference Center', type: 'Conference' },
-      { date: 'October 5, 2026', title: 'International Culture Festival', venue: 'Campus Green', type: 'Festival' },
-    ],
-    spotlight: {
-      title: 'Join us on campus',
-      content:
-        'Public events are listed on our News & Events page and promoted through our social channels. Schools and community groups are welcome to arrange group visits by appointment.',
-      image: IMG.events,
-    },
-    cta: {
-      title: 'Plan your visit',
-      description: 'For group bookings, media enquiries, or event sponsorship opportunities, contact our events team.',
-      buttonLabel: 'View all news & events',
-      buttonPath: '/news-events',
-    },
-    related: related('public-events'),
-  },
-
-  'global-collaboration': {
-    slug: 'global-collaboration',
-    title: 'Global Collaboration',
-    eyebrow: 'Engagement',
-    lead:
-      'International partnerships are central to KDU Global\'s identity. Through exchange programmes, joint research, dual degrees, and institutional agreements, we connect students and faculty to the world.',
+      'Study abroad opportunities with KDU partner universities around the world — semester exchanges, summer programmes, and short-term mobility that broaden academic horizons and cultural understanding.',
     image: IMG.global,
     stats: [
       { value: '50+', label: 'Partner institutions' },
@@ -365,42 +299,41 @@ export const ENGAGEMENT_PAGES = {
     ],
     sections: [
       {
-        title: 'A globally connected campus',
+        title: 'Global learning pathways',
         content:
-          'KDU Global cultivates relationships with universities, research institutes, and organisations worldwide. These partnerships enrich teaching, expand research horizons, and give students transformative international experiences.',
+          'KDU Global connects students to partner universities worldwide through structured exchange programmes. Whether for a full semester abroad or a focused summer experience, students gain international perspective while earning credit toward their degree.',
       },
       {
-        title: 'Collaboration models',
+        title: 'Programme types',
         list: [
-          'Student exchange and study-abroad programmes',
-          'Faculty exchange and joint research projects',
+          'Semester-long student exchange at partner universities',
+          'Summer international programmes in language, culture, and innovation',
+          'Faculty exchange and joint research collaborations',
           'Dual-degree and articulation agreements',
-          'International summer schools and short programmes',
-          'Global conferences and academic networks',
-          'Development partnerships in emerging regions',
+          'Short-term global mobility camps',
         ],
       },
     ],
     initiatives: [
       {
-        icon: '✈️',
-        title: 'Student Exchange',
-        description: 'Semester and year-long exchanges at partner universities across Asia, Europe, and the Americas.',
+        icon: '🎓',
+        title: 'Partner Universities',
+        description: 'Study abroad opportunities with KDU partner universities around the world.',
       },
       {
-        icon: '🔬',
-        title: 'Joint Research',
-        description: 'Collaborative projects in computing, business, sustainability, and health sciences.',
+        icon: '✈️',
+        title: 'Student Exchange',
+        description: 'Semester-long exchange programmes providing international academic experience.',
+      },
+      {
+        icon: '☀️',
+        title: 'Summer Programs',
+        description: 'Short-term international programmes focusing on language, culture, and innovation.',
       },
       {
         icon: '🤝',
-        title: 'Institutional MoUs',
+        title: 'Institutional Partnerships',
         description: 'Formal agreements enabling credit transfer, co-supervision, and shared resources.',
-      },
-      {
-        icon: '🌍',
-        title: 'Global Mobility Camps',
-        description: 'Short-term international programmes combining study, culture, and professional networking.',
       },
     ],
     partners: [
@@ -410,20 +343,20 @@ export const ENGAGEMENT_PAGES = {
       { name: 'National University of Singapore', country: 'Singapore', description: 'Technology and innovation collaboration' },
     ],
     spotlight: {
-      title: 'International Office',
+      title: 'International Office support',
       content:
-        'The International Office coordinates global partnerships, student mobility, and visa support. Visit the International Office page for services, exchange destinations, and application guidance.',
+        'The International Office helps with visa guidance, pre-departure orientation, and on-campus support for exchange students. Visit the International Office for services and application guidance.',
       image: IMG.global,
       link: '/international-office',
       linkLabel: 'Visit International Office',
     },
     cta: {
-      title: 'Explore global opportunities',
-      description: 'Students interested in exchange or international programmes should speak with the International Office.',
-      buttonLabel: 'International Office',
+      title: 'Start your exchange journey',
+      description: 'Interested in studying abroad? Speak with the International Office about eligibility, destinations, and application deadlines.',
+      buttonLabel: 'Contact International Office',
       buttonPath: '/international-office',
     },
-    related: related('global-collaboration'),
+    related: related('exchange-programs'),
   },
 
   clubs: {
@@ -467,6 +400,17 @@ export const ENGAGEMENT_PAGES = {
 
 /** Hub cards — derived from spoke pages for consistent editing */
 export const ENGAGEMENT_AREAS = ENGAGEMENT_NAV.map((item) => {
+  if (item.externalUrl) {
+    return {
+      slug: item.path,
+      title: item.label,
+      shortTitle: 'CDC',
+      description:
+        'Internships, job fairs, career workshops, and employability support for KDU Global students — powered by the Career Development Center.',
+      image: IMG.cdc,
+      externalUrl: item.externalUrl,
+    };
+  }
   const page = ENGAGEMENT_PAGES[item.path];
   return {
     slug: item.path,

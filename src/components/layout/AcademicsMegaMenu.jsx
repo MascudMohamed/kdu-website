@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { ACADEMICS_MEGA_MENU } from "../../constants/navigation";
 import "../../styles/components/AcademicsMegaMenu.css";
 
@@ -7,12 +6,8 @@ export default function AcademicsMegaMenu({ onNavigate }) {
   const handleClick = () => onNavigate?.();
 
   return (
-    <motion.div
+    <div
       className="mega-menu"
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 8 }}
-      transition={{ duration: 0.2 }}
       role="region"
       aria-label="Academics programs menu"
     >
@@ -136,7 +131,7 @@ export default function AcademicsMegaMenu({ onNavigate }) {
 
             <p>
               Supporting international students through
-              admissions, visa guidance, exchange programs,
+              admissions, visa guidance, public events,
               accommodation and campus life.
             </p>
 
@@ -181,6 +176,6 @@ export default function AcademicsMegaMenu({ onNavigate }) {
 
       </div>
 
-    </motion.div>
+    </div>
   );
 }

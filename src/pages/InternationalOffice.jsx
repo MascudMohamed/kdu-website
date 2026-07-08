@@ -3,7 +3,7 @@ import OfficeSubNav from "../components/internationalOffice/OfficeSubNav";
 
 import ServicesSection from "../components/internationalOffice/ServicesSection";
 import VisaSection from "../components/internationalOffice/VisaSection";
-import ExchangePrograms from "../components/internationalOffice/ExchangePrograms";
+import PublicEventsSection from "../components/internationalOffice/PublicEventsSection";
 import StudentNewsSection from "../components/internationalOffice/StudentNewsSection";
 
 import "../styles/pages/InternationalOffice.css";
@@ -22,7 +22,7 @@ export default function InternationalOffice() {
 
         <VisaSection />
 
-        <ExchangePrograms />
+        <PublicEventsSection />
 
         <StudentNewsSection />
 

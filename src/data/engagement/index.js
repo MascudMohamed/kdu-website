@@ -1,7 +1,7 @@
-import { ENGAGEMENT_HUB, ENGAGEMENT_PAGES, ENGAGEMENT_NAV } from './pages';
+import { ENGAGEMENT_HUB, ENGAGEMENT_PAGES, ENGAGEMENT_NAV, CDC_WEBSITE_URL } from './pages';
 export { CLUBS, CLUB_CATEGORIES, getClubs, getFeaturedClubs, getClubBySlug } from './clubs';
 
-export { ENGAGEMENT_HUB, ENGAGEMENT_PAGES, ENGAGEMENT_NAV };
+export { ENGAGEMENT_HUB, ENGAGEMENT_PAGES, ENGAGEMENT_NAV, CDC_WEBSITE_URL };
 
 export const ENGAGEMENT_BASE = '/engagement';
 

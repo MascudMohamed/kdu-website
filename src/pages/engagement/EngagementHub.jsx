@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/common/Button';
 import SectionTitle from '../../components/common/SectionTitle';
 import EngagementCard from '../../components/engagement/EngagementCard';
-import { ENGAGEMENT_HUB, ENGAGEMENT_AREAS } from '../../data/engagement/pages';
+import { ENGAGEMENT_HUB, ENGAGEMENT_AREAS, CDC_WEBSITE_URL } from '../../data/engagement/pages';
 import '../../styles/pages/Engagement.css';
 
 export default function EngagementHub() {
@@ -26,7 +26,10 @@ export default function EngagementHub() {
               <Button to="/engagement/community-engagement" variant="primary" size="lg">
                 Community Engagement
               </Button>
-              <Button to="/engagement/clubs" variant="white" size="lg">
+              <Button href={CDC_WEBSITE_URL} variant="white" size="lg" target="_self">
+                Career Development Center
+              </Button>
+              <Button to="/engagement/clubs" variant="outline" size="lg">
                 Student Clubs
               </Button>
             </div>
@@ -39,7 +42,7 @@ export default function EngagementHub() {
           <SectionTitle
             subtitle="Our approach"
             title="Connecting campus and world"
-            description="Engagement at KDU Global spans five interconnected areas — each designed to extend learning, strengthen partnerships, and create lasting impact."
+            description="Engagement at KDU Global spans interconnected areas — each designed to extend learning, strengthen partnerships, and create lasting impact."
           />
           <div className="engagement-pillars">
             {pillars.map((pillar, i) => (

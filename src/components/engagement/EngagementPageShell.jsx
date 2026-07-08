@@ -85,7 +85,12 @@ export function EngagementSpotlight({ spotlight }) {
       <div className="engagement-spotlight__content">
         <h2>{spotlight.title}</h2>
         <p>{spotlight.content}</p>
-        {spotlight.link && (
+        {spotlight.externalLink && (
+          <a href={spotlight.externalLink} className="dept-link-arrow" target="_blank" rel="noopener noreferrer">
+            {spotlight.linkLabel}
+          </a>
+        )}
+        {spotlight.link && !spotlight.externalLink && (
           <Link to={spotlight.link} className="dept-link-arrow">{spotlight.linkLabel}</Link>
         )}
       </div>
@@ -104,7 +109,11 @@ export function EngagementCta({ cta }) {
     <div className="engagement-cta">
       <h2>{cta.title}</h2>
       <p>{cta.description}</p>
-      <Button to={cta.buttonPath} variant="primary" size="lg">{cta.buttonLabel}</Button>
+      {cta.buttonHref ? (
+        <Button href={cta.buttonHref} variant="primary" size="lg">{cta.buttonLabel}</Button>
+      ) : (
+        <Button to={cta.buttonPath} variant="primary" size="lg">{cta.buttonLabel}</Button>
+      )}
     </div>
   );
 }

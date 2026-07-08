@@ -7,6 +7,7 @@
   height: var(--header-height);
   background-color: var(--color-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  overflow: visible;
 }
 
 .navbar__inner {
@@ -139,7 +140,50 @@
 }
 
 .navbar__item--mega {
-  position: relative;
+  position: static;
+}
+
+.navbar__mega-shell {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  z-index: 1002;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-height: calc(100vh - var(--header-height));
+  padding: 0 1rem 1rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Invisible bridge so hover is not lost between nav link and panel */
+.navbar__mega-shell::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1050px, calc(100% - 2rem));
+  height: 14px;
+  pointer-events: auto;
+}
+
+.navbar__mega-shell .mega-menu {
+  pointer-events: auto;
+  animation: mega-menu-enter 0.2s ease;
+}
+
+@keyframes mega-menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .navbar__link--mega {
@@ -197,6 +241,12 @@
 
   .navbar__actions .navbar__cta {
     display: inline-flex;
+  }
+}
+
+@media (max-width: 1023px) {
+  .navbar__mega-shell {
+    display: none;
   }
 }
 
