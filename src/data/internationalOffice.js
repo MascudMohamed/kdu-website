@@ -1,3 +1,5 @@
+// src/data/internationalOffice.js
+
 export const OFFICE_HERO = {
   title: "International Office",
   subtitle:
@@ -16,6 +18,10 @@ export const OFFICE_NAV = [
     label: "Visa & Immigration",
   },
   {
+    id: "staff",
+    label: "Staff",
+  },
+  {
     id: "public-events",
     label: "Public Events",
   },
@@ -24,6 +30,7 @@ export const OFFICE_NAV = [
     label: "Student News",
   },
 ];
+
 export const SERVICES = [
   {
     title: "Student Counseling",
@@ -68,6 +75,64 @@ export const VISA_INFORMATION = [
       "Residence Reporting",
     ],
   },
+];
+
+// Staff Information - matches your image data
+export const STAFF_INFORMATION = [
+  {
+    id: 1,
+    name: '이상수 (David Lee)',
+    position: 'Director of External Cooperation',
+    phone: '+82.33.639.0310',
+    email: 'sangsoolee@kduniv.ac.kr',
+    isActive: true,
+    role: 'admin'
+  },
+  {
+    id: 2,
+    name: '김용석 (James)',
+    position: 'Manager',
+    phone: '+82.33.639.0189',
+    email: 'ysk202kr@kduniv.ac.kr',
+    isActive: true,
+    role: 'manager'
+  },
+  {
+    id: 3,
+    name: '공설지 (Leslie)',
+    position: 'Manager',
+    phone: '+82.33.639.0168',
+    email: 'sj0907@kduniv.ac.kr',
+    isActive: true,
+    role: 'manager'
+  },
+  {
+    id: 4,
+    name: '장민혁 (Tommy)',
+    position: 'Manager',
+    phone: '+82.33.639.0164',
+    email: 'jmh@kduniv.ac.kr',
+    isActive: true,
+    role: 'manager'
+  },
+  {
+    id: 5,
+    name: '김민수 (Murray)',
+    position: 'Manager',
+    phone: '+82.33.639.0187',
+    email: 'bat9764256411@kduniv.ac.kr',
+    isActive: true,
+    role: 'manager'
+  },
+  {
+    id: 6,
+    name: '최수연 (Judy)',
+    position: 'Assistant Manager',
+    phone: '+82.33.639.0184',
+    email: 'mini2625@kduniv.ac.kr',
+    isActive: true,
+    role: 'staff'
+  }
 ];
 
 export const PUBLIC_EVENTS = {
