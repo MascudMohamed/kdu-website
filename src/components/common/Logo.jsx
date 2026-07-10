@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BRAND } from '../../constants/brand';
-import logoSrc from '../../assets/kdu-logo.svg';
+import logoSrc from '../../assets/kdu-logo.png';
 import '../../styles/components/Logo.css';
 
 export default function Logo({ variant = 'light', linked = true }) {
