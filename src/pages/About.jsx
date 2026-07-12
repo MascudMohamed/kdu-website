@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import PartnerCard from '../components/common/PartnerCard';
 import CmsHtml from '../components/common/CmsHtml';
+import PresidentMessage from '../components/about/PresidentMessage';
 import { useCmsModule } from '../context/CmsContentContext';
 import { plainText, resolveMediaUrl } from '../api/site/mappers';
 import { partners } from '../data/home';
@@ -45,51 +46,7 @@ export default function About() {
         </section>
       )}
 
-      <section className="section">
-        <div className="container">
-          <div className="about-welcome__grid">
-            <motion.div
-              className="about-welcome__portrait"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
-                alt="University President"
-                loading="lazy"
-              />
-              <div>
-                <strong>Dr. Michael Anderson</strong>
-                <span>President, KDU Global University</span>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <SectionTitle subtitle="Welcome" title="President's Message" align="left" />
-              <div className="about-welcome__message">
-                <p>
-                  It is my great privilege to welcome you to KDU Global University. Our institution
-                  was founded on the belief that education has the power to transform lives and
-                  bridge cultures across the globe.
-                </p>
-                <p>
-                  In an era of unprecedented change, we remain steadfast in our commitment to
-                  academic excellence, innovation, and the development of ethical leaders who will
-                  shape the future of our interconnected world.
-                </p>
-                <p>
-                  I invite you to explore what makes KDU Global a truly exceptional place to learn,
-                  grow, and discover your potential.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PresidentMessage subtitle="Welcome" showLeadershipHeading />
 
       <section className="section section--alt">
         <div className="container">
