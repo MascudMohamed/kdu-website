@@ -1,15 +1,15 @@
 export const heroSlides = [
   {
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1600&q=80',
-    alt: 'KDU Global campus aerial view',
+    image: '/images/Hero-1.png',
+    alt: 'KDU Global campus',
   },
   {
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=80',
-    alt: 'Students collaborating on campus',
+    image: '/images/Hero-2.png',
+    alt: 'Students at KDU Global',
   },
   {
-    image: 'https://images.unsplash.com/photo-1541339907192-e08756dedf3f?w=1600&q=80',
-    alt: 'Graduation ceremony',
+    image: '/images/Hero-3.png',
+    alt: 'KDU Global community',
   },
 ];
 
@@ -123,7 +123,7 @@ export const researchSpotlight = {
     'Undergraduate research opportunities',
     'International faculty collaborations',
   ],
-  image: 'https://images.unsplash.com/photo-1532094349883-543bc11b234d?w=1200&q=80',
+  image: '/images/research.png',
   link: '/news-events',
   linkLabel: 'Explore research news',
 };
@@ -162,23 +162,36 @@ export const scholarshipHighlights = [
   { title: 'Pathway Support', value: 'Flexible', note: 'EAP and foundation programme assistance' },
 ];
 
+export const campusBanner = {
+  image: '/images/studentlife.png',
+  alt: 'Students enjoying campus life at KDU Global',
+};
+
 export const campusFeatures = [
   {
     title: 'Learning Spaces',
     description: 'Modern classrooms, labs, and collaborative studios equipped for hands-on study.',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80',
+    image: '/images/learning-spaces.png',
+    alt: 'Modern learning spaces at KDU Global',
   },
   {
     title: 'Student Life',
     description: 'Clubs, cultural festivals, and athletics that connect you to a vibrant global community.',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80',
+    image: '/images/studentlife-2.png',
+    alt: 'Student life and activities at KDU Global',
   },
   {
     title: 'Global Network',
     description: 'Exchange programmes and partner universities across Asia, Europe, and the Americas.',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
+    image: '/images/global-network.png',
+    alt: 'KDU Global international student network',
   },
 ];
+
+export const internationalStudentsSpotlight = {
+  image: '/images/home-away-home.png',
+  alt: 'International students at KDU Global',
+};
 
 export const partners = [
   {

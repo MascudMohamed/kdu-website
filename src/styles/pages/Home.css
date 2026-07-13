@@ -367,8 +367,10 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  display: block;
 }
 
 .home-research__content h2 {
@@ -439,15 +441,17 @@
 /* ─── Campus ─── */
 .home-campus__banner {
   position: relative;
-  min-height: 320px;
+  min-height: 360px;
   margin-bottom: var(--space-3xl);
+  overflow: hidden;
 }
 
 .home-campus__banner img {
   width: 100%;
   height: 100%;
-  min-height: 320px;
+  min-height: 360px;
   object-fit: cover;
+  object-position: center;
   position: absolute;
   inset: 0;
 }
@@ -455,7 +459,7 @@
 .home-campus__banner-overlay {
   position: relative;
   z-index: 1;
-  min-height: 320px;
+  min-height: 360px;
   display: flex;
   align-items: flex-end;
   padding: var(--space-3xl) 0;
@@ -492,8 +496,10 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+  object-position: center;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+  display: block;
 }
 
 .home-campus__feature h3 {
@@ -522,8 +528,10 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  display: block;
 }
 
 .home-intl__grid h2 {

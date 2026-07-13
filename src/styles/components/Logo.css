@@ -47,8 +47,29 @@
   color: var(--color-text-muted);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
+  .logo {
+    gap: 0.625rem;
+    min-width: 0;
+  }
+
+  .logo__crest {
+    width: 54px;
+    height: auto;
+  }
+
   .logo__text {
+    min-width: 0;
+  }
+
+  .logo__university {
+    font-size: clamp(0.9375rem, 4.2vw, 1.125rem);
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    white-space: normal;
+  }
+
+  .logo__sub {
     display: none;
   }
 }

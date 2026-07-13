@@ -20,6 +20,8 @@ import {
   admissionSteps,
   scholarshipHighlights,
   campusFeatures,
+  campusBanner,
+  internationalStudentsSpotlight,
 } from '../data/home';
 import { APPLICATION_FORM_URL } from '../constants/links';
 import PresidentMessage from '../components/about/PresidentMessage';
@@ -210,7 +212,7 @@ export default function Home() {
       <section className="home-research section section--alt" aria-labelledby="home-research-title">
         <div className="container home-research__grid">
           <motion.div className="home-research__media" {...fadeUp}>
-            <img src={researchSpotlight.image} alt="" loading="lazy" />
+            <img src={researchSpotlight.image} alt="Research and innovation at KDU Global" loading="lazy" />
           </motion.div>
           <motion.div className="home-research__content" {...fadeUp}>
             <span className="home-eyebrow">{researchSpotlight.eyebrow}</span>
@@ -270,8 +272,8 @@ export default function Home() {
       <section className="home-campus" aria-labelledby="home-campus-title">
         <div className="home-campus__banner">
           <img
-            src="https://images.unsplash.com/photo-1541339907192-e08756dedf3f?w=1600&q=80"
-            alt=""
+            src={campusBanner.image}
+            alt={campusBanner.alt}
             loading="lazy"
           />
           <div className="home-campus__banner-overlay">
@@ -292,7 +294,7 @@ export default function Home() {
                 className={`home-campus__feature ${i % 2 === 1 ? 'home-campus__feature--reverse' : ''}`}
                 {...fadeUp}
               >
-                <img src={feature.image} alt="" loading="lazy" />
+                <img src={feature.image} alt={feature.alt || feature.title} loading="lazy" />
                 <div>
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
@@ -325,8 +327,8 @@ export default function Home() {
           </motion.div>
           <motion.div className="home-intl__image" {...fadeUp}>
             <img
-              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80"
-              alt="International students on campus"
+              src={internationalStudentsSpotlight.image}
+              alt={internationalStudentsSpotlight.alt}
               loading="lazy"
             />
           </motion.div>
