@@ -16,7 +16,7 @@ export default {
   duration: '4 Years',
   language: 'English (100%)',
   description:
-    'Empowering intelligence to nurture today’s and tomorrow’s technologies. A four-year, English-medium program developing in-depth understanding of the emerging technologies driving industrial and social advancement.',
+    'Empowering intelligence to nurture today\'s and tomorrow\'s technologies! A four-year, English-medium program developing in-depth understanding of the emerging technologies driving industrial and social advancement.',
   bannerImage: IMG.computing,
   cardImage: IMG.computing,
   cardDescription:
@@ -34,7 +34,7 @@ export default {
     position: 'Chair, Department of Smart Computing',
     photo: IMG.portrait,
     message: [
-      'The Smart Computing program at KDU Global is designed to nurture students with in-depth understanding of the emerging technologies driving today’s industrial and social advancements.',
+      'The Smart Computing program at KDU Global is designed to nurture students with in-depth understanding of the emerging technologies driving today\'s industrial and social advancements.',
       'The program offers five concurrent and rapidly evolving specializations: Data Science, AI and Robotics; Cybersecurity and Privacy; Internet of Things; Games and Virtual Reality; and Software Development.',
       'By leveraging comprehensive knowledge and hands-on experience, our graduates secure roles in diverse industries such as high-tech, healthcare, education, manufacturing, and entertainment—contributing significantly to innovation and development in the digital era.',
     ],
@@ -71,7 +71,7 @@ export default {
     {
       year: 1,
       title: 'Games and Virtual Reality',
-      summary: 'Vocational and Short Courses, C++ Programming, Python Programming, Computer Vision, Computer Graphics, Game Programming, Computer Animation and Modeling, and Virtual and Augmented Reality.',
+      summary: 'C++ Programming, Python Programming, Computer Vision, Computer Graphics, Game Programming, Computer Animation and Modeling, and Virtual and Augmented Reality.',
     },
     {
       year: 2,
@@ -85,19 +85,12 @@ export default {
     },
     {
       year: 4,
-      title: 'Internet of Things (IoT)',
-      summary: 'Discrete Mathematics, Data Communication and Telecommunication Systems, Network Infrastructure and Management, Cloud Computing, Linux Operating Systems and Networking, Internet of Things (IoT), Smart Computing Project, and Seminar on IT Practices.',
+      title: 'Internet of Things (IoT) & Software Development',
+      summary: 'Discrete Mathematics, Data Communication and Telecommunication Systems, Network Infrastructure and Management, Cloud Computing, Linux Operating Systems and Networking, Internet of Things (IoT), Smart Computing Project, and Seminar on IT Practices. Along with  Computer Architecture and Digital Systems, Data Structures and Algorithms, Java Programming, Embedded Systems, Web Applications Development, Mobile Programming, and Advanced Web Technology.',
     },
-    {
-      year: 5,
-      title: 'Software Development',
-      summary: 'Computer Architecture and Digital Systems, Data Structures and Algorithms, Java Programming, Embedded Systems, Web Applications Development, Mobile Programming, and Advanced Web Technology.',
-    },
-    {
-      year: 6,
-      title: 'Liberal Arts',
-      summary: 'Statistics, Understanding Korean Culture, Communication in Korean, English Correspondence, Oral Communication, Research Methodology, Problem Solving Concept, and Career Training Workshop.',
-    },
+    
+
+
   ],
 
   whyChoose: [
@@ -253,125 +246,13 @@ export default {
   ],
 
   faculty: [
-    {
-      id: 'sc-1',
-      name: 'Prof. Dr. James Chen',
-      position: 'Department Chair',
-      rank: 'Professors',
-      photo: IMG.portrait,
-      specialization: 'Artificial Intelligence & Machine Learning',
-      researchInterests: 'Deep learning, neural architecture search, computer vision',
-      biography: 'Prof. Chen has over 20 years of experience in AI research and has published over 80 peer-reviewed papers. He previously led research teams at leading technology companies before joining KDU Global.',
-      email: 'j.chen@kduglobal.edu',
-      phone: '+1 (555) 100-2001',
-      office: 'Building A, Room 301',
-      linkedin: '#',
-      scholar: '#',
-      researchgate: '#',
-    },
-    {
-      id: 'sc-2',
-      name: 'Dr. Sarah Mitchell',
-      position: 'Associate Professor',
-      rank: 'Associate Professors',
-      photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
-      specialization: 'Cybersecurity & Network Security',
-      researchInterests: 'Network intrusion detection, cryptography, secure cloud systems',
-      biography: 'Dr. Mitchell is a certified ethical hacker and leads the university\'s cybersecurity research lab. She has consulted for government agencies and Fortune 500 companies.',
-      email: 's.mitchell@kduglobal.edu',
-      phone: '+1 (555) 100-2002',
-      office: 'Building A, Room 305',
-      linkedin: '#',
-      website: '#',
-    },
-    {
-      id: 'sc-3',
-      name: 'Dr. Ahmed Hassan',
-      position: 'Assistant Professor',
-      rank: 'Assistant Professors',
-      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
-      specialization: 'Data Science & Big Data Analytics',
-      researchInterests: 'Predictive analytics, data visualization, business intelligence',
-      biography: 'Dr. Hassan brings industry experience from leading data analytics firms. His research focuses on applying machine learning to solve real-world business problems.',
-      email: 'a.hassan@kduglobal.edu',
-      phone: '+1 (555) 100-2003',
-      office: 'Building A, Room 308',
-      linkedin: '#',
-      scholar: '#',
-    },
-    {
-      id: 'sc-4',
-      name: 'Ms. Emily Park',
-      position: 'Senior Lecturer',
-      rank: 'Lecturers',
-      photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80',
-      specialization: 'Software Engineering & Web Development',
-      researchInterests: 'Full-stack development, agile methodologies, UX design',
-      biography: 'Ms. Park is a full-stack developer with 10 years of industry experience. She mentors student startup projects and leads the annual hackathon.',
-      email: 'e.park@kduglobal.edu',
-      phone: '+1 (555) 100-2004',
-      office: 'Building A, Room 210',
-      linkedin: '#',
-      website: '#',
-    },
-    {
-      id: 'sc-5',
-      name: 'Mr. David Kim',
-      position: 'Lecturer',
-      rank: 'Lecturers',
-      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
-      specialization: 'Cloud Computing & DevOps',
-      researchInterests: 'Container orchestration, serverless architecture, infrastructure automation',
-      biography: 'Mr. Kim is an AWS-certified solutions architect who transitioned from industry to academia. He manages the department\'s cloud computing lab.',
-      email: 'd.kim@kduglobal.edu',
-      phone: '+1 (555) 100-2005',
-      office: 'Building A, Room 212',
-      linkedin: '#',
-    },
-    {
-      id: 'sc-6',
-      name: 'Prof. Dr. Maria Santos',
-      position: 'Professor',
-      rank: 'Professors',
-      photo: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80',
-      specialization: 'Internet of Things & Embedded Systems',
-      researchInterests: 'Smart cities, sensor networks, edge computing',
-      biography: 'Prof. Santos leads the IoT research center and has secured multiple international research grants. Her work has been adopted by smart city initiatives across Asia.',
-      email: 'm.santos@kduglobal.edu',
-      phone: '+1 (555) 100-2006',
-      office: 'Building B, Room 101',
-      linkedin: '#',
-      researchgate: '#',
-      scholar: '#',
-    },
+    
+    
   ],
 
   researchAreas: [
-    {
-      title: 'Data Science, AI and Robotics',
-      description: 'Machine learning, deep learning, robotics systems design, data mining, drones, and autonomous systems.',
-      faculty: ['Prof. Dr. James Chen', 'Dr. Ahmed Hassan'],
-    },
-    {
-      title: 'Cybersecurity and Privacy',
-      description: 'Information security, cryptography, digital forensics, blockchain, cryptocurrency, and ethical hacking.',
-      faculty: ['Dr. Sarah Mitchell'],
-    },
-    {
-      title: 'Internet of Things',
-      description: 'Network infrastructure, cloud computing, telecommunications, Linux systems, and IoT project development.',
-      faculty: ['Prof. Dr. Maria Santos'],
-    },
-    {
-      title: 'Games and Virtual Reality',
-      description: 'Game programming, computer graphics, animation, modeling, computer vision, and virtual and augmented reality.',
-      faculty: ['Ms. Emily Park'],
-    },
-    {
-      title: 'Software Development',
-      description: 'Computer architecture, data structures, algorithms, embedded systems, web applications, and mobile programming.',
-      faculty: ['Ms. Emily Park', 'Mr. David Kim'],
-    },
+  
+    
   ],
 
   news: [
