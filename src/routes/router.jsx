@@ -34,6 +34,7 @@ import EngagementClubDetail from "../components/engagement/EngagementClubDetail"
 import ResearchLayout from "../layouts/ResearchLayout";
 import ResearchHub from "../pages/research/ResearchHub";
 import ResearchSpoke from "../pages/research/ResearchSpoke";
+import SiteMap from "../pages/sitemap/SiteMap";
 
 import ErrorPage from "../pages/NotFound/NotFound";
 
@@ -94,6 +95,13 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      // ===========================
+      // Site Map
+      // ===========================
+      {
+        path: "sitemap",
+        element: <SiteMap />,
       },
       // ===========================
       // RESEARCH

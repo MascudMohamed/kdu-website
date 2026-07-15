@@ -1,60 +1,131 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import SitemapLink from './SitemapLink';
-import styles from './SitemapSection.module.css';
+// src/pages/sitemap/components/SitemapSection.jsx
 
-const SitemapSection = ({ section, isExpanded, onToggle, searchTerm }) => {
-  const hasChildren = section.children && section.children.length > 0;
-  const hasMatchingChildren = searchTerm && hasChildren && 
-    section.children.some(child => 
-      child.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (child.children?.some(gc => gc.title.toLowerCase().includes(searchTerm.toLowerCase())))
+import { Link } from "react-router-dom";
+import SitemapLink from "./SitemapLink";
+import styles from "./SitemapSection.module.css";
+
+export default function SitemapSection({
+  section,
+  isExpanded,
+  onToggle,
+}) {
+  const hasChildren =
+    Array.isArray(section.children) &&
+    section.children.length > 0;
+
+  const renderChildren = (items, level = 0) => {
+    return (
+      <ul
+        className={
+          level === 0
+            ? styles.children
+            : styles.nestedChildren
+        }
+      >
+        {items.map((item) => (
+          <li key={item.id}>
+            {item.children?.length ? (
+              <div className={styles.nestedSection}>
+                <div className={styles.nestedHeader}>
+                  {item.external ? (
+                    <a
+                      href={item.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.nestedTitle}
+                    >
+                      {item.title}
+                      <span className={styles.external}>
+                        ↗
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className={styles.nestedTitle}
+                    >
+                      {item.title}
+                    </Link>
+                  )}
+                </div>
+
+                {renderChildren(
+                  item.children,
+                  level + 1
+                )}
+              </div>
+            ) : (
+              <SitemapLink item={item} />
+            )}
+          </li>
+        ))}
+      </ul>
     );
+  };
 
   return (
-    <div className={`${styles.section} ${searchTerm && !hasMatchingChildren && !section.title.toLowerCase().includes(searchTerm.toLowerCase()) ? styles.hidden : ''}`}>
-      <div className={styles.sectionHeader} onClick={onToggle}>
-        <div className={styles.sectionTitleWrapper}>
-          <span className={styles.sectionIcon}>{section.icon || '📄'}</span>
-          <Link to={section.path} className={styles.sectionTitle}>
-            {section.title}
-          </Link>
+    <article className={styles.section}>
+      <header
+        className={styles.header}
+        onClick={hasChildren ? onToggle : undefined}
+      >
+        <div className={styles.left}>
+          <span className={styles.icon}>
+            {section.icon || "📄"}
+          </span>
+
+          {section.external ? (
+            <a
+              href={section.path}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.title}
+            >
+              {section.title}
+            </a>
+          ) : (
+            <Link
+              to={section.path}
+              className={styles.title}
+            >
+              {section.title}
+            </Link>
+          )}
         </div>
+
         {hasChildren && (
-          <button className={styles.toggleBtn} aria-label={isExpanded ? 'Collapse section' : 'Expand section'}>
-            <span className={`${styles.toggleIcon} ${isExpanded ? styles.expanded : ''}`}>▶</span>
+          <button
+            type="button"
+            className={styles.toggle}
+            aria-expanded={isExpanded}
+            aria-label={
+              isExpanded
+                ? "Collapse section"
+                : "Expand section"
+            }
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggle();
+            }}
+          >
+            <span
+              className={`${styles.arrow} ${
+                isExpanded
+                  ? styles.expanded
+                  : ""
+              }`}
+            >
+              ▾
+            </span>
           </button>
         )}
-      </div>
+      </header>
 
       {hasChildren && isExpanded && (
-        <ul className={styles.childrenList}>
-          {section.children.map((child) => (
-            <li key={child.id} className={styles.childItem}>
-              {child.children ? (
-                <div className={styles.nestedSection}>
-                  <div className={styles.nestedHeader}>
-                    <Link to={child.path} className={styles.nestedTitle}>
-                      {child.title}
-                    </Link>
-                  </div>
-                  <ul className={styles.nestedList}>
-                    {child.children.map((grandchild) => (
-                      <li key={grandchild.id} className={styles.nestedItem}>
-                        <SitemapLink link={grandchild} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <SitemapLink link={child} />
-              )}
-            </li>
-          ))}
-        </ul>
+        <div className={styles.content}>
+          {renderChildren(section.children)}
+        </div>
       )}
-    </div>
+    </article>
   );
-};
-
-export default SitemapSection;
+}
