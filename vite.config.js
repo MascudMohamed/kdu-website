@@ -7,7 +7,12 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    allowedHosts: 'all',  
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      'kduweb.serveousercontent.com',  
+      '.serveousercontent.com',       
+    ],
     open: true,
     proxy: {
       '/api': {
