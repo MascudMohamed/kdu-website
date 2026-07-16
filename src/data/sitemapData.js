@@ -1,213 +1,127 @@
 // src/data/sitemapData.js
 
-import { UNDERGRADUATE_DEPARTMENTS } from "./departments";
+import {
+  UNDERGRADUATE_DEPARTMENTS,
+} from "./departments";
+
 import { navigation as researchNavigation } from "./research";
-import { ENGAGEMENT_NAV } from "./engagement/pages";
 
-/* ---------------------------------------
- * Undergraduate Departments
- * -------------------------------------*/
+import { ENGAGEMENT_PAGES } from "./engagement/pages";
+/*
+|--------------------------------------------------------------------------
+| Dynamic Undergraduate Departments
+|--------------------------------------------------------------------------
+*/
 
-const departmentChildren = UNDERGRADUATE_DEPARTMENTS.map((dept) => ({
-  id: dept.slug,
+const undergraduateChildren = UNDERGRADUATE_DEPARTMENTS.map((dept) => ({
   title: dept.title,
   path: `/academics/undergraduate/${dept.slug}`,
 }));
 
-/* ---------------------------------------
- * Research
- * -------------------------------------*/
+/*
+|--------------------------------------------------------------------------
+| Dynamic Research Pages
+|--------------------------------------------------------------------------
+*/
 
-const researchChildren = researchNavigation.map((item) => ({
-  id: item.id,
-  title: item.label,
-  path: `/research/${item.id}`,
+const researchChildren = researchNavigation.map((page) => ({
+  title: page.label,
+  path: `/research/${page.id}`,
 }));
 
-/* ---------------------------------------
- * Engagement
- * -------------------------------------*/
+/*
+|--------------------------------------------------------------------------
+| Dynamic Engagement Pages
+|--------------------------------------------------------------------------
+*/
 
-const engagementChildren = ENGAGEMENT_NAV.map((item) => ({
-  id: item.path,
-  title: item.label,
-  path: item.externalUrl
-    ? item.externalUrl
-    : `/engagement/${item.path}`,
-  external: !!item.externalUrl,
+const engagementChildren = Object.values(ENGAGEMENT_PAGES).map((page) => ({
+  title: page.title,
+  path: `/engagement/${page.slug}`,
 }));
 
-/* ---------------------------------------
- * Main Sitemap
- * -------------------------------------*/
+/*
+|--------------------------------------------------------------------------
+| Main Sitemap Tree
+|--------------------------------------------------------------------------
+*/
 
-export const sitemapData = [
+export const sitemapTree = [
   {
-    id: "home",
     title: "Home",
-    icon: "🏠",
     path: "/",
-  },
-
-  {
-    id: "about",
-    title: "About",
-    icon: "🏛️",
-    path: "/about",
-  },
-
-  {
-    id: "admissions",
-    title: "Admissions",
-    icon: "🎓",
-    path: "/admissions",
-  },
-
-  {
-    id: "academics",
-    title: "Academics",
-    icon: "📘",
-    path: "/academics",
 
     children: [
       {
-        id: "graduate",
-        title: "Graduate Programs",
-        path: "/academics/graduate",
+        title: "About",
+        path: "/about",
       },
 
       {
-        id: "undergraduate",
-        title: "Undergraduate Departments",
+        title: "Admissions",
+        path: "/admissions",
+      },
+
+      {
+        title: "Academics",
         path: "/academics",
 
-        children: departmentChildren,
+        children: [
+          {
+            title: "Undergraduate",
+
+            path: "/academics",
+
+            children: undergraduateChildren,
+          },
+
+          {
+            title: "Graduate",
+
+            path: "/academics/graduate",
+          },
+        ],
+      },
+
+      {
+        title: "Research",
+
+        path: "/research",
+
+        children: researchChildren,
+      },
+
+      {
+        title: "Engagement",
+
+        path: "/engagement",
+
+        children: engagementChildren,
+      },
+
+      {
+        title: "International Office",
+
+        path: "/international-office",
+      },
+
+      {
+        title: "International Students",
+
+        path: "/international-students",
+      },
+
+      {
+        title: "News & Events",
+
+        path: "/news-events",
+      },
+
+      {
+        title: "Contact",
+
+        path: "/contact",
       },
     ],
   },
-
-  {
-    id: "research",
-    title: "Research",
-    icon: "🔬",
-    path: "/research",
-
-    children: researchChildren,
-  },
-
-  {
-    id: "engagement",
-    title: "Engagement",
-    icon: "🤝",
-    path: "/engagement",
-
-    children: engagementChildren,
-  },
-
-  {
-    id: "international-office",
-    title: "International Office",
-    icon: "🌏",
-    path: "/international-office",
-  },
-
-  {
-    id: "international-students",
-    title: "International Students",
-    icon: "🌍",
-    path: "/international-students",
-  },
-    {
-    id: "news-events",
-    title: "News & Events",
-    icon: "📰",
-    path: "/news-events",
-  },
-
-  {
-    id: "contact",
-    title: "Contact",
-    icon: "📞",
-    path: "/contact",
-  },
 ];
-
-/* ---------------------------------------
- * Quick Links
- * -------------------------------------*/
-
-export const quickLinks = [
-  {
-    title: "Home",
-    path: "/",
-  },
-
-  {
-    title: "Admissions",
-    path: "/admissions",
-  },
-
-  {
-    title: "Graduate Programs",
-    path: "/academics/graduate",
-  },
-
-  {
-    title: "Research",
-    path: "/research",
-  },
-
-  {
-    title: "Engagement",
-    path: "/engagement",
-  },
-
-  {
-    title: "International Office",
-    path: "/international-office",
-  },
-
-  {
-    title: "International Students",
-    path: "/international-students",
-  },
-
-  {
-    title: "News & Events",
-    path: "/news-events",
-  },
-
-  {
-    title: "Contact",
-    path: "/contact",
-  },
-];
-
-/* ---------------------------------------
- * Search Helper
- * -------------------------------------*/
-
-export function flattenSitemap(items = sitemapData) {
-  const result = [];
-
-  function walk(nodes) {
-    nodes.forEach((node) => {
-      result.push({
-        id: node.id,
-        title: node.title,
-        path: node.path,
-        external: node.external || false,
-      });
-
-      if (node.children) {
-        walk(node.children);
-      }
-    });
-  }
-
-  walk(items);
-
-  return result;
-}
-
-export default sitemapData;

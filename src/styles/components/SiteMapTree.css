@@ -1,0 +1,203 @@
+/* ==========================================================
+   SITE MAP TREE
+========================================================== */
+
+.sitemap-tree-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px 0 80px;
+}
+
+/* Root Tree */
+
+.sitemap-tree,
+.sitemap-tree ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Root UL */
+
+.sitemap-tree {
+    display: table;
+    margin: 0 auto;
+}
+
+/* Every branch */
+
+.sitemap-tree ul {
+    display: table;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 40px;
+}
+
+/* Every node */
+
+.sitemap-tree li {
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+    padding: 0 18px;
+}
+
+/* ==========================================================
+   CONNECTOR LINES
+========================================================== */
+
+/* Horizontal line */
+
+.sitemap-tree li::before,
+.sitemap-tree li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 2px;
+    background: #cfd8e3;
+}
+
+/* Left half */
+
+.sitemap-tree li::before {
+    right: 50%;
+}
+
+/* Right half */
+
+.sitemap-tree li::after {
+    left: 50%;
+}
+
+/* Remove left line */
+
+.sitemap-tree li:first-child::before {
+    display: none;
+}
+
+/* Remove right line */
+
+.sitemap-tree li:last-child::after {
+    display: none;
+}
+
+/* Vertical connector */
+
+.sitemap-tree ul::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 40px;
+    background: #cfd8e3;
+    transform: translateX(-50%);
+}
+
+/* Remove root connector */
+
+.sitemap-tree > li::before,
+.sitemap-tree > li::after {
+    display: none;
+}
+
+.sitemap-tree > li > ul::before {
+    display: none;
+}
+
+/* ==========================================================
+   NODE SPACING
+========================================================== */
+
+.sitemap-tree li > ul {
+    margin-top: 30px;
+}
+
+.sitemap-tree li > ul > li {
+    padding-top: 20px;
+}
+
+/* ==========================================================
+   HOVER EFFECT
+========================================================== */
+
+.sitemap-tree li:hover > ul::before,
+.sitemap-tree li:hover::before,
+.sitemap-tree li:hover::after {
+    background: #0056b3;
+}
+
+/* ==========================================================
+   SMOOTH ANIMATION
+========================================================== */
+
+.sitemap-tree *,
+.sitemap-tree *::before,
+.sitemap-tree *::after {
+    transition: all .25s ease;
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.sitemap-tree-wrapper::-webkit-scrollbar {
+    height: 10px;
+}
+
+.sitemap-tree-wrapper::-webkit-scrollbar-track {
+    background: #eeeeee;
+    border-radius: 20px;
+}
+
+.sitemap-tree-wrapper::-webkit-scrollbar-thumb {
+    background: #b0b8c4;
+    border-radius: 20px;
+}
+
+.sitemap-tree-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #8f98a6;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 1200px) {
+
+    .sitemap-tree {
+        min-width: 1200px;
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .sitemap-tree {
+        min-width: 1050px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .sitemap-tree {
+        min-width: 900px;
+    }
+
+    .sitemap-tree li {
+        padding: 0 12px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .sitemap-tree {
+        min-width: 750px;
+    }
+
+}

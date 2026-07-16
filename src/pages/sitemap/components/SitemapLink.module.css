@@ -6,9 +6,9 @@
   padding: 10px 14px;
   border-radius: 8px;
   text-decoration: none;
-  color: #4b5563;
+  color: #1f2937;
   font-size: 0.95rem;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .link:hover {
@@ -18,7 +18,7 @@
 }
 
 .active {
-  background: #e8f1ff;
+  background: #e6f0ff;
   color: #003366;
   font-weight: 600;
 }
@@ -26,8 +26,7 @@
 .bullet {
   flex-shrink: 0;
   color: #0056b3;
-  font-size: 1rem;
-  line-height: 1;
+  font-size: 16px;
 }
 
 .text {
@@ -38,7 +37,7 @@
 
 .external {
   flex-shrink: 0;
-  font-size: 0.8rem;
+  font-size: 12px;
   color: #64748b;
   transition: transform 0.2s ease;
 }
@@ -49,20 +48,12 @@
 
 .link:focus-visible {
   outline: 2px solid #2563eb;
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
   .link {
     padding: 10px 12px;
     font-size: 0.9rem;
-  }
-
-  .bullet {
-    font-size: 0.95rem;
-  }
-
-  .external {
-    font-size: 0.75rem;
   }
 }
