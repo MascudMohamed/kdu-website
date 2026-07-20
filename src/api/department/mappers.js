@@ -1,12 +1,6 @@
-import { API_BASE } from '../config.js';
-import { mergeDepartmentCms } from '../site/mappers.js';
+import { mergeDepartmentCms, resolveMediaUrl } from '../site/mappers.js';
 
-export function resolveMediaUrl(path) {
-  if (!path) return null;
-  if (/^https?:\/\//i.test(path)) return path;
-  const clean = path.replace(/^\/+/, '');
-  return API_BASE ? `${API_BASE}/${clean}` : `/${clean}`;
-}
+export { resolveMediaUrl };
 
 export function mapApiFacultyList(items, departmentSlug, staticFaculty = []) {
   if (!items?.length) return null;
@@ -135,7 +129,12 @@ export function mergeDepartmentWithApi(staticDepartment, bundle) {
     faculty,
     news: news ?? staticDepartment.news,
     events: events ?? staticDepartment.events,
-    _apiPowered: Boolean(apiFaculty?.length || news?.length || events?.length),
+    _apiPowered: Boolean(
+      apiFaculty?.length
+      || news?.length
+      || events?.length
+      || (bundle.content?.data && Object.keys(bundle.content.data).length)
+    ),
   };
 
   return mergeDepartmentCms(withLive, bundle.content?.data);

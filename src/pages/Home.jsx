@@ -6,7 +6,7 @@ import StatisticsCard from '../components/home/StatisticsCard';
 import SectionTitle from "../components/common/SectionTitle";
 import CmsHtml from '../components/common/CmsHtml';
 import { useCmsModule } from '../context/CmsContentContext';
-import { cmsHeroSlides, plainText } from '../api/site/mappers';
+import { plainText } from '../api/site/mappers';
 import {
   heroSlides,
   featuredPrograms,
@@ -40,10 +40,13 @@ export default function Home() {
   const [featuredNews, ...moreNews] = newsItems;
   const [featuredVoice, ...otherVoices] = testimonials;
 
-  const slides = cmsHeroSlides(cms, heroSlides);
-  const headline = cms?.headline || 'Shaping Global Leaders Through Excellence';
-  const subtitle = cms?.subheadline || 'Kyungdong University';
-  const description = cms?.intro ? plainText(cms.intro) : 'Join a community of innovators, thinkers, and leaders at one of the world\'s premier international universities.';
+  // Hero carousel always uses local images (Hero-1/2/3.png)
+  const slides = heroSlides;
+  const headline = cms?.headline?.trim() || 'Shaping Global Leaders Through Excellence';
+  const subtitle = cms?.subheadline?.trim() || 'Kyungdong University';
+  const cmsIntroText = cms?.intro ? plainText(cms.intro) : '';
+  const description =
+    cmsIntroText || 'Join a community of innovators, thinkers, and leaders at one of the world\'s premier international universities.';
   const primaryCta = cms?.ctaText
     ? { label: cms.ctaText, ...(cms.ctaLink?.startsWith('http') ? { href: cms.ctaLink } : { to: cms.ctaLink || '/academics' }) }
     : undefined;
@@ -57,7 +60,7 @@ export default function Home() {
         description={description}
         primaryCta={primaryCta}
       />
-      {cms?.intro && (
+      {cmsIntroText && cms?.intro && (
         <section className="section section--alt">
           <div className="container">
             <CmsHtml html={cms.intro} className="home-cms-intro" />
