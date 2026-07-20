@@ -1,33 +1,51 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PRIMARY_NAV_LINKS, NAV_LINKS, ACADEMICS_MEGA_MENU } from '../../constants/navigation';
+import {
+  PRIMARY_NAV_LINKS,
+  NAV_LINKS,
+  ACADEMICS_MEGA_MENU,
+  STUDENT_SERVICES_MEGA_MENU,
+} from '../../constants/navigation';
 import { APPLICATION_FORM_URL } from '../../constants/links';
 import { useCmsModule } from '../../context/CmsContentContext';
 import Logo from '../common/Logo';
 import Button from '../common/Button';
 import AcademicsMegaMenu from './AcademicsMegaMenu';
+import StudentServicesMegaMenu from './StudentServicesMegaMenu';
 import '../../styles/components/Navbar.css';
+
+function resolveMegaMenu(path, label = '') {
+  if (path === '/academics') return 'academics';
+  if (
+    path === '/international-office'
+    || path === '/student-services'
+    || /student\s*service/i.test(label)
+  ) {
+    return 'student-services';
+  }
+  return false;
+}
 
 export default function Navbar() {
   const { module: navCms } = useCmsModule('navigation');
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
+  const [megaOpen, setMegaOpen] = useState(null);
   const megaRef = useRef(null);
   const megaCloseTimer = useRef(null);
 
-  const openMega = () => {
+  const openMega = (type) => {
     if (megaCloseTimer.current) {
       clearTimeout(megaCloseTimer.current);
       megaCloseTimer.current = null;
     }
-    setMegaOpen(true);
+    setMegaOpen(type);
   };
 
   const scheduleCloseMega = () => {
     if (megaCloseTimer.current) clearTimeout(megaCloseTimer.current);
-    megaCloseTimer.current = setTimeout(() => setMegaOpen(false), 150);
+    megaCloseTimer.current = setTimeout(() => setMegaOpen(null), 150);
   };
 
   const closeMega = () => {
@@ -35,7 +53,7 @@ export default function Navbar() {
       clearTimeout(megaCloseTimer.current);
       megaCloseTimer.current = null;
     }
-    setMegaOpen(false);
+    setMegaOpen(null);
   };
 
   const primaryLinks = useMemo(() => {
@@ -44,7 +62,7 @@ export default function Navbar() {
     return cmsItems.map((item) => ({
       label: item.label.toUpperCase(),
       path: item.path,
-      megaMenu: item.path === '/academics' ? 'academics' : false,
+      megaMenu: resolveMegaMenu(item.path, item.label),
     }));
   }, [navCms]);
 
@@ -88,65 +106,72 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar__inner">
-        {/* LEFT SECTION - Logo */}
         <div className="navbar__section navbar__section--left">
           <Logo variant="light" />
         </div>
 
-        {/* RIGHT SECTION - Navigation + Actions */}
         <div className="navbar__section navbar__section--right">
           <nav className="navbar__nav" aria-label="Main navigation">
             <ul className="navbar__links">
-              {primaryLinks.map((link) => (
-                <li
-                  key={link.path}
-                  className={link.megaMenu === 'academics' ? 'navbar__item--mega' : ''}
-                  ref={link.megaMenu === 'academics' ? megaRef : null}
-                >
-                  {link.megaMenu === 'academics' ? (
-                    <>
-                      <button
-                        type="button"
-                        className={`navbar__link navbar__link--mega ${megaOpen ? 'navbar__link--active' : ''}`}
-                        aria-expanded={megaOpen}
-                        aria-haspopup="true"
-                        onClick={() => (megaOpen ? closeMega() : openMega())}
-                        onMouseEnter={openMega}
-                        onMouseLeave={scheduleCloseMega}
-                        onFocus={openMega}
+              {primaryLinks.map((link) => {
+                const isMega = Boolean(link.megaMenu);
+                const isThisMegaOpen = megaOpen === link.megaMenu;
+
+                return (
+                  <li
+                    key={`${link.label}-${link.path}`}
+                    className={isMega ? 'navbar__item--mega' : ''}
+                    ref={isThisMegaOpen ? megaRef : null}
+                  >
+                    {isMega ? (
+                      <>
+                        <button
+                          type="button"
+                          className={`navbar__link navbar__link--mega ${isThisMegaOpen ? 'navbar__link--active' : ''}`}
+                          aria-expanded={isThisMegaOpen}
+                          aria-haspopup="true"
+                          onClick={() => (isThisMegaOpen ? closeMega() : openMega(link.megaMenu))}
+                          onMouseEnter={() => openMega(link.megaMenu)}
+                          onMouseLeave={scheduleCloseMega}
+                          onFocus={() => openMega(link.megaMenu)}
+                        >
+                          {link.label}
+                          <span className="navbar__chevron" aria-hidden="true">▾</span>
+                        </button>
+                        <AnimatePresence>
+                          {isThisMegaOpen && (
+                            <motion.div
+                              className="navbar__mega-shell"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.15 }}
+                              onMouseEnter={() => openMega(link.megaMenu)}
+                              onMouseLeave={scheduleCloseMega}
+                            >
+                              {link.megaMenu === 'academics' ? (
+                                <AcademicsMegaMenu onNavigate={closeMega} />
+                              ) : (
+                                <StudentServicesMegaMenu onNavigate={closeMega} />
+                              )}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <NavLink
+                        to={link.path}
+                        className={({ isActive }) =>
+                          `navbar__link ${isActive ? 'navbar__link--active' : ''}`
+                        }
+                        onMouseEnter={closeMega}
                       >
                         {link.label}
-                        <span className="navbar__chevron" aria-hidden="true">▾</span>
-                      </button>
-                      <AnimatePresence>
-                        {megaOpen && (
-                          <motion.div
-                            className="navbar__mega-shell"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.15 }}
-                            onMouseEnter={openMega}
-                            onMouseLeave={scheduleCloseMega}
-                          >
-                            <AcademicsMegaMenu onNavigate={closeMega} />
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  ) : (
-                    <NavLink
-                      to={link.path}
-                      className={({ isActive }) =>
-                        `navbar__link ${isActive ? 'navbar__link--active' : ''}`
-                      }
-                      onMouseEnter={closeMega}
-                    >
-                      {link.label}
-                    </NavLink>
-                  )}
-                </li>
-              ))}
+                      </NavLink>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -181,7 +206,7 @@ export default function Navbar() {
               <p className="navbar__mobile-group">Main</p>
               <ul className="navbar__mobile-links">
                 {mobileLinks.map((link) => (
-                  <li key={link.path}>
+                  <li key={`${link.label}-${link.path}`}>
                     <NavLink
                       to={link.path}
                       className={({ isActive }) =>
@@ -195,6 +220,7 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
+
               <p className="navbar__mobile-group">Undergraduate</p>
               <ul className="navbar__mobile-links">
                 {ACADEMICS_MEGA_MENU.undergraduate.map((link) => (
@@ -205,7 +231,8 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
-              <p className="navbar__mobile-group">Graduate &amp; International</p>
+
+              <p className="navbar__mobile-group">Graduate &amp; Research</p>
               <ul className="navbar__mobile-links">
                 {ACADEMICS_MEGA_MENU.graduate.map((link) => (
                   <li key={link.path}>
@@ -214,11 +241,24 @@ export default function Navbar() {
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <Link to="/international-office" className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
-                    International Office
-                  </Link>
-                </li>
+                {ACADEMICS_MEGA_MENU.research.map((link) => (
+                  <li key={link.path}>
+                    <Link to={link.path} className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="navbar__mobile-group">Student Services</p>
+              <ul className="navbar__mobile-links">
+                {STUDENT_SERVICES_MEGA_MENU.links.map((link) => (
+                  <li key={link.path}>
+                    <Link to={link.path} className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </nav>
             <Button href={APPLICATION_FORM_URL} variant="primary" size="lg" onClick={() => setIsOpen(false)}>

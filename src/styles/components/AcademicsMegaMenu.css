@@ -32,6 +32,15 @@
   align-items: start;
 }
 
+.mega-menu__top--single {
+  grid-template-columns: 1fr;
+}
+
+.mega-menu--student-services {
+  width: min(420px, 100%);
+  padding: 1.5rem;
+}
+
 /* =====================================================
    COLUMN
 ===================================================== */

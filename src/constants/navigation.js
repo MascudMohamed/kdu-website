@@ -10,14 +10,6 @@ export const ACADEMICS_MEGA_MENU = {
     description: p.shortTitle,
   })),
 
-  internationalOffice: [
-    {
-      label: "International Office",
-      path: "/international-office",
-      description: "Services, Visa, Exchange & Student Support",
-    },
-  ],
-
   graduate: [
     {
       label: "Graduate Programs",
@@ -25,44 +17,77 @@ export const ACADEMICS_MEGA_MENU = {
       description: "Master's & Doctoral — Announced Soon",
     },
   ],
+
+  research: [
+    {
+      label: "Research Hub",
+      path: "/research",
+      description: "Innovation, centres & collaboration",
+    },
+    {
+      label: "Research Areas",
+      path: "/research/areas",
+      description: "Key research themes",
+    },
+    {
+      label: "Publications",
+      path: "/research/publications",
+      description: "Latest research publications",
+    },
+    {
+      label: "Innovation & Partnerships",
+      path: "/research/innovation",
+      description: "Industry and global partners",
+    },
+  ],
 };
+
+export const STUDENT_SERVICES_MEGA_MENU = {
+  links: [
+    {
+      label: "International Office",
+      path: "/international-office",
+      description: "Visa, exchange, accommodation & student support",
+    },
+    {
+      label: "International Students",
+      path: "/international-students",
+      description: "Guide for international students at KDU Global",
+    },
+  ],
+};
+
 export const PRIMARY_NAV_LINKS = [
   {
     label: "HOME",
     path: "/",
     megaMenu: false,
   },
-
   {
     label: "EDUCATION",
     path: "/academics",
     megaMenu: "academics",
   },
-
   {
-    label: "RESEARCH",
-    path: "/research",
-    megaMenu: false,
+    label: "STUDENT SERVICES",
+    path: "/international-office",
+    megaMenu: "student-services",
   },
-
   {
     label: "ADMISSIONS",
     path: "/admissions",
     megaMenu: false,
   },
-
   {
     label: "ENGAGEMENT",
     path: "/engagement",
     megaMenu: false,
   },
-
   {
     label: "ABOUT US",
     path: "/about",
     megaMenu: false,
   },
-
   {
     label: "NEWS & EVENTS",
     path: "/news-events",
@@ -72,60 +97,20 @@ export const PRIMARY_NAV_LINKS = [
 
 export const NAV_LINKS = [
   { label: "Home", path: "/" },
-  { label: "ABOUT US", path: "/about" },
+  { label: "About Us", path: "/about" },
   { label: "Academics", path: "/academics" },
+  { label: "Student Services", path: "/international-office" },
   { label: "Admissions", path: "/admissions" },
   { label: "Engagement", path: "/engagement" },
-  {
-    label: "Home",
-    path: "/",
-  },
-
-  {
-    label: "About Us",
-    path: "/about",
-  },
-
-  {
-    label: "Academics",
-    path: "/academics",
-  },
-
-  {
-    label: "Research",
-    path: "/research",
-  },
-
-  {
-    label: "Admissions",
-    path: "/admissions",
-  },
-
-  {
-    label: "International Office",
-    path: "/international-office",
-  },
-
-  {
-    label: "International Students",
-    path: "/international-students",
-  },
-
-  {
-    label: "News & Events",
-    path: "/news-events",
-  },
-
-  {
-    label: "Contact",
-    path: "/contact",
-  },
-
+  { label: "News & Events", path: "/news-events" },
+  { label: "Research", path: "/research" },
+  { label: "International Office", path: "/international-office" },
+  { label: "International Students", path: "/international-students" },
+  { label: "Contact", path: "/contact" },
   ...UNDERGRADUATE_PROGRAMS.map((p) => ({
     label: p.title,
     path: p.path,
   })),
-
   {
     label: "Graduate Programs",
     path: "/academics/graduate",

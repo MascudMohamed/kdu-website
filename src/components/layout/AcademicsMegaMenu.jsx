@@ -11,18 +11,9 @@ export default function AcademicsMegaMenu({ onNavigate }) {
       role="region"
       aria-label="Academics programs menu"
     >
-      {/* ================= TOP ================= */}
-
       <div className="mega-menu__top">
-
-        {/* Undergraduate */}
-
         <div className="mega-menu__column">
-
-          <h3 className="mega-menu__heading">
-            Undergraduate Programs
-          </h3>
-
+          <h3 className="mega-menu__heading">Undergraduate Programs</h3>
           <ul className="mega-menu__list">
             {ACADEMICS_MEGA_MENU.undergraduate.map((item) => (
               <li key={item.path}>
@@ -31,18 +22,12 @@ export default function AcademicsMegaMenu({ onNavigate }) {
                   className="mega-menu__link"
                   onClick={handleClick}
                 >
-                  <span className="mega-menu__link-title">
-                    {item.label}
-                  </span>
-
-                  <span className="mega-menu__link-desc">
-                    {item.description}
-                  </span>
+                  <span className="mega-menu__link-title">{item.label}</span>
+                  <span className="mega-menu__link-desc">{item.description}</span>
                 </Link>
               </li>
             ))}
           </ul>
-
           <Link
             to="/academics#undergraduate"
             className="mega-menu__view-all"
@@ -50,51 +35,28 @@ export default function AcademicsMegaMenu({ onNavigate }) {
           >
             View all undergraduate programs →
           </Link>
-
         </div>
 
-        {/* Graduate */}
-
         <div className="mega-menu__column">
-
-          <h3 className="mega-menu__heading">
-            Graduate Programs
-          </h3>
-
+          <h3 className="mega-menu__heading">Graduate Programs</h3>
           <ul className="mega-menu__list">
-
             {ACADEMICS_MEGA_MENU.graduate.map((item) => (
-
               <li key={item.path}>
-
                 <Link
                   to={item.path}
                   className="mega-menu__link"
                   onClick={handleClick}
                 >
-                  <span className="mega-menu__link-title">
-                    {item.label}
-                  </span>
-
-                  <span className="mega-menu__link-desc">
-                    {item.description}
-                  </span>
-
+                  <span className="mega-menu__link-title">{item.label}</span>
+                  <span className="mega-menu__link-desc">{item.description}</span>
                 </Link>
-
               </li>
-
             ))}
-
           </ul>
-
           <div className="mega-menu__promo">
-
             <p>
-              Advanced degrees for research,
-              leadership and professional excellence.
+              Advanced degrees for research, leadership and professional excellence.
             </p>
-
             <Link
               to="/academics/graduate"
               className="mega-menu__promo-link"
@@ -102,68 +64,43 @@ export default function AcademicsMegaMenu({ onNavigate }) {
             >
               Learn more
             </Link>
-
           </div>
-
         </div>
-
-        {/* International Office */}
 
         <div className="mega-menu__column">
-
-          <h3 className="mega-menu__heading">
-            International Office
-          </h3>
-
+          <h3 className="mega-menu__heading">Research</h3>
+          <ul className="mega-menu__list">
+            {ACADEMICS_MEGA_MENU.research.map((item) => (
+              <li key={item.path}>
+                <Link
+                  to={item.path}
+                  className="mega-menu__link"
+                  onClick={handleClick}
+                >
+                  <span className="mega-menu__link-title">{item.label}</span>
+                  <span className="mega-menu__link-desc">{item.description}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
           <Link
-            to="/international-office"
-            className="mega-menu__office-card"
+            to="/research"
+            className="mega-menu__view-all"
             onClick={handleClick}
           >
-
-            <span className="mega-menu__office-icon">
-              🌍
-            </span>
-
-            <h4>
-              International Office
-            </h4>
-
-            <p>
-              Supporting international students through
-              admissions, visa guidance, public events,
-              accommodation and campus life.
-            </p>
-
-            <span className="mega-menu__office-btn">
-              Visit International Office →
-            </span>
-
+            Explore research →
           </Link>
-
         </div>
-
       </div>
 
-      {/* ================= BOTTOM ================= */}
-
       <div className="mega-menu__bottom">
-
         <div className="mega-menu__featured-content">
-
-          <span className="mega-menu__featured-label">
-            Academic Excellence
-          </span>
-
-          <h4>
-            World-Class Programs for Global Leaders
-          </h4>
-
+          <span className="mega-menu__featured-label">Academic Excellence</span>
+          <h4>World-Class Programs for Global Leaders</h4>
           <p>
-            Discover undergraduate and graduate pathways
-            designed for international success.
+            Discover undergraduate, graduate, and research pathways designed for
+            international success.
           </p>
-
           <Link
             to="/academics"
             className="mega-menu__featured-btn"
@@ -171,11 +108,8 @@ export default function AcademicsMegaMenu({ onNavigate }) {
           >
             Explore Academics
           </Link>
-
         </div>
-
       </div>
-
     </div>
   );
 }
