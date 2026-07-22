@@ -7,6 +7,7 @@ const VARIANTS = {
   outline: 'btn--outline',
   ghost: 'btn--ghost',
   white: 'btn--white',
+  'outline-light': 'btn--outline-light',
 };
 
 const SIZES = {
