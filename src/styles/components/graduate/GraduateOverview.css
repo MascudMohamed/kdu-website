@@ -1,0 +1,119 @@
+.graduate-overview{
+    background:#fff;
+}
+
+.graduate-overview__heading{
+    max-width:800px;
+    margin:0 auto 70px;
+    text-align:center;
+}
+
+.graduate-overview__eyebrow{
+    display:inline-block;
+    margin-bottom:12px;
+    color:var(--primary-color);
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.graduate-overview__heading h2{
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+.graduate-overview__heading p{
+    color:#666;
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+.graduate-overview__grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.graduate-overview__image img{
+    width:100%;
+    border-radius:20px;
+    display:block;
+    object-fit:cover;
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+.graduate-overview__content h3{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.graduate-overview__content>p{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.graduate-overview__features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.graduate-overview__feature{
+    display:flex;
+    gap:16px;
+    padding:18px;
+    background:#f8fafc;
+    border-radius:16px;
+    transition:.3s;
+}
+
+.graduate-overview__feature:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.graduate-overview__icon{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:var(--primary-color);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.3rem;
+    flex-shrink:0;
+}
+
+.graduate-overview__feature h4{
+    margin-bottom:6px;
+    font-size:1rem;
+}
+
+.graduate-overview__feature p{
+    color:#666;
+    font-size:.92rem;
+    line-height:1.6;
+}
+
+@media(max-width:992px){
+
+.graduate-overview__grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.graduate-overview__heading h2{
+    font-size:2rem;
+}
+
+.graduate-overview__features{
+    grid-template-columns:1fr;
+}
+
+}

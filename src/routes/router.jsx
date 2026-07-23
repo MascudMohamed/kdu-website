@@ -11,7 +11,7 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Admissions from "../pages/Admissions";
 import Academics from "../pages/Academics";
-import GraduatePrograms from "../pages/GraduatePrograms";
+import GraduateSchool from "../pages/GraduateSchool";
 import InternationalOffice from "../pages/InternationalOffice";
 import InternationalStudents from "../pages/InternationalStudents";
 import NewsEvents from "../pages/NewsEvents";
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
 
       {
         path: "academics/graduate",
-        element: <GraduatePrograms />,
+        element: <GraduateSchool />,
       },
 
       // ===========================

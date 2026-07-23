@@ -1,0 +1,79 @@
+.graduate-application{
+    background:#fff;
+}
+
+.application-timeline{
+    max-width:900px;
+    margin:4rem auto 0;
+    position:relative;
+}
+
+.application-timeline::before{
+    content:"";
+    position:absolute;
+    left:32px;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:#d9e4f2;
+}
+
+.timeline-item{
+    display:flex;
+    align-items:flex-start;
+    gap:2rem;
+    margin-bottom:3rem;
+    position:relative;
+}
+
+.timeline-number{
+    width:65px;
+    height:65px;
+    min-width:65px;
+    border-radius:50%;
+    background:#005BAC;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    font-size:1.2rem;
+    z-index:2;
+}
+
+.timeline-content{
+    background:#f8fafc;
+    border-radius:18px;
+    padding:1.8rem;
+    flex:1;
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+}
+
+.timeline-content h3{
+    color:#003B78;
+    margin-bottom:.8rem;
+}
+
+.timeline-content p{
+    color:#666;
+    line-height:1.8;
+}
+
+@media(max-width:768px){
+
+.application-timeline::before{
+    left:24px;
+}
+
+.timeline-number{
+    width:50px;
+    height:50px;
+    min-width:50px;
+    font-size:1rem;
+}
+
+.timeline-item{
+    gap:1rem;
+}
+
+}

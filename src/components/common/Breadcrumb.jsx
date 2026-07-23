@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom';
-import '../../styles/components/Breadcrumb.css';
+import { Link } from "react-router-dom";
+import "../../styles/components/Breadcrumb.css";
 
-export default function Breadcrumb({ items }) {
+export default function Breadcrumb({ items = [] }) {
+  if (!items.length) return null;
+
   return (
     <nav aria-label="Breadcrumb" className="breadcrumb">
       <ol className="breadcrumb__list">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
+
           return (
             <li key={item.label} className="breadcrumb__item">
               {!isLast && item.path ? (
@@ -18,10 +21,9 @@ export default function Breadcrumb({ items }) {
                   {item.label}
                 </span>
               )}
+
               {!isLast && (
-                <span className="breadcrumb__separator" aria-hidden="true">
-                  /
-                </span>
+                <span className="breadcrumb__separator">/</span>
               )}
             </li>
           );

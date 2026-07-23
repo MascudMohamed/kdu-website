@@ -1,0 +1,111 @@
+.graduate-programs{
+    background:#fff;
+}
+
+.graduate-programs__header{
+    max-width:760px;
+    margin:0 auto 60px;
+    text-align:center;
+}
+
+.graduate-programs__eyebrow{
+    color:var(--primary-color);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.graduate-programs__header h2{
+    margin:14px 0;
+    font-size:2.5rem;
+}
+
+.graduate-programs__header p{
+    color:#666;
+    line-height:1.8;
+}
+
+.graduate-programs__grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+}
+
+.graduate-program{
+    overflow:hidden;
+    background:#fff;
+    border-radius:22px;
+    border:1px solid #ececec;
+    transition:.35s;
+}
+
+.graduate-program:hover{
+    transform:translateY(-8px);
+    box-shadow:0 22px 45px rgba(0,0,0,.08);
+}
+
+.graduate-program__image{
+    height:240px;
+}
+
+.graduate-program__image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.graduate-program__body{
+    padding:30px;
+}
+
+.graduate-program__degree{
+    display:inline-block;
+    margin-bottom:12px;
+    color:var(--primary-color);
+    font-size:.85rem;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.graduate-program__body h3{
+    margin-bottom:15px;
+    font-size:1.55rem;
+}
+
+.graduate-program__body p{
+    color:#666;
+    line-height:1.8;
+}
+
+.graduate-program__meta{
+    display:flex;
+    gap:12px;
+    margin:22px 0;
+    flex-wrap:wrap;
+}
+
+.graduate-program__meta span{
+    background:#f5f6f8;
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:.9rem;
+}
+
+.graduate-program ul{
+    margin:0 0 30px;
+    padding-left:20px;
+}
+
+.graduate-program li{
+    margin-bottom:10px;
+    color:#555;
+}
+
+@media(max-width:1100px){
+
+.graduate-programs__grid{
+    grid-template-columns:1fr;
+}
+
+}
