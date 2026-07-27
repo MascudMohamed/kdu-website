@@ -1,15 +1,23 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 import Breadcrumb from '../common/Breadcrumb';
 import Button from '../common/Button';
-import { getClubBySlug } from '../../data/engagement/clubs';
+import { useClub } from '../../hooks/useClubs';
 import '../../styles/components/EngagementClubs.css';
 
 export default function EngagementClubDetail() {
   const { clubSlug } = useParams();
-  const club = getClubBySlug(clubSlug);
+  const { club, status } = useClub(clubSlug);
+
+  if (!club && status !== 'loading') {
+    return <Navigate to="/engagement/clubs" replace />;
+  }
 
   if (!club) {
-    return <Navigate to="/engagement/clubs" replace />;
+    return (
+      <div className="container" style={{ padding: '4rem 0' }}>
+        <p>Loading club…</p>
+      </div>
+    );
   }
 
   const crumbs = [
@@ -22,7 +30,9 @@ export default function EngagementClubDetail() {
   return (
     <div className="engagement-club-detail">
       <header className="engagement-club-detail__hero">
-        <img src={club.image} alt="" className="engagement-club-detail__hero-bg" />
+        {club.image && (
+          <img src={club.image} alt="" className="engagement-club-detail__hero-bg" />
+        )}
         <div className="engagement-club-detail__hero-overlay" />
         <div className="container engagement-club-detail__hero-content">
           <Breadcrumb items={crumbs} />
@@ -49,6 +59,22 @@ export default function EngagementClubDetail() {
                 </ul>
               </div>
             )}
+
+            {club.committee?.length > 1 && (
+              <div className="engagement-club-detail__block">
+                <h3>Committee</h3>
+                <ul>
+                  {club.committee.map((member) => (
+                    <li key={`${member.name}-${member.role}`}>
+                      <strong>{member.name}</strong>
+                      {' — '}
+                      {member.role}
+                      {member.program ? ` · ${member.program}` : ''}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           <aside className="engagement-club-detail__sidebar">
@@ -57,7 +83,9 @@ export default function EngagementClubDetail() {
               <dl>
                 <div>
                   <dt>When</dt>
-                  <dd>{club.meetingDay} · {club.meetingTime}</dd>
+                  <dd>
+                    {club.meetingDay} · {club.meetingTime}
+                  </dd>
                 </div>
                 <div>
                   <dt>Where</dt>

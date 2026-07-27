@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import HeroSection from '../components/home/HeroSection';
 import Button from '../components/common/Button';
 import { useCmsModule } from '../context/CmsContentContext';
+import { cmsHeroSlides, plainText } from '../api/site/mappers';
 import {
   heroSlides,
   featuredPrograms,
@@ -29,20 +30,22 @@ export default function Home() {
   const headline = cms?.headline?.trim() || 'Kyungdong University Global';
   const subtitle = cms?.subheadline?.trim() || 'Global Campus';
   const description =
+    plainText(cms?.intro) ||
     'English-taught degrees. International community. Pathways to the world.';
-  const primaryCta = cms?.ctaText
+  const slides = cmsHeroSlides(cms, heroSlides);
+  const primaryCta = cms?.ctaText?.trim()
     ? {
-        label: cms.ctaText,
+        label: cms.ctaText.trim(),
         ...(cms.ctaLink?.startsWith('http')
-          ? { href: cms.ctaLink }
-          : { to: cms.ctaLink || '/academics' }),
+          ? { href: cms.ctaLink.trim() }
+          : { to: cms.ctaLink?.trim() || '/academics' }),
       }
     : { label: 'Apply Now', href: APPLICATION_FORM_URL };
 
   return (
     <>
       <HeroSection
-        slides={heroSlides}
+        slides={slides}
         subtitle={subtitle}
         headline={headline}
         description={description}

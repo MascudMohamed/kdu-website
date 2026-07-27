@@ -21,6 +21,9 @@ export function normalizeMediaPath(path) {
   // XAMPP path stored by CMS uploader: kdu-backend/public/media/...
   value = value.replace(/^kdu-backend\/public\/media\//i, 'media/');
   value = value.replace(/^kdu-backend\/public\//i, '');
+  // In case a leading slash was kept: /kdu-backend/public/media/...
+  value = value.replace(/^\/?kdu-backend\/public\/media\//i, 'media/');
+  value = value.replace(/^\/?kdu-backend\/public\//i, '');
 
   if (value.startsWith('uploads/')) {
     value = `media/${value.slice('uploads/'.length)}`;
@@ -65,13 +68,13 @@ function mergeOverview(staticOverview, intro, whyProgram) {
 
 export function cmsHeroSlides(cms, staticSlides) {
   const heroImage = cms?.heroImage ? resolveMediaUrl(cms.heroImage) : null;
-  if (heroImage) {
-    return [
-      { image: heroImage, alt: cms.headline || staticSlides[0]?.alt || 'KDU Global' },
-      ...staticSlides.slice(1),
-    ];
-  }
-  return staticSlides;
+  if (!heroImage) return staticSlides;
+
+  // CMS hero image becomes the live hero; keep remaining static slides as extras.
+  return [
+    { image: heroImage, alt: cms.headline || staticSlides[0]?.alt || 'KDU Global' },
+    ...staticSlides.slice(1),
+  ];
 }
 
 export function cmsFaqs(cmsItems, staticFaqs) {
