@@ -1,59 +1,129 @@
+/* Enhanced Link Component with better accessibility and visual feedback */
+
 .link {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
-  padding: 10px 14px;
+  padding: 12px 16px;
   border-radius: 8px;
   text-decoration: none;
-  color: #1f2937;
+  color: #1e293b;
   font-size: 0.95rem;
-  transition: all 0.25s ease;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  background: transparent;
+  border: 1px solid transparent;
 }
 
 .link:hover {
-  background: #eef5ff;
-  color: #0056b3;
-  transform: translateX(4px);
+  background: #f0f4ff;
+  color: #1a4b8c;
+  transform: translateX(6px);
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 51, 102, 0.08);
+}
+
+.link:active {
+  transform: scale(0.98);
 }
 
 .active {
-  background: #e6f0ff;
+  background: #e8efff;
   color: #003366;
   font-weight: 600;
+  border-color: #003366;
+  box-shadow: 0 2px 8px rgba(0, 51, 102, 0.12);
+}
+
+.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  background: #003366;
+  border-radius: 0 3px 3px 0;
 }
 
 .bullet {
   flex-shrink: 0;
-  color: #0056b3;
-  font-size: 16px;
+  color: #4a7cb5;
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.link:hover .bullet {
+  transform: scale(1.1);
+}
+
+.active .bullet {
+  color: #003366;
 }
 
 .text {
   flex: 1;
-  line-height: 1.4;
+  line-height: 1.5;
   word-break: break-word;
 }
 
 .external {
   flex-shrink: 0;
   font-size: 12px;
-  color: #64748b;
-  transition: transform 0.2s ease;
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  opacity: 0.6;
 }
 
 .link:hover .external {
-  transform: translate(2px, -2px);
+  opacity: 1;
+  transform: translate(3px, -3px);
+  color: #4a7cb5;
 }
 
+/* Keyboard navigation */
 .link:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 3px;
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+  border-color: #2563eb;
 }
 
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .link {
+    color: #e2e8f0;
+  }
+  
+  .link:hover {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  .active {
+    background: #1a2744;
+    border-color: #4a7cb5;
+    color: #e2e8f0;
+  }
+  
+  .active::before {
+    background: #4a7cb5;
+  }
+}
+
+/* Mobile responsive */
 @media (max-width: 768px) {
   .link {
     padding: 10px 12px;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    gap: 10px;
+  }
+  
+  .bullet {
+    font-size: 16px;
+    width: 20px;
   }
 }
