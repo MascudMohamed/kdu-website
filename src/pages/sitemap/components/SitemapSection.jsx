@@ -1,131 +1,89 @@
-// src/pages/sitemap/components/SitemapSection.jsx
-
 import { Link } from "react-router-dom";
 import SitemapLink from "./SitemapLink";
 import styles from "./SitemapSection.module.css";
 
-export default function SitemapSection({
-  section,
-  isExpanded,
-  onToggle,
+export default function SitemapSection({ 
+  item, 
+  level, 
+  isExpanded, 
+  onToggle 
 }) {
-  const hasChildren =
-    Array.isArray(section.children) &&
-    section.children.length > 0;
+  const hasChildren = item.children && item.children.length > 0;
+  const isExternal = item.external || false;
+  
+  // Get icon based on title
+  function getDefaultIcon(title) {
+    const icons = {
+      "Home": "🏠",
+      "About": "ℹ️",
+      "Academics": "📚",
+      "Admissions": "🎓",
+      "Research": "🔬",
+      "Engagement": "🤝",
+      "International": "🌍",
+      "News": "📰",
+      "Contact": "📧",
+      "Undergraduate": "👨‍🎓",
+      "Graduate": "👩‍🎓"
+    };
+    return icons[title] || "📄";
+  }
 
-  const renderChildren = (items, level = 0) => {
+  const icon = item.icon || getDefaultIcon(item.title);
+
+  const renderLink = () => {
+    if (isExternal) {
+      return (
+        <a 
+          href={item.path} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={styles.sectionLink}
+        >
+          {item.title}
+          <span className={styles.externalIcon}>↗</span>
+        </a>
+      );
+    }
     return (
-      <ul
-        className={
-          level === 0
-            ? styles.children
-            : styles.nestedChildren
-        }
-      >
-        {items.map((item) => (
-          <li key={item.id}>
-            {item.children?.length ? (
-              <div className={styles.nestedSection}>
-                <div className={styles.nestedHeader}>
-                  {item.external ? (
-                    <a
-                      href={item.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.nestedTitle}
-                    >
-                      {item.title}
-                      <span className={styles.external}>
-                        ↗
-                      </span>
-                    </a>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className={styles.nestedTitle}
-                    >
-                      {item.title}
-                    </Link>
-                  )}
-                </div>
-
-                {renderChildren(
-                  item.children,
-                  level + 1
-                )}
-              </div>
-            ) : (
-              <SitemapLink item={item} />
-            )}
-          </li>
-        ))}
-      </ul>
+      <Link to={item.path} className={styles.sectionLink}>
+        {item.title}
+      </Link>
     );
   };
 
   return (
-    <article className={styles.section}>
-      <header
-        className={styles.header}
+    <div className={`${styles.sitemapSection} ${styles[`level-${level}`]}`}>
+      <div 
+        className={`${styles.sectionHeader} ${hasChildren ? styles.hasChildren : ''} ${isExpanded ? styles.expanded : ''}`}
         onClick={hasChildren ? onToggle : undefined}
       >
-        <div className={styles.left}>
-          <span className={styles.icon}>
-            {section.icon || "📄"}
+        <div className={styles.sectionInfo}>
+          <span className={styles.sectionIcon}>{icon}</span>
+          <span className={styles.sectionTitle}>
+            {renderLink()}
           </span>
-
-          {section.external ? (
-            <a
-              href={section.path}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.title}
-            >
-              {section.title}
-            </a>
-          ) : (
-            <Link
-              to={section.path}
-              className={styles.title}
-            >
-              {section.title}
-            </Link>
+          {hasChildren && (
+            <span className={styles.childCount}>
+              {item.children.length}
+            </span>
           )}
         </div>
-
         {hasChildren && (
-          <button
-            type="button"
-            className={styles.toggle}
-            aria-expanded={isExpanded}
-            aria-label={
-              isExpanded
-                ? "Collapse section"
-                : "Expand section"
-            }
+          <button 
+            className={`${styles.toggleButton} ${isExpanded ? styles.expanded : ''}`}
             onClick={(e) => {
               e.stopPropagation();
               onToggle();
             }}
+            aria-label={isExpanded ? "Collapse section" : "Expand section"}
           >
-            <span
-              className={`${styles.arrow} ${
-                isExpanded
-                  ? styles.expanded
-                  : ""
-              }`}
-            >
-              ▾
-            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
           </button>
         )}
-      </header>
-
-      {hasChildren && isExpanded && (
-        <div className={styles.content}>
-          {renderChildren(section.children)}
-        </div>
-      )}
-    </article>
+      </div>
+    </div>
   );
 }

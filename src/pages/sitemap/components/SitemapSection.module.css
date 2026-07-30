@@ -1,163 +1,172 @@
-.section {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
+/* Section Styles */
+.sitemapSection {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s;
   overflow: hidden;
-  transition: all 0.25s ease;
 }
 
-.section:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border-color: #cbd5e1;
+.sitemapSection:hover {
+  border-color: #94a3b8;
 }
 
-.header {
+.level-0 {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.level-1 {
+  background: #f8fafc;
+  border-color: #e8edf5;
+}
+
+.level-2 {
+  background: #fafbfc;
+  border-color: #f1f5f9;
+}
+
+.level-3 {
+  background: #ffffff;
+  border-color: #f8fafc;
+}
+
+.sectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  padding: 18px 24px;
+  padding: 14px 20px;
+  cursor: default;
+  transition: background 0.2s;
+}
+
+.sectionHeader.hasChildren {
   cursor: pointer;
-  background: #ffffff;
-  transition: background 0.2s ease;
 }
 
-.header:hover {
-  background: #f8fafc;
+.sectionHeader.hasChildren:hover {
+  background: #f1f5f9;
 }
 
-.left {
+.sectionHeader.expanded {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sectionInfo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex: 1;
   min-width: 0;
 }
 
-.icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: #eef4ff;
-  color: #004a99;
+.sectionIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.title,
-.title:visited,
-.nestedTitle,
-.nestedTitle:visited {
-  color: #003366;
-  text-decoration: none;
-  font-weight: 700;
-  transition: color .2s;
-}
-
-.title {
-  font-size: 1.1rem;
-}
-
-.title:hover,
-.nestedTitle:hover {
-  color: #0059b2;
-}
-
-.external {
-  margin-left: 6px;
-  font-size: 13px;
-}
-
-.toggle {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 8px;
+  background: #f1f5f9;
   border-radius: 6px;
 }
 
-.toggle:hover {
-  background: #edf2f7;
+.sectionTitle {
+  flex: 1;
+  min-width: 0;
 }
 
-.arrow {
-  display: inline-block;
-  transition: transform .25s ease;
-  font-size: 18px;
+.sectionLink {
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.expanded {
-  transform: rotate(180deg);
+.sectionLink:hover {
+  color: #2563eb;
 }
 
-.content {
-  border-top: 1px solid #edf2f7;
-  padding: 20px 26px 24px;
-  background: #fafbfc;
+.sectionLink .externalIcon {
+  font-size: 12px;
+  color: #94a3b8;
 }
 
-.children {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.childCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-left: 6px;
 }
 
-.children > li + li {
-  margin-top: 18px;
-}
-
-.nestedSection {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.nestedHeader {
+.toggleButton {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
   display: flex;
   align-items: center;
 }
 
-.nestedTitle {
-  font-size: 0.98rem;
+.toggleButton:hover {
+  background: #e2e8f0;
 }
 
-.nestedChildren {
-  list-style: none;
-  margin: 0;
-  padding-left: 20px;
-  border-left: 2px solid #dbe6f4;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.toggleButton svg {
+  width: 20px;
+  height: 20px;
+  color: #64748b;
+  transition: transform 0.3s;
 }
 
-.nestedChildren li {
-  margin: 0;
+.toggleButton.expanded svg {
+  transform: rotate(180deg);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .header {
-    padding: 16px;
+  .sectionHeader {
+    padding: 12px 16px;
   }
-
-  .content {
-    padding: 18px;
+  
+  .sectionLink {
+    font-size: 14px;
   }
-
-  .title {
-    font-size: 1rem;
-  }
-
-  .icon {
-    width: 38px;
-    height: 38px;
+  
+  .sectionIcon {
     font-size: 18px;
+    width: 28px;
+    height: 28px;
   }
+}
 
-  .nestedChildren {
-    padding-left: 14px;
+@media (max-width: 480px) {
+  .sectionHeader {
+    padding: 10px 12px;
+  }
+  
+  .sectionLink {
+    font-size: 13px;
+  }
+  
+  .sectionIcon {
+    font-size: 16px;
+    width: 24px;
+    height: 24px;
   }
 }
