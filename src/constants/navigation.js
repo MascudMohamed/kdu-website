@@ -12,9 +12,14 @@ export const ACADEMICS_MEGA_MENU = {
 
   graduate: [
     {
-      label: "Graduate Programs",
+      label: "Graduate Courses",
       path: GRADUATE_OVERVIEW.path,
-      description: "Master's & Doctoral — Announced Soon",
+      description: "K-Global GSBTC master's programmes",
+    },
+    {
+      label: "Graduate Faculty",
+      path: "/academics/graduate/faculty",
+      description: "Faculty of the Graduate School",
     },
   ],
 

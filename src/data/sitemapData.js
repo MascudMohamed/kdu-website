@@ -79,6 +79,10 @@ export const sitemapTree = [
             title: "Graduate",
 
             path: "/academics/graduate",
+            children: [
+              { title: "Graduate Courses", path: "/academics/graduate" },
+              { title: "Graduate Faculty", path: "/academics/graduate/faculty" },
+            ],
           },
         ],
       },

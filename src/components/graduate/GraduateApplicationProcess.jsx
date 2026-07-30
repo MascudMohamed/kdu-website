@@ -42,7 +42,7 @@ const steps = [
 
 export default function GraduateApplicationProcess() {
   return (
-    <section className="graduate-application section">
+    <section className="graduate-application section" id="admissions" aria-labelledby="admissions-title">
 
       <div className="container">
 
@@ -54,7 +54,7 @@ export default function GraduateApplicationProcess() {
         >
           <span>Admissions</span>
 
-          <h2>Application Journey</h2>
+          <h2 id="admissions-title">Application Journey</h2>
 
           <p>
             Applying to KDU Global Graduate School is a straightforward

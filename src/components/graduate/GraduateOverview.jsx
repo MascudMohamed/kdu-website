@@ -1,85 +1,54 @@
-import { motion } from "framer-motion";
-import "./../../styles/components/graduate/GraduateOverview.css";
+import { motion } from 'framer-motion';
+import '../../styles/components/graduate/GraduateOverview.css';
 
 export default function GraduateOverview({ overview }) {
   if (!overview) return null;
 
   return (
-    <section className="graduate-overview section">
-      <div className="container">
-
+    <section className="graduate-overview section" id="overview" aria-labelledby="graduate-overview-title">
+      <div className="container graduate-overview__grid">
         <motion.div
-          className="graduate-overview__heading"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="graduate-overview__media"
+          initial={{ opacity: 0, x: -24 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <span className="graduate-overview__eyebrow">
-            Graduate Education
-          </span>
-
-          <h2>
-            K-Global Graduate School of Business and Technology Convergence
-          </h2>
-
-          <p>
-            Our graduate programs combine advanced academic research,
-            interdisciplinary learning, and real-world industry collaboration
-            to prepare future leaders in technology, business, and hospitality.
-          </p>
+          <img src={overview.image} alt="" loading="lazy" />
         </motion.div>
 
-        <div className="graduate-overview__grid">
+        <motion.div
+          className="graduate-overview__content"
+          initial={{ opacity: 0, x: 24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+        >
+          <p className="graduate-overview__eyebrow">Graduate School</p>
+          <h2 id="graduate-overview-title">{overview.title}</h2>
+          <p>{overview.intro}</p>
 
-          <motion.div
-            className="graduate-overview__image"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <img
-              src={overview.image}
-              alt="Graduate School"
-            />
-          </motion.div>
-
-          <motion.div
-            className="graduate-overview__content"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3>{overview.title}</h3>
-
-            <p>{overview.description}</p>
-
-            <div className="graduate-overview__features">
-
-              {overview.features.map((item) => (
-
-                <div
-                  className="graduate-overview__feature"
-                  key={item.title}
-                >
-                  <div className="graduate-overview__icon">
-                    {item.icon}
-                  </div>
-
-                  <div>
-                    <h4>{item.title}</h4>
-                    <p>{item.description}</p>
-                  </div>
-
-                </div>
-
+          {overview.programmesList?.length > 0 && (
+            <ul className="graduate-overview__degrees">
+              {overview.programmesList.map((item) => (
+                <li key={item}>{item}</li>
               ))}
+            </ul>
+          )}
 
+          {overview.body?.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+          ))}
+
+          {overview.features?.length > 0 && (
+            <div className="graduate-overview__features">
+              {overview.features.map((feature) => (
+                <div key={feature.title} className="graduate-overview__feature">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
+              ))}
             </div>
-
-          </motion.div>
-
-        </div>
-
+          )}
+        </motion.div>
       </div>
     </section>
   );

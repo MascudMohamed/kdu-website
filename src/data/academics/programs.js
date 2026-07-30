@@ -75,8 +75,9 @@ export const UNDERGRADUATE_PROGRAMS = [
 
 export const GRADUATE_OVERVIEW = {
   path: '/academics/graduate',
-  title: 'Graduate Programs',
-  description: 'Advanced study pathways for future leaders and researchers.',
+  title: 'Graduate Courses',
+  description:
+    'K-Global Graduate School of Business and Technology Convergence — master’s programmes in AI, business, and hospitality.',
 };
 
 export const FUTURE_UNDERGRADUATE = [

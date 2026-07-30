@@ -99,3 +99,50 @@
 .credit-card p{
     color:#666;
 }
+.graduate-requirements{
+    margin-top:3.5rem;
+}
+
+.graduate-requirements h3{
+    margin-bottom:0.75rem;
+    color:#003b78;
+}
+
+.graduate-requirements__lead{
+    color:#555;
+    line-height:1.7;
+    max-width:48rem;
+    margin-bottom:1.5rem;
+}
+
+.graduate-table-wrap{
+    overflow-x:auto;
+    border-radius:16px;
+    border:1px solid rgba(0,0,0,.08);
+    background:#fff;
+}
+
+.graduate-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:640px;
+    font-family:var(--font-sans, system-ui, sans-serif);
+}
+
+.graduate-table th,
+.graduate-table td{
+    padding:0.9rem 1rem;
+    text-align:left;
+    border-bottom:1px solid rgba(0,0,0,.06);
+    font-size:0.9375rem;
+}
+
+.graduate-table th{
+    background:#003b78;
+    color:#fff;
+    font-weight:600;
+}
+
+.graduate-table tbody tr:last-child td{
+    border-bottom:none;
+}

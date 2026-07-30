@@ -1,8 +1,7 @@
-import { motion } from "framer-motion";
-import Breadcrumb from "../common/Breadcrumb";
-import Button from "../common/Button";
-import { APPLICATION_FORM_URL } from "../../constants/links";
-import "../../styles/components/graduate/GraduateHero.css";
+import { motion } from 'framer-motion';
+import Breadcrumb from '../common/Breadcrumb';
+import Button from '../common/Button';
+import '../../styles/components/graduate/GraduateHero.css';
 
 export default function GraduateHero({ hero }) {
   if (!hero) return null;
@@ -18,14 +17,14 @@ export default function GraduateHero({ hero }) {
           transition={{ duration: 0.7 }}
         >
           <Breadcrumb items={hero.breadcrumbs} />
-          
-          {hero.subtitle && (
-            <p className="graduate-hero__subtitle">{hero.subtitle}</p>
-          )}
-          
-          <h1 id="graduate-hero-title">{hero.title}</h1>
-          
-          <p className="graduate-hero__desc">{hero.description}</p>
+
+          {hero.degree && <p className="graduate-hero__degree">{hero.degree}</p>}
+
+          <h1 id="graduate-hero-title" className="graduate-hero__h1">
+            {hero.title}
+          </h1>
+
+          {hero.description && <p className="graduate-hero__desc">{hero.description}</p>}
 
           {hero.quickFacts && (
             <dl className="graduate-hero__meta">
@@ -42,8 +41,9 @@ export default function GraduateHero({ hero }) {
             {hero.buttons?.map((button) => (
               <Button
                 key={button.label}
-                href={button.link}
-                variant={button.variant || "primary"}
+                href={button.href}
+                to={button.to}
+                variant={button.variant || 'primary'}
                 size="lg"
               >
                 {button.label}

@@ -32,70 +32,77 @@
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:60px;
-    align-items:center;
+    align-items:start;
 }
 
-.graduate-overview__image img{
+.graduate-overview__media img{
     width:100%;
     border-radius:20px;
     display:block;
     object-fit:cover;
+    aspect-ratio: 4 / 5;
     box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
 
-.graduate-overview__content h3{
-    font-size:2rem;
-    margin-bottom:20px;
+.graduate-overview__content h2{
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    margin-bottom:1rem;
+    line-height:1.25;
 }
 
 .graduate-overview__content>p{
     color:#555;
     line-height:1.8;
-    margin-bottom:35px;
+    margin-bottom:1.25rem;
+}
+
+.graduate-overview__degrees{
+    list-style:none;
+    margin:0 0 1.5rem;
+    padding:0;
+}
+
+.graduate-overview__degrees li{
+    position:relative;
+    padding:0.5rem 0 0.5rem 1.25rem;
+    font-weight:600;
+    color:var(--color-text, #1a1a1a);
+    border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.graduate-overview__degrees li::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0.9em;
+    width:0.45rem;
+    height:0.45rem;
+    background:var(--color-primary, #0072bc);
 }
 
 .graduate-overview__features{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:20px;
+    margin-top:1.5rem;
 }
 
 .graduate-overview__feature{
-    display:flex;
-    gap:16px;
     padding:18px;
     background:#f8fafc;
     border-radius:16px;
-    transition:.3s;
 }
 
-.graduate-overview__feature:hover{
-    transform:translateY(-6px);
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-}
-
-.graduate-overview__icon{
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    background:var(--primary-color);
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.3rem;
-    flex-shrink:0;
-}
-
-.graduate-overview__feature h4{
-    margin-bottom:6px;
+.graduate-overview__feature h3{
     font-size:1rem;
+    margin-bottom:6px;
 }
 
 .graduate-overview__feature p{
     color:#666;
     font-size:.92rem;
     line-height:1.6;
+    margin:0;
 }
 
 @media(max-width:992px){
