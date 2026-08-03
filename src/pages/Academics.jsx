@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Button from '../components/common/Button';
+import CampusLinks from '../components/common/CampusLinks';
 import ProgramCard from '../components/academics/ProgramCard';
 import SectionTitle from '../components/common/SectionTitle';
 import { UNDERGRADUATE_PROGRAMS } from '../data/academics/programs';
@@ -35,12 +36,22 @@ export default function Academics() {
         </div>
       </section>
 
+      <section className="section section--alt" id="campuses">
+        <div className="container">
+          <CampusLinks
+            subtitle="Undergraduate"
+            title="Kyungdong University Campuses"
+            lead="Same campus lineup as the official university site: Global Campus (English), Medical Campus in Wonju, and Metropol Campus in Yangju."
+          />
+        </div>
+      </section>
+
       <section className="section" id="undergraduate">
         <div className="container">
           <SectionTitle
             subtitle="Undergraduate"
             title="Undergraduate Programs"
-            description="Rigorous, industry-aligned bachelor's and pathway programs taught in English for a global cohort of students."
+            description="Rigorous, industry-aligned bachelor's and pathway programs taught in English at KDU Global Campus."
           />
           <div className="academics-programs__grid">
             {UNDERGRADUATE_PROGRAMS.map((program, i) => (

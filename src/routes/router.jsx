@@ -14,6 +14,7 @@ import Academics from "../pages/Academics";
 import GraduateSchool from "../pages/GraduateSchool";
 import GraduateLayout from "../pages/GraduateLayout";
 import GraduateFacultyDirectory from "../pages/GraduateFacultyDirectory";
+import GraduateFacultyProfile from "../pages/GraduateFacultyProfile";
 import InternationalOffice from "../pages/InternationalOffice";
 import InternationalStudents from "../pages/InternationalStudents";
 import NewsEvents from "../pages/NewsEvents";
@@ -77,6 +78,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <GraduateSchool /> },
           { path: "faculty", element: <GraduateFacultyDirectory /> },
+          { path: "faculty/:profileSlug", element: <GraduateFacultyProfile /> },
         ],
       },
 

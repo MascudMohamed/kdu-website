@@ -8,30 +8,51 @@ export default function GraduateFaculty({ faculty, embedded = false }) {
 
   const list = (
     <ul className="dept-faculty__list">
-      {faculty.map((member) => (
-        <li key={member.id} className="dept-faculty__item">
-          <img
-            src={member.photo}
-            alt=""
-            className="dept-faculty__photo"
-            loading="lazy"
-            width="120"
-            height="150"
-          />
-          <div className="dept-faculty__info">
-            <h3>{member.name}</h3>
-            <p className="dept-faculty__title">{member.position}</p>
-            {member.specialization && (
-              <p className="dept-faculty__spec">{member.specialization}</p>
+      {faculty.map((member) => {
+        const profileHref = member.profileSlug
+          ? `/academics/graduate/faculty/${member.profileSlug}`
+          : null;
+
+        const name = profileHref ? (
+          <Link to={profileHref}>{member.name}</Link>
+        ) : (
+          member.name
+        );
+
+        return (
+          <li key={member.id || member.profileSlug || member.name} className="dept-faculty__item">
+            {member.photo ? (
+              <img
+                src={member.photo}
+                alt=""
+                className="dept-faculty__photo"
+                loading="lazy"
+                width="120"
+                height="150"
+              />
+            ) : (
+              <div className="dept-faculty__photo dept-faculty__photo--empty" aria-hidden="true" />
             )}
-            {member.email && (
-              <a href={`mailto:${member.email}`} className="dept-faculty__email">
-                {member.email}
-              </a>
-            )}
-          </div>
-        </li>
-      ))}
+            <div className="dept-faculty__info">
+              <h3>{name}</h3>
+              <p className="dept-faculty__title">{member.position}</p>
+              {member.specialization && (
+                <p className="dept-faculty__spec">{member.specialization}</p>
+              )}
+              {member.email && (
+                <a href={`mailto:${member.email}`} className="dept-faculty__email">
+                  {member.email}
+                </a>
+              )}
+              {profileHref && (
+                <Link to={profileHref} className="dept-link-arrow">
+                  View profile
+                </Link>
+              )}
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 
@@ -43,7 +64,7 @@ export default function GraduateFaculty({ faculty, embedded = false }) {
         <DeptSectionHeader
           eyebrow="Our People"
           title="Graduate faculty"
-          lead="Distinguished educators and researchers across AI, business, and hospitality — supporting interdisciplinary master’s study at K-Global GSBTC."
+          lead="Faculty teaching across K-Global GSBTC programmes — AI & Data Science, International Business, and Hospitality & Tourism. One CMS profile can appear here and on undergraduate department pages."
         />
         {list}
         <div className="graduate-faculty__more">

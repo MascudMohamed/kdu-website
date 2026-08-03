@@ -1,0 +1,636 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KDU Global Website — Project Documentation</title>
+  <style>
+    :root {
+      --primary: #0072BC;
+      --primary-dark: #004a7c;
+      --red: #D62828;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #d0d7de;
+      --bg-alt: #f6f8fa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.2cm 1.8cm 2cm;
+    }
+    h1 {
+      font-size: 26pt;
+      color: var(--primary-dark);
+      margin: 0 0 0.35em;
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 15pt;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.25em;
+      margin: 1.6em 0 0.7em;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 12pt;
+      color: var(--primary);
+      margin: 1.2em 0 0.45em;
+      page-break-after: avoid;
+    }
+    h4 {
+      font-size: 11pt;
+      margin: 1em 0 0.35em;
+      color: var(--text);
+    }
+    p, li { margin: 0.4em 0; }
+    ul, ol { padding-left: 1.35em; margin: 0.4em 0 0.8em; }
+    .cover {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      page-break-after: always;
+    }
+    .cover .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35em 0.8em;
+      margin-bottom: 1.2em;
+    }
+    .cover .meta {
+      color: var(--muted);
+      font-size: 10.5pt;
+      margin-top: 2em;
+    }
+    .cover .meta strong { color: var(--text); }
+    .toc a { color: var(--primary-dark); text-decoration: none; }
+    .toc li { margin: 0.35em 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.6em 0 1em;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.45em 0.55em;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--primary-dark);
+      color: #fff;
+      font-weight: 600;
+    }
+    tr:nth-child(even) td { background: var(--bg-alt); }
+    code, .path {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 9pt;
+      background: var(--bg-alt);
+      padding: 0.1em 0.3em;
+      border-radius: 3px;
+    }
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 0.9em 1em;
+      border-radius: 6px;
+      font-size: 8.5pt;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+      page-break-inside: avoid;
+    }
+    .note {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary);
+      padding: 0.7em 0.9em;
+      margin: 0.8em 0;
+      font-size: 10pt;
+    }
+    .warn {
+      background: #fff7ed;
+      border-left: 4px solid #ea580c;
+      padding: 0.7em 0.9em;
+      margin: 0.8em 0;
+      font-size: 10pt;
+    }
+    .footer-note {
+      margin-top: 2.5em;
+      padding-top: 0.8em;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 9pt;
+    }
+    @media print {
+      html, body { width: auto !important; }
+      .page { max-width: none !important; }
+      /* Single page at a time — never two pages per sheet */
+      body { font-size: 10.5pt; }
+      .page { padding: 0; max-width: none; }
+      a { color: inherit; text-decoration: none; }
+      h2 { break-after: avoid; }
+      table, pre, .note, .warn { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- COVER -->
+    <section class="cover">
+      <div class="badge">Technical Documentation</div>
+      <h1>Kyungdong University Global<br />Website &amp; CMS</h1>
+      <p style="font-size:13pt;color:#444;max-width:34em">
+        Complete project documentation for the public React website and the PHP/MySQL
+        content management system that powers it.
+      </p>
+      <div class="meta">
+        <p><strong>Frontend:</strong> kdu-global-website (React + Vite)</p>
+        <p><strong>Backend:</strong> kdu-backend (PHP + MySQL / XAMPP)</p>
+        <p><strong>Version:</strong> 1.0</p>
+        <p><strong>Document date:</strong> 31 July 2026</p>
+        <p><strong>Institution:</strong> Kyungdong University Global Campus</p>
+      </div>
+    </section>
+
+    <!-- TOC -->
+    <h2>Table of Contents</h2>
+    <ol class="toc">
+      <li><a href="#overview">1. Project Overview</a></li>
+      <li><a href="#architecture">2. System Architecture</a></li>
+      <li><a href="#frontend">3. Frontend Application</a></li>
+      <li><a href="#backend">4. Backend CMS &amp; API</a></li>
+      <li><a href="#database">5. Database Schema</a></li>
+      <li><a href="#rbac">6. Roles &amp; Permissions</a></li>
+      <li><a href="#workflows">7. Operational Workflows</a></li>
+      <li><a href="#apis">8. API Reference (Summary)</a></li>
+      <li><a href="#setup">9. Installation &amp; Local Development</a></li>
+      <li><a href="#deploy">10. Deployment Notes</a></li>
+      <li><a href="#troubleshooting">11. Troubleshooting</a></li>
+    </ol>
+
+    <!-- 1 -->
+    <h2 id="overview">1. Project Overview</h2>
+    <p>
+      The KDU Global digital platform consists of two tightly integrated applications:
+    </p>
+    <ol>
+      <li>
+        <strong>Public website</strong> — a modern React single-page application that presents
+        academic programmes, graduate studies, engagement/clubs, research, admissions, and news.
+      </li>
+      <li>
+        <strong>CMS backend</strong> — a PHP/MySQL content management system used by Super Admins,
+        Heads of Department (HODs), faculty members, Graduate School staff, International Office,
+        and club administrators to manage live content.
+      </li>
+    </ol>
+    <p>
+      Static fallback content in the React app ensures the site remains usable if the API is
+      temporarily unavailable. When the CMS is connected, published content and faculty profiles
+      override or merge with those fallbacks.
+    </p>
+
+    <h3>Goals</h3>
+    <ul>
+      <li>One public brand experience for Kyungdong University Global.</li>
+      <li>Department pages that HODs can update without developer intervention.</li>
+      <li>Faculty profiles created once and listed under multiple programmes if needed.</li>
+      <li>Club pages managed by club admins created only by Super Admin.</li>
+      <li>Clear draft → publish workflow so unfinished edits never appear publicly.</li>
+    </ul>
+
+    <!-- 2 -->
+    <h2 id="architecture">2. System Architecture</h2>
+    <pre>┌──────────────────────────────┐     /api  /media      ┌──────────────────────────────┐
+│  React Frontend (Vite)       │ ───────────────────► │  PHP Backend (XAMPP)         │
+│  localhost:5173              │                      │  /kdu-backend/public         │
+│                              │                      │                              │
+│  · Pages &amp; layouts           │                      │  · Public JSON APIs          │
+│  · CmsContentProvider        │                      │  · Session-auth CMS APIs     │
+│  · Department live merge     │                      │  · Media streaming           │
+│  · Clubs / Graduate UI       │                      │  · Role-based CMS UI         │
+└──────────────────────────────┘                      └──────────────┬───────────────┘
+                                                                     │
+                                                                     ▼
+                                                          ┌──────────────────┐
+                                                          │ MySQL kdu_backend│
+                                                          │ storage/uploads  │
+                                                          └──────────────────┘</pre>
+
+    <h3>Integration pattern</h3>
+    <ul>
+      <li>In development, Vite proxies <code>/api</code> and <code>/media</code> to
+        <code>http://localhost/kdu-backend/public</code>.</li>
+      <li>Public pages use unauthenticated GET requests.</li>
+      <li>CMS login uses PHP sessions with <code>credentials: 'include'</code>.</li>
+      <li>Only <strong>published</strong> records are returned by public APIs.</li>
+    </ul>
+
+    <!-- 3 -->
+    <h2 id="frontend">3. Frontend Application</h2>
+    <p><strong>Path:</strong> <span class="path">C:\Users\Mascud Mohamed\kdu-global-website</span></p>
+
+    <h3>3.1 Technology stack</h3>
+    <table>
+      <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
+      <tbody>
+        <tr><td>UI library</td><td>React 19</td></tr>
+        <tr><td>Bundler / Dev server</td><td>Vite 6</td></tr>
+        <tr><td>Routing</td><td>React Router DOM 7</td></tr>
+        <tr><td>Styling</td><td>Custom CSS + Tailwind CSS 4</td></tr>
+        <tr><td>Motion</td><td>Framer Motion</td></tr>
+        <tr><td>Icons</td><td>lucide-react, react-icons</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.2 Directory layout</h3>
+    <pre>src/
+  api/           Site, department, and clubs HTTP clients + mappers
+  components/    UI building blocks (department, graduate, engagement, layout…)
+  constants/     Navigation menus and shared links
+  context/       CmsContentContext (site-wide published content)
+  data/          Static fallback content (departments, graduate, clubs…)
+  hooks/         useDepartmentLiveData, useClubs, useFacultyProfile…
+  layouts/       Main, Department, Engagement, Research layouts
+  pages/         Route-level screens
+  routes/        router.jsx
+  styles/        Brand variables and component/page CSS</pre>
+
+    <h3>3.3 Main routes</h3>
+    <table>
+      <thead><tr><th>URL</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>/</code></td><td>Home (CMS-driven hero / headline / CTA)</td></tr>
+        <tr><td><code>/about</code>, <code>/admissions</code>, <code>/contact</code></td><td>Core institutional pages</td></tr>
+        <tr><td><code>/academics</code></td><td>Academics hub</td></tr>
+        <tr><td><code>/academics/undergraduate/:slug</code></td><td>Department hub + spokes</td></tr>
+        <tr><td><code>/academics/undergraduate/:slug/faculty</code></td><td>Department faculty directory</td></tr>
+        <tr><td><code>/academics/graduate</code></td><td>Graduate Courses (K-Global GSBTC)</td></tr>
+        <tr><td><code>/academics/graduate/faculty</code></td><td>Graduate faculty directory</td></tr>
+        <tr><td><code>/engagement</code>, <code>/engagement/clubs/:slug</code></td><td>Engagement &amp; student clubs</td></tr>
+        <tr><td><code>/research</code>, <code>/research/:page</code></td><td>Research hub and spokes</td></tr>
+        <tr><td><code>/international-office</code></td><td>Student services / international office</td></tr>
+        <tr><td><code>/news-events</code>, <code>/sitemap</code></td><td>News hub and site map</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.4 Undergraduate departments</h3>
+    <p>Six programmes are registered in the frontend data layer:</p>
+    <ul>
+      <li>Smart Computing</li>
+      <li>International Business Administration (API code <code>iba</code>)</li>
+      <li>English for Academic Purposes (API code <code>eap</code>)</li>
+      <li>Artificial Intelligence</li>
+      <li>International Hotel Management (API code <code>ihm</code>)</li>
+      <li>Korean for Academic Purposes (API code <code>kap</code>)</li>
+    </ul>
+    <p>
+      Each department page merges static content with live CMS data (hero, curriculum, faculty,
+      news, events, admissions, contact) via <code>useDepartmentLiveData</code>.
+    </p>
+
+    <h3>3.5 Graduate school</h3>
+    <p>
+      The graduate experience is modelled after the official KDU Global Graduate Courses page
+      (K-Global Graduate School of Business and Technology Convergence). It includes hero,
+      dean message, programmes, course outline, curriculum components, careers, faculty,
+      scholarships, and admissions steps. Sub-navigation mirrors undergraduate department UX.
+    </p>
+
+    <h3>3.6 CMS content on the public site</h3>
+    <ul>
+      <li><code>CmsContentProvider</code> loads <code>GET /api/site/content</code> on app start and refreshes on window focus.</li>
+      <li>Home uses CMS headline, tagline, intro, CTA, and hero image when present.</li>
+      <li>About, Admissions, Contact, Navbar, and Footer consume CMS modules similarly.</li>
+      <li>Media paths such as <code>/kdu-backend/public/media/…</code> are normalized to <code>/media/…</code> for the Vite proxy.</li>
+    </ul>
+
+    <h3>3.7 Brand &amp; UI guidelines (in code)</h3>
+    <ul>
+      <li>Primary blue <code>#0072BC</code>, accent red <code>#D62828</code></li>
+      <li>Typography tokens in <code>src/styles/variables.css</code></li>
+      <li>Department and graduate heroes use full-bleed imagery with overlay text</li>
+      <li>Prefer merging CMS data over hardcoding when a field is published</li>
+    </ul>
+
+    <!-- 4 -->
+    <h2 id="backend">4. Backend CMS &amp; API</h2>
+    <p><strong>Path:</strong> <span class="path">C:\xampp\htdocs\kdu-backend</span></p>
+
+    <h3>4.1 Technology stack</h3>
+    <table>
+      <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
+      <tbody>
+        <tr><td>Runtime</td><td>PHP 8.2+ (plain PHP, no Laravel)</td></tr>
+        <tr><td>Database</td><td>MySQL / MariaDB (<code>kdu_backend</code>)</td></tr>
+        <tr><td>Auth</td><td>PHP sessions stored in MySQL</td></tr>
+        <tr><td>CMS UI</td><td>Static SPA under <code>public/cms/</code></td></tr>
+        <tr><td>Entry point</td><td><code>public/index.php</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3>4.2 Directory layout</h3>
+    <pre>kdu-backend/
+  config/          app, database, mail configuration
+  database/        schema migrations 001–012, install.sql
+  public/          API entry + CMS UI + media routes
+  scripts/         create_root, create_faculty_account, unlock_user…
+  src/
+    Auth/ Controllers/ Core/ Http/ Mail/ Rbac/ Services/
+    routes/api.php   routes/cms.php
+  storage/uploads/ faculty/ events/ news/ site/ clubs/</pre>
+
+    <h3>4.3 CMS portals</h3>
+    <table>
+      <thead><tr><th>URL</th><th>Audience</th></tr></thead>
+      <tbody>
+        <tr><td><code>/kdu-backend/public/cms/</code></td><td>Root, HOD, Dean, International, Club Admin</td></tr>
+        <tr><td><code>/kdu-backend/public/cms/faculty/</code></td><td>Faculty profile editors</td></tr>
+      </tbody>
+    </table>
+
+    <h3>4.4 Publish model</h3>
+    <ul>
+      <li><strong>Draft</strong> — editable in CMS, invisible on the public website</li>
+      <li><strong>Published</strong> — returned by public APIs; may set <code>published_at</code></li>
+      <li><strong>Archived</strong> — retained but hidden from public listings</li>
+      <li>Faculty profiles use <code>is_published</code> with an explicit Publish action</li>
+    </ul>
+    <div class="note">
+      After publishing site content, refresh the React site (or wait for focus refresh) to see changes.
+      The CMS success message reminds editors to open <code>http://localhost:5173</code>.
+    </div>
+
+    <h3>4.5 Media storage</h3>
+    <p>Uploads are separated by purpose so faculty photos are never mixed with site heroes:</p>
+    <table>
+      <thead><tr><th>Purpose</th><th>Folder</th></tr></thead>
+      <tbody>
+        <tr><td><code>faculty_photo</code>, <code>faculty_cv</code></td><td><code>storage/uploads/faculty/</code></td></tr>
+        <tr><td><code>site_image</code>, <code>content_image</code></td><td><code>storage/uploads/site/</code></td></tr>
+        <tr><td><code>news_image</code></td><td><code>storage/uploads/news/</code></td></tr>
+        <tr><td><code>event_banner</code></td><td><code>storage/uploads/events/</code></td></tr>
+        <tr><td><code>club_image</code></td><td><code>storage/uploads/clubs/</code></td></tr>
+      </tbody>
+    </table>
+    <p>Public URL pattern: <code>/media/{folder}/{year}/{month}/{filename}</code></p>
+
+    <h3>4.6 Faculty multi-department affiliations</h3>
+    <p>
+      A faculty member creates <strong>one</strong> profile. Through
+      <code>faculty_profile_affiliations</code> they can appear under multiple undergraduate
+      departments and optionally under Graduate School.
+    </p>
+    <ul>
+      <li>Home department remains on the user/profile for HOD ownership.</li>
+      <li>Additional departments are selected in the Faculty Dashboard or when creating the account.</li>
+      <li>Public lists: <code>/api/{department}/faculty</code> and <code>/api/graduate/faculty</code>.</li>
+    </ul>
+
+    <h3>4.7 Clubs CMS</h3>
+    <ul>
+      <li>Only Super Admin / Root creates clubs (<strong>Manage clubs</strong>).</li>
+      <li>Root then creates a <code>club_admin</code> user assigned to that club.</li>
+      <li>Club admins edit only their club profile, news, and events, then publish.</li>
+      <li>Frontend engagement club pages merge published API clubs with static fallbacks.</li>
+    </ul>
+
+    <!-- 5 -->
+    <h2 id="database">5. Database Schema</h2>
+    <p>Database name: <code>kdu_backend</code>. Migrations live in <code>database/schema/</code>.</p>
+    <table>
+      <thead><tr><th>File</th><th>Contents</th></tr></thead>
+      <tbody>
+        <tr><td>001</td><td>Departments, roles, permissions foundation</td></tr>
+        <tr><td>002</td><td>Users, sessions, password reset</td></tr>
+        <tr><td>003</td><td>Faculty profiles and related tables</td></tr>
+        <tr><td>004</td><td>Department events &amp; news</td></tr>
+        <tr><td>005</td><td>Media files metadata</td></tr>
+        <tr><td>006</td><td>Audit logs</td></tr>
+        <tr><td>007</td><td>Early seed data</td></tr>
+        <tr><td>008</td><td>Enterprise CMS: clubs, content blocks, office scopes</td></tr>
+        <tr><td>009</td><td>Enterprise RBAC seed &amp; content modules</td></tr>
+        <tr><td>010</td><td>Extra department CMS modules</td></tr>
+        <tr><td>011</td><td>Starter clubs seed</td></tr>
+        <tr><td>012</td><td>Faculty multi-department affiliations</td></tr>
+      </tbody>
+    </table>
+    <p>Full install: <code>mysql -u root kdu_backend &lt; database/install.sql</code></p>
+
+    <!-- 6 -->
+    <h2 id="rbac">6. Roles &amp; Permissions</h2>
+    <table>
+      <thead><tr><th>Role key</th><th>Who</th><th>Can manage</th></tr></thead>
+      <tbody>
+        <tr><td><code>root</code></td><td>Super Admin</td><td>Everything: users, site content, clubs catalog, settings, audit</td></tr>
+        <tr><td><code>hod</code></td><td>Head of Department</td><td>Own department content, news, events, faculty accounts</td></tr>
+        <tr><td><code>faculty</code></td><td>Teaching staff</td><td>Own profile, photo/CV, publications, affiliations, publish</td></tr>
+        <tr><td><code>dean_graduate</code></td><td>Graduate School</td><td>Graduate content, events, news</td></tr>
+        <tr><td><code>international_office</code></td><td>International Office</td><td>International content, events, news</td></tr>
+        <tr><td><code>club_admin</code></td><td>Student club lead</td><td>Assigned club profile, news, events</td></tr>
+        <tr><td><code>*_event_news_manager</code></td><td>Legacy dept editors</td><td>Department events/news only</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Permissions are enforced in <code>PermissionService</code> and <code>CmsGuard</code>.
+      Users are scoped by <code>department_id</code>, <code>club_id</code>, or <code>office_scope</code>.
+    </p>
+
+    <!-- 7 -->
+    <h2 id="workflows">7. Operational Workflows</h2>
+
+    <h3>7.1 Super Admin publishes Home content</h3>
+    <ol>
+      <li>Sign in to CMS as Root.</li>
+      <li>Open <strong>Website content</strong> → Home Page.</li>
+      <li>Edit headline, tagline, intro, CTA, and upload a <em>site</em> hero image.</li>
+      <li>Click <strong>Publish</strong>.</li>
+      <li>Refresh the public site at <code>http://localhost:5173</code>.</li>
+    </ol>
+
+    <h3>7.2 HOD manages a department</h3>
+    <ol>
+      <li>Sign in as HOD (account linked to one department).</li>
+      <li>Edit department pages, news, and events; publish when ready.</li>
+      <li>Create faculty accounts under <strong>Faculty accounts</strong> (optionally tick extra departments / Graduate).</li>
+      <li>Faculty log into the Faculty Dashboard to complete and publish their profile.</li>
+    </ol>
+
+    <h3>7.3 Faculty multi-programme listing</h3>
+    <ol>
+      <li>Faculty opens Faculty Dashboard → Profile.</li>
+      <li>Under <strong>Departments &amp; programmes</strong>, tick every programme where they teach.</li>
+      <li>Optionally tick <strong>Also list under Graduate School</strong>.</li>
+      <li>Save and Publish — one profile appears on each selected public faculty list.</li>
+    </ol>
+
+    <h3>7.4 Create a club and club admin</h3>
+    <ol>
+      <li>Root → <strong>Manage clubs</strong> → create club.</li>
+      <li>Root → <strong>Users</strong> → role Club Admin → assign club → temporary password.</li>
+      <li>Club admin signs in → My club page / news / events → Publish.</li>
+    </ol>
+
+    <!-- 8 -->
+    <h2 id="apis">8. API Reference (Summary)</h2>
+
+    <h3>8.1 Public endpoints</h3>
+    <table>
+      <thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>GET</td><td><code>/api/health</code></td><td>Health check</td></tr>
+        <tr><td>GET</td><td><code>/api/site/content</code></td><td>Published site content bundle</td></tr>
+        <tr><td>GET</td><td><code>/api/{dept}/content</code></td><td>Published department content modules</td></tr>
+        <tr><td>GET</td><td><code>/api/{dept}/faculty</code></td><td>Published faculty (incl. affiliations)</td></tr>
+        <tr><td>GET</td><td><code>/api/{dept}/news</code></td><td>Published department news</td></tr>
+        <tr><td>GET</td><td><code>/api/{dept}/events</code></td><td>Published department events</td></tr>
+        <tr><td>GET</td><td><code>/api/clubs</code></td><td>Published clubs</td></tr>
+        <tr><td>GET</td><td><code>/api/clubs/{slug}</code></td><td>Single published club</td></tr>
+        <tr><td>GET</td><td><code>/api/graduate/faculty</code></td><td>Faculty affiliated with Graduate</td></tr>
+        <tr><td>GET</td><td><code>/api/graduate/events</code></td><td>Graduate office events</td></tr>
+        <tr><td>GET</td><td><code>/media/…</code></td><td>Stream uploaded media</td></tr>
+      </tbody>
+    </table>
+
+    <h3>8.2 Auth &amp; CMS (authenticated)</h3>
+    <table>
+      <thead><tr><th>Area</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td>Auth</td><td><code>/api/auth/login</code>, <code>/me</code>, <code>/logout</code>, password reset</td></tr>
+        <tr><td>Site content</td><td><code>/api/cms/content</code> (draft/publish)</td></tr>
+        <tr><td>Admin users</td><td><code>/api/cms/admin/users</code></td></tr>
+        <tr><td>HOD faculty</td><td><code>/api/cms/{dept}/faculty-users</code></td></tr>
+        <tr><td>Faculty self</td><td><code>/api/cms/faculty/me</code> (+ children, photo, publish)</td></tr>
+        <tr><td>Clubs</td><td><code>/api/cms/clubs</code>, <code>/api/cms/club/profile</code></td></tr>
+        <tr><td>Office</td><td><code>/api/cms/office/{graduate|international}/…</code></td></tr>
+        <tr><td>Media</td><td><code>POST /api/cms/media/upload</code></td></tr>
+      </tbody>
+    </table>
+
+    <!-- 9 -->
+    <h2 id="setup">9. Installation &amp; Local Development</h2>
+
+    <h3>9.1 Prerequisites</h3>
+    <ul>
+      <li>XAMPP (Apache + MySQL/MariaDB)</li>
+      <li>Node.js 18+ (recommended 20/22)</li>
+      <li>PHP 8.2+</li>
+      <li>Git</li>
+    </ul>
+
+    <h3>9.2 Backend setup</h3>
+    <ol>
+      <li>Place the backend at <code>C:\xampp\htdocs\kdu-backend</code>.</li>
+      <li>Start Apache and MySQL in XAMPP Control Panel.</li>
+      <li>Create database <code>kdu_backend</code> if needed.</li>
+      <li>Run migrations:
+        <pre>mysql -u root kdu_backend &lt; database/install.sql</pre>
+      </li>
+      <li>Copy <code>.env.example</code> to <code>.env</code> and set DB credentials, CORS origin
+        <code>http://localhost:5173</code>, and mail settings.</li>
+      <li>Create Root user:
+        <pre>php scripts/create_root.php admin@kduglobal.edu "YourStrongPass123!" "Super Admin"</pre>
+      </li>
+      <li>Verify: open <code>http://localhost/kdu-backend/public/api/health</code></li>
+      <li>CMS: <code>http://localhost/kdu-backend/public/cms/</code></li>
+    </ol>
+
+    <h3>9.3 Frontend setup</h3>
+    <pre>cd "C:\Users\Mascud Mohamed\kdu-global-website"
+npm install
+npm run dev</pre>
+    <p>Open <code>http://localhost:5173</code>. Leave <code>VITE_API_URL</code> empty in development so the Vite proxy handles API calls.</p>
+
+    <h3>9.4 Useful npm scripts</h3>
+    <table>
+      <thead><tr><th>Script</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>npm run dev</code></td><td>Local development server</td></tr>
+        <tr><td><code>npm run dev:host</code></td><td>Expose on LAN / tunnels</td></tr>
+        <tr><td><code>npm run build</code></td><td>Production build to <code>dist/</code></td></tr>
+        <tr><td><code>npm run preview</code></td><td>Preview production build</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 10 -->
+    <h2 id="deploy">10. Deployment Notes</h2>
+    <ul>
+      <li>Build frontend with <code>npm run build</code>; host <code>dist/</code> on a static web server or CDN.</li>
+      <li>Set <code>VITE_API_URL</code> to the public backend origin before building.</li>
+      <li>Point Apache/Nginx document root (or alias) at <code>kdu-backend/public</code>.</li>
+      <li>Ensure <code>mod_rewrite</code> is enabled and <code>public/.htaccess</code> is respected.</li>
+      <li>Make <code>storage/uploads</code> writable by the web server user.</li>
+      <li>Configure HTTPS and restrict CMS access if exposed publicly.</li>
+      <li>Align CORS allowed origins with the production frontend URL.</li>
+    </ul>
+
+    <!-- 11 -->
+    <h2 id="troubleshooting">11. Troubleshooting</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Likely cause / fix</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>CMS shows Published but site unchanged</td>
+          <td>Hard-refresh frontend; confirm <code>/api/site/content</code> has non-empty published fields; ensure Home maps hero/intro.</td>
+        </tr>
+        <tr>
+          <td>Broken image in CMS preview</td>
+          <td>Use Upload (stores <code>/media/…</code>); avoid pasting full XAMPP browser paths; confirm file exists under <code>storage/uploads</code>.</td>
+        </tr>
+        <tr>
+          <td>Faculty photo appears as home hero</td>
+          <td>Do not reuse faculty media for site hero; site uploads go to <code>media/site/</code>.</td>
+        </tr>
+        <tr>
+          <td>MySQL ERROR 2002</td>
+          <td>Start MySQL in XAMPP.</td>
+        </tr>
+        <tr>
+          <td>Import path / Vite resolve errors</td>
+          <td>Check relative imports from <code>src/pages/</code> use <code>../</code> not <code>../../</code>.</td>
+        </tr>
+        <tr>
+          <td>Faculty not listed on second department</td>
+          <td>Ensure affiliations saved and profile published; check <code>faculty_profile_affiliations</code>.</td>
+        </tr>
+        <tr>
+          <td>Club admin cannot be created</td>
+          <td>Create the club first under Manage clubs, then assign <code>club_id</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warn">
+      <strong>Security reminder:</strong> Never commit real <code>.env</code> credentials or production passwords.
+      Rotate temporary passwords after first login. Keep Root accounts to a minimum.
+    </div>
+
+    <div class="footer-note">
+      <p>
+        End of document — KDU Global Website &amp; CMS Project Documentation (v1.0).<br />
+        Generated for Kyungdong University Global Campus development team.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { KDU_CAMPUSES } from "../../constants/campuses";
 import { ACADEMICS_MEGA_MENU } from "../../constants/navigation";
 import "../../styles/components/AcademicsMegaMenu.css";
 
@@ -95,18 +96,38 @@ export default function AcademicsMegaMenu({ onNavigate }) {
 
       <div className="mega-menu__bottom">
         <div className="mega-menu__featured-content">
-          <span className="mega-menu__featured-label">Academic Excellence</span>
-          <h4>World-Class Programs for Global Leaders</h4>
+          <span className="mega-menu__featured-label">Other campuses</span>
+          <h4>Kyungdong University Campuses</h4>
           <p>
-            Discover undergraduate, graduate, and research pathways designed for
-            international success.
+            Global Campus (English) is this site. Medical and Metropol campuses
+            use the Korean university portal.
           </p>
+          <ul className="mega-menu__campus-list">
+            {KDU_CAMPUSES.map((campus) => (
+              <li key={campus.id}>
+                {campus.external ? (
+                  <a
+                    href={campus.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleClick}
+                  >
+                    {campus.shortName} · {campus.medium}
+                  </a>
+                ) : (
+                  <Link to="/academics#campuses" onClick={handleClick}>
+                    {campus.shortName} · {campus.medium}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
           <Link
-            to="/academics"
+            to="/academics#campuses"
             className="mega-menu__featured-btn"
             onClick={handleClick}
           >
-            Explore Academics
+            View all campuses
           </Link>
         </div>
       </div>

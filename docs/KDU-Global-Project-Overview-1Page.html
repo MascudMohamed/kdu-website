@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KDU Global — One-Page Project Overview</title>
+  <style>
+    @page { size: A4; margin: 12mm 14mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 8.2pt;
+      line-height: 1.28;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 16pt;
+      color: #004a7c;
+      margin: 0 0 2px;
+      line-height: 1.15;
+    }
+    .sub {
+      color: #0072BC;
+      font-size: 9pt;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    .meta {
+      color: #555;
+      font-size: 7.5pt;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #0072BC;
+    }
+    h2 {
+      font-size: 9pt;
+      color: #004a7c;
+      margin: 7px 0 3px;
+      padding-bottom: 1px;
+      border-bottom: 1px solid #c5d8ea;
+    }
+    p, li { margin: 1px 0; }
+    ul { margin: 2px 0 4px; padding-left: 14px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.4pt;
+      margin: 3px 0 5px;
+    }
+    th, td {
+      border: 1px solid #d0d7de;
+      padding: 2px 4px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #004a7c; color: #fff; font-weight: 600; }
+    tr:nth-child(even) td { background: #f6f8fa; }
+    .cols { display: flex; gap: 10px; }
+    .cols > div { flex: 1; min-width: 0; }
+    code { font-family: Consolas, monospace; font-size: 7pt; background: #f0f4f8; padding: 0 2px; }
+    .footer {
+      margin-top: 6px;
+      padding-top: 4px;
+      border-top: 1px solid #d0d7de;
+      font-size: 7pt;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kyungdong University Global — Project Overview</h1>
+  <div class="sub">Website (React) + CMS Backend (PHP/MySQL) — One-page summary</div>
+  <div class="meta">
+    Frontend: <code>kdu-global-website</code> · Backend: <code>C:\xampp\htdocs\kdu-backend</code> ·
+    Doc date: 31 Jul 2026 · Full docs: <code>docs/KDU-Global-Project-Documentation.docx</code>
+  </div>
+
+  <div class="cols">
+    <div>
+      <h2>1. What this project is</h2>
+      <p>Public university website + CMS so admins, HODs, faculty, and club leads update content without developers.</p>
+      <ul>
+        <li><strong>Frontend:</strong> React 19, Vite 6, React Router 7 — <code>localhost:5173</code></li>
+        <li><strong>Backend:</strong> PHP 8 + MySQL (<code>kdu_backend</code>) — <code>/kdu-backend/public</code></li>
+        <li>Dev proxy: <code>/api</code> &amp; <code>/media</code> → XAMPP backend</li>
+        <li>Only <strong>published</strong> CMS content appears on the live site</li>
+      </ul>
+
+      <h2>2. Main public pages</h2>
+      <table>
+        <tr><th>Area</th><th>URLs</th></tr>
+        <tr><td>Core</td><td><code>/</code> Home, About, Admissions, Contact, News</td></tr>
+        <tr><td>Undergraduate</td><td><code>/academics/undergraduate/:slug</code> (+ faculty, projects)</td></tr>
+        <tr><td>Graduate</td><td><code>/academics/graduate</code>, <code>.../faculty</code></td></tr>
+        <tr><td>Engagement</td><td><code>/engagement</code>, clubs <code>/engagement/clubs/:slug</code></td></tr>
+        <tr><td>Other</td><td>Research, International Office, Sitemap</td></tr>
+      </table>
+
+      <h2>3. Programmes</h2>
+      <p>Smart Computing · IBA (<code>iba</code>) · EAP (<code>eap</code>) · AI · IHM (<code>ihm</code>) · KAP (<code>kap</code>) · Graduate (K-Global GSBTC)</p>
+    </div>
+    <div>
+      <h2>4. CMS roles</h2>
+      <table>
+        <tr><th>Role</th><th>Can manage</th></tr>
+        <tr><td>Root</td><td>Users, site content, clubs catalog, settings</td></tr>
+        <tr><td>HOD</td><td>Own department pages, news, events, faculty accounts</td></tr>
+        <tr><td>Faculty</td><td>Own profile, photo/CV; multi-department listing</td></tr>
+        <tr><td>Dean Graduate</td><td>Graduate content / events / news</td></tr>
+        <tr><td>Intl. Office</td><td>International content / events / news</td></tr>
+        <tr><td>Club Admin</td><td>Assigned club only (created by Root)</td></tr>
+      </table>
+
+      <h2>5. Key workflows</h2>
+      <ul>
+        <li><strong>Site content:</strong> Root → Website content → Publish → refresh site</li>
+        <li><strong>Department:</strong> HOD edits pages/news/events → publish</li>
+        <li><strong>Faculty:</strong> one profile; tick multiple departments + Graduate</li>
+        <li><strong>Clubs:</strong> Root creates club → creates Club Admin → admin publishes club</li>
+      </ul>
+
+      <h2>6. Media folders</h2>
+      <p><code>faculty/</code> · <code>site/</code> · <code>news/</code> · <code>events/</code> · <code>clubs/</code> under <code>storage/uploads/</code> → served as <code>/media/…</code></p>
+    </div>
+  </div>
+
+  <h2>7. Local setup (quick)</h2>
+  <table>
+    <tr><th>Backend</th><th>Frontend</th></tr>
+    <tr>
+      <td>
+        Start XAMPP Apache + MySQL<br/>
+        <code>mysql -u root kdu_backend &lt; database/install.sql</code><br/>
+        <code>php scripts/create_root.php …</code><br/>
+        CMS: <code>.../public/cms/</code> · Faculty: <code>.../cms/faculty/</code>
+      </td>
+      <td>
+        <code>npm install</code> · <code>npm run dev</code><br/>
+        Open <code>http://localhost:5173</code><br/>
+        Leave <code>VITE_API_URL</code> empty in dev
+      </td>
+    </tr>
+  </table>
+
+  <h2>8. Useful APIs</h2>
+  <p>
+    Public: <code>/api/site/content</code> · <code>/api/{dept}/faculty|news|events|content</code> ·
+    <code>/api/clubs</code> · <code>/api/graduate/faculty</code> · <code>/media/…</code><br/>
+    CMS (login): <code>/api/cms/content</code> · <code>/api/cms/faculty/me</code> ·
+    <code>/api/cms/{dept}/faculty-users</code> · <code>/api/cms/clubs</code>
+  </p>
+
+  <h2>9. Troubleshooting</h2>
+  <ul>
+    <li>Published but site unchanged → hard-refresh; check <code>/api/site/content</code> has values</li>
+    <li>Broken images → use Upload (not long XAMPP paths); keep faculty photos out of site hero</li>
+    <li>MySQL error 2002 → start MySQL in XAMPP</li>
+    <li>Faculty missing on 2nd department → save affiliations + publish profile</li>
+  </ul>
+
+  <div class="footer">
+    KDU Global Website &amp; CMS — one-page overview (v1.0). For full detail see the multi-page documentation in the same <code>docs</code> folder.
+  </div>
+</body>
+</html>

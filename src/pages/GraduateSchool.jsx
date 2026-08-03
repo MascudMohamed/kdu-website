@@ -10,9 +10,12 @@ import GraduateFaculty from '../components/graduate/GraduateFaculty';
 import GraduateScholarships from '../components/graduate/GraduateScholarships';
 import GraduateApplicationProcess from '../components/graduate/GraduateApplicationProcess';
 import graduateData from '../data/academics/graduateData';
+import { useGraduateFaculty } from '../hooks/useGraduateFaculty';
 import '../styles/pages/GraduateSchool.css';
 
 export default function GraduateSchool() {
+  const { faculty } = useGraduateFaculty(graduateData.faculty);
+
   return (
     <div className="graduate-page">
       <GraduateHero hero={graduateData.hero} />
@@ -28,7 +31,7 @@ export default function GraduateSchool() {
       <GraduateStudyStructure courseOutline={graduateData.courseOutline} />
       <GraduateCurriculum curriculum={graduateData.curriculum} />
       <GraduateCareers careers={graduateData.careers} />
-      <GraduateFaculty faculty={graduateData.faculty} />
+      <GraduateFaculty faculty={faculty} />
       <GraduateScholarships scholarships={graduateData.scholarships} />
       <GraduateApplicationProcess />
     </div>

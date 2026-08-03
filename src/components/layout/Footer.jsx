@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BRAND } from '../../constants/brand';
+import { KDU_CAMPUSES, KDU_KOREAN_PORTAL_URL } from '../../constants/campuses';
 import { APPLICATION_FORM_URL } from '../../constants/links';
 import Logo from '../common/Logo';
 import { useCmsModule } from '../../context/CmsContentContext';
@@ -10,11 +11,19 @@ import '../../styles/components/Footer.css';
 const FOOTER_COLUMNS = {
   'About KDU': [
     { label: 'Introduction', path: '/about' },
-    { label: 'Campus Life', path: '/about' },
+    { label: 'Our Campuses', path: '/about', hash: 'campuses' },
     { label: 'International Students', path: '/international-students' },
     { label: 'International Office', path: '/international-office' },
     { label: 'Public Events', path: '/international-office', hash: 'public-events' },
     { label: 'Contact', path: '/contact' },
+  ],
+  Campuses: [
+    ...KDU_CAMPUSES.map((c) =>
+      c.external
+        ? { label: c.shortName, href: c.href }
+        : { label: `${c.shortName} (this site)`, path: c.href }
+    ),
+    { label: 'Korean university portal', href: KDU_KOREAN_PORTAL_URL },
   ],
   Academics: [
     ...UNDERGRADUATE_PROGRAMS.map((p) => ({ label: p.shortTitle, path: p.path })),

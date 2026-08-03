@@ -223,7 +223,29 @@
   max-width: 700px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.mega-menu__campus-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+}
+
+.mega-menu__campus-list a {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.95;
+}
+
+.mega-menu__campus-list a:hover {
+  opacity: 1;
 }
 
 .mega-menu__featured-btn {

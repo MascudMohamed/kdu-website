@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import CampusLinks from '../components/common/CampusLinks';
 import ContactSection from '../components/department/ContactSection';
 import { useCmsModule } from '../context/CmsContentContext';
 import '../styles/pages/Contact.css';
@@ -34,6 +35,16 @@ export default function Contact() {
       </header>
 
       <ContactSection contact={contact} />
+
+      <section className="section section--alt" id="campuses">
+        <div className="container">
+          <CampusLinks
+            title="Campus locations"
+            subtitle="Visit"
+            lead="Global Campus is this website. For Medical and Metropol campuses, open the Korean university campus pages below."
+          />
+        </div>
+      </section>
 
       <section className="section">
         <div className="container">

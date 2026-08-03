@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import PartnerCard from '../components/common/PartnerCard';
+import CampusLinks from '../components/common/CampusLinks';
 import CmsHtml from '../components/common/CmsHtml';
 import PresidentMessage from '../components/about/PresidentMessage';
 import { useCmsModule } from '../context/CmsContentContext';
@@ -124,10 +125,10 @@ export default function About() {
         <div className="container">
           <div className="about-campus__grid">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <SectionTitle subtitle="Campus" title="Campus Information" align="left" />
+              <SectionTitle subtitle="Campus" title="Global Campus Information" align="left" />
               <p>
-                Our modern campus spans 50 acres and features cutting-edge laboratories, collaborative
-                learning spaces, a comprehensive library, sports facilities, and student accommodation.
+                KDU Global Campus in Goseong offers English-medium international programmes with
+                laboratories, collaborative learning spaces, library, sports facilities, and student accommodation.
               </p>
               <ul className="about-campus__list">
                 <li>Smart classrooms with advanced technology integration</li>
@@ -150,6 +151,12 @@ export default function About() {
               />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section className="section section--alt" id="campuses">
+        <div className="container">
+          <CampusLinks />
         </div>
       </section>
 
