@@ -13,6 +13,7 @@ import Logo from '../common/Logo';
 import Button from '../common/Button';
 import AcademicsMegaMenu from './AcademicsMegaMenu';
 import StudentServicesMegaMenu from './StudentServicesMegaMenu';
+import LanguageSwitcher from "./LanguageSwitcher";
 import '../../styles/components/Navbar.css';
 
 function resolveMegaMenu(path, label = '') {
@@ -176,6 +177,7 @@ export default function Navbar() {
           </nav>
 
           <div className="navbar__actions">
+            <LanguageSwitcher />
             <Button href={APPLICATION_FORM_URL} variant="primary" size="sm" className="navbar__cta">
               Open application form
             </Button>

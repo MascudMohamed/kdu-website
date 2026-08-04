@@ -40,8 +40,8 @@ const graduateData = {
 
   dean: {
     name: 'Dean of Graduate School',
-    position: 'K-Global Graduate School of Business and Technology Convergence',
-    image: '/images/president.png',
+    position: 'K-Global Graduate School',
+    image: '/images/dean.png',
     title: "Dean's Message",
     message: `The K-Global Graduate School of Business and Technology Convergence is committed to preparing innovative professionals capable of leading industries shaped by artificial intelligence, digital transformation, business innovation, and global hospitality.
 

@@ -1,0 +1,12 @@
+{
+  "navbar": {
+    "home": "홈",
+    "about": "소개",
+    "academics": "학사",
+    "research": "연구",
+    "admissions": "입학",
+    "studentServices": "학생 서비스",
+    "internationalOffice": "국제처",
+    "contact": "문의"
+  }
+}

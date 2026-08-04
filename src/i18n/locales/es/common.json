@@ -1,0 +1,12 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "academics": "Academics",
+    "research": "Research",
+    "admissions": "Admissions",
+    "studentServices": "Student Services",
+    "internationalOffice": "International Office",
+    "contact": "Contact"
+  }
+}
