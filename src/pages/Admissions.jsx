@@ -16,201 +16,501 @@ const processSteps = [
 ];
 
 const faqs = [
-  { q: 'What are the application deadlines?', a: 'Applications for the Fall semester open October 1, with a priority deadline of March 15 and final deadline of May 30. Spring intake deadlines are October 30.' },
-  { q: 'Are scholarships available for international students?', a: 'Yes, KDU Global offers merit-based scholarships covering 25-50% of tuition, as well as need-based financial aid packages for qualifying students.' },
-  { q: 'What English proficiency is required?', a: 'Most programs require IELTS 6.0 or TOEFL iBT 80. Our EAP program provides pathway options for students who need additional language preparation.' },
-  { q: 'Can I transfer credits from another institution?', a: 'Yes, transfer students may receive credit for previously completed coursework. A formal credit evaluation is conducted during the application process.' },
-  { q: 'Is on-campus housing available?', a: 'Yes, we offer modern residence halls for international and domestic students. Housing applications are submitted after admission acceptance.' },
+  {
+    q: 'What are the application deadlines?',
+    a: 'Applications for the Fall semester open October 1, with a priority deadline of March 15 and final deadline of May 30. Spring intake deadlines are October 30.'
+  },
+  {
+    q: 'Are scholarships available for international students?',
+    a: 'Yes, KDU Global offers merit-based scholarships covering 25-50% of tuition, as well as need-based financial aid packages for qualifying students.'
+  },
+  {
+    q: 'What English proficiency is required?',
+    a: 'Most programs require IELTS 6.0 or TOEFL iBT 80. Our EAP program provides pathway options for students who need additional language preparation.'
+  },
+  {
+    q: 'Can I transfer credits from another institution?',
+    a: 'Yes, transfer students may receive credit for previously completed coursework. A formal credit evaluation is conducted during the application process.'
+  },
+  {
+    q: 'Is on-campus housing available?',
+    a: 'Yes, we offer modern residence halls for international and domestic students. Housing applications are submitted after admission acceptance.'
+  },
 ];
 
 export default function Admissions() {
+
   const { module: cms } = useCmsModule('admissions');
   const { module: faqCms } = useCmsModule('faq');
+
   const pageTitle = cms?.headline || 'Admissions';
+
   const pageIntro = cms?.intro
     ? plainText(cms.intro)
     : 'Take the first step toward your future. Learn about our application process, requirements, and financial support options.';
+
   const overviewText = cms?.intro
     ? plainText(cms.intro)
-    : 'KDU Global seeks students who demonstrate academic potential, intellectual curiosity, and a commitment to contributing positively to our diverse community. Our holistic admissions process considers your academic record, personal statement, recommendations, and extracurricular achievements.';
+    : 'KDU Global seeks students who demonstrate academic potential, intellectual curiosity, and a commitment to contributing positively to our diverse community.';
+
   const displayFaqs = cmsFaqs(faqCms?.items, faqs);
-  const admissionsEmail = cms?.contactEmail || 'admissions@kduglobal.edu';
+
+  const admissionsEmail =
+    cms?.contactEmail || 'admissions@kduglobal.edu';
+
 
   return (
     <>
+
+      {/* HEADER */}
       <header className="page-header">
         <div className="container">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div
+            initial={{opacity:0,y:20}}
+            animate={{opacity:1,y:0}}
+          >
             <h1>{pageTitle}</h1>
             <p>{pageIntro}</p>
           </motion.div>
         </div>
       </header>
 
-      <section className="section">
+
+
+      {/* GUIDELINES */}
+      <section id="guidelines" className="section">
+
         <div className="container">
+
           <SectionTitle
             subtitle="Overview"
-            title="Join KDU Global"
-            description="We welcome applications from motivated students around the world who are ready to embrace academic challenge and global opportunity."
+            title="Admission Guidelines"
+            description="Learn about eligibility requirements, admission policies and important information before applying."
           />
+
+
           <div className="admissions-overview">
-            {cms?.intro ? <CmsHtml html={cms.intro} /> : <p>{overviewText}</p>}
-            <Button to="/contact" variant="primary" size="lg">
+
+            {cms?.intro
+              ?
+              <CmsHtml html={cms.intro}/>
+              :
+              <p>{overviewText}</p>
+            }
+
+
+            <Button
+              to="/contact"
+              variant="primary"
+              size="lg"
+            >
               Contact Admissions
             </Button>
+
           </div>
+
+
         </div>
+
       </section>
 
+
+
+
+      {/* REQUIREMENTS */}
       {(cms?.requirements || cms?.howToApply) && (
+
         <section className="section section--alt">
+
           <div className="container">
+
+
             {cms?.requirements && (
+
               <>
-                <SectionTitle subtitle="Requirements" title="Entry Requirements" />
-                <CmsHtml html={cms.requirements} />
+                <SectionTitle
+                  subtitle="Requirements"
+                  title="Entry Requirements"
+                />
+
+                <CmsHtml html={cms.requirements}/>
               </>
+
             )}
+
+
+
             {cms?.howToApply && (
+
               <>
-                <SectionTitle subtitle="Apply" title="How to Apply" />
-                <CmsHtml html={cms.howToApply} />
+                <SectionTitle
+                  subtitle="Apply"
+                  title="How to Apply"
+                />
+
+                <CmsHtml html={cms.howToApply}/>
+
               </>
+
             )}
+
+
           </div>
+
         </section>
+
       )}
 
-      <section className="section section--alt">
+
+
+
+
+
+      {/* PROCESS */}
+      <section id="process" className="section section--alt">
+
         <div className="container">
-          <SectionTitle subtitle="Process" title="Application Process" />
+
+
+          <SectionTitle
+            subtitle="Process"
+            title="Admission Process"
+          />
+
+
           <div className="admissions-process">
-            {processSteps.map((item, index) => (
+
+            {processSteps.map((item,index)=>(
+
               <motion.div
+
                 key={item.step}
+
                 className="admissions-step"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
+
+                initial={{
+                  opacity:0,
+                  y:20
+                }}
+
+                whileInView={{
+                  opacity:1,
+                  y:0
+                }}
+
+                viewport={{
+                  once:true
+                }}
+
+                transition={{
+                  delay:index*0.05
+                }}
+
               >
-                <span className="admissions-step__number">{item.step}</span>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+
+                <span className="admissions-step__number">
+                  {item.step}
+                </span>
+
+
+                <h3>
+                  {item.title}
+                </h3>
+
+
+                <p>
+                  {item.description}
+                </p>
+
+
               </motion.div>
+
+
             ))}
+
+
           </div>
+
+
         </div>
+
+
       </section>
 
-      <section className="section">
+
+
+
+
+      {/* DOCUMENTS */}
+      <section id="documents" className="section">
+
+
         <div className="container">
-          <SectionTitle subtitle="Documents" title="Required Documents" />
+
+
+          <SectionTitle
+            subtitle="Documents"
+            title="Required Documents"
+          />
+
+
           <div className="grid grid--2">
+
+
             <div className="admissions-docs">
-              <h3>For All Applicants</h3>
+
+              <h3>
+                For All Applicants
+              </h3>
+
+
               <ul>
+
                 <li>Completed online application form</li>
                 <li>Official academic transcripts</li>
                 <li>Copy of passport or national ID</li>
-                <li>Personal statement (500 words)</li>
+                <li>Personal statement</li>
                 <li>Two letters of recommendation</li>
-                <li>English proficiency test scores (if applicable)</li>
+                <li>English proficiency test scores</li>
+
               </ul>
+
             </div>
+
+
+
+
             <div className="admissions-docs">
-              <h3>Additional for International Students</h3>
+
+              <h3>
+                Additional for International Students
+              </h3>
+
+
               <ul>
+
                 <li>Financial support documentation</li>
-                <li>Visa application support materials</li>
+                <li>Visa application materials</li>
                 <li>Health insurance confirmation</li>
-                <li>Credential evaluation (if required)</li>
+                <li>Credential evaluation if required</li>
+
               </ul>
+
+
             </div>
+
+
           </div>
+
+
         </div>
+
+
       </section>
 
-      <section className="section section--alt">
+
+
+
+
+
+
+      {/* FORMS */}
+      <section id="forms" className="section section--alt">
+
+
         <div className="container">
-          <SectionTitle subtitle="Timeline" title="Admission Timeline" />
-          <div className="admissions-timeline">
+
+
+          <SectionTitle
+
+            subtitle="Downloads"
+
+            title="Admission Forms"
+
+            description="Download admission-related forms and documents."
+
+          />
+
+
+
+          <div className="grid grid--2">
+
+
             {[
-              { date: 'October 1', event: 'Application portal opens' },
-              { date: 'March 15', event: 'Priority deadline (scholarship consideration)' },
-              { date: 'May 30', event: 'Final application deadline' },
-              { date: 'June-July', event: 'Admission decisions released' },
-              { date: 'August 15', event: 'Orientation week begins' },
-              { date: 'September 1', event: 'Fall semester commences' },
-            ].map((item) => (
-              <div key={item.date} className="admissions-timeline__item">
-                <span className="admissions-timeline__date">{item.date}</span>
-                <span className="admissions-timeline__event">{item.event}</span>
+              {
+                title:"Undergraduate Application Form",
+                description:"Application form for undergraduate admission.",
+                url:"#"
+              },
+              {
+                title:"Scholarship Application Form",
+                description:"Scholarship and financial aid application form.",
+                url:"#"
+              }
+
+            ].map((form)=>(
+
+
+              <div
+                key={form.title}
+                className="admissions-form-card"
+              >
+
+                <h3>
+                  {form.title}
+                </h3>
+
+
+                <p>
+                  {form.description}
+                </p>
+
+
+                <Button
+                  href={form.url}
+                  variant="primary"
+                >
+                  Download Form
+                </Button>
+
+
               </div>
+
+
             ))}
+
+
+
           </div>
+
+
         </div>
+
+
       </section>
 
+
+
+
+
+
+      {/* FAQ */}
       <section className="section">
+
+
         <div className="container">
-          <SectionTitle subtitle="Investment" title="Tuition & Scholarships" />
-          <div className="grid grid--3">
-            {[
-              { program: 'Smart Computing', tuition: '$4,000/semester', scholarship: 'Up to 50% merit scholarships' },
-              { program: 'Business Administration', tuition: '$4,000/semester', scholarship: 'International business grants available' },
-              { program: 'English for Academic Purposes', tuition: '$4,000/semester', scholarship: 'Pathway program discounts' },
-            ].map((item) => (
-              <div key={item.program} className="admissions-tuition">
-                <h3>{item.program}</h3>
-                <p className="admissions-tuition__amount">{item.tuition}</p>
-                <p>{item.scholarship}</p>
-              </div>
-            ))}
+
+
+          <SectionTitle
+            subtitle="Questions"
+            title="Frequently Asked Questions"
+          />
+
+
+          <div className="admissions-faq">
+
+
+          {displayFaqs.map((faq)=>(
+
+            <details
+              key={faq.q}
+              className="admissions-faq__item"
+            >
+
+              <summary>
+                {faq.q}
+              </summary>
+
+
+              <p>
+                {faq.a}
+              </p>
+
+
+            </details>
+
+          ))}
+
+
+
           </div>
+
+
         </div>
+
+
       </section>
 
-      <section className="section section--alt">
-        <div className="container">
-          <SectionTitle subtitle="Questions" title="Frequently Asked Questions" />
-          <div className="admissions-faq">
-            {displayFaqs.map((faq) => (
-              <details key={faq.q} className="admissions-faq__item">
-                <summary>{faq.q}</summary>
-                <p>{faq.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+
+
+
+
+
+
+      {/* CONTACT */}
 
       <section className="section admissions-contact">
+
         <div className="container">
+
+
           <div className="admissions-contact__inner">
-            <h2>Ready to Apply?</h2>
-            <p>Our admissions team is here to guide you through every step of the process.</p>
+
+
+            <h2>
+              Ready to Apply?
+            </h2>
+
+
+            <p>
+              Our admissions team is here to guide you through every step.
+            </p>
+
+
+
             <div className="admissions-contact__info">
+
+
               <div>
                 <strong>Email</strong>
                 <p>{admissionsEmail}</p>
               </div>
+
+
               <div>
                 <strong>Phone</strong>
                 <p>+1 (555) 000-1000</p>
               </div>
+
+
               <div>
                 <strong>Office Hours</strong>
                 <p>Mon – Fri, 9:00 AM – 5:00 PM</p>
               </div>
+
+
             </div>
-            <Button to="/contact" variant="primary" size="lg">
+
+
+
+            <Button
+              to="/contact"
+              variant="primary"
+              size="lg"
+            >
               Get in Touch
             </Button>
+
+
           </div>
+
+
         </div>
+
+
       </section>
+
+
     </>
   );
 }

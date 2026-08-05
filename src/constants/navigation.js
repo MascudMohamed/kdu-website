@@ -62,6 +62,31 @@ export const STUDENT_SERVICES_MEGA_MENU = {
   ],
 };
 
+export const ADMISSIONS_MEGA_MENU = {
+  links: [
+    {
+      label: "Admission Guidelines",
+      path: "/admissions#guidelines",
+      description: "Eligibility, requirements & admission policies",
+    },
+    {
+      label: "Admission Process",
+      path: "/admissions#process",
+      description: "Step-by-step application procedure",
+    },
+    {
+      label: "Required Documents",
+      path: "/admissions#documents",
+      description: "Documents needed for your application",
+    },
+    {
+      label: "Forms",
+      path: "/admissions#forms",
+      description: "Application and downloadable forms",
+    },
+  ],
+};
+
 export const PRIMARY_NAV_LINKS = [
   {
     label: "HOME",
@@ -78,11 +103,11 @@ export const PRIMARY_NAV_LINKS = [
     path: "/international-office",
     megaMenu: "student-services",
   },
-  {
-    label: "ADMISSIONS",
-    path: "/admissions",
-    megaMenu: false,
-  },
+ {
+  label: "ADMISSIONS",
+  path: "/admissions",
+  megaMenu: "admissions",
+},
   {
     label: "ENGAGEMENT",
     path: "/engagement",

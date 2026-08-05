@@ -6,6 +6,7 @@ import {
   NAV_LINKS,
   ACADEMICS_MEGA_MENU,
   STUDENT_SERVICES_MEGA_MENU,
+  ADMISSIONS_MEGA_MENU,
 } from '../../constants/navigation';
 import { APPLICATION_FORM_URL } from '../../constants/links';
 import { useCmsModule } from '../../context/CmsContentContext';
@@ -14,17 +15,29 @@ import Button from '../common/Button';
 import AcademicsMegaMenu from './AcademicsMegaMenu';
 import StudentServicesMegaMenu from './StudentServicesMegaMenu';
 import LanguageSwitcher from "./LanguageSwitcher";
+import AdmissionsMegaMenu from "./AdmissionsMegaMenu";
 import '../../styles/components/Navbar.css';
 
-function resolveMegaMenu(path, label = '') {
-  if (path === '/academics') return 'academics';
-  if (
-    path === '/international-office'
-    || path === '/student-services'
-    || /student\s*service/i.test(label)
-  ) {
-    return 'student-services';
+function resolveMegaMenu(path, label = "") {
+  if (path === "/academics") {
+    return "academics";
   }
+
+  if (
+    path === "/international-office" ||
+    path === "/student-services" ||
+    /student\s*service/i.test(label)
+  ) {
+    return "student-services";
+  }
+
+  if (
+    path === "/admissions" ||
+    /admission/i.test(label)
+  ) {
+    return "admissions";
+  }
+
   return false;
 }
 
@@ -154,6 +167,9 @@ export default function Navbar() {
                                 <AcademicsMegaMenu onNavigate={closeMega} />
                               ) : (
                                 <StudentServicesMegaMenu onNavigate={closeMega} />
+                              )}
+                              {link.megaMenu === "admissions" && (
+                                <AdmissionsMegaMenu onNavigate={closeMega} />
                               )}
                             </motion.div>
                           )}
