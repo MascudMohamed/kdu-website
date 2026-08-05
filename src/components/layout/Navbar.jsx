@@ -5,6 +5,8 @@ import {
   PRIMARY_NAV_LINKS,
   NAV_LINKS,
   ACADEMICS_MEGA_MENU,
+  ABOUT_DROPDOWN,
+  ENGAGEMENT_DROPDOWN,
   STUDENT_SERVICES_MEGA_MENU,
 } from '../../constants/navigation';
 import { APPLICATION_FORM_URL } from '../../constants/links';
@@ -13,11 +15,14 @@ import Logo from '../common/Logo';
 import Button from '../common/Button';
 import AcademicsMegaMenu from './AcademicsMegaMenu';
 import StudentServicesMegaMenu from './StudentServicesMegaMenu';
-import LanguageSwitcher from "./LanguageSwitcher";
+import NavDropdown from './NavDropdown';
+import LanguageSwitcher from './LanguageSwitcher';
 import '../../styles/components/Navbar.css';
 
 function resolveMegaMenu(path, label = '') {
-  if (path === '/academics') return 'academics';
+  if (path === '/academics' || /academic/i.test(label)) return 'academics';
+  if (path === '/about' || /about/i.test(label)) return 'about';
+  if (path === '/engagement' || /engagement/i.test(label)) return 'engagement';
   if (
     path === '/international-office'
     || path === '/student-services'
@@ -26,6 +31,32 @@ function resolveMegaMenu(path, label = '') {
     return 'student-services';
   }
   return false;
+}
+
+function MegaPanel({ type, onNavigate }) {
+  if (type === 'academics') return <AcademicsMegaMenu onNavigate={onNavigate} />;
+  if (type === 'student-services') return <StudentServicesMegaMenu onNavigate={onNavigate} />;
+  if (type === 'about') {
+    return (
+      <NavDropdown
+        title="About Us"
+        items={ABOUT_DROPDOWN}
+        onNavigate={onNavigate}
+        ariaLabel="About Us menu"
+      />
+    );
+  }
+  if (type === 'engagement') {
+    return (
+      <NavDropdown
+        title="Engagement"
+        items={ENGAGEMENT_DROPDOWN}
+        onNavigate={onNavigate}
+        ariaLabel="Engagement menu"
+      />
+    );
+  }
+  return null;
 }
 
 export default function Navbar() {
@@ -60,16 +91,21 @@ export default function Navbar() {
   const primaryLinks = useMemo(() => {
     const cmsItems = navCms?.items?.filter((item) => item.label && item.path);
     if (!cmsItems?.length) return PRIMARY_NAV_LINKS;
-    return cmsItems.map((item) => ({
-      label: item.label.toUpperCase(),
-      path: item.path,
-      megaMenu: resolveMegaMenu(item.path, item.label),
-    }));
+    return cmsItems.map((item) => {
+      let label = item.label.trim();
+      // Prefer current IA labels if CMS still has the old Education entry
+      if (/^education$/i.test(label)) label = 'Academics';
+      return {
+        label: label.toUpperCase(),
+        path: item.path,
+        megaMenu: resolveMegaMenu(item.path, label),
+      };
+    });
   }, [navCms]);
 
   const mobileLinks = useMemo(() => {
     const cmsItems = navCms?.items?.filter((item) => item.label && item.path);
-    if (!cmsItems?.length) return NAV_LINKS.slice(0, 7);
+    if (!cmsItems?.length) return NAV_LINKS.slice(0, 8);
     return cmsItems.map((item) => ({ label: item.label, path: item.path }));
   }, [navCms]);
 
@@ -80,13 +116,11 @@ export default function Navbar() {
 
   useEffect(() => {
     closeMega();
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (megaRef.current && !megaRef.current.contains(e.target)) {
-        closeMega();
-      }
+      if (megaRef.current && !megaRef.current.contains(e.target)) closeMega();
     };
     if (megaOpen) document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -108,7 +142,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar__inner">
         <div className="navbar__section navbar__section--left">
-          <Logo variant="light" />
+          <Logo variant="light" compact />
         </div>
 
         <div className="navbar__section navbar__section--right">
@@ -117,6 +151,7 @@ export default function Navbar() {
               {primaryLinks.map((link) => {
                 const isMega = Boolean(link.megaMenu);
                 const isThisMegaOpen = megaOpen === link.megaMenu;
+                const isCompact = link.megaMenu === 'about' || link.megaMenu === 'engagement';
 
                 return (
                   <li
@@ -142,7 +177,7 @@ export default function Navbar() {
                         <AnimatePresence>
                           {isThisMegaOpen && (
                             <motion.div
-                              className="navbar__mega-shell"
+                              className={`navbar__mega-shell${isCompact ? ' navbar__mega-shell--compact' : ''}`}
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
@@ -150,11 +185,7 @@ export default function Navbar() {
                               onMouseEnter={() => openMega(link.megaMenu)}
                               onMouseLeave={scheduleCloseMega}
                             >
-                              {link.megaMenu === 'academics' ? (
-                                <AcademicsMegaMenu onNavigate={closeMega} />
-                              ) : (
-                                <StudentServicesMegaMenu onNavigate={closeMega} />
-                              )}
+                              <MegaPanel type={link.megaMenu} onNavigate={closeMega} />
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -179,7 +210,7 @@ export default function Navbar() {
           <div className="navbar__actions">
             <LanguageSwitcher />
             <Button href={APPLICATION_FORM_URL} variant="primary" size="sm" className="navbar__cta">
-              Open application form
+              Apply now
             </Button>
             <button
               className={`navbar__toggle ${isOpen ? 'navbar__toggle--open' : ''}`}
@@ -223,7 +254,7 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              <p className="navbar__mobile-group">Undergraduate</p>
+              <p className="navbar__mobile-group">Undergraduate Courses</p>
               <ul className="navbar__mobile-links">
                 {ACADEMICS_MEGA_MENU.undergraduate.map((link) => (
                   <li key={link.path}>
@@ -234,7 +265,7 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              <p className="navbar__mobile-group">Graduate &amp; Research</p>
+              <p className="navbar__mobile-group">Graduate</p>
               <ul className="navbar__mobile-links">
                 {ACADEMICS_MEGA_MENU.graduate.map((link) => (
                   <li key={link.path}>
@@ -243,11 +274,49 @@ export default function Navbar() {
                     </Link>
                   </li>
                 ))}
-                {ACADEMICS_MEGA_MENU.research.map((link) => (
+              </ul>
+
+              <p className="navbar__mobile-group">K-Global Education Centre</p>
+              <ul className="navbar__mobile-links">
+                {ACADEMICS_MEGA_MENU.educationCentre.map((link) => (
                   <li key={link.path}>
                     <Link to={link.path} className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
                       {link.label}
                     </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="navbar__mobile-group">About Us</p>
+              <ul className="navbar__mobile-links">
+                {ABOUT_DROPDOWN.map((link) => (
+                  <li key={link.path}>
+                    <Link to={link.path} className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="navbar__mobile-group">Engagement</p>
+              <ul className="navbar__mobile-links">
+                {ENGAGEMENT_DROPDOWN.map((link) => (
+                  <li key={link.href || link.path}>
+                    {link.href ? (
+                      <a
+                        href={link.href}
+                        className="navbar__mobile-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link to={link.path} className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -264,7 +333,7 @@ export default function Navbar() {
               </ul>
             </nav>
             <Button href={APPLICATION_FORM_URL} variant="primary" size="lg" onClick={() => setIsOpen(false)}>
-              Open application form
+              Apply now
             </Button>
           </motion.div>
         )}

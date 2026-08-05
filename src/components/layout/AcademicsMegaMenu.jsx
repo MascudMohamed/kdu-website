@@ -1,53 +1,36 @@
-import { Link } from "react-router-dom";
-import { KDU_CAMPUSES } from "../../constants/campuses";
-import { ACADEMICS_MEGA_MENU } from "../../constants/navigation";
-import "../../styles/components/AcademicsMegaMenu.css";
+import { Link } from 'react-router-dom';
+import { ACADEMICS_MEGA_MENU } from '../../constants/navigation';
+import '../../styles/components/AcademicsMegaMenu.css';
 
 export default function AcademicsMegaMenu({ onNavigate }) {
   const handleClick = () => onNavigate?.();
 
   return (
-    <div
-      className="mega-menu"
-      role="region"
-      aria-label="Academics programs menu"
-    >
-      <div className="mega-menu__top">
+    <div className="mega-menu mega-menu--academics" role="region" aria-label="Academics menu">
+      <div className="mega-menu__top mega-menu__top--three">
         <div className="mega-menu__column">
-          <h3 className="mega-menu__heading">Undergraduate Programs</h3>
+          <h3 className="mega-menu__heading">Undergraduate Courses</h3>
           <ul className="mega-menu__list">
             {ACADEMICS_MEGA_MENU.undergraduate.map((item) => (
               <li key={item.path}>
-                <Link
-                  to={item.path}
-                  className="mega-menu__link"
-                  onClick={handleClick}
-                >
+                <Link to={item.path} className="mega-menu__link" onClick={handleClick}>
                   <span className="mega-menu__link-title">{item.label}</span>
                   <span className="mega-menu__link-desc">{item.description}</span>
                 </Link>
               </li>
             ))}
           </ul>
-          <Link
-            to="/academics#undergraduate"
-            className="mega-menu__view-all"
-            onClick={handleClick}
-          >
-            View all undergraduate programs →
+          <Link to="/academics#undergraduate" className="mega-menu__view-all" onClick={handleClick}>
+            All undergraduate courses →
           </Link>
         </div>
 
         <div className="mega-menu__column">
-          <h3 className="mega-menu__heading">Graduate Programs</h3>
+          <h3 className="mega-menu__heading">Graduate</h3>
           <ul className="mega-menu__list">
             {ACADEMICS_MEGA_MENU.graduate.map((item) => (
               <li key={item.path}>
-                <Link
-                  to={item.path}
-                  className="mega-menu__link"
-                  onClick={handleClick}
-                >
+                <Link to={item.path} className="mega-menu__link" onClick={handleClick}>
                   <span className="mega-menu__link-title">{item.label}</span>
                   <span className="mega-menu__link-desc">{item.description}</span>
                 </Link>
@@ -55,29 +38,19 @@ export default function AcademicsMegaMenu({ onNavigate }) {
             ))}
           </ul>
           <div className="mega-menu__promo">
-            <p>
-              Advanced degrees for research, leadership and professional excellence.
-            </p>
-            <Link
-              to="/academics/graduate"
-              className="mega-menu__promo-link"
-              onClick={handleClick}
-            >
-              Learn more
+            <p>Master’s study at K-Global Graduate School of Business and Technology Convergence.</p>
+            <Link to="/academics/graduate" className="mega-menu__promo-link" onClick={handleClick}>
+              Explore graduate →
             </Link>
           </div>
         </div>
 
         <div className="mega-menu__column">
-          <h3 className="mega-menu__heading">Research</h3>
+          <h3 className="mega-menu__heading">K-Global Education Centre</h3>
           <ul className="mega-menu__list">
-            {ACADEMICS_MEGA_MENU.research.map((item) => (
+            {ACADEMICS_MEGA_MENU.educationCentre.map((item) => (
               <li key={item.path}>
-                <Link
-                  to={item.path}
-                  className="mega-menu__link"
-                  onClick={handleClick}
-                >
+                <Link to={item.path} className="mega-menu__link" onClick={handleClick}>
                   <span className="mega-menu__link-title">{item.label}</span>
                   <span className="mega-menu__link-desc">{item.description}</span>
                 </Link>
@@ -85,49 +58,23 @@ export default function AcademicsMegaMenu({ onNavigate }) {
             ))}
           </ul>
           <Link
-            to="/research"
+            to={ACADEMICS_MEGA_MENU.educationCentreOverview.path}
             className="mega-menu__view-all"
             onClick={handleClick}
           >
-            Explore research →
+            Education Centre overview →
           </Link>
         </div>
       </div>
 
-      <div className="mega-menu__bottom">
-        <div className="mega-menu__featured-content">
-          <span className="mega-menu__featured-label">Other campuses</span>
-          <h4>Kyungdong University Campuses</h4>
-          <p>
-            Global Campus (English) is this site. Medical and Metropol campuses
-            use the Korean university portal.
-          </p>
-          <ul className="mega-menu__campus-list">
-            {KDU_CAMPUSES.map((campus) => (
-              <li key={campus.id}>
-                {campus.external ? (
-                  <a
-                    href={campus.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={handleClick}
-                  >
-                    {campus.shortName} · {campus.medium}
-                  </a>
-                ) : (
-                  <Link to="/academics#campuses" onClick={handleClick}>
-                    {campus.shortName} · {campus.medium}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
-          <Link
-            to="/academics#campuses"
-            className="mega-menu__featured-btn"
-            onClick={handleClick}
-          >
-            View all campuses
+      <div className="mega-menu__bottom mega-menu__bottom--compact">
+        <div className="mega-menu__featured-content mega-menu__featured-content--row">
+          <div>
+            <span className="mega-menu__featured-label">Academics at KDU Global</span>
+            <h4>Degree pathways · Graduate study · Language &amp; specialised training</h4>
+          </div>
+          <Link to="/academics" className="mega-menu__featured-btn" onClick={handleClick}>
+            Academics hub
           </Link>
         </div>
       </div>

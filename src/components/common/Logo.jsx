@@ -3,13 +3,13 @@ import { BRAND } from '../../constants/brand';
 import logoSrc from '../../assets/kdu-logo.png';
 import '../../styles/components/Logo.css';
 
-export default function Logo({ variant = 'light', linked = true }) {
+export default function Logo({ variant = 'light', linked = true, compact = false }) {
   const content = (
     <>
       <img src={logoSrc} alt="" className="logo__crest" width="52" height="65" />
       <span className={`logo__text logo__text--${variant}`}>
         <strong className="logo__university">{BRAND.universityName}</strong>
-        <small className="logo__sub">{BRAND.tagline}</small>
+        <small className="logo__sub">{compact ? BRAND.name : BRAND.tagline}</small>
       </span>
     </>
   );

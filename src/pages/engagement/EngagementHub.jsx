@@ -23,14 +23,14 @@ export default function EngagementHub() {
             <h1>{title}</h1>
             <p>{lead}</p>
             <div className="engagement-hero__actions">
-              <Button to="/engagement/community-engagement" variant="primary" size="lg">
-                Community Engagement
+              <Button to="/engagement/academic-collaboration" variant="primary" size="lg">
+                Academic Collaboration
               </Button>
               <Button href={CDC_WEBSITE_URL} variant="white" size="lg" target="_self">
-                Career Development Center
+                Career Development Centre
               </Button>
-              <Button to="/engagement/clubs" variant="outline" size="lg">
-                Student Clubs
+              <Button to="/engagement/industry-partnerships" variant="outline" size="lg">
+                Industry Partnership
               </Button>
             </div>
           </motion.div>

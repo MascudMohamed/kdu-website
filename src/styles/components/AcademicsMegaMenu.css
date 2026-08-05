@@ -32,8 +32,37 @@
   align-items: start;
 }
 
+.mega-menu__top--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .mega-menu__top--single {
   grid-template-columns: 1fr;
+}
+
+.mega-menu--academics {
+  width: min(1080px, 100%);
+}
+
+.mega-menu__bottom--compact {
+  margin-top: 1.5rem;
+}
+
+.mega-menu__featured-content--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+
+.mega-menu__featured-content--row h4 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.mega-menu__featured-content--row p {
+  margin-bottom: 0;
 }
 
 .mega-menu--student-services {

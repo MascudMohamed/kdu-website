@@ -15,7 +15,7 @@ export default function ProgramCard({ program, index = 0 }) {
     >
       <Link to={program.path} className="program-card__image-wrap">
         <img src={program.image} alt="" loading="lazy" />
-        <span className="program-card__degree">{program.degree}</span>
+        <span className="program-card__degree">{program.degree || program.category}</span>
       </Link>
       <div className="program-card__body">
         <h3 className="program-card__title">

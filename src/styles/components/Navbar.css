@@ -27,21 +27,51 @@
 .navbar__section--left {
   display: flex;
   align-items: center;
-  flex-shrink: 0; /* Prevents logo from shrinking */
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: min(320px, 28vw);
+  margin-right: var(--space-md, 1rem);
+  overflow: hidden;
+}
+
+.navbar .logo {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.navbar .logo__text {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.navbar .logo__university,
+.navbar .logo__sub {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navbar .logo__sub {
+  max-width: 100%;
 }
 
 /* RIGHT SECTION - Everything else flows naturally to the right */
 .navbar__section--right {
   display: flex;
   align-items: center;
-  flex: 1; /* Takes up remaining space */
-  justify-content: flex-end; /* Aligns everything to the right */
+  flex: 1;
+  min-width: 0;
+  justify-content: flex-end;
   gap: var(--space-md, 1rem);
 }
 
 .navbar__nav {
-  display: none; /* Hidden on mobile */
+  display: none;
   align-items: center;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .navbar__links {
@@ -156,6 +186,16 @@
   padding: 0 1rem 1rem;
   overflow: hidden;
   pointer-events: none;
+}
+
+.navbar__mega-shell--compact {
+  justify-content: flex-end;
+  padding-right: max(1rem, calc((100vw - min(1200px, 100%)) / 2 + 1rem));
+}
+
+.navbar__mega-shell .nav-dropdown,
+.navbar__mega-shell .mega-menu {
+  pointer-events: auto;
 }
 
 /* Invisible bridge so hover is not lost between nav link and panel */

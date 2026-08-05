@@ -5,17 +5,16 @@ import { APPLICATION_FORM_URL } from '../../constants/links';
 import Logo from '../common/Logo';
 import { useCmsModule } from '../../context/CmsContentContext';
 import { CDC_WEBSITE_URL } from '../../data/engagement';
-import { UNDERGRADUATE_PROGRAMS } from '../../data/academics/programs';
+import { UNDERGRADUATE_COURSES } from '../../data/academics/programs';
 import '../../styles/components/Footer.css';
 
 const FOOTER_COLUMNS = {
   'About KDU': [
-    { label: 'Introduction', path: '/about' },
-    { label: 'Our Campuses', path: '/about', hash: 'campuses' },
-    { label: 'International Students', path: '/international-students' },
-    { label: 'International Office', path: '/international-office' },
-    { label: 'Public Events', path: '/international-office', hash: 'public-events' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'About KDU Global', path: '/about' },
+    { label: 'History', path: '/about', hash: 'history' },
+    { label: "President’s Message", path: '/about', hash: 'president' },
+    { label: 'University Identity', path: '/about', hash: 'identity' },
+    { label: 'Contact Us', path: '/contact' },
   ],
   Campuses: [
     ...KDU_CAMPUSES.map((c) =>
@@ -26,9 +25,10 @@ const FOOTER_COLUMNS = {
     { label: 'Korean university portal', href: KDU_KOREAN_PORTAL_URL },
   ],
   Academics: [
-    ...UNDERGRADUATE_PROGRAMS.map((p) => ({ label: p.shortTitle, path: p.path })),
-    { label: 'Graduate Programs', path: '/academics/graduate' },
-    { label: 'All Programs', path: '/academics' },
+    ...UNDERGRADUATE_COURSES.map((p) => ({ label: p.shortTitle, path: p.path })),
+    { label: 'Graduate Courses', path: '/academics/graduate' },
+    { label: 'K-Global Education Centre', path: '/academics/education-centre' },
+    { label: 'All Academics', path: '/academics' },
   ],
   Admissions: [
     { label: 'How to Apply', path: '/admissions' },
@@ -38,12 +38,12 @@ const FOOTER_COLUMNS = {
   ],
   Engagement: [
     { label: 'Overview', path: '/engagement' },
+    { label: 'Academic Collaboration', path: '/engagement/academic-collaboration' },
+    { label: 'Industry Partnership', path: '/engagement/industry-partnerships' },
+    { label: 'Research Centre', path: '/engagement/research-centre' },
+    { label: 'Career Development Centre', href: CDC_WEBSITE_URL, newTab: false },
     { label: 'Community Engagement', path: '/engagement/community-engagement' },
-    { label: 'Career Development Center', href: CDC_WEBSITE_URL, newTab: false },
-    { label: 'Industry Partnerships', path: '/engagement/industry-partnerships' },
-    { label: 'Exchange Programs', path: '/engagement/exchange-programs' },
     { label: 'Alumni Relations', path: '/engagement/alumni-relations' },
-    { label: 'Student Clubs', path: '/engagement/clubs' },
   ],
   'Quick Links': [
     { label: 'Library', path: '#' },

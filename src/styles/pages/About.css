@@ -228,3 +228,20 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+#president,
+#history,
+#identity,
+#about-kdu-global,
+.about-history__item {
+  scroll-margin-top: calc(var(--header-height) + 1.25rem);
+}
+
+.page-header__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}

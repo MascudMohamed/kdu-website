@@ -14,11 +14,12 @@ const IMG = {
 export const CDC_WEBSITE_URL = 'https://smzuqlarnain.github.io/cdc-website/index.html#';
 
 export const ENGAGEMENT_NAV = [
+  { label: 'Academic Collaboration', path: 'academic-collaboration' },
+  { label: 'Industry Partnership', path: 'industry-partnerships' },
+  { label: 'Research Centre', path: 'research-centre' },
+  { label: 'Career Development Centre', path: 'cdc', externalUrl: CDC_WEBSITE_URL },
   { label: 'Community Engagement', path: 'community-engagement' },
-  { label: 'Industry Partnerships', path: 'industry-partnerships' },
   { label: 'Alumni Relations', path: 'alumni-relations' },
-  { label: 'Career Development Center', path: 'cdc', externalUrl: CDC_WEBSITE_URL },
-  { label: 'Exchange Programs', path: 'exchange-programs' },
   { label: 'Student Clubs', path: 'clubs' },
 ];
 
@@ -26,33 +27,33 @@ export const ENGAGEMENT_HUB = {
   eyebrow: 'Kyungdong University Global Campus',
   title: 'Engagement & Impact',
   lead:
-    'KDU Global connects learning with society — through community service, industry partnerships, alumni networks, student clubs, exchange programmes, and international collaboration that extend our mission beyond the classroom.',
+    'KDU Global connects learning with society — through academic collaboration, industry partnerships, research, career development, community service, and a global alumni network that extends our mission beyond the classroom.',
   image: IMG.hub,
   pillars: [
     {
-      title: 'Community at our core',
-      description: 'Service learning and outreach that strengthen local communities and develop civic leadership.',
+      title: 'Academic collaboration',
+      description: 'Partnerships with universities worldwide for joint programmes, faculty exchange, and shared scholarship.',
     },
     {
       title: 'Industry-connected education',
       description: 'Partnerships with employers and innovators that shape curriculum, internships, and graduate outcomes.',
     },
     {
-      title: 'A global alumni network',
-      description: 'Lifelong connections, mentoring, and professional communities across continents.',
+      title: 'Research with purpose',
+      description: 'Centres and collaborations that advance knowledge and solve real-world challenges.',
     },
     {
-      title: 'Vibrant student clubs',
-      description: 'Dozens of student-led societies spanning academics, culture, sport, technology, and service.',
+      title: 'Career-ready graduates',
+      description: 'Internships, job fairs, and employability workshops through the Career Development Centre.',
     },
     {
-      title: 'Career development',
-      description: 'Internships, job fairs, and employability workshops through the KDU Global Career Development Center.',
+      title: 'Community & alumni',
+      description: 'Service learning, outreach, and lifelong connections across continents.',
     },
   ],
   cta: {
     title: 'Partner with KDU Global',
-    description: 'Whether you represent a community organisation, corporation, or alumni chapter — we welcome collaboration.',
+    description: 'Whether you represent a university, community organisation, corporation, or alumni chapter — we welcome collaboration.',
     primaryLabel: 'Contact our team',
     primaryPath: '/contact',
     secondaryLabel: 'Public events',
@@ -67,6 +68,143 @@ const related = (exclude) =>
   }));
 
 export const ENGAGEMENT_PAGES = {
+  'academic-collaboration': {
+    slug: 'academic-collaboration',
+    title: 'Academic Collaboration',
+    eyebrow: 'Engagement',
+    lead:
+      'KDU Global builds lasting academic partnerships with universities and institutions worldwide — joint programmes, faculty collaboration, credit articulation, and shared research that strengthen international higher education.',
+    image: IMG.global,
+    stats: [
+      { value: '50+', label: 'Partner institutions' },
+      { value: '30+', label: 'Countries in our network' },
+      { value: 'Dual', label: 'Degree & articulation pathways' },
+    ],
+    sections: [
+      {
+        title: 'Partnership for excellence',
+        content:
+          'Academic collaboration is central to our international mission. We work with peer universities to expand learning opportunities, enrich curriculum, and create pathways for students and faculty to engage globally while maintaining the highest academic standards.',
+      },
+      {
+        title: 'Forms of collaboration',
+        list: [
+          'Memoranda of understanding with partner universities',
+          'Joint and dual-degree programme development',
+          'Faculty visiting appointments and co-teaching',
+          'Credit transfer and articulation agreements',
+          'Shared research seminars and academic conferences',
+          'Curriculum benchmarking and quality enhancement',
+        ],
+      },
+    ],
+    initiatives: [
+      {
+        icon: '🏛️',
+        title: 'University partnerships',
+        description: 'Formal relationships with institutions across Asia, Europe, North America, and beyond.',
+      },
+      {
+        icon: '📘',
+        title: 'Joint academic programmes',
+        description: 'Collaborative degree pathways and specialised short programmes with partner schools.',
+      },
+      {
+        icon: '👨‍🏫',
+        title: 'Faculty collaboration',
+        description: 'Visiting scholars, guest lectures, and co-supervision that elevate teaching and research.',
+      },
+      {
+        icon: '🌐',
+        title: 'Global academic network',
+        description: 'Active participation in international higher-education alliances and forums.',
+      },
+    ],
+    spotlight: {
+      title: 'International Office support',
+      content:
+        'Institutional partnership enquiries and mobility coordination are supported by the International Office, ensuring agreements are well managed from first conversation to delivery.',
+      image: IMG.global,
+      link: '/international-office',
+      linkLabel: 'Visit International Office',
+    },
+    cta: {
+      title: 'Explore academic partnership',
+      description: 'Universities interested in collaborating with KDU Global are invited to contact our international and academic affairs teams.',
+      buttonLabel: 'Contact us',
+      buttonPath: '/contact',
+    },
+    related: related('academic-collaboration'),
+  },
+
+  'research-centre': {
+    slug: 'research-centre',
+    title: 'Research Centre',
+    eyebrow: 'Engagement',
+    lead:
+      'Research at KDU Global advances knowledge across technology, business, hospitality, and language education — connecting faculty expertise with industry and community partners.',
+    image: IMG.industry,
+    stats: [
+      { value: 'Applied', label: 'Research focus' },
+      { value: 'Cross-field', label: 'Faculty collaboration' },
+      { value: 'Global', label: 'Partner engagement' },
+    ],
+    sections: [
+      {
+        title: 'Our research identity',
+        content:
+          'The Research Centre coordinates scholarly activity that supports teaching excellence and real-world impact. Faculty and students contribute to projects spanning artificial intelligence, digital business, hospitality innovation, and international education.',
+      },
+      {
+        title: 'What we foster',
+        list: [
+          'Faculty-led research groups and thematic clusters',
+          'Student participation in applied research and capstones',
+          'Industry and community research partnerships',
+          'Seminars, colloquia, and publication support',
+          'International research collaboration with partner universities',
+        ],
+      },
+    ],
+    initiatives: [
+      {
+        icon: '🔬',
+        title: 'Thematic research',
+        description: 'Priority themes aligned with Global Campus strengths in AI, business, and hospitality.',
+      },
+      {
+        icon: '🤝',
+        title: 'Partner projects',
+        description: 'Collaborative studies with industry, government, and academic partners.',
+      },
+      {
+        icon: '📄',
+        title: 'Knowledge sharing',
+        description: 'Publications, conferences, and campus research showcases.',
+      },
+      {
+        icon: '🎓',
+        title: 'Student research',
+        description: 'Mentored projects that build inquiry skills and career readiness.',
+      },
+    ],
+    spotlight: {
+      title: 'Explore the research hub',
+      content:
+        'Visit the full Research section for areas of focus, innovation partnerships, and publications from KDU Global.',
+      image: IMG.industry,
+      link: '/research',
+      linkLabel: 'Open Research hub',
+    },
+    cta: {
+      title: 'Collaborate on research',
+      description: 'Organisations and scholars interested in joint research with KDU Global are welcome to get in touch.',
+      buttonLabel: 'Contact us',
+      buttonPath: '/contact',
+    },
+    related: related('research-centre'),
+  },
+
   'community-engagement': {
     slug: 'community-engagement',
     title: 'Community Engagement',

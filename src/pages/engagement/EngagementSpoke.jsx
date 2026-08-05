@@ -15,8 +15,8 @@ export default function EngagementSpoke() {
     return null;
   }
 
-  if (pageSlug === 'global-collaboration') {
-    return <Navigate to="/engagement/exchange-programs" replace />;
+  if (pageSlug === 'global-collaboration' || pageSlug === 'exchange-programs') {
+    return <Navigate to="/engagement/academic-collaboration" replace />;
   }
 
   const page = getEngagementPage(pageSlug);
