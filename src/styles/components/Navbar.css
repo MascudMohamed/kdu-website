@@ -56,6 +56,37 @@
   max-width: 100%;
 }
 
+@media (max-width: 1023px) {
+  .navbar__section--left {
+    flex: 1;
+    max-width: none;
+    margin-right: 0.5rem;
+    overflow: visible;
+  }
+
+  .navbar__section--right {
+    flex: 0 0 auto;
+  }
+
+  .navbar .logo__text {
+    overflow: visible;
+  }
+
+  .navbar .logo__university {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+  }
+
+  .navbar .logo__sub {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+}
+
 /* RIGHT SECTION - Everything else flows naturally to the right */
 .navbar__section--right {
   display: flex;
