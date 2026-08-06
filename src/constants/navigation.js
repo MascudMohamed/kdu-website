@@ -24,6 +24,11 @@ export const ACADEMICS_MEGA_MENU = {
       path: '/academics/graduate/faculty',
       description: 'Faculty of the Graduate School',
     },
+    {
+      label: 'International Faculty',
+      path: '/academics/faculty',
+      description: 'All international faculty members',
+    },
   ],
 
   educationCentre: EDUCATION_CENTRE_PROGRAMMES.map((p) => ({
@@ -55,6 +60,11 @@ export const ABOUT_DROPDOWN = [
     label: 'University Identity',
     path: '/about#identity',
     description: 'Values, brand, and character',
+  },
+  {
+    label: 'International Faculty',
+    path: '/academics/faculty',
+    description: 'Faculty of KDU Global',
   },
   {
     label: 'Contact Us',
@@ -100,9 +110,14 @@ export const ENGAGEMENT_DROPDOWN = [
 export const STUDENT_SERVICES_MEGA_MENU = {
   links: [
     {
-      label: 'International Office',
-      path: '/international-office',
-      description: 'Visa, accommodation & student support',
+      label: 'Student Services Centre',
+      path: '/international-office#services',
+      description: '25+ services including part-time jobs & counselling',
+    },
+    {
+      label: 'Part-time Job Support',
+      path: '/international-office#services',
+      description: 'Placement, immigration docs & eligibility',
     },
     {
       label: 'International Students',
@@ -112,11 +127,36 @@ export const STUDENT_SERVICES_MEGA_MENU = {
   ],
 };
 
+export const ADMISSIONS_MEGA_MENU = {
+  links: [
+    {
+      label: "Admission Guidelines",
+      path: "/admissions#guidelines",
+      description: "Eligibility, requirements & admission policies",
+    },
+    {
+      label: "Application Process",
+      path: "/admissions#process",
+      description: "Step-by-step application procedure",
+    },
+    {
+      label: "Documents Required",
+      path: "/admissions#documents",
+      description: "Documents needed for your application",
+    },
+    {
+      label: "Scholarships and Fees",
+      path: "/admissions#scholarships",
+      description: "Tuition, living costs, and scholarship pathways",
+    },
+  ],
+};
+
 export const PRIMARY_NAV_LINKS = [
   { label: 'HOME', path: '/', megaMenu: false },
   { label: 'ACADEMICS', path: '/academics', megaMenu: 'academics' },
   { label: 'STUDENT SERVICES', path: '/international-office', megaMenu: 'student-services' },
-  { label: 'ADMISSIONS', path: '/admissions', megaMenu: false },
+  { label: 'ADMISSIONS', path: '/admissions', megaMenu: 'admissions' },
   { label: 'ENGAGEMENT', path: '/engagement', megaMenu: 'engagement' },
   { label: 'ABOUT US', path: '/about', megaMenu: 'about' },
   { label: 'NEWS & EVENTS', path: '/news-events', megaMenu: false },

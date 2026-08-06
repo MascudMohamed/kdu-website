@@ -8,6 +8,7 @@ import {
   ABOUT_DROPDOWN,
   ENGAGEMENT_DROPDOWN,
   STUDENT_SERVICES_MEGA_MENU,
+  ADMISSIONS_MEGA_MENU,
 } from '../../constants/navigation';
 import { APPLICATION_FORM_URL } from '../../constants/links';
 import { useCmsModule } from '../../context/CmsContentContext';
@@ -15,6 +16,7 @@ import Logo from '../common/Logo';
 import Button from '../common/Button';
 import AcademicsMegaMenu from './AcademicsMegaMenu';
 import StudentServicesMegaMenu from './StudentServicesMegaMenu';
+import AdmissionsMegaMenu from './AdmissionsMegaMenu';
 import NavDropdown from './NavDropdown';
 import LanguageSwitcher from './LanguageSwitcher';
 import '../../styles/components/Navbar.css';
@@ -30,12 +32,14 @@ function resolveMegaMenu(path, label = '') {
   ) {
     return 'student-services';
   }
+  if (path === '/admissions' || /admission/i.test(label)) return 'admissions';
   return false;
 }
 
 function MegaPanel({ type, onNavigate }) {
   if (type === 'academics') return <AcademicsMegaMenu onNavigate={onNavigate} />;
   if (type === 'student-services') return <StudentServicesMegaMenu onNavigate={onNavigate} />;
+  if (type === 'admissions') return <AdmissionsMegaMenu onNavigate={onNavigate} />;
   if (type === 'about') {
     return (
       <NavDropdown
@@ -93,7 +97,6 @@ export default function Navbar() {
     if (!cmsItems?.length) return PRIMARY_NAV_LINKS;
     return cmsItems.map((item) => {
       let label = item.label.trim();
-      // Prefer current IA labels if CMS still has the old Education entry
       if (/^education$/i.test(label)) label = 'Academics';
       return {
         label: label.toUpperCase(),
@@ -151,7 +154,11 @@ export default function Navbar() {
               {primaryLinks.map((link) => {
                 const isMega = Boolean(link.megaMenu);
                 const isThisMegaOpen = megaOpen === link.megaMenu;
-                const isCompact = link.megaMenu === 'about' || link.megaMenu === 'engagement';
+                const isCompact =
+                  link.megaMenu === 'about'
+                  || link.megaMenu === 'engagement'
+                  || link.megaMenu === 'admissions'
+                  || link.megaMenu === 'student-services';
 
                 return (
                   <li
@@ -279,6 +286,17 @@ export default function Navbar() {
               <p className="navbar__mobile-group">K-Global Education Centre</p>
               <ul className="navbar__mobile-links">
                 {ACADEMICS_MEGA_MENU.educationCentre.map((link) => (
+                  <li key={link.path}>
+                    <Link to={link.path} className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="navbar__mobile-group">Admissions</p>
+              <ul className="navbar__mobile-links">
+                {ADMISSIONS_MEGA_MENU.links.map((link) => (
                   <li key={link.path}>
                     <Link to={link.path} className="navbar__mobile-link" onClick={() => setIsOpen(false)}>
                       {link.label}

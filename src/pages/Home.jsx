@@ -192,6 +192,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Sitemap */}
+      <div className="container" style={{ textAlign: 'center', padding: '2rem 0' }}>
+        <Link to="/sitemap" className="home-link-arrow">
+          Sitemap
+        </Link>
+      </div>
     </>
   );
 }
