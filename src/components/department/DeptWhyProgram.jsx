@@ -8,22 +8,25 @@ export default function DeptWhyProgram({
   items,
   philosophy,
   events = [],
+  departmentName,
 }) {
   if (!items?.length) return null;
+
+  const title = departmentName
+    ? `Why ${departmentName} at Kyungdong University`
+    : 'Why this programme at Kyungdong University';
 
   return (
     <section className="dept-section dept-why" id="why-program">
       <div className="container">
 
         <DeptSectionHeader
-          eyebrow="The Program"
-          title="Why this program"
+          eyebrow="The Programme"
+          title={title}
           lead={philosophy}
         />
 
         <div className="dept-why__layout">
-
-          {/* LEFT COLUMN */}
 
           <div className="dept-why__list">
 
@@ -47,8 +50,6 @@ export default function DeptWhyProgram({
             ))}
 
           </div>
-
-          {/* RIGHT COLUMN */}
 
           <DeptEventsSlider events={events} />
 

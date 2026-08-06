@@ -1,9 +1,9 @@
 // src/data/internationalOffice.js
 
 export const OFFICE_HERO = {
-  title: "International Office",
+  title: "Student Services Centre",
   subtitle:
-    "Supporting international students throughout their academic journey at Kyungdong University.",
+    "Supporting international students throughout their academic journey at Kyungdong University — counselling, visas, housing, part-time jobs, and more.",
   buttonText: "Explore Services",
   buttonLink: "#services",
 };
@@ -31,32 +31,7 @@ export const OFFICE_NAV = [
   },
 ];
 
-export const SERVICES = [
-  {
-    title: "Student Counseling",
-    description:
-      "Academic guidance, personal counseling, and campus support services for all international students.",
-    icon: "🎓",
-  },
-  {
-    title: "Housing Assistance",
-    description:
-      "Support with dormitory applications, off-campus housing, and accommodation guidance.",
-    icon: "🏠",
-  },
-  {
-    title: "Airport Pickup",
-    description:
-      "Airport pickup services and arrival assistance for newly admitted students.",
-    icon: "✈️",
-  },
-  {
-    title: "Orientation Programs",
-    description:
-      "Orientation sessions introducing students to university life, Korean culture, and academic policies.",
-    icon: "🌏",
-  },
-];
+export { SERVICES, STUDENT_SERVICES } from './studentServices';
 
 export const VISA_INFORMATION = [
   {

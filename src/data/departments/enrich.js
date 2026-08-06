@@ -132,13 +132,27 @@ function toProfileSlug(name) {
     .replace(/[^a-z-]/g, '');
 }
 
+function normalizeCourseCategory(raw, fallback) {
+  const value = String(raw || fallback || '').toLowerCase();
+  if (value.includes('general') || value === 'elective' || value.includes('liberal')) {
+    return 'General Elective';
+  }
+  return 'Major Elective';
+}
+
 function enrichCurriculum(curriculum) {
   return curriculum.map((year) => ({
     ...year,
     semesters: year.semesters.map((sem) => ({
       ...sem,
-      majorCourses: (sem.majorCourses || []).map((c) => ({ ...c, category: c.category || 'Major' })),
-      electives: (sem.electives || []).map((c) => ({ ...c, category: c.category || 'Elective' })),
+      majorCourses: (sem.majorCourses || []).map((c) => ({
+        ...c,
+        category: normalizeCourseCategory(c.category, 'Major Elective'),
+      })),
+      electives: (sem.electives || []).map((c) => ({
+        ...c,
+        category: normalizeCourseCategory(c.category, 'General Elective'),
+      })),
     })),
   }));
 }
@@ -294,7 +308,17 @@ export function enrichDepartment(dept, slug) {
     },
     curriculum: enrichCurriculum(dept.curriculum || []),
     semesterExperience: dept.semesterExperience || SEMESTER_EXPERIENCE[slug] || [],
-    faculty: enrichFaculty(dept.faculty || [], slug),
+    // Faculty are listed centrally under International Faculty — not per department.
+    faculty: [],
+    competencies: dept.competencies
+      || dept.overview?.graduateAttributes
+      || dept.chair?.objectives
+      || [],
+    courseOutline: (buildCurriculumHighlights(dept, slug) || []).map((item) => ({
+      label: item.title,
+      title: item.title,
+      summary: item.summary,
+    })),
     researchAreas: enrichResearch(dept.researchAreas),
     testimonials: enrichTestimonials(dept.testimonials),
     faqs: dept.faqs || DEFAULT_FAQS[slug] || GENERIC_FAQS,

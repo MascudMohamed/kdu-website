@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useOutletContext } from 'react-router-dom';
 import DeptHeroV2 from '../../components/department/DeptHeroV2';
 import DeptWhyProgram from '../../components/department/DeptWhyProgram';
+import DeptProgramDetails from '../../components/department/DeptProgramDetails';
 import DeptNewsEditorial from '../../components/department/DeptNewsEditorial';
 import DeptAdmissionsCTA from '../../components/department/DeptAdmissionsCTA';
 import DeptContact from '../../components/department/DeptContact';
@@ -43,14 +44,23 @@ export default function DepartmentHub() {
     : getDepartmentPageContent(slug, 'careers') ? 'careers'
     : null;
 
+  const departmentName = department.shortTitle || department.title;
+
   return (
     <div className="department-hub">
       <DeptHeroV2 department={department} />
       <DeptWhyProgram
         items={department.whyChoose}
         philosophy={department.overview?.philosophy}
-        news={department.news}
         events={department.events}
+        departmentName={departmentName}
+      />
+
+      <DeptProgramDetails
+        courseOutline={department.courseOutline}
+        competencies={department.competencies}
+        careers={department.careers}
+        careerOutcomes={department.careerOutcomes}
       />
 
       {featuredProject && (
@@ -74,7 +84,7 @@ export default function DepartmentHub() {
       <section className="dept-hub-explore section">
         <div className="container">
           <header className="dept-hub-explore__header">
-            <h2>Explore {department.shortTitle || department.title}</h2>
+            <h2>Explore {departmentName}</h2>
             <p>Navigate the programme ecosystem — each page goes deeper on one aspect of your academic journey.</p>
           </header>
           <div className="dept-hub-explore__grid">
@@ -87,7 +97,7 @@ export default function DepartmentHub() {
 
       <section className="dept-hub-quick section section--alt">
         <div className="container dept-hub-quick__links">
-          <Link to={`${base}/faculty`}>Faculty directory →</Link>
+          <Link to="/academics/faculty">International Faculty →</Link>
           <Link to={`${base}/admissions`}>Admissions →</Link>
           <Link to={`${base}/faq`}>FAQ →</Link>
           {outcomesPath && (

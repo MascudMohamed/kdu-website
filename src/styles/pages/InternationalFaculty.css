@@ -1,0 +1,124 @@
+.intl-faculty__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.intl-faculty__item {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem 1.15rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+}
+
+.intl-faculty__item:first-child {
+  padding-top: 0;
+}
+
+.intl-faculty__photo {
+  width: 5.5rem;
+  height: 6.75rem;
+  overflow: hidden;
+  background: #e8eef5;
+  border: 1px solid #d5dee8;
+  flex-shrink: 0;
+}
+
+.intl-faculty__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.intl-faculty__photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(145deg, #eef3f8 0%, #dce6f0 100%);
+  color: #64748b;
+}
+
+.intl-faculty__photo-initials {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #003875;
+}
+
+.intl-faculty__photo-hint {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.intl-faculty__body h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+
+.intl-faculty__role {
+  margin: 0 0 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-primary, #003875);
+  line-height: 1.5;
+}
+
+.intl-faculty__creds {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #4b5563;
+}
+
+.page-header__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (min-width: 640px) {
+  .intl-faculty__item {
+    grid-template-columns: 6.5rem 1fr;
+    gap: 1rem 1.35rem;
+  }
+
+  .intl-faculty__photo {
+    width: 6.5rem;
+    height: 8rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .intl-faculty__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 2.5rem;
+  }
+
+  .intl-faculty__item {
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+  }
+
+  .intl-faculty__body h2 {
+    font-size: 1.2rem;
+  }
+}

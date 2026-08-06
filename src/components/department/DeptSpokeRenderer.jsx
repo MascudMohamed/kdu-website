@@ -4,7 +4,6 @@ import DeptCareerOutcomes from './DeptCareerOutcomes';
 import DeptCurriculumHighlights from './DeptCurriculumHighlights';
 import DeptSuccessStories from './DeptSuccessStories';
 import DeptAdmissionsCTA from './DeptAdmissionsCTA';
-import CurriculumAccordion from './CurriculumAccordion';
 import Button from '../common/Button';
 import { deptPath } from '../../data/departments/navigation';
 import '../../styles/components/dept-editorial.css';

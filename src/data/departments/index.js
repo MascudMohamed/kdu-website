@@ -34,15 +34,11 @@ export function getDepartmentBySlug(slug) {
 }
 
 export function getAllFaculty() {
-  return UNDERGRADUATE_DEPARTMENTS.flatMap((d) => d.faculty);
+  return [];
 }
 
-export function getFacultyBySlug(profileSlug, departmentSlug) {
-  const all = getAllFaculty();
-  if (departmentSlug) {
-    return all.find((f) => f.profileSlug === profileSlug && f.departmentSlug === departmentSlug) || null;
-  }
-  return all.find((f) => f.profileSlug === profileSlug) || null;
+export function getFacultyBySlug() {
+  return null;
 }
 
 export function getDepartmentList() {

@@ -8,9 +8,9 @@ import {
   heroSlides,
   featuredPrograms,
   statistics,
-  newsItems,
   campusBanner,
 } from '../data/home';
+import { getAggregatedNews } from '../data/aggregateNewsEvents';
 import { PRESIDENT } from '../data/president';
 import { APPLICATION_FORM_URL } from '../constants/links';
 import '../styles/pages/Home.css';
@@ -25,7 +25,7 @@ const fadeUp = {
 export default function Home() {
   const { module: cms } = useCmsModule('home');
   const programmes = featuredPrograms.slice(0, 3);
-  const news = newsItems.slice(0, 3);
+  const news = getAggregatedNews().slice(0, 3);
 
   const headline = cms?.headline?.trim() || 'Kyungdong University Global';
   const subtitle = cms?.subheadline?.trim() || 'Global Campus';
@@ -53,7 +53,6 @@ export default function Home() {
         secondaryCta={{ label: 'Explore programmes', to: '/academics' }}
       />
 
-      {/* At a glance */}
       <section className="home-glance" aria-label="KDU Global at a glance">
         <div className="container home-glance__row">
           {statistics.map((stat) => (
@@ -68,7 +67,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Study */}
       <section className="home-study section" aria-labelledby="home-study-title">
         <div className="container">
           <motion.header className="home-simple-head" {...fadeUp}>
@@ -102,7 +100,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Leadership teaser */}
       <section className="home-leaders section section--alt" aria-labelledby="home-leaders-title">
         <div className="container home-leaders__grid">
           <motion.div className="home-leaders__media" {...fadeUp}>
@@ -122,7 +119,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Campus */}
+      <section className="home-stories section" aria-labelledby="home-stories-title">
+        <div className="container">
+          <motion.header className="home-simple-head home-simple-head--row" {...fadeUp}>
+            <div>
+              <p className="home-eyebrow">News & Events</p>
+              <h2 id="home-stories-title">Latest from KDU Global</h2>
+            </div>
+            <Link to="/news-events" className="home-link-arrow">
+              View all
+            </Link>
+          </motion.header>
+
+          <div className="home-stories__grid">
+            {news.map((item, i) => (
+              <motion.article key={item.id || item.title} {...fadeUp} transition={{ duration: 0.45, delay: i * 0.05 }}>
+                <Link to={item.link || '/news-events'} className="home-stories__item">
+                  <img src={item.image} alt="" loading="lazy" />
+                  <div>
+                    <time>{item.date}</time>
+                    <h3>{item.title}</h3>
+                  </div>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="home-life" aria-labelledby="home-life-title">
         <img src={campusBanner.image} alt={campusBanner.alt} loading="lazy" />
         <div className="home-life__content">
@@ -146,36 +170,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* News */}
-      <section className="home-stories section" aria-labelledby="home-stories-title">
-        <div className="container">
-          <motion.header className="home-simple-head home-simple-head--row" {...fadeUp}>
-            <div>
-              <p className="home-eyebrow">News</p>
-              <h2 id="home-stories-title">Latest from KDU Global</h2>
-            </div>
-            <Link to="/news-events" className="home-link-arrow">
-              View all
-            </Link>
-          </motion.header>
-
-          <div className="home-stories__grid">
-            {news.map((item, i) => (
-              <motion.article key={item.id} {...fadeUp} transition={{ duration: 0.45, delay: i * 0.05 }}>
-                <Link to={item.link} className="home-stories__item">
-                  <img src={item.image} alt="" loading="lazy" />
-                  <div>
-                    <time>{item.date}</time>
-                    <h3>{item.title}</h3>
-                  </div>
-                </Link>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Apply */}
       <section className="home-cta section" aria-labelledby="home-cta-title">
         <div className="container home-cta__inner">
           <div>
@@ -193,7 +187,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sitemap */}
       <div className="container" style={{ textAlign: 'center', padding: '2rem 0' }}>
         <Link to="/sitemap" className="home-link-arrow">
           Sitemap

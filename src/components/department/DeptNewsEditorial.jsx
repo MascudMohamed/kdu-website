@@ -12,9 +12,9 @@ export default function DeptNewsEditorial({ news, events }) {
     <section className="dept-section dept-news" id="news">
       <div className="container">
         <DeptSectionHeader
-          eyebrow="Latest"
-          title="News & events"
-          lead="Updates from the department, our students, and the wider university community."
+          eyebrow="Updates"
+          title="Departmental news"
+          lead="News and events from this department, its students, and academic community."
         />
 
         {featured && (
@@ -53,14 +53,14 @@ export default function DeptNewsEditorial({ news, events }) {
 
         {events?.length > 0 && (
           <div className="dept-news__events">
-            <h3 className="dept-news__events-title">Upcoming events</h3>
+            <h3 className="dept-news__events-title">Upcoming departmental events</h3>
             <ul className="dept-news__events-list">
-              {events.slice(0, 3).map((event) => (
-                <li key={event.title}>
-                  <time dateTime={event.date}>{event.date}</time>
+              {events.map((event) => (
+                <li key={event.id || event.title}>
+                  <time>{event.date}</time>
                   <div>
                     <strong>{event.title}</strong>
-                    <span>{event.venue} · {event.type}</span>
+                    {event.venue && <span>{event.venue}</span>}
                   </div>
                 </li>
               ))}

@@ -221,3 +221,204 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.admissions-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.admissions-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.admissions-jump a {
+  color: var(--color-primary, #003875);
+  text-decoration: none;
+}
+
+.admissions-jump a:hover {
+  text-decoration: underline;
+}
+
+.admissions-tracks {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.admissions-track {
+  padding: 1.35rem 1.5rem;
+  background: var(--color-bg-alt, #f8fafc);
+  border-left: 4px solid var(--color-primary, #003875);
+}
+
+.admissions-track h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+}
+
+.admissions-track__sub {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.admissions-track ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  line-height: 1.7;
+}
+
+.admissions-track__note {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.admissions-footnote {
+  margin-top: 1.75rem;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.admissions-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 1.75rem;
+}
+
+.admissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.admissions-table th,
+.admissions-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+  vertical-align: top;
+}
+
+.admissions-table th {
+  background: #003875;
+  color: #fff;
+  font-weight: 600;
+}
+
+.admissions-mark--yes {
+  color: #c41e3a;
+  font-weight: 700;
+}
+
+.admissions-docs-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.admissions-scholarship-grid {
+  display: grid;
+  gap: 1.15rem;
+  margin-bottom: 2rem;
+}
+
+.admissions-scholarship-card {
+  padding: 1.25rem 1.4rem;
+  background: #fff;
+  border: 1px solid var(--color-border, #e5e7eb);
+}
+
+.admissions-scholarship-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.admissions-scholarship-card p {
+  margin: 0;
+  line-height: 1.65;
+  color: #4b5563;
+}
+
+.admissions-subhead {
+  margin: 2rem 0 1rem;
+  font-size: 1.2rem;
+}
+
+.admissions-living {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admissions-living li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+}
+
+.admissions-cta-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.admissions-cta-band h2 {
+  margin: 0 0 0.35rem;
+}
+
+.admissions-cta-band p {
+  margin: 0;
+}
+
+.admissions-cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.admissions-cms-block {
+  margin-bottom: 2rem;
+}
+
+.admissions-process--dense {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .admissions-tracks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admissions-docs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admissions-scholarship-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admissions-process--dense {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .admissions-scholarship-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .admissions-process--dense {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

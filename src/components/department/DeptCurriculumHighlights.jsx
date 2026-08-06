@@ -15,14 +15,14 @@ export default function DeptCurriculumHighlights({ highlights, curriculum }) {
         <DeptSectionHeader
           eyebrow="Academic Structure"
           title="Curriculum highlights"
-          lead="A structured progression from foundational knowledge to advanced specialization, designed for clarity and professional readiness."
+          lead="Specialisations that build from core foundations to advanced professional practice."
         />
 
         <ol className="dept-curriculum__timeline">
           {highlights.map((item) => (
-            <li key={item.year} className="dept-curriculum__step">
+            <li key={item.title || item.year} className="dept-curriculum__step">
               <div className="dept-curriculum__marker">
-                <span>Year {item.year}</span>
+                <span>Specialization</span>
               </div>
               <div className="dept-curriculum__content">
                 <h3>{item.title}</h3>
@@ -35,18 +35,21 @@ export default function DeptCurriculumHighlights({ highlights, curriculum }) {
         <div className="dept-curriculum__toggle">
           <button
             type="button"
-            className="dept-curriculum__toggle-btn"
+            className="dept-curriculum__view-details"
             onClick={() => setShowFull((v) => !v)}
             aria-expanded={showFull}
           >
-            {showFull ? 'Hide full curriculum' : 'View full curriculum'}
-            <span aria-hidden="true">{showFull ? '−' : '+'}</span>
+            {showFull ? 'Hide details' : 'View details'}
           </button>
         </div>
 
         {showFull && curriculum?.length > 0 && (
           <div className="dept-curriculum__full">
-            <CurriculumAccordion curriculum={curriculum} embedded />
+            <CurriculumAccordion
+              curriculum={curriculum}
+              highlights={highlights}
+              embedded
+            />
           </div>
         )}
       </div>

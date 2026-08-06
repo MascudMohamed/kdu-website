@@ -3,7 +3,29 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import '../../styles/components/CurriculumAccordion.css';
 
-export default function CurriculumAccordion({ curriculum, embedded = false }) {
+function normalizeCategory(raw) {
+  const value = String(raw || '').toLowerCase();
+  if (value.includes('general')) return 'General Elective';
+  return 'Major Elective';
+}
+
+function categoryClass(label) {
+  return label === 'General Elective' ? 'general' : 'major';
+}
+
+function specializationLabel(yearBlock, yearIdx, highlights) {
+  const fromHighlight = highlights?.[yearIdx]?.title;
+  if (fromHighlight) return fromHighlight;
+  if (yearBlock.specialization) return yearBlock.specialization;
+  if (yearBlock.title && !/^year\s*\d+/i.test(yearBlock.title)) return yearBlock.title;
+  return `Specialization ${yearIdx + 1}`;
+}
+
+export default function CurriculumAccordion({
+  curriculum,
+  highlights = [],
+  embedded = false,
+}) {
   const [openYear, setOpenYear] = useState(0);
   const [openSemester, setOpenSemester] = useState('0-0');
 
@@ -15,15 +37,17 @@ export default function CurriculumAccordion({ curriculum, embedded = false }) {
 
   const years = (
         <div className="curriculum-acc__years">
-          {curriculum.map((year, yearIdx) => (
-            <div key={year.year} className="curriculum-acc__year">
+          {curriculum.map((year, yearIdx) => {
+            const label = specializationLabel(year, yearIdx, highlights);
+            return (
+            <div key={year.year ?? label} className="curriculum-acc__year">
               <button
                 type="button"
                 className={`curriculum-acc__year-btn ${openYear === yearIdx ? 'curriculum-acc__year-btn--open' : ''}`}
                 onClick={() => setOpenYear(openYear === yearIdx ? -1 : yearIdx)}
                 aria-expanded={openYear === yearIdx}
               >
-                Year {year.year}
+                {label}
                 <span className="curriculum-acc__chevron" aria-hidden="true">▾</span>
               </button>
 
@@ -39,6 +63,13 @@ export default function CurriculumAccordion({ curriculum, embedded = false }) {
                     {year.semesters.map((semester, semIdx) => {
                       const key = `${yearIdx}-${semIdx}`;
                       const isOpen = openSemester === key;
+                      const courses = [
+                        ...(semester.majorCourses || []),
+                        ...(semester.electives || []),
+                      ].map((course) => ({
+                        ...course,
+                        category: normalizeCategory(course.category),
+                      }));
                       return (
                         <div key={semester.name} className="curriculum-acc__semester">
                           <button
@@ -68,14 +99,14 @@ export default function CurriculumAccordion({ curriculum, embedded = false }) {
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    {[...(semester.majorCourses || []), ...(semester.electives || [])].map((course) => (
+                                    {courses.map((course) => (
                                       <tr key={course.code}>
                                         <td data-label="Code">{course.code}</td>
                                         <td data-label="Course">{course.name}</td>
                                         <td data-label="Credits">{course.credits}</td>
                                         <td data-label="Category">
-                                          <span className={`curriculum-acc__cat curriculum-acc__cat--${(course.category || 'major').toLowerCase()}`}>
-                                            {course.category || 'Major'}
+                                          <span className={`curriculum-acc__cat curriculum-acc__cat--${categoryClass(course.category)}`}>
+                                            {course.category}
                                           </span>
                                         </td>
                                       </tr>
@@ -92,7 +123,8 @@ export default function CurriculumAccordion({ curriculum, embedded = false }) {
                 )}
               </AnimatePresence>
             </div>
-          ))}
+            );
+          })}
         </div>
   );
 
@@ -106,7 +138,7 @@ export default function CurriculumAccordion({ curriculum, embedded = false }) {
         <SectionTitle
           subtitle="Curriculum"
           title="Program Structure"
-          description="A structured progression from foundational knowledge to advanced specialization."
+          description="Explore specialisations and elective pathways within the programme."
         />
         {years}
       </div>
