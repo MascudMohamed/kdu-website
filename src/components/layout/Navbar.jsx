@@ -3,7 +3,6 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   PRIMARY_NAV_LINKS,
-  NAV_LINKS,
   ACADEMICS_MEGA_MENU,
   ABOUT_DROPDOWN,
   ENGAGEMENT_DROPDOWN,
@@ -71,6 +70,8 @@ export default function Navbar() {
   const megaRef = useRef(null);
   const megaCloseTimer = useRef(null);
 
+  // Keep English source text in the DOM; AutoPageTranslator handles all languages.
+
   const openMega = (type) => {
     if (megaCloseTimer.current) {
       clearTimeout(megaCloseTimer.current);
@@ -98,18 +99,14 @@ export default function Navbar() {
     return cmsItems.map((item) => {
       let label = item.label.trim();
       if (/^education$/i.test(label)) label = 'Academics';
+      const matched = PRIMARY_NAV_LINKS.find((link) => link.path === item.path);
       return {
         label: label.toUpperCase(),
+        i18nKey: matched?.i18nKey,
         path: item.path,
         megaMenu: resolveMegaMenu(item.path, label),
       };
     });
-  }, [navCms]);
-
-  const mobileLinks = useMemo(() => {
-    const cmsItems = navCms?.items?.filter((item) => item.label && item.path);
-    if (!cmsItems?.length) return NAV_LINKS.slice(0, 8);
-    return cmsItems.map((item) => ({ label: item.label, path: item.path }));
   }, [navCms]);
 
   useEffect(() => {
@@ -245,8 +242,8 @@ export default function Navbar() {
             <nav aria-label="Mobile navigation">
               <p className="navbar__mobile-group">Main</p>
               <ul className="navbar__mobile-links">
-                {mobileLinks.map((link) => (
-                  <li key={`${link.label}-${link.path}`}>
+                {primaryLinks.map((link) => (
+                  <li key={`mobile-${link.label}-${link.path}`}>
                     <NavLink
                       to={link.path}
                       className={({ isActive }) =>

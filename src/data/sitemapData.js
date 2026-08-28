@@ -81,7 +81,7 @@ export const sitemapTree = [
             path: "/academics/graduate",
             children: [
               { title: "Graduate Courses", path: "/academics/graduate" },
-              { title: "Graduate Faculty", path: "/academics/graduate/faculty" },
+              { title: "International Faculty", path: "/academics/faculty" },
             ],
           },
         ],

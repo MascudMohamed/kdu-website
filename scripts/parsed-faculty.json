@@ -1,0 +1,274 @@
+﻿[
+  {
+    "name": "JURAEV, Sirojiddin Salomovich",
+    "img": "/global/_Img/n/p2.jpg",
+    "email": "juraev@kduniv.ac.kr"
+  },
+  {
+    "name": "NUR, Alam MD",
+    "img": "/global/_Img/n/p49.jpg",
+    "email": "na@kduniv.ac.kr"
+  },
+  {
+    "name": "IRISBOEV, Ilkhom",
+    "img": "/global/_Img/n/p21.jpg",
+    "email": "ilkhom@kduniv.ac.kr"
+  },
+  {
+    "name": "AL-ATHWARI, Baseem",
+    "img": "/global/_Img/n/p9.jpg",
+    "email": "baseem_cs@kduniv.ac.kr"
+  },
+  {
+    "name": "SEO, Yun Kyeong",
+    "img": "/global/_Img/n/p50.png",
+    "email": "yk.seo@kduniv.ac.kr"
+  },
+  {
+    "name": "KIM, Yong-Kyung",
+    "img": "/global/_Img/n/p8.jpg",
+    "email": "ykkim@kduniv.ac.kr"
+  },
+  {
+    "name": "MEGHA, Swati",
+    "img": "/global/_Img/n/p30.jpg",
+    "email": "megha@kduniv.ac.kr"
+  },
+  {
+    "name": "GERALDINE, Anne Tan",
+    "img": "/global/_Img/n/p25.jpg",
+    "email": "annetan@kduniv.ac.kr"
+  },
+  {
+    "name": "KHAN, Jebran",
+    "img": "/global/_Img/n/p27.jpg",
+    "email": "jebran@kduniv.ac.kr"
+  },
+  {
+    "name": "BHANDARI, Khadak Singh",
+    "img": "/global/_Img/n/p14.jpg",
+    "email": "mekhadak@kduniv.ac.kr"
+  },
+  {
+    "name": "POSSO, Guerrero Richard Eduardo",
+    "img": "/global/_Img/n/p50.jpg",
+    "email": "richard@kduniv.ac.kr"
+  },
+  {
+    "name": "CHOI, Jack K.",
+    "img": "/global/_Img/n/p3.jpg",
+    "email": "jkchoi@kduniv.ac.kr"
+  },
+  {
+    "name": "AL-ABSI, Ahmed A.",
+    "img": "/global/_Img/n/p5.jpg",
+    "email": "absiahmed@kduniv.ac.kr"
+  },
+  {
+    "name": "KWON, Hyuckhoon",
+    "img": "/global/_Img/n/p7.jpg",
+    "email": "hxk190@kduniv.ac.kr"
+  },
+  {
+    "name": "YOON, Hye-Joon",
+    "img": "/global/_Img/n/p11.jpg",
+    "email": "joonyoon@kduniv.ac.kr"
+  },
+  {
+    "name": "HOSSAIN, Md Sumon",
+    "img": "/global/_Img/n/p10.jpg",
+    "email": "sumonkrbd@kduniv.ac.kr"
+  },
+  {
+    "name": "KENNEDY, Grace C.",
+    "img": "/global/_Img/n/p13.jpg",
+    "email": "gkennedy@kduniv.ac.kr"
+  },
+  {
+    "name": "WILLIAMS, Dana E.",
+    "img": "/global/_Img/n/p16.jpg",
+    "email": "danawilliams@kduniv.ac.kr"
+  },
+  {
+    "name": "KIM, Haeok Liz",
+    "img": "/global/_Img/n/p17.jpg",
+    "email": "lizkim@kduniv.ac.kr"
+  },
+  {
+    "name": "ABUKHALIFEH, Alaa Nimer",
+    "img": "/global/_Img/n/p18.jpg",
+    "email": "abukhalifeh.alaa@kduniv.ac.kr"
+  },
+  {
+    "name": "MOTAHAR, Pooya Saeidi",
+    "img": "/global/_Img/n/p20.jpg",
+    "email": "pooyasaeidi@kduniv.ac.kr"
+  },
+  {
+    "name": "MOHAMMED A. AL-ABSI",
+    "img": "/global/_Img/n/p19.jpg",
+    "email": "mohammed@kduniv.ac.kr"
+  },
+  {
+    "name": "HUSSEIN, Fouad Mohamed Ali",
+    "img": "/global/_Img/n/p26.jpg",
+    "email": "hussein.ali@kduniv.ac.kr"
+  },
+  {
+    "name": "LI, Xiang",
+    "img": "/global/_Img/n/p28.jpg",
+    "email": "lixiang@kduniv.ac.kr"
+  },
+  {
+    "name": "OH, Pyeongseon",
+    "img": "/global/_Img/n/p51.png",
+    "email": "seonoh@kduniv.ac.kr"
+  },
+  {
+    "name": "MALIUK, Andrei",
+    "img": "/global/_Img/n/p51.jpg",
+    "email": "andrei@kduniv.ac.kr"
+node : count 53
+At C:\Users\Mascud Mohamed\AppData\Local\Temp\ps-script-ae5d6869-21a3-4ed6-a276-1faf34a7c9af.ps1:106 char:50
++ ... kdu-global-website"; node scripts/parse-faculty-html.mjs 2>&1 | Out-F ...
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (count 53:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  },
+  {
+    "name": "SAAVEDRA, Arancibia Carlos Andres",
+    "img": "/global/_Img/n/p52.jpg",
+    "email": "carlos@kduniv.ac.kr"
+  },
+  {
+    "name": "PARK, Chul Woong",
+    "img": "/global/_Img/n/p54.png",
+    "email": "pcw@kduniv.ac.kr"
+  },
+  {
+    "name": "AHMED, Bilal",
+    "img": "/global/_Img/n/p80.jpg",
+    "email": "bilal@kduniv.ac.kr"
+  },
+  {
+    "name": "LOY BENITEZ, Jorge Rafael",
+    "img": "/global/_Img/n/p53.jpg",
+    "email": "loybenitez@kduniv.ac.kr"
+  },
+  {
+    "name": "SONIA, Lim Ern Yi",
+    "img": "/global/_Img/n/p54.jpg",
+    "email": "sonia@kduniv.ac.kr"
+  },
+  {
+    "name": "AJAKWE, Simeon Okechukwu",
+    "img": "/global/_Img/n/p55.jpg",
+    "email": "profsimeon@kduniv.ac.kr"
+  },
+  {
+    "name": "ZAKIYYA, Moosa",
+    "img": "/global/_Img/n/p56.jpg",
+    "email": "zakiyya@kduniv.ac.kr"
+  },
+  {
+    "name": "VILLA MUNOZ, Romulo Nayrod",
+    "img": "/global/_Img/n/p58.jpg",
+    "email": "nayrodvilla@kduniv.ac.kr"
+  },
+  {
+    "name": "KHAN, Muhammad Aamir Shafique",
+    "img": "/global/_Img/n/p67.jpg",
+    "email": "aamir@kduniv.ac.kr"
+  },
+  {
+    "name": "GHULAM, Sarwar",
+    "img": "/global/_Img/n/p68.jpg",
+    "email": "sarwar@kduniv.ac.kr"
+  },
+  {
+    "name": "KIM, Min Jung",
+    "img": "/global/_Img/n/p31.jpg",
+    "email": null
+  },
+  {
+    "name": "HEO, HYUN SUNG",
+    "img": "/global/_Img/n/p33.jpg",
+    "email": null
+  },
+  {
+    "name": "PAK, Chun Yon",
+    "img": "/global/_Img/n/p65.jpg",
+    "email": null
+  },
+  {
+    "name": "DIMAKATSO, Nyathi",
+    "img": "/global/_Img/n/p35.jpg",
+    "email": null
+  },
+  {
+    "name": "SMITH, Barry",
+    "img": "/global/_Img/n/p61.jpg",
+    "email": null
+  },
+  {
+    "name": "TETTEH-LARTEY, Rhea",
+    "img": "/global/_Img/n/p62.jpg",
+    "email": null
+  },
+  {
+    "name": "BLAKE, John K.",
+    "img": "/global/_Img/n/p63.jpg",
+    "email": null
+  },
+  {
+    "name": "MUTIBI, Meryl",
+    "img": "/global/_Img/n/p66.jpg",
+    "email": null
+  },
+  {
+    "name": "BUNAGAN, JenniferT.",
+    "img": "/global/_Img/n/p78.jpg",
+    "email": null
+  },
+  {
+    "name": "RAHMATULLAH, Ayu Hasmiati",
+    "img": "/global/_Img/n/p59.jpg",
+    "email": null
+  },
+  {
+    "name": "MANNAN, Zubaer Ibna",
+    "img": "/global/_Img/n/p60.jpg",
+    "email": null
+  },
+  {
+    "name": "IVANOVA, Aisena S.",
+    "img": "/global/_Img/n/p36.jpg",
+    "email": null
+  },
+  {
+    "name": "KOICHUBAYEV, Alexandr",
+    "img": "/global/_Img/n/p37.jpg",
+    "email": null
+  },
+  {
+    "name": "BAILDINOV, Ergali",
+    "img": "/global/_Img/n/p38.jpg",
+    "email": null
+  },
+  {
+    "name": "DELOS SANTOS, Maria Cristina",
+    "img": "/global/_Img/n/p39.jpg",
+    "email": null
+  },
+  {
+    "name": "EVIZAL, Abdul Kadir",
+    "img": "/global/_Img/n/p43.jpg",
+    "email": null
+  },
+  {
+    "name": "MARTYNOW, Roman",
+    "img": "/global/_Img/n/p41.jpg",
+    "email": null
+  }
+]

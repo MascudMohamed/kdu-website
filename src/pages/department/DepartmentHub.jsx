@@ -97,7 +97,6 @@ export default function DepartmentHub() {
 
       <section className="dept-hub-quick section section--alt">
         <div className="container dept-hub-quick__links">
-          <Link to="/academics/faculty">International Faculty →</Link>
           <Link to={`${base}/admissions`}>Admissions →</Link>
           <Link to={`${base}/faq`}>FAQ →</Link>
           {outcomesPath && (

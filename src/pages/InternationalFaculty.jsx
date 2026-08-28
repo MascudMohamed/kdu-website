@@ -1,5 +1,12 @@
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { INTERNATIONAL_FACULTY } from '../data/internationalFaculty';
+import { Link } from 'react-router-dom';
+import {
+  INTERNATIONAL_FACULTY,
+  internationalFacultyProfilePath,
+  mapStaticInternationalFacultyList,
+} from '../data/internationalFaculty';
+import { useInternationalFaculty } from '../hooks/useInternationalFaculty';
 import '../styles/pages/InternationalFaculty.css';
 
 function initialsFromName(name) {
@@ -14,6 +21,12 @@ function initialsFromName(name) {
 }
 
 export default function InternationalFaculty() {
+  const staticFaculty = useMemo(
+    () => mapStaticInternationalFacultyList(INTERNATIONAL_FACULTY),
+    [],
+  );
+  const { faculty } = useInternationalFaculty(staticFaculty);
+
   return (
     <>
       <header className="page-header">
@@ -32,25 +45,42 @@ export default function InternationalFaculty() {
       <section className="section intl-faculty">
         <div className="container">
           <ul className="intl-faculty__list">
-            {INTERNATIONAL_FACULTY.map((member) => (
-              <li key={member.name} className="intl-faculty__item">
-                <div className="intl-faculty__photo" aria-hidden={!member.photo}>
-                  {member.photo ? (
-                    <img src={member.photo} alt="" loading="lazy" />
-                  ) : (
-                    <span className="intl-faculty__photo-placeholder">
-                      <span className="intl-faculty__photo-initials">
-                        {initialsFromName(member.name)}
+            {faculty.map((member) => (
+              <li key={member.profileSlug || member.id || member.name} className="intl-faculty__item">
+                <Link
+                  to={internationalFacultyProfilePath(member.profileSlug)}
+                  className="intl-faculty__card"
+                >
+                  <div className="intl-faculty__photo" aria-hidden={!member.photo}>
+                    {member.photo ? (
+                      <img src={member.photo} alt="" loading="lazy" />
+                    ) : (
+                      <span className="intl-faculty__photo-placeholder">
+                        <span className="intl-faculty__photo-initials">
+                          {initialsFromName(member.name)}
+                        </span>
+                        <span className="intl-faculty__photo-hint">Photo</span>
                       </span>
-                      <span className="intl-faculty__photo-hint">Photo</span>
-                    </span>
-                  )}
-                </div>
-                <div className="intl-faculty__body">
-                  <h2>{member.name}</h2>
-                  <p className="intl-faculty__role">{member.role}</p>
-                  <p className="intl-faculty__creds">{member.credentials}</p>
-                </div>
+                    )}
+                  </div>
+                  <div className="intl-faculty__body">
+                    <h2>{member.name}</h2>
+                    <p className="intl-faculty__role">{member.position}</p>
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="intl-faculty__email"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {member.email}
+                      </a>
+                    )}
+                    {member.specialization && (
+                      <p className="intl-faculty__spec">{member.specialization}</p>
+                    )}
+                    <span className="intl-faculty__view">View profile</span>
+                  </div>
+                </Link>
               </li>
             ))}
           </ul>

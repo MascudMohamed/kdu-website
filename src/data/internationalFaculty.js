@@ -1,12 +1,23 @@
 /**
  * Official International Faculty — sourced from KDU Global International Faculty directory.
- *
- * To add a photo later:
- * 1. Save the image in /public/images/faculty/
- * 2. Add photo: '/images/faculty/your-file.jpg' on that member
+ * Photos & emails from https://global.kduniv.ac.kr/global/index.php?pCode=1636005544
  */
 
-export const INTERNATIONAL_FACULTY = [
+import { OFFICIAL_FACULTY_MEDIA } from './internationalFacultyOfficial';
+
+export function toInternationalFacultySlug(name) {
+  return String(name)
+    .toLowerCase()
+    .replace(/[,.'"]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const RAW_INTERNATIONAL_FACULTY = [
   {
     name: 'JURAEV, Sirojiddin Salomovich',
     role: 'Dean of International Faculty · Associate Professor',
@@ -279,3 +290,76 @@ export const INTERNATIONAL_FACULTY = [
     credentials: 'BA (English Philology); MA (English Philology – Linguistics); Postgraduate Studies (Public Relations)',
   },
 ];
+
+function withOfficialMedia(member) {
+  const profileSlug = member.profileSlug || toInternationalFacultySlug(member.name);
+  const official = OFFICIAL_FACULTY_MEDIA[profileSlug];
+
+  return {
+    ...member,
+    profileSlug,
+    photo: member.photo || official?.photo,
+    email: member.email || official?.email,
+  };
+}
+
+export const INTERNATIONAL_FACULTY = RAW_INTERNATIONAL_FACULTY.map(withOfficialMedia);
+
+const FACULTY_BY_SLUG = Object.fromEntries(
+  INTERNATIONAL_FACULTY.map((member) => [member.profileSlug, member]),
+);
+
+export function getInternationalFacultyBySlug(slug) {
+  return FACULTY_BY_SLUG[slug] || null;
+}
+
+export function parseCredentials(credentials) {
+  if (!credentials) return [];
+  return credentials
+    .split(';')
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+/** Map static directory row to the same shape as CMS faculty profiles. */
+export function mapStaticInternationalFaculty(member) {
+  if (!member) return null;
+
+  return {
+    id: member.profileSlug,
+    name: member.name,
+    position: member.role,
+    rank: member.rank,
+    profileSlug: member.profileSlug,
+    photo: member.photo,
+    biography: member.biography,
+    teachingPhilosophy: member.teachingPhilosophy,
+    specialization: member.specialization,
+    researchInterests: member.researchInterests,
+    email: member.email,
+    phone: member.phone,
+    office: member.office,
+    officeHours: member.officeHours,
+    languages: member.languages,
+    education: member.education?.length ? member.education : parseCredentials(member.credentials),
+    professionalExperience: member.professionalExperience ?? [],
+    publications: member.publications ?? [],
+    awards: member.awards ?? [],
+    coursesTaught: member.coursesTaught ?? [],
+    currentProjects: member.currentProjects ?? [],
+    linkedin: member.linkedin,
+    scholar: member.scholar,
+    researchgate: member.researchgate,
+    website: member.website,
+    cv: member.cv,
+    departmentSlug: 'international',
+  };
+}
+
+export function mapStaticInternationalFacultyList(members = INTERNATIONAL_FACULTY) {
+  return members.map(mapStaticInternationalFaculty).filter(Boolean);
+}
+
+export function internationalFacultyProfilePath(profileSlug) {
+  return `/academics/faculty/${profileSlug}`;
+}

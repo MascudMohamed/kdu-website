@@ -33,7 +33,6 @@ const graduateData = {
     { label: 'Overview', path: '' },
     { label: 'Programmes', hash: '#programmes' },
     { label: 'Curriculum', hash: '#curriculum' },
-    { label: 'Faculty', path: 'faculty' },
     { label: 'Scholarships', hash: '#scholarships' },
     { label: 'Admissions', hash: '#admissions' },
   ],

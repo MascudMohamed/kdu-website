@@ -1,6 +1,13 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
+import { internationalFacultyProfilePath } from '../../data/internationalFaculty';
 
-/** Individual department faculty profiles redirect to the central directory. */
+/** Department faculty profile URLs redirect to the central international faculty profile. */
 export default function DepartmentFacultyProfile() {
+  const { profileSlug } = useParams();
+
+  if (profileSlug) {
+    return <Navigate to={internationalFacultyProfilePath(profileSlug)} replace />;
+  }
+
   return <Navigate to="/academics/faculty" replace />;
 }

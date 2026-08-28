@@ -1,5 +1,7 @@
 .language-switcher {
     position: relative;
+    z-index: 6;
+    flex-shrink: 0;
 }
 
 .language-switcher__button {

@@ -19,16 +19,6 @@ export const ACADEMICS_MEGA_MENU = {
       path: GRADUATE_OVERVIEW.path,
       description: 'K-Global GSBTC master’s programmes',
     },
-    {
-      label: 'Graduate Faculty',
-      path: '/academics/graduate/faculty',
-      description: 'Faculty of the Graduate School',
-    },
-    {
-      label: 'International Faculty',
-      path: '/academics/faculty',
-      description: 'All international faculty members',
-    },
   ],
 
   educationCentre: EDUCATION_CENTRE_PROGRAMMES.map((p) => ({
@@ -153,13 +143,13 @@ export const ADMISSIONS_MEGA_MENU = {
 };
 
 export const PRIMARY_NAV_LINKS = [
-  { label: 'HOME', path: '/', megaMenu: false },
-  { label: 'ACADEMICS', path: '/academics', megaMenu: 'academics' },
-  { label: 'STUDENT SERVICES', path: '/international-office', megaMenu: 'student-services' },
-  { label: 'ADMISSIONS', path: '/admissions', megaMenu: 'admissions' },
-  { label: 'ENGAGEMENT', path: '/engagement', megaMenu: 'engagement' },
-  { label: 'ABOUT US', path: '/about', megaMenu: 'about' },
-  { label: 'NEWS & EVENTS', path: '/news-events', megaMenu: false },
+  { label: 'HOME', i18nKey: 'navbar.home', path: '/', megaMenu: false },
+  { label: 'ACADEMICS', i18nKey: 'navbar.academics', path: '/academics', megaMenu: 'academics' },
+  { label: 'STUDENT SERVICES', i18nKey: 'navbar.studentServices', path: '/international-office', megaMenu: 'student-services' },
+  { label: 'ADMISSIONS', i18nKey: 'navbar.admissions', path: '/admissions', megaMenu: 'admissions' },
+  { label: 'ENGAGEMENT', i18nKey: 'navbar.engagement', path: '/engagement', megaMenu: 'engagement' },
+  { label: 'ABOUT US', i18nKey: 'navbar.about', path: '/about', megaMenu: 'about' },
+  { label: 'NEWS & EVENTS', i18nKey: 'navbar.newsEvents', path: '/news-events', megaMenu: false },
 ];
 
 export const NAV_LINKS = [

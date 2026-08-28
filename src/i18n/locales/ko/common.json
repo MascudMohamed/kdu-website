@@ -1,12 +1,41 @@
 {
   "navbar": {
     "home": "홈",
-    "about": "소개",
+    "about": "대학소개",
     "academics": "학사",
-    "research": "연구",
+    "engagement": "교류협력",
     "admissions": "입학",
     "studentServices": "학생 서비스",
-    "internationalOffice": "국제처",
-    "contact": "문의"
+    "newsEvents": "뉴스 & 행사",
+    "contact": "문의",
+    "applyNow": "지원하기",
+    "main": "메인"
+  },
+  "home": {
+    "subtitle": "가르치며 배웁니다",
+    "headline": "경동대학교 글로벌에 오신 것을 환영합니다",
+    "description": "영어 강의 학위. 국제 커뮤니티. 세계로 향하는 길.",
+    "exploreProgrammes": "프로그램 살펴보기",
+    "applyNow": "지원하기",
+    "academicsEyebrow": "학사",
+    "studyTitle": "함께 공부하세요",
+    "studyLead": "국제 커리어를 위한 영어 강의 프로그램.",
+    "exploreProgramme": "프로그램 보기",
+    "allProgrammes": "전체 프로그램",
+    "leadership": "총장 인사",
+    "readPresident": "총장 인사말 읽기",
+    "newsEyebrow": "뉴스 & 행사",
+    "newsTitle": "KDU Global 최신 소식",
+    "viewAll": "전체 보기",
+    "campusLife": "캠퍼스 생활",
+    "campusTitle": "하나의 캠퍼스, 글로벌 공동체",
+    "campusLead": "세계 각국의 학생들과 배우고, 교류하며, 성장하세요.",
+    "internationalStudents": "유학생",
+    "studentServices": "학생 서비스",
+    "ctaTitle": "KDU Global에 합류할 준비가 되셨나요?",
+    "ctaLead": "다음 학년도 지원이 진행 중입니다.",
+    "startApplication": "지원 시작",
+    "admissionsGuide": "입학 안내",
+    "sitemap": "사이트맵"
   }
 }

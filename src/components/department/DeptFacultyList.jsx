@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
+import { internationalFacultyProfilePath } from '../../data/internationalFaculty';
 import DeptSectionHeader from './DeptSectionHeader';
-import { deptPath } from '../../data/departments/navigation';
 import '../../styles/components/dept-editorial.css';
 import '../../styles/components/DeptFacultyList.css';
 
@@ -26,8 +26,11 @@ export default function DeptFacultyList({ faculty, departmentSlug, embedded = fa
               <p className="dept-faculty__spec">{member.specialization}</p>
             )}
           </div>
-          {member.profileSlug && departmentSlug && (
-            <Link to={deptPath(departmentSlug, `faculty/${member.profileSlug}`)} className="dept-faculty__link">
+          {member.profileSlug && (
+            <Link
+              to={internationalFacultyProfilePath(member.profileSlug)}
+              className="dept-faculty__link"
+            >
               View profile
             </Link>
           )}

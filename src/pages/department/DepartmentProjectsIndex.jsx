@@ -22,7 +22,7 @@ export default function DepartmentProjectsIndex() {
       related={[
         { label: 'Capstone overview', path: `${base}/capstone` },
         { label: 'AI pathway', path: `${base}/pathways/artificial-intelligence` },
-        { label: 'Faculty directory', path: `${base}/faculty` },
+        { label: 'Faculty directory', path: '/academics/faculty' },
       ]}
     >
       <div className="dept-projects-grid">

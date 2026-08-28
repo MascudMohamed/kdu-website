@@ -14,10 +14,12 @@
   z-index: 5;
   width: 100%;
   padding: var(--space-2xl) 0 var(--space-xl);
+  /* Keep headline clear of carousel arrows */
+  padding-inline: clamp(3.25rem, 6vw, 5rem);
 }
 
 .hero__text {
-  max-width: 720px;
+  max-width: min(720px, 100%);
 }
 
 .hero__subtitle {
@@ -31,11 +33,14 @@
 }
 
 .hero__headline {
-  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-size: clamp(2rem, 4.8vw, 3.5rem);
   color: var(--color-white);
   margin-bottom: var(--space-lg);
-  line-height: 1.1;
-  max-width: 14ch;
+  line-height: 1.15;
+  max-width: min(22ch, 100%);
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
 }
 
 .hero__description {

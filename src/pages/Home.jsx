@@ -27,8 +27,9 @@ export default function Home() {
   const programmes = featuredPrograms.slice(0, 3);
   const news = getAggregatedNews().slice(0, 3);
 
-  const headline = cms?.headline?.trim() || 'Kyungdong University Global';
-  const subtitle = cms?.subheadline?.trim() || 'Global Campus';
+  // English source stays in the React tree; AutoPageTranslator translates the live DOM.
+  const headline = cms?.headline?.trim() || 'Welcome to Kyungdong University Global';
+  const subtitle = cms?.subheadline?.trim() || 'We learn while we teach';
   const description =
     plainText(cms?.intro) ||
     'English-taught degrees. International community. Pathways to the world.';

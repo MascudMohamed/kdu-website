@@ -9,6 +9,7 @@ export function deptPath(slug, subPath = '') {
 export const SIMPLIFIED_DEPARTMENT_NAV = [
   { label: 'Overview', path: '' },
   { label: 'Curriculum', path: 'curriculum' },
+  { label: 'Faculty', externalPath: '/academics/faculty' },
   { label: 'Departmental News', path: '', hash: '#news' },
   { label: 'Admissions', path: 'admissions' },
 ];

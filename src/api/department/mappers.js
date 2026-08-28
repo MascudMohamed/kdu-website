@@ -1,6 +1,11 @@
 import { mergeDepartmentCms, resolveMediaUrl } from '../site/mappers.js';
+import { OFFICIAL_FACULTY_MEDIA } from '../../data/internationalFacultyOfficial';
 
 export { resolveMediaUrl };
+
+function officialMediaForSlug(profileSlug) {
+  return profileSlug ? OFFICIAL_FACULTY_MEDIA[profileSlug] : null;
+}
 
 export function mapApiFacultyList(items, departmentSlug, staticFaculty = []) {
   if (!items?.length) return null;
@@ -15,10 +20,10 @@ export function mapApiFacultyList(items, departmentSlug, staticFaculty = []) {
       name: row.name,
       position: row.position,
       rank: row.rank ?? staticMatch?.rank,
-      photo: resolveMediaUrl(row.photo) || staticMatch?.photo,
+      photo: resolveMediaUrl(row.photo) || staticMatch?.photo || officialMediaForSlug(row.profile_slug)?.photo,
       specialization: row.specialization ?? staticMatch?.specialization,
       researchInterests: row.research_interests ?? staticMatch?.researchInterests,
-      email: row.email ?? staticMatch?.email,
+      email: row.email ?? staticMatch?.email ?? officialMediaForSlug(row.profile_slug)?.email,
       profileSlug: row.profile_slug,
       departmentSlug,
     };
@@ -44,17 +49,19 @@ export function mapApiFacultyProfile(data, departmentSlug, staticFaculty = null)
     typeof a === 'string' ? a : [a.title, a.award_year].filter(Boolean).join(' — ')
   );
 
+  const official = officialMediaForSlug(data.profile_slug);
+
   return {
     id: data.id ?? staticFaculty?.id,
     name: data.name,
     position: data.position,
     rank: data.rank ?? staticFaculty?.rank,
-    photo: resolveMediaUrl(data.photo) || staticFaculty?.photo,
+    photo: resolveMediaUrl(data.photo) || staticFaculty?.photo || official?.photo,
     specialization: data.specialization ?? staticFaculty?.specialization,
     researchInterests: data.research_interests ?? staticFaculty?.researchInterests,
     biography: data.biography ?? staticFaculty?.biography,
     teachingPhilosophy: data.teaching_philosophy ?? staticFaculty?.teachingPhilosophy,
-    email: data.email ?? staticFaculty?.email,
+    email: data.email ?? staticFaculty?.email ?? official?.email,
     phone: data.phone ?? staticFaculty?.phone,
     office: data.office ?? staticFaculty?.office,
     officeHours: data.office_hours ?? staticFaculty?.officeHours,
@@ -71,6 +78,7 @@ export function mapApiFacultyProfile(data, departmentSlug, staticFaculty = null)
       : staticFaculty?.currentProjects ?? [],
     profileSlug: data.profile_slug,
     departmentSlug,
+    cv: data.cv ?? staticFaculty?.cv,
     linkedin: data.linkedin ?? staticFaculty?.linkedin,
     scholar: data.scholar ?? staticFaculty?.scholar,
     researchgate: data.researchgate ?? staticFaculty?.researchgate,

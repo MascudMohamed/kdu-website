@@ -1,12 +1,41 @@
 {
   "navbar": {
-    "home": "Home",
-    "about": "About",
-    "academics": "Academics",
-    "research": "Research",
+    "home": "Accueil",
+    "about": "À propos",
+    "academics": "Formations",
+    "engagement": "Engagement",
     "admissions": "Admissions",
-    "studentServices": "Student Services",
-    "internationalOffice": "International Office",
-    "contact": "Contact"
+    "studentServices": "Services étudiants",
+    "newsEvents": "Actualités",
+    "contact": "Contact",
+    "applyNow": "Postuler",
+    "main": "Principal"
+  },
+  "home": {
+    "subtitle": "Nous apprenons en enseignant",
+    "headline": "Bienvenue à Kyungdong University Global",
+    "description": "Diplômes en anglais. Communauté internationale. Des voies vers le monde.",
+    "exploreProgrammes": "Découvrir les programmes",
+    "applyNow": "Postuler",
+    "academicsEyebrow": "Formations",
+    "studyTitle": "Étudiez avec nous",
+    "studyLead": "Programmes en anglais conçus pour des carrières internationales.",
+    "exploreProgramme": "Voir le programme",
+    "allProgrammes": "Tous les programmes",
+    "leadership": "Direction",
+    "readPresident": "Lire le message du président",
+    "newsEyebrow": "Actualités",
+    "newsTitle": "Dernières nouvelles de KDU Global",
+    "viewAll": "Tout voir",
+    "campusLife": "Vie de campus",
+    "campusTitle": "Une communauté mondiale sur un campus",
+    "campusLead": "Apprenez, échangez et grandissez avec des étudiants du monde entier.",
+    "internationalStudents": "Étudiants internationaux",
+    "studentServices": "Services étudiants",
+    "ctaTitle": "Prêt à rejoindre KDU Global ?",
+    "ctaLead": "Les candidatures sont ouvertes pour la prochaine année universitaire.",
+    "startApplication": "Commencer la candidature",
+    "admissionsGuide": "Guide d'admission",
+    "sitemap": "Plan du site"
   }
 }

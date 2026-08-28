@@ -1,5 +1,6 @@
 import { Link, Navigate, useOutletContext, useParams } from 'react-router-dom';
 import { getDepartmentProject } from '../../data/departments';
+import { internationalFacultyProfilePath } from '../../data/internationalFaculty';
 import DeptPageShell from '../../components/department/DeptPageShell';
 import { deptPath } from '../../data/departments/navigation';
 import '../../styles/pages/DepartmentProjects.css';
@@ -22,7 +23,7 @@ export default function DepartmentProjectDetail() {
       lead={project.summary}
       related={[
         { label: 'All projects', path: `${base}/projects` },
-        { label: 'Supervisor profile', path: `${base}/faculty/${project.supervisorSlug}` },
+        { label: 'Supervisor profile', path: internationalFacultyProfilePath(project.supervisorSlug) },
         { label: 'Technology stack', path: `${base}/technology-stack` },
       ]}
     >
@@ -45,7 +46,7 @@ export default function DepartmentProjectDetail() {
 
           <div className="dept-project-detail__meta">
             <p><strong>Supervisor:</strong>{' '}
-              <Link to={`${base}/faculty/${project.supervisorSlug}`}>{project.supervisor}</Link>
+              <Link to={internationalFacultyProfilePath(project.supervisorSlug)}>{project.supervisor}</Link>
             </p>
             <p><strong>Team:</strong> {project.team.join(', ')}</p>
           </div>

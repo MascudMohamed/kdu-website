@@ -16,10 +16,17 @@ function isNavItemActive(location, item, basePath) {
 }
 
 function navItemTo(item, basePath) {
+  if (item.externalPath) {
+    return item.externalPath;
+  }
   if (item.hash) {
     return { pathname: basePath, hash: item.hash };
   }
   return item.path ? `${basePath}/${item.path}` : basePath;
+}
+
+function isExternalNavItem(item) {
+  return Boolean(item.externalPath);
 }
 
 export default function DepartmentSubNav({ department }) {
@@ -36,7 +43,7 @@ export default function DepartmentSubNav({ department }) {
         </Link>
         <ul className="dept-subnav__list">
           {nav.map((item) => {
-            const active = isNavItemActive(location, item, basePath);
+            const active = !isExternalNavItem(item) && isNavItemActive(location, item, basePath);
             return (
               <li key={item.label} className="dept-subnav__item">
                 <Link

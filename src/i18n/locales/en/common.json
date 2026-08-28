@@ -1,12 +1,41 @@
 {
   "navbar": {
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "academics": "Academics",
-    "research": "Research",
+    "engagement": "Engagement",
     "admissions": "Admissions",
     "studentServices": "Student Services",
-    "internationalOffice": "International Office",
-    "contact": "Contact"
+    "newsEvents": "News & Events",
+    "contact": "Contact",
+    "applyNow": "Apply now",
+    "main": "Main"
+  },
+  "home": {
+    "subtitle": "We learn while we teach",
+    "headline": "Welcome to Kyungdong University Global",
+    "description": "English-taught degrees. International community. Pathways to the world.",
+    "exploreProgrammes": "Explore programmes",
+    "applyNow": "Apply Now",
+    "academicsEyebrow": "Academics",
+    "studyTitle": "Study with us",
+    "studyLead": "English-medium programmes designed for international careers.",
+    "exploreProgramme": "Explore programme",
+    "allProgrammes": "All programmes",
+    "leadership": "Leadership",
+    "readPresident": "Read the president's message",
+    "newsEyebrow": "News & Events",
+    "newsTitle": "Latest from KDU Global",
+    "viewAll": "View all",
+    "campusLife": "Campus life",
+    "campusTitle": "A global community on one campus",
+    "campusLead": "Learn, connect, and grow with students from around the world.",
+    "internationalStudents": "International students",
+    "studentServices": "Student services",
+    "ctaTitle": "Ready to join KDU Global?",
+    "ctaLead": "Applications are open for the upcoming academic year.",
+    "startApplication": "Start application",
+    "admissionsGuide": "Admissions guide",
+    "sitemap": "Sitemap"
   }
 }

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { internationalFacultyProfilePath } from '../../data/internationalFaculty';
 import DeptSectionHeader from '../department/DeptSectionHeader';
 import '../../styles/components/dept-editorial.css';
 import '../../styles/components/DeptFacultyList.css';
@@ -10,7 +11,7 @@ export default function GraduateFaculty({ faculty, embedded = false }) {
     <ul className="dept-faculty__list">
       {faculty.map((member) => {
         const profileHref = member.profileSlug
-          ? `/academics/graduate/faculty/${member.profileSlug}`
+          ? internationalFacultyProfilePath(member.profileSlug)
           : null;
 
         const name = profileHref ? (
@@ -68,7 +69,7 @@ export default function GraduateFaculty({ faculty, embedded = false }) {
         />
         {list}
         <div className="graduate-faculty__more">
-          <Link to="/academics/graduate/faculty" className="dept-link-arrow">
+          <Link to="/academics/faculty" className="dept-link-arrow">
             View full faculty directory
           </Link>
         </div>

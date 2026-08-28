@@ -1,0 +1,25 @@
+.auto-page-translator {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  z-index: 2000;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+  pointer-events: none;
+}
+
+.auto-page-translator.is-busy {
+  color: #fff;
+  background: #003875;
+}
+
+.auto-page-translator.is-error {
+  color: #fff;
+  background: #b91c1c;
+  pointer-events: auto;
+}

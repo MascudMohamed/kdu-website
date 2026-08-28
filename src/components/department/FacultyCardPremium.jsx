@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { internationalFacultyProfilePath } from '../../data/internationalFaculty';
 import '../../styles/components/FacultyCardPremium.css';
-
 export default function FacultyCardPremium({ faculty }) {
   return (
     <motion.article
@@ -28,7 +28,10 @@ export default function FacultyCardPremium({ faculty }) {
           {faculty.office && <span>Office: {faculty.office}</span>}
         </div>
         {faculty.profileSlug && (
-          <Link to={`/faculty/${faculty.profileSlug}`} className="faculty-premium__profile-btn">
+          <Link
+            to={internationalFacultyProfilePath(faculty.profileSlug)}
+            className="faculty-premium__profile-btn"
+          >
             View Full Profile
           </Link>
         )}
