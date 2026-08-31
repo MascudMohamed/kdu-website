@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
+import SectionBadge from '../common/SectionBadge';
 import '../../styles/components/WhyChoose.css';
 
 export default function WhyChoose({ items }) {
@@ -22,7 +23,7 @@ export default function WhyChoose({ items }) {
               transition={{ delay: i * 0.06 }}
               whileHover={{ y: -4 }}
             >
-              <span className="why-choose__icon" aria-hidden="true">{item.icon}</span>
+              <SectionBadge title={item.title} index={i} className="why-choose__icon" />
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </motion.div>

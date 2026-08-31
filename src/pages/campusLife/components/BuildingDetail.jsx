@@ -32,22 +32,22 @@ const BuildingDetail = ({ building }) => {
             <div className={styles.badges}>
               {building.gender && (
                 <span className={styles.badge}>
-                  👤 {building.gender} Dormitory
+                  {building.gender} Dormitory
                 </span>
               )}
               {building.capacity && (
                 <span className={styles.badge}>
-                  🏠 Capacity: {building.capacity}
+                  Capacity: {building.capacity}
                 </span>
               )}
               {building.collection && (
                 <span className={styles.badge}>
-                  📚 {building.collection}
+                  {building.collection}
                 </span>
               )}
               {building.target && (
                 <span className={styles.badge}>
-                  🎯 {building.target}
+                  {building.target}
                 </span>
               )}
             </div>

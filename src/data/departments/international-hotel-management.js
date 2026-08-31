@@ -324,10 +324,10 @@ export default {
   ],
 
   careers: [
-    { title: 'Global Resort General Manager', description: 'Oversee absolute multi-department operational systems, labor logistics, and brand compliance parameters across international luxury sites.', icon: '🏨' },
-    { title: 'Hospitality Revenue Director', description: 'Analyze predictive algorithm streams to structurally configure dynamic pricing strategies and distribute room inventory.', icon: '📊' },
-    { title: 'Food & Beverage Operating Officer', description: 'Manage commercial kitchen supply chains, menu engineering financial ratios, and global safety alignments.', icon: '🍽️' },
-    { title: 'MICE Production Director', description: 'Design corporate layout workflows, vendor contracts, and international logistics operations for global conventions.', icon: '🌐' },
+    { title: 'Global Resort General Manager', description: 'Oversee absolute multi-department operational systems, labor logistics, and brand compliance parameters across international luxury sites.' },
+    { title: 'Hospitality Revenue Director', description: 'Analyze predictive algorithm streams to structurally configure dynamic pricing strategies and distribute room inventory.' },
+    { title: 'Food & Beverage Operating Officer', description: 'Manage commercial kitchen supply chains, menu engineering financial ratios, and global safety alignments.' },
+    { title: 'MICE Production Director', description: 'Design corporate layout workflows, vendor contracts, and international logistics operations for global conventions.' },
   ],
 
   contact: {

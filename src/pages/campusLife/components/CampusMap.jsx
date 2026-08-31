@@ -74,7 +74,7 @@ const CampusMap = ({ buildings, activeBuilding, onBuildingSelect }) => {
           download
           className={styles.downloadBtn}
         >
-          📥 Download Map
+          Download Map
         </a>
         <a 
           href="http://me2.do/x0rszNu7" 
@@ -82,7 +82,7 @@ const CampusMap = ({ buildings, activeBuilding, onBuildingSelect }) => {
           rel="noopener noreferrer"
           className={styles.downloadBtn}
         >
-          🗺️ Naver Street View
+          Naver Street View
         </a>
       </div>
     </div>

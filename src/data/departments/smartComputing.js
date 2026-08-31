@@ -347,16 +347,16 @@ export default {
   ],
 
   careers: [
-    { title: 'AI Engineer', description: 'Design and deploy intelligent systems using artificial intelligence and machine learning.', icon: '🤖' },
-    { title: 'Robotics Engineer', description: 'Develop and integrate robotic and autonomous systems for industrial and research applications.', icon: '🦾' },
-    { title: 'Data Scientist', description: 'Analyze complex data to support decision-making and innovation across sectors.', icon: '📊' },
-    { title: 'IoT Developer', description: 'Build connected devices and smart systems for networked environments.', icon: '📡' },
-    { title: 'Software Developer', description: 'Create applications across web, mobile, and enterprise platforms.', icon: '💻' },
-    { title: 'Mobile Application Developer', description: 'Design and build software for smartphones and mobile devices.', icon: '📱' },
-    { title: 'Cybersecurity Analyst', description: 'Protect systems and data from digital threats and security vulnerabilities.', icon: '🔒' },
-    { title: 'Information Security Manager', description: 'Lead organizational strategies for information security and risk management.', icon: '🛡️' },
-    { title: 'Game Developer', description: 'Create interactive games and immersive digital entertainment experiences.', icon: '🎮' },
-    { title: 'VR/AR Developer', description: 'Build virtual and augmented reality applications and experiences.', icon: '🥽' },
+    { title: 'AI Engineer', description: 'Design and deploy intelligent systems using artificial intelligence and machine learning.' },
+    { title: 'Robotics Engineer', description: 'Develop and integrate robotic and autonomous systems for industrial and research applications.' },
+    { title: 'Data Scientist', description: 'Analyze complex data to support decision-making and innovation across sectors.' },
+    { title: 'IoT Developer', description: 'Build connected devices and smart systems for networked environments.' },
+    { title: 'Software Developer', description: 'Create applications across web, mobile, and enterprise platforms.' },
+    { title: 'Mobile Application Developer', description: 'Design and build software for smartphones and mobile devices.' },
+    { title: 'Cybersecurity Analyst', description: 'Protect systems and data from digital threats and security vulnerabilities.' },
+    { title: 'Information Security Manager', description: 'Lead organizational strategies for information security and risk management.' },
+    { title: 'Game Developer', description: 'Create interactive games and immersive digital entertainment experiences.' },
+    { title: 'VR/AR Developer', description: 'Build virtual and augmented reality applications and experiences.' },
   ],
 
   contact: {

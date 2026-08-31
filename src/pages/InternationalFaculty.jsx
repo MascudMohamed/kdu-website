@@ -75,10 +75,10 @@ export default function InternationalFaculty() {
                         {member.email}
                       </a>
                     )}
+                    <span className="intl-faculty__view">View profile</span>
                     {member.specialization && (
                       <p className="intl-faculty__spec">{member.specialization}</p>
                     )}
-                    <span className="intl-faculty__view">View profile</span>
                   </div>
                 </Link>
               </li>

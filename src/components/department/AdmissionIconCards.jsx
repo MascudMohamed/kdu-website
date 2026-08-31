@@ -2,16 +2,8 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import Button from '../common/Button';
 import { APPLICATION_FORM_URL } from '../../constants/links';
+import SectionBadge from '../common/SectionBadge';
 import '../../styles/components/AdmissionIconCards.css';
-
-const ICONS = {
-  eligibility: '📋',
-  language: '🌐',
-  documents: '📄',
-  tuition: '💰',
-  scholarships: '🏆',
-  timeline: '📅',
-};
 
 export default function AdmissionIconCards({ requirements }) {
   const cards = [
@@ -41,7 +33,7 @@ export default function AdmissionIconCards({ requirements }) {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
             >
-              <span className="admission-icons__icon" aria-hidden="true">{ICONS[card.key]}</span>
+              <SectionBadge title={card.title} index={i} className="admission-icons__icon" />
               <h3>{card.title}</h3>
               {card.tuition && (
                 <>

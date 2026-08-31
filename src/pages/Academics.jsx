@@ -82,7 +82,7 @@ export default function Academics() {
               viewport={{ once: true }}
               aria-hidden="true"
             >
-              <div className="academics-graduate-teaser__icon">🎓</div>
+              <div className="academics-graduate-teaser__icon">G</div>
               <p>Research · Leadership · Innovation</p>
             </motion.div>
           </div>

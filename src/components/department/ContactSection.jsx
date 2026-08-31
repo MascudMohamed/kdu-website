@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import Button from '../common/Button';
+import { KDU_SOCIAL_LINKS } from '../../constants/social';
 import '../../styles/components/ContactSection.css';
 
 export default function ContactSection({ contact }) {
@@ -48,6 +49,17 @@ export default function ContactSection({ contact }) {
             <div className="contact-section__detail">
               <h3>Office Hours</h3>
               <p>{contact.hours}</p>
+            </div>
+            <div className="contact-section__detail">
+              <h3>Follow KDU Global</h3>
+              <p>
+                {KDU_SOCIAL_LINKS.map((link, i) => (
+                  <span key={link.label}>
+                    {i > 0 && ' · '}
+                    <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+                  </span>
+                ))}
+              </p>
             </div>
             <div className="contact-section__map" id="map">
               <div className="contact-section__map-placeholder" role="img" aria-label="Map placeholder">

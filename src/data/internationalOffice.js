@@ -128,27 +128,19 @@ export const PUBLIC_EVENTS = {
     "Sports, arts, and student-led performances",
   ],
   highlights: [
-    {
-      icon: "🏫",
-      title: "Open Day",
+    {      title: "Open Day",
       description:
         "Explore programmes, meet faculty, and experience campus life at our flagship admissions event.",
     },
-    {
-      icon: "🎤",
-      title: "Public Lectures",
+    {      title: "Public Lectures",
       description:
         "Distinguished speakers address topics in technology, business, sustainability, and global affairs.",
     },
-    {
-      icon: "🎭",
-      title: "Cultural Festivals",
+    {      title: "Cultural Festivals",
       description:
         "Celebrate the diversity of our international community through food, music, and performance.",
     },
-    {
-      icon: "🔬",
-      title: "Research Symposium",
+    {      title: "Research Symposium",
       description:
         "Faculty and students present findings to peers, industry, and the wider public.",
     },

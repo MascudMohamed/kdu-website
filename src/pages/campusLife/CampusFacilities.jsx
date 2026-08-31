@@ -23,7 +23,7 @@ const CampusFacilities = () => {
         <h1 className={styles.pageTitle}>Global Campus</h1>
         <div className={styles.pageActions}>
           <button onClick={() => window.print()} className={styles.printBtn}>
-            🖨️ PRINT
+            PRINT
           </button>
           <button className={styles.zoomBtn}>+</button>
           <button className={styles.zoomBtn}>-</button>

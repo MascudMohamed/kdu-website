@@ -26,7 +26,7 @@ export default {
 
   chair: {
     title: 'the Program Coordinator',
-    name: 'Dr. Kim Min-ju',  // ✅ Korean name
+    name: 'Dr. Kim Min-ju',
     position: 'Coordinator, Korean for Academic Purposes',
     photo: IMG.portrait,
     message: [
@@ -156,7 +156,7 @@ export default {
   faculty: [
     {
       id: 'kap-1',
-      name: 'Dr. Kim Min-ju',  // ✅ Korean name
+      name: 'Dr. Kim Min-ju',
       position: 'Program Coordinator',
       rank: 'Professors',
       photo: IMG.portrait,
@@ -171,7 +171,7 @@ export default {
     },
     {
       id: 'kap-2',
-      name: 'Dr. Park Ji-hoon',  // ✅ Korean name
+      name: 'Dr. Park Ji-hoon',
       position: 'Senior Lecturer',
       rank: 'Lecturers',
       photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
@@ -185,7 +185,7 @@ export default {
     },
     {
       id: 'kap-3',
-      name: 'Ms. Lee Soo-jin',  // ✅ Korean name
+      name: 'Ms. Lee Soo-jin',
       position: 'Lecturer',
       rank: 'Lecturers',
       photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
@@ -199,7 +199,7 @@ export default {
     },
     {
       id: 'kap-4',
-      name: 'Dr. Choi Young-ho',  // ✅ Korean name
+      name: 'Dr. Choi Young-ho',
       position: 'Associate Professor',
       rank: 'Associate Professors',
       photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
@@ -312,11 +312,11 @@ export default {
   ],
 
   careers: [
-    { title: 'Korean Academic Instructor', description: 'Teach Korean for academic purposes at universities and language institutions worldwide.', icon: '📚' },
-    { title: 'Korean Language Specialist', description: 'Provide Korean language support and editing services for academic and professional publications.', icon: '✍️' },
-    { title: 'Korean Curriculum Developer', description: 'Design Korean language programs and materials for educational institutions.', icon: '📋' },
-    { title: 'International Student Advisor (Korea)', description: 'Support international students in adapting to Korean-medium academic environments.', icon: '🌐' },
-    { title: 'Korean Translator & Interpreter', description: 'Facilitate communication in Korean in academic, business, and diplomatic contexts.', icon: '🗣️' },
+    { title: 'Korean Academic Instructor', description: 'Teach Korean for academic purposes at universities and language institutions worldwide.' },
+    { title: 'Korean Language Specialist', description: 'Provide Korean language support and editing services for academic and professional publications.' },
+    { title: 'Korean Curriculum Developer', description: 'Design Korean language programs and materials for educational institutions.' },
+    { title: 'International Student Advisor (Korea)', description: 'Support international students in adapting to Korean-medium academic environments.' },
+    { title: 'Korean Translator & Interpreter', description: 'Facilitate communication in Korean in academic, business, and diplomatic contexts.' },
   ],
 
   contact: {

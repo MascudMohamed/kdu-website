@@ -99,24 +99,16 @@ export const ENGAGEMENT_PAGES = {
       },
     ],
     initiatives: [
-      {
-        icon: '🏛️',
-        title: 'University partnerships',
+      {        title: 'University partnerships',
         description: 'Formal relationships with institutions across Asia, Europe, North America, and beyond.',
       },
-      {
-        icon: '📘',
-        title: 'Joint academic programmes',
+      {        title: 'Joint academic programmes',
         description: 'Collaborative degree pathways and specialised short programmes with partner schools.',
       },
-      {
-        icon: '👨‍🏫',
-        title: 'Faculty collaboration',
+      {        title: 'Faculty collaboration',
         description: 'Visiting scholars, guest lectures, and co-supervision that elevate teaching and research.',
       },
-      {
-        icon: '🌐',
-        title: 'Global academic network',
+      {        title: 'Global academic network',
         description: 'Active participation in international higher-education alliances and forums.',
       },
     ],
@@ -167,24 +159,16 @@ export const ENGAGEMENT_PAGES = {
       },
     ],
     initiatives: [
-      {
-        icon: '🔬',
-        title: 'Thematic research',
+      {        title: 'Thematic research',
         description: 'Priority themes aligned with Global Campus strengths in AI, business, and hospitality.',
       },
-      {
-        icon: '🤝',
-        title: 'Partner projects',
+      {        title: 'Partner projects',
         description: 'Collaborative studies with industry, government, and academic partners.',
       },
-      {
-        icon: '📄',
-        title: 'Knowledge sharing',
+      {        title: 'Knowledge sharing',
         description: 'Publications, conferences, and campus research showcases.',
       },
-      {
-        icon: '🎓',
-        title: 'Student research',
+      {        title: 'Student research',
         description: 'Mentored projects that build inquiry skills and career readiness.',
       },
     ],
@@ -235,24 +219,16 @@ export const ENGAGEMENT_PAGES = {
       },
     ],
     initiatives: [
-      {
-        icon: '🤝',
-        title: 'Service Learning',
+      {        title: 'Service Learning',
         description: 'Credit-bearing courses that connect classroom knowledge with structured community projects.',
       },
-      {
-        icon: '🌱',
-        title: 'Sustainability Action',
+      {        title: 'Sustainability Action',
         description: 'Campus-led initiatives promoting environmental awareness and local conservation efforts.',
       },
-      {
-        icon: '📚',
-        title: 'Youth Outreach',
+      {        title: 'Youth Outreach',
         description: 'Mentoring, tutoring, and campus visits for local schools and young learners.',
       },
-      {
-        icon: '🏘️',
-        title: 'Local Partnerships',
+      {        title: 'Local Partnerships',
         description: 'Collaborations with NGOs, municipalities, and community groups across Gangwon Province.',
       },
     ],
@@ -302,24 +278,16 @@ export const ENGAGEMENT_PAGES = {
       },
     ],
     initiatives: [
-      {
-        icon: '💼',
-        title: 'Internship Programme',
+      {        title: 'Internship Programme',
         description: 'Structured placements with technology, business, and hospitality partners in Korea and abroad.',
       },
-      {
-        icon: '🎯',
-        title: 'Advisory Councils',
+      {        title: 'Advisory Councils',
         description: 'Industry leaders guide curriculum design for Smart Computing, IBA, and emerging programmes.',
       },
-      {
-        icon: '🔬',
-        title: 'Applied Research',
+      {        title: 'Applied Research',
         description: 'Joint projects addressing digital transformation, sustainability, and global business challenges.',
       },
-      {
-        icon: '🎤',
-        title: 'Executive Engagement',
+      {        title: 'Executive Engagement',
         description: 'Regular forums bringing practitioners into the classroom and onto campus.',
       },
     ],
@@ -375,24 +343,16 @@ export const ENGAGEMENT_PAGES = {
       },
     ],
     initiatives: [
-      {
-        icon: '🌐',
-        title: 'Global Chapters',
+      {        title: 'Global Chapters',
         description: 'Active alumni communities in Asia-Pacific, Europe, North America, and the Middle East.',
       },
-      {
-        icon: '🎓',
-        title: 'Mentor Programme',
+      {        title: 'Mentor Programme',
         description: 'Experienced graduates guide students on careers, internships, and international opportunities.',
       },
-      {
-        icon: '🏆',
-        title: 'Alumni Awards',
+      {        title: 'Alumni Awards',
         description: 'Annual recognition of outstanding graduates for professional achievement and community impact.',
       },
-      {
-        icon: '💬',
-        title: 'Alumni Speaker Series',
+      {        title: 'Alumni Speaker Series',
         description: 'Graduates return to campus to share insights with current students and faculty.',
       },
     ],
@@ -453,24 +413,16 @@ export const ENGAGEMENT_PAGES = {
       },
     ],
     initiatives: [
-      {
-        icon: '🎓',
-        title: 'Partner Universities',
+      {        title: 'Partner Universities',
         description: 'Study abroad opportunities with KDU partner universities around the world.',
       },
-      {
-        icon: '✈️',
-        title: 'Student Exchange',
+      {        title: 'Student Exchange',
         description: 'Semester-long exchange programmes providing international academic experience.',
       },
-      {
-        icon: '☀️',
-        title: 'Summer Programs',
+      {        title: 'Summer Programs',
         description: 'Short-term international programmes focusing on language, culture, and innovation.',
       },
-      {
-        icon: '🤝',
-        title: 'Institutional Partnerships',
+      {        title: 'Institutional Partnerships',
         description: 'Formal agreements enabling credit transfer, co-supervision, and shared resources.',
       },
     ],

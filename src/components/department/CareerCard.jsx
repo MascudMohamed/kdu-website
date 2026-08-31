@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
+import SectionBadge from '../common/SectionBadge';
 import '../../styles/components/CareerCard.css';
 
-export default function CareerCard({ title, description, icon }) {
+export default function CareerCard({ title, description, icon: _icon, index = 0 }) {
   return (
     <motion.div
       className="career-card"
@@ -9,7 +10,7 @@ export default function CareerCard({ title, description, icon }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
     >
-      <span className="career-card__icon" aria-hidden="true">{icon || '💼'}</span>
+      <SectionBadge title={title} index={index} className="career-card__icon" />
       <h3 className="career-card__title">{title}</h3>
       {description && <p className="career-card__description">{description}</p>}
     </motion.div>

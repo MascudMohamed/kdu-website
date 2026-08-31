@@ -10,7 +10,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState([
     {
       sender: "bot",
-      text: "👋 Hello! I'm the KDU AI Assistant. I'm currently under development. Feel free to send a message and see how the interface works.",
+      text: "Hello! I'm the KDU AI Assistant. I'm currently under development. Feel free to send a message and see how the interface works.",
     },
   ]);
 
@@ -32,7 +32,7 @@ export default function Chatbot() {
         ...prev,
         {
           sender: "bot",
-          text: "🚧 The KDU AI Assistant is currently under development. Soon I'll answer questions about admissions, scholarships, visa information, student services, and more.",
+          text: "The KDU AI Assistant is currently under development. Soon I'll answer questions about admissions, scholarships, visa information, student services, and more.",
         },
       ]);
     }, 700);

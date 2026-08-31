@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import Button from '../components/common/Button';
-import { APPLICATION_FORM_URL } from '../constants/links';
+import SectionBadge from '../components/common/SectionBadge';
 import '../styles/pages/InternationalStudents.css';
 
 const services = [
-  { icon: '🛂', title: 'Visa & Immigration', description: 'Comprehensive support for student visa applications, renewals, and compliance guidance.' },
-  { icon: '🏠', title: 'Housing & Accommodation', description: 'On-campus residence halls and assistance finding off-campus housing options.' },
-  { icon: '🌐', title: 'Orientation Programs', description: 'Multi-day orientation covering campus life, academic expectations, and cultural adaptation.' },
-  { icon: '📚', title: 'Academic Support', description: 'Tutoring, writing centers, and language support services for international students.' },
-  { icon: '💼', title: 'Career Services', description: 'Work authorization guidance, internship placement, and career counseling.' },
-  { icon: '🤝', title: 'Student Organizations', description: 'International student associations, cultural clubs, and mentorship programs.' },
+  { title: 'Visa & Immigration', description: 'Comprehensive support for student visa applications, renewals, and compliance guidance.' },
+  { title: 'Housing & Accommodation', description: 'On-campus residence halls and assistance finding off-campus housing options.' },
+  { title: 'Orientation Programs', description: 'Multi-day orientation covering campus life, academic expectations, and cultural adaptation.' },
+  { title: 'Academic Support', description: 'Tutoring, writing centers, and language support services for international students.' },
+  { title: 'Career Services', description: 'Work authorization guidance, internship placement, and career counseling.' },
+  { title: 'Student Organizations', description: 'International student associations, cultural clubs, and mentorship programs.' },
 ];
 
 export default function InternationalStudents() {
@@ -72,7 +72,7 @@ export default function InternationalStudents() {
             description="Comprehensive support designed to help you thrive academically, socially, and personally."
           />
           <div className="grid grid--3">
-            {services.map((service) => (
+            {services.map((service, i) => (
               <motion.div
                 key={service.title}
                 className="intl-service"
@@ -80,7 +80,7 @@ export default function InternationalStudents() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <span className="intl-service__icon" aria-hidden="true">{service.icon}</span>
+                <SectionBadge title={service.title} index={i} className="intl-service__icon" />
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
               </motion.div>

@@ -5,12 +5,12 @@ const WHY_CHOOSE = {
     { title: 'Hands-on learning', description: 'Broad theoretical knowledge combined with practical experience across emerging digital technologies.' },
     { title: 'Employment and further study', description: 'Pathways to industry roles across the digital economy and to postgraduate study in computing and engineering.' },
   ],
-  'artificial-intelligence': [ // 👈 1. Add this new key matching your RAW data object key
-    { icon: '🧠', title: 'Neural Architectures', description: 'Ground-up training in deep neural network design and matrix layer processing.' },
-    { icon: '⚡', title: 'Supercomputing Power', description: 'Direct access to raw high-performance localized GPU clusters.' },
-    { icon: '🛡️', title: 'AI Alignment & Safety', description: 'Focused specialization in mathematical verification and systems guardrails.' },
-    { icon: '🤖', title: 'Cognitive Robotics', description: 'Program spatial mapping and real-time sensory tracking on physical rover chassis.' },
-    { icon: '💬', title: 'LLM & NLP Engineering', description: 'Master tokenization matrices, context scaling, and conversational transformer mechanics.' },
+  'artificial-intelligence': [ //  1. Add this new key matching your RAW data object key
+    { title: 'Neural Architectures', description: 'Ground-up training in deep neural network design and matrix layer processing.' },
+    { title: 'Supercomputing Power', description: 'Direct access to raw high-performance localized GPU clusters.' },
+    { title: 'AI Alignment & Safety', description: 'Focused specialization in mathematical verification and systems guardrails.' },
+    { title: 'Cognitive Robotics', description: 'Program spatial mapping and real-time sensory tracking on physical rover chassis.' },
+    { title: 'LLM & NLP Engineering', description: 'Master tokenization matrices, context scaling, and conversational transformer mechanics.' },
   ],
   'international-business-administration': [
     { title: 'Fully English-medium instruction', description: 'The entire program is delivered in English for global business readiness.' },
@@ -19,11 +19,11 @@ const WHY_CHOOSE = {
     { title: 'Commitment to student success', description: 'Direct pathways to employment across a wide range of business functions after graduation.' },
   ],
   'international-hotel-management': [
-  { icon: '🏨', title: 'Global Operations Mastery', description: 'Operational mastery inside live mock luxury suites and commercial property management terminals.' },
-  { icon: '📊', title: 'Dynamic Revenue Algorithms', description: 'Master quantitative revenue management to calculate and optimize hotel room inventory yields.' },
-  { icon: '🍳', title: 'Culinary Engineering Labs', description: 'Hands-on practical execution inside state-of-the-art kitchens following international HACCP safety guidelines.' },
-  { icon: '🍷', title: 'Enology & Sommelier Science', description: 'Deconstruct terroir properties, beverage storage systems, and premium menu pairing structures.' },
-  { icon: '💎', title: 'Elite Corporate Pipeline', description: 'Direct career pathways and built-in residencies with world-class international luxury resort groups.' }
+  { title: 'Global Operations Mastery', description: 'Operational mastery inside live mock luxury suites and commercial property management terminals.' },
+  { title: 'Dynamic Revenue Algorithms', description: 'Master quantitative revenue management to calculate and optimize hotel room inventory yields.' },
+  { title: 'Culinary Engineering Labs', description: 'Hands-on practical execution inside state-of-the-art kitchens following international HACCP safety guidelines.' },
+  { title: 'Enology & Sommelier Science', description: 'Deconstruct terroir properties, beverage storage systems, and premium menu pairing structures.' },
+  { title: 'Elite Corporate Pipeline', description: 'Direct career pathways and built-in residencies with world-class international luxury resort groups.' }
 ],
   'english-for-academic-purposes': [
     { title: 'University-level English mastery', description: 'Rigorous training in academic reading, writing, research, and critical analysis for degree-level study.' },
@@ -32,10 +32,10 @@ const WHY_CHOOSE = {
     { title: 'Supportive international community', description: 'Small-group instruction within a multicultural campus designed for students from diverse linguistic backgrounds.' },
   ],
   'korean-for-academic-purposes': [
-    { icon: '📚', title: 'Targeted Academic Competence', description: 'Moves past casual daily conversations directly into professional level research and essay architectures.' },
-    { icon: '🎯', title: 'TOPIK Certification Mastery', description: 'Systematic tactical prep courses configured to secure structural TOPIK Tier 4+ validations rapidly.' },
-    { icon: '🎓', title: 'Direct Matriculation Pipeline', description: 'Establishes a completely fluid structural bridge into full-time KDU undergraduate majors.' },
-    { icon: '🗺️', title: 'Cultural Literacy Mentoring', description: 'Immersive deep dives into Korean academic hierarchy norms, etiquette, and seminar structures.' }
+    { title: 'Targeted Academic Competence', description: 'Moves past casual daily conversations directly into professional level research and essay architectures.' },
+    { title: 'TOPIK Certification Mastery', description: 'Systematic tactical prep courses configured to secure structural TOPIK Tier 4+ validations rapidly.' },
+    { title: 'Direct Matriculation Pipeline', description: 'Establishes a completely fluid structural bridge into full-time KDU undergraduate majors.' },
+    { title: 'Cultural Literacy Mentoring', description: 'Immersive deep dives into Korean academic hierarchy norms, etiquette, and seminar structures.' }
   ],
 };
 

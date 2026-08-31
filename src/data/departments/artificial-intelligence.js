@@ -329,10 +329,10 @@ export default {
   ],
 
   careers: [
-    { title: 'Neural Network Architect', description: 'Design custom deep learning topologies and raw hidden layer matrices for targeted business tasks.', icon: '🧠' },
-    { title: 'NLP Research Engineer', description: 'Build, train, and structurally configure foundational language models and multi-modal vector embeddings.', icon: '💬' },
-    { title: 'Autonomous Systems Engineer', description: 'Program spatial mapping and sensory reinforcement feedback systems for smart vehicular platforms.', icon: '🤖' },
-    { title: 'AI Alignment & Safety Analyst', description: 'Formulate algorithmic verification metrics to certify that machine behaviors match exact safety protocol configurations.', icon: '🛡️' },
+    { title: 'Neural Network Architect', description: 'Design custom deep learning topologies and raw hidden layer matrices for targeted business tasks.' },
+    { title: 'NLP Research Engineer', description: 'Build, train, and structurally configure foundational language models and multi-modal vector embeddings.' },
+    { title: 'Autonomous Systems Engineer', description: 'Program spatial mapping and sensory reinforcement feedback systems for smart vehicular platforms.' },
+    { title: 'AI Alignment & Safety Analyst', description: 'Formulate algorithmic verification metrics to certify that machine behaviors match exact safety protocol configurations.' },
   ],
 
   contact: {

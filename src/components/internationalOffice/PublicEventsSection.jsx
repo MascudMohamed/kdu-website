@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SectionBadge from "../common/SectionBadge";
 import { PUBLIC_EVENTS } from "../../data/internationalOffice";
 
 export default function PublicEventsSection() {
@@ -19,9 +20,9 @@ export default function PublicEventsSection() {
       </div>
 
       <div className="office-grid">
-        {highlights.map((item) => (
+        {highlights.map((item, i) => (
           <div key={item.title} className="office-card">
-            <span className="office-card__icon" aria-hidden="true">{item.icon}</span>
+            <SectionBadge title={item.title} index={i} className="office-card__icon" />
             <h3>{item.title}</h3>
             <p>{item.description}</p>
           </div>

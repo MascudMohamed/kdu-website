@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SectionBadge from '../common/SectionBadge';
 import Breadcrumb from '../common/Breadcrumb';
 import Button from '../common/Button';
 import '../../styles/components/dept-editorial.css';
@@ -67,9 +68,9 @@ export function EngagementInitiatives({ initiatives }) {
   if (!initiatives?.length) return null;
   return (
     <div className="engagement-initiatives">
-      {initiatives.map((item) => (
+      {initiatives.map((item, i) => (
         <article key={item.title} className="engagement-initiatives__card">
-          <span className="engagement-initiatives__icon" aria-hidden="true">{item.icon}</span>
+          <SectionBadge title={item.title} index={i} className="engagement-initiatives__icon" />
           <h3>{item.title}</h3>
           <p>{item.description}</p>
         </article>

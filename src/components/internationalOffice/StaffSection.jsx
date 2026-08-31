@@ -207,10 +207,10 @@ export default function StaffSection() {
               <p className="staff-position">{staff.position}</p>
               <div className="staff-contact">
                 <p className="staff-phone">
-                  <span className="staff-icon">📞</span> {staff.phone}
+                  <span className="staff-icon">Tel</span> {staff.phone}
                 </p>
                 <p className="staff-email">
-                  <span className="staff-icon">✉️</span> {staff.email}
+                  <span className="staff-icon">Email</span> {staff.email}
                 </p>
               </div>
             </div>

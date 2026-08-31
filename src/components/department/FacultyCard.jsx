@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../../styles/components/FacultyCard.css';
 
 const SOCIAL_ICONS = {
-  website: { label: 'Website', icon: '🌐' },
-  linkedin: { label: 'LinkedIn', icon: 'in' },
-  facebook: { label: 'Facebook', icon: 'f' },
-  researchgate: { label: 'ResearchGate', icon: 'RG' },
-  scholar: { label: 'Google Scholar', icon: 'GS' },
+  website: { label: 'Website' },
+  linkedin: { label: 'LinkedIn' },
+  facebook: { label: 'Facebook' },
+  researchgate: { label: 'ResearchGate' },
+  scholar: { label: 'Google Scholar' },
 };
 
 export default function FacultyCard({ faculty }) {

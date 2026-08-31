@@ -78,11 +78,11 @@ export default function DeptEventsSlider({ events = [] }) {
             <h3>{event.title}</h3>
 
             <p className="dept-events-slider__meta">
-                📅 {event.date}
+                <span className="dept-events-slider__meta-label">Date:</span> {event.date}
             </p>
 
             <p className="dept-events-slider__meta">
-                📍 {event.venue}
+                <span className="dept-events-slider__meta-label">Venue:</span> {event.venue}
             </p>
 
             <p className="dept-events-slider__description">

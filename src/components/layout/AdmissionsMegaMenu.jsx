@@ -41,12 +41,7 @@ export default function AdmissionsMegaMenu({ onNavigate }) {
             onClick={handleClick}
             style={{ marginTop: "1rem" }}
           >
-            <span
-              className="mega-menu__office-icon"
-              aria-hidden="true"
-            >
-              🎓
-            </span>
+            <span className="mega-menu__office-icon" aria-hidden="true">A</span>
 
             <h4>Admissions</h4>
 

@@ -418,16 +418,16 @@ export default {
   ],
 
   careers: [
-    { title: 'Accounting and Finance', description: 'Perform financial analysis, reporting, and management in strategic business units.', icon: '💰' },
-    { title: 'Data Analytics', description: 'Apply quantitative methods and information systems to support business decisions.', icon: '📊' },
-    { title: 'Marketing', description: 'Develop and execute marketing strategies across domestic and international markets.', icon: '📣' },
-    { title: 'Distribution and Logistics', description: 'Manage supply chains, distribution networks, and global logistics operations.', icon: '🚚' },
-    { title: 'Retail Management and Sales', description: 'Lead retail operations and sales teams in competitive consumer markets.', icon: '🛒' },
-    { title: 'Investment and Risk Management', description: 'Evaluate investments and manage financial risk for organizations.', icon: '📈' },
-    { title: 'Personnel Management and Public Relations', description: 'Lead human resources, employee development, and organizational communications.', icon: '👥' },
-    { title: 'Business Communications and Law', description: 'Navigate business law, negotiations, and professional communications.', icon: '⚖️' },
-    { title: 'Information Technologies', description: 'Apply technology solutions within business and enterprise environments.', icon: '💻' },
-    { title: 'Public Services', description: 'Contribute to public-sector and community-oriented business and administration roles.', icon: '🏛️' },
+    { title: 'Accounting and Finance', description: 'Perform financial analysis, reporting, and management in strategic business units.' },
+    { title: 'Data Analytics', description: 'Apply quantitative methods and information systems to support business decisions.' },
+    { title: 'Marketing', description: 'Develop and execute marketing strategies across domestic and international markets.' },
+    { title: 'Distribution and Logistics', description: 'Manage supply chains, distribution networks, and global logistics operations.' },
+    { title: 'Retail Management and Sales', description: 'Lead retail operations and sales teams in competitive consumer markets.' },
+    { title: 'Investment and Risk Management', description: 'Evaluate investments and manage financial risk for organizations.' },
+    { title: 'Personnel Management and Public Relations', description: 'Lead human resources, employee development, and organizational communications.' },
+    { title: 'Business Communications and Law', description: 'Navigate business law, negotiations, and professional communications.' },
+    { title: 'Information Technologies', description: 'Apply technology solutions within business and enterprise environments.' },
+    { title: 'Public Services', description: 'Contribute to public-sector and community-oriented business and administration roles.' },
   ],
 
   contact: {

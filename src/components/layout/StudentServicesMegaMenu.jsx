@@ -35,9 +35,7 @@ export default function StudentServicesMegaMenu({ onNavigate }) {
             onClick={handleClick}
             style={{ marginTop: "1rem" }}
           >
-            <span className="mega-menu__office-icon" aria-hidden="true">
-              🌍
-            </span>
+            <span className="mega-menu__office-icon" aria-hidden="true">I</span>
             <h4>International Office</h4>
             <p>
               Supporting international students through admissions, visa guidance,

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import SitemapLink from "./SitemapLink";
 import styles from "./SitemapSection.module.css";
 
 export default function SitemapSection({ 
@@ -11,25 +10,11 @@ export default function SitemapSection({
   const hasChildren = item.children && item.children.length > 0;
   const isExternal = item.external || false;
   
-  // Get icon based on title
-  function getDefaultIcon(title) {
-    const icons = {
-      "Home": "🏠",
-      "About": "ℹ️",
-      "Academics": "📚",
-      "Admissions": "🎓",
-      "Research": "🔬",
-      "Engagement": "🤝",
-      "International": "🌍",
-      "News": "📰",
-      "Contact": "📧",
-      "Undergraduate": "👨‍🎓",
-      "Graduate": "👩‍🎓"
-    };
-    return icons[title] || "📄";
+  function getSectionMarker(title) {
+    return (title?.trim()[0] || 'P').toUpperCase();
   }
 
-  const icon = item.icon || getDefaultIcon(item.title);
+  const marker = getSectionMarker(item.title);
 
   const renderLink = () => {
     if (isExternal) {
@@ -59,7 +44,7 @@ export default function SitemapSection({
         onClick={hasChildren ? onToggle : undefined}
       >
         <div className={styles.sectionInfo}>
-          <span className={styles.sectionIcon}>{icon}</span>
+          <span className={styles.sectionIcon}>{marker}</span>
           <span className={styles.sectionTitle}>
             {renderLink()}
           </span>

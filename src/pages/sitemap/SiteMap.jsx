@@ -108,7 +108,7 @@ export default function SiteMap() {
                 onClick={() => setSearch("")}
                 aria-label="Clear search"
               >
-                ✕
+                ×
               </button>
             )}
           </div>
@@ -137,7 +137,7 @@ export default function SiteMap() {
         {/* Footer */}
         <div className={styles.sitemapFooter}>
           <div className={styles.footerCard}>
-            <div className={styles.footerIcon}>🎯</div>
+            <div className={styles.footerIcon}>?</div>
             <h3>Need Help Finding Something?</h3>
             <p>
               Can't locate what you're looking for? Our team is here to assist you.

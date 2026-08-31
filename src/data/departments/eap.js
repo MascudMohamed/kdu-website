@@ -312,11 +312,11 @@ export default {
   ],
 
   careers: [
-    { title: 'Academic English Instructor', description: 'Teach English for academic purposes at universities and language institutions worldwide.', icon: '📚' },
-    { title: 'Language Specialist', description: 'Provide language support and editing services for academic and professional publications.', icon: '✍️' },
-    { title: 'Curriculum Developer', description: 'Design English language programs and materials for educational institutions.', icon: '📋' },
-    { title: 'International Student Advisor', description: 'Support international students in adapting to English-medium academic environments.', icon: '🌐' },
-    { title: 'Translator & Interpreter', description: 'Facilitate communication across languages in academic, business, and diplomatic contexts.', icon: '🗣️' },
+    { title: 'Academic English Instructor', description: 'Teach English for academic purposes at universities and language institutions worldwide.' },
+    { title: 'Language Specialist', description: 'Provide language support and editing services for academic and professional publications.' },
+    { title: 'Curriculum Developer', description: 'Design English language programs and materials for educational institutions.' },
+    { title: 'International Student Advisor', description: 'Support international students in adapting to English-medium academic environments.' },
+    { title: 'Translator & Interpreter', description: 'Facilitate communication across languages in academic, business, and diplomatic contexts.' },
   ],
 
   contact: {
