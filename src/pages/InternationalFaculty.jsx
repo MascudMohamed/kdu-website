@@ -5,6 +5,7 @@ import {
   INTERNATIONAL_FACULTY,
   internationalFacultyProfilePath,
   mapStaticInternationalFacultyList,
+  splitFacultyRole,
 } from '../data/internationalFaculty';
 import { useInternationalFaculty } from '../hooks/useInternationalFaculty';
 import '../styles/pages/InternationalFaculty.css';
@@ -45,7 +46,13 @@ export default function InternationalFaculty() {
       <section className="section intl-faculty">
         <div className="container">
           <ul className="intl-faculty__list">
-            {faculty.map((member) => (
+            {faculty.map((member) => {
+              const { position: officeTitle, rank: academicRank } = splitFacultyRole(
+                member.position,
+                member.rank,
+              );
+
+              return (
               <li key={member.profileSlug || member.id || member.name} className="intl-faculty__item">
                 <Link
                   to={internationalFacultyProfilePath(member.profileSlug)}
@@ -65,7 +72,12 @@ export default function InternationalFaculty() {
                   </div>
                   <div className="intl-faculty__body">
                     <h2>{member.name}</h2>
-                    <p className="intl-faculty__role">{member.position}</p>
+                    {officeTitle && (
+                      <p className="intl-faculty__role">{officeTitle}</p>
+                    )}
+                    {academicRank && (
+                      <p className="intl-faculty__rank">{academicRank}</p>
+                    )}
                     {member.email && (
                       <a
                         href={`mailto:${member.email}`}
@@ -82,7 +94,8 @@ export default function InternationalFaculty() {
                   </div>
                 </Link>
               </li>
-            ))}
+              );
+            })}
           </ul>
         </div>
       </section>

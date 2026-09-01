@@ -321,15 +321,45 @@ export function parseCredentials(credentials) {
     .filter(Boolean);
 }
 
+const ACADEMIC_RANK_PATTERN = /^(Chair-Professor|Associate Professor|Assistant Professor|Professor)$/i;
+
+/** Split combined role strings like "Dean · Associate Professor" into title + rank. */
+export function splitFacultyRole(role, existingRank) {
+  if (existingRank) {
+    return { position: role || '', rank: existingRank };
+  }
+  if (!role) return { position: '', rank: '' };
+
+  const parts = role.split(' · ').map((s) => s.trim()).filter(Boolean);
+  if (parts.length <= 1) {
+    if (parts[0] && ACADEMIC_RANK_PATTERN.test(parts[0])) {
+      return { position: '', rank: parts[0] };
+    }
+    return { position: parts[0] || '', rank: '' };
+  }
+
+  const last = parts[parts.length - 1];
+  if (ACADEMIC_RANK_PATTERN.test(last)) {
+    return {
+      position: parts.slice(0, -1).join(' · '),
+      rank: last,
+    };
+  }
+
+  return { position: role, rank: '' };
+}
+
 /** Map static directory row to the same shape as CMS faculty profiles. */
 export function mapStaticInternationalFaculty(member) {
   if (!member) return null;
 
+  const { position, rank } = splitFacultyRole(member.role, member.rank);
+
   return {
     id: member.profileSlug,
     name: member.name,
-    position: member.role,
-    rank: member.rank,
+    position,
+    rank,
     profileSlug: member.profileSlug,
     photo: member.photo,
     biography: member.biography,

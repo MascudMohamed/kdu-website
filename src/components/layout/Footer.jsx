@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { BRAND } from '../../constants/brand';
 import { KDU_CAMPUSES, KDU_KOREAN_PORTAL_URL } from '../../constants/campuses';
 import { APPLICATION_FORM_URL } from '../../constants/links';
@@ -54,6 +55,11 @@ const FOOTER_COLUMNS = {
   ],
 };
 
+const SOCIAL_ICONS = {
+  Facebook: FaFacebookF,
+  YouTube: FaYoutube,
+};
+
 export default function Footer() {
   const { module: cms } = useCmsModule('footer');
   const year = new Date().getFullYear();
@@ -70,13 +76,14 @@ export default function Footer() {
             <Logo variant="light" linked />
             <p className="footer__description">{tagline}</p>
             <div className="footer__social" aria-label="Social media">
-              {KDU_SOCIAL_LINKS.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
-                  <span className="footer__social-icon" aria-hidden="true">
-                    {s.label[0]}
-                  </span>
-                </a>
-              ))}
+              {KDU_SOCIAL_LINKS.map((s) => {
+                const Icon = SOCIAL_ICONS[s.label];
+                return (
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+                    {Icon ? <Icon className="footer__social-svg" aria-hidden="true" /> : s.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
